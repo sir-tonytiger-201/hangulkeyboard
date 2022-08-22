@@ -1,4 +1,13 @@
 /node_modules/
-/public/build/
 
 .DS_Store
+
+*
+
+!.gitignore
+!public/build/
+!public/build/*
+!bundle.css
+!bundle.js
+!bundle.map
+!public\build\bundle*
