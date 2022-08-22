@@ -18,13 +18,14 @@
   export let layout = "standard";
   export let noSwap = [];
   export let keyClass = {};
+  keyClass[";"]="half"
 
   // vars
   let page = 0;
   let shifted = false;
   let active = undefined;
 
-  const layouts = {
+    const layouts = {
     qwerty: {
       standard: qwertyStandard,
       crossword: qwertyCrossword,
@@ -39,10 +40,10 @@
   const dispatch = createEventDispatcher();
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
   const swaps = {
-    Page0: "abc",
+    Page0: "cap",
     Page1: "?123",
     Space: " ",
-    Shift: "abc",
+    Shift: "cap",
     Enter: enterSVG,
     Backspace: backspaceSVG,
   };
@@ -53,13 +54,13 @@
   const onKeyStart = (event, value) => {
     event.preventDefault();
     active = value;
-    if (value.includes("Page")) {
+    if (value && value.includes("Page")) {
       page = +value.substr(-1);
     } else if (value === "Shift") {
       shifted = !shifted;
     } else {
-      let output = value;
-      if (shifted && alphabet.includes(value)) output = value.toUpperCase();
+      let output = value || "";
+      if (shifted && alphabet.includes(value)) output = value.toUpperCase() || "";
       dispatch("keydown", output);
     }
     event.stopPropagation();
@@ -79,8 +80,8 @@
     const s = swaps[d.value];
     const shouldSwap = s && !noSwap.includes(d.value) && !d.noSwap;
     if (shouldSwap) display = s;
-    if (!display) display = shifted ? d.value.toUpperCase() : d.value;
-    if (d.value === "Shift") display = shifted ? s : s.toUpperCase();
+    if (!display && d.value) display = shifted ? d && d.value.toUpperCase() || "" : d && d.value.toLowerCase() || "";
+    if (d.value === "Shift") display = shifted ? s || "" : s && s.toUpperCase() || "";
     return {
       ...d,
       display,
@@ -99,24 +100,37 @@
   $: rowData0 = rows0.map((r) => page0.filter((k) => k.row === r));
   $: rowData1 = rows0.map((r) => page1.filter((k) => k.row === r));
   $: rowData = [rowData0, rowData1];
+
+  let indent = 0;
+
+  const shiftKeys = m => {
+    if (m > 1) return "";
+    let spaces = "";
+    for(let i = 0; i < m; i++) {
+      spaces += "&nbsp;&nbsp&nbsp";
+    }
+    return spaces;
+  }
 </script>
 
 <div class="svelte-keyboard">
   {#each rowData as row, i}
     <div class="page" class:visible={i === page}>
-      {#each row as keys}
+      {#each row as keys, j}
         <div class="row row--{i}">
+          {@html shiftKeys(j)}
           {#each keys as { value, display }}
             <button
               class="key key--{value} {keyClass[value] || ''}"
-              class:single={value.length === 1}
+              class:single={value && value.length === 1}
+              class:half={value == ";"}
               class:active={value === active}
               on:touchstart={(e) => onKeyStart(e, value)}
               on:mousedown={(e) => onKeyStart(e, value)}
               on:touchend={() => onKeyEnd(value)}
               on:mouseup={() => onKeyEnd(value)}
             >
-              {#if display.includes("<svg")}
+              {#if display && display.includes("<svg")}
                 {@html display}
               {:else}{display}{/if}
             </button>
@@ -163,6 +177,10 @@
     min-width: var(--min-width, 2rem);
   }
 
+  button.half {
+    max-width: var(--min-width, 1rem);
+  }
+
   button.active,
   button:active {
     background: var(--active-background, #ccc);
@@ -180,11 +198,19 @@
 
   button.key--Page0,
   button.key--Page1,
-  button.key--Shift,
   button.key--Backspace,
   button.key--Enter {
     flex: var(--special-flex, 1.5);
   }
+
+  button.key--Backspace {
+    flex: var(--special-flex, 2);
+  }
+
+  button.key--undefined {
+    display: none;
+  }
+
 
   .page {
     display: none;

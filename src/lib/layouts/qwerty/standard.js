@@ -56,6 +56,9 @@ export default [{
 	"row": 1,
 	"value": "l"
 }, {
+	"row": 1,
+	"value": ";"
+}, {
 	"row": 2,
 	"value": "Shift",
 }, {

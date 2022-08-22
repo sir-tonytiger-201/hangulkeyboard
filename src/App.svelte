@@ -85,7 +85,7 @@
 	p,
 	.keyboard {
 		margin: 0 auto;
-		max-width: 30rem;
+		max-width: 40rem;
 		padding: 1rem 0;
 	}
 
