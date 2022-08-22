@@ -1,6 +1,7 @@
 <script>
 	import keys from "./lib/layouts/qwerty/standard";
 	import Keyboard from "./lib/Keyboard.svelte";
+	import { shortcut } from "./lib/shortcut";
 
 	const keyClass = {};
 	let hangulCharacter = "";
@@ -34,22 +35,29 @@
 		m: "ㅡ",
 	};
 
+	let characters = Object.keys(hangulValue);
+
+	let keyArray = [];
+
+	characters.forEach((m) => keyArray.push("Key" + m.toUpperCase()));
+
 	$: console.log(keys[0]);
 	$: console.log(typeof keys[0]);
 	$: hangulCharacter = String(
 		keys[0].length == 1 ? hangulValue[keys[0]] || "" : ""
 	);
+
+	const handleKeypress = (m) => {
+		const k = m[m.length - 1].toLowerCase();
+		keys[0] = k;
+	};
 </script>
 
-<main>
+<main use:shortcut={{ code: keyArray, callback: (m) => handleKeypress(m) }}>
 	<h1>Hangul Keyboard</h1>
-	<p>
-		This can be used like flashcards to learn the hangul
-		keyboard layout.
-	</p>
+	<p>This can be used like flashcards to learn the hangul keyboard layout.</p>
 
 	<div class="info">
-		
 		<div class="keyboard">
 			<Keyboard on:keydown={({ detail }) => (keys[0] = detail)} />
 		</div>
