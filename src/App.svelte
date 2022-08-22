@@ -55,7 +55,7 @@
 
 <main use:shortcut={{ code: keyArray, callback: (m) => handleKeypress(m) }}>
 	<h1>Hangul Keyboard</h1>
-	<p>This can be used like flashcards to learn the hangul keyboard layout.</p>
+	<p>Learn the hangul keyboard.</p>
 
 	<div class="info">
 		<div class="keyboard">
@@ -96,12 +96,15 @@
 		margin: 0 0;
 		max-width: 40rem;
 		padding: 0rem 0;
+		color: #fa0024;
+		text-shadow: 2em 2em #e2ff08;
 	}
 
 	.showhangul {
 		margin: 0 0;
 		max-width: 0rem;
 		padding: 0rem 0;
+		
 	}
 
 	.info > * {
