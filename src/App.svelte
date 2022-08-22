@@ -51,63 +51,131 @@
 		const k = m[m.length - 1].toLowerCase();
 		keys[0] = k;
 	};
+
+	let showLayout = false;
+
+	const toggleView = () => {
+		showLayout = !showLayout;
+	};
 </script>
 
-<main use:shortcut={{ code: keyArray, callback: (m) => handleKeypress(m) }}>
+<nav>
+	
 	<h1>Hangul Keyboard</h1>
-	<p>Learn the layout.</p>
+	<span> Learn the layout. &emsp; </span>
+	<button on:click={toggleView}>
+		{#if showLayout}
+			Hide
+		{:else}
+			View key map
+		{/if}
+	</button>
+	<p>
+		key pressed: <strong
+			>{typeof keys[0] == "string" ? keys[0] : ""}</strong
+		>
+	
 
-	<div class="info">
-		<div class="keyboard">
-			<Keyboard on:keydown={({ detail }) => (keys[0] = detail)} />
-		</div>
-		<p>
-			key pressed: <strong
-				>{typeof keys[0] == "string" ? keys[0] : ""}</strong
-			>
-		</p>
+</p>
+</nav>
+
+<div class="keymap">
+	{#if showLayout}
 		<center>
-			<p>Hangul character:</p>
-			<p class="hangul">
-				{hangulCharacter}
-			</p>
+			<img src="keyboard.png" />
 		</center>
+	{/if}
+	
+</div>
+
+<main
+	use:shortcut={{ code: keyArray, callback: (m) => handleKeypress(m) }}
+	hidden={false}
+>
+	<div class="info ">
+		<center>
+
+		<p class="keyboard ">
+			<Keyboard on:keydown={({ detail }) => (keys[0] = detail)} />
+		</p>
+			<div class="hangul">
+				{hangulCharacter}
+			</div>
+		</center>
+		
+
 	</div>
 </main>
 
 <style>
-	main {
+	main,
+	nav {
 		border-collapse: collapse;
+	}
+
+	nav {
+		display: flexbox;
 	}
 
 	h1,
 	h3,
 	p,
-	.keyboard {
-		margin: 0 auto;
+	.keyboard,
+	.keymap {
+		margin: 0;
 		max-width: 40rem;
-		padding: 1rem 0;
+		min-width: 20rem;
+		
+		
+	}
+
+	.keymap {
+	}
+
+	.keyboard {
 	}
 
 	.hangul {
 		font-size: 21rem;
 		font-weight: bold;
-		font-family: Batang;
-		margin: 0 0;
-		max-width: 40rem;
+		font-family: Noto Serif CJK SC, Batang;
+		margin: 0px;
 		padding: 0rem 0;
 		color: #fa0024;
-		text-shadow: 20px 40px 12px #b64d76;;
+		text-shadow: 20px 40px 12px #b64d76;
+		border-radius: 0;
+		display: inline-flex;
+		overflow:visible;
+		text-align: start;
+		align-content: flex-start;
+		
 	}
 
 	.showhangul {
 		margin: 0 0;
-		max-width: 0rem;
 		padding: 0rem 0;
+		display: inline-flexbox;
+	}
+
+	img {
+		max-width: 40rem;
 	}
 
 	.info > * {
 		padding: 0;
+	}
+
+	.flexarea {
+		display: inline-flexbox;
+		overflow: visible;
+	}
+
+	:global(*) {
+		margin: 0 0;
+		padding: 0rem 0;
+		padding: 0;
+		border-collapse: collapse;
+		border-radius: 0;
 	}
 
 	:global(.key.clicked) {
