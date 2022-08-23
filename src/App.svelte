@@ -62,7 +62,6 @@
 </script>
 
 <nav>
-	
 	<h1>Hangul Keyboard</h1>
 	<span> Learn the layout. &emsp; </span>
 	<button on:click={toggleView}>
@@ -72,23 +71,12 @@
 			View key map
 		{/if}
 	</button>
-	<p>
-		key pressed: <strong
-			>{typeof keys[0] == "string" ? keys[0] : ""}</strong
-		>
-	
-
-</p>
-</nav>
-
-<div class="keymap">
 	{#if showLayout}
-		<center>
-			<img src="./keyboard.png" />
-		</center>
-	{/if}
-	
-</div>
+	<center>
+		<img src="./keyboard.png" />
+	</center>
+{/if}
+</nav>
 
 <main
 	use:shortcut={{ code: keyArray, callback: (m) => handleKeypress(m) }}
@@ -96,16 +84,16 @@
 >
 	<div class="info ">
 		<center>
-
-		<p class="keyboard ">
-			<Keyboard on:keydown={({ detail }) => (keys[0] = detail)} bind:pressed />
-		</p>
+			<p class="keyboard ">
+				<Keyboard
+					on:keydown={({ detail }) => (keys[0] = detail)}
+					bind:pressed
+				/>
+			</p>
 			<div class="hangul">
 				{hangulCharacter}
 			</div>
 		</center>
-		
-
 	</div>
 </main>
 
@@ -127,8 +115,6 @@
 		margin: 0;
 		max-width: 40rem;
 		min-width: 20rem;
-		
-		
 	}
 
 	.keymap {
@@ -147,10 +133,9 @@
 		text-shadow: 20px 40px 12px #b64d76;
 		border-radius: 0;
 		display: inline-flex;
-		overflow:visible;
+		overflow: visible;
 		text-align: start;
 		align-content: flex-start;
-		
 	}
 
 	.showhangul {
