@@ -2268,7 +2268,7 @@ var app = (function () {
     		c: function create() {
     			center = element("center");
     			img = element("img");
-    			if (!src_url_equal(img.src, img_src_value = "keyboard.png")) attr_dev(img, "src", img_src_value);
+    			if (!src_url_equal(img.src, img_src_value = "./keyboard.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "class", "svelte-1posib5");
     			add_location(img, file, 86, 3, 1331);
     			add_location(center, file, 85, 2, 1319);
@@ -2389,16 +2389,16 @@ var app = (function () {
     			attr_dev(div0, "class", "keymap svelte-1posib5");
     			add_location(div0, file, 83, 0, 1278);
     			attr_dev(p1, "class", "keyboard  svelte-1posib5");
-    			add_location(p1, file, 99, 2, 1517);
+    			add_location(p1, file, 99, 2, 1519);
     			attr_dev(div1, "class", "hangul svelte-1posib5");
-    			add_location(div1, file, 102, 3, 1626);
+    			add_location(div1, file, 102, 3, 1628);
     			attr_dev(center, "class", "svelte-1posib5");
-    			add_location(center, file, 97, 2, 1505);
+    			add_location(center, file, 97, 2, 1507);
     			attr_dev(div2, "class", "info  svelte-1posib5");
-    			add_location(div2, file, 96, 1, 1483);
+    			add_location(div2, file, 96, 1, 1485);
     			main.hidden = false;
     			attr_dev(main, "class", "svelte-1posib5");
-    			add_location(main, file, 92, 0, 1387);
+    			add_location(main, file, 92, 0, 1389);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");

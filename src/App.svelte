@@ -84,7 +84,7 @@
 <div class="keymap">
 	{#if showLayout}
 		<center>
-			<img src="keyboard.png" />
+			<img src="./keyboard.png" />
 		</center>
 	{/if}
 	
