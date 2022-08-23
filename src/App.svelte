@@ -6,6 +6,8 @@
 	const keyClass = {};
 	let hangulCharacter = "";
 
+	let pressed = undefined;
+
 	export const hangulValue = {
 		q: "ㅂ",
 		w: "ㅈ",
@@ -42,7 +44,6 @@
 	characters.forEach((m) => keyArray.push("Key" + m.toUpperCase()));
 
 	$: console.log(keys[0]);
-	$: console.log(typeof keys[0]);
 	$: hangulCharacter = String(
 		keys[0].length == 1 ? hangulValue[keys[0]] || "" : ""
 	);
@@ -50,6 +51,7 @@
 	const handleKeypress = (m) => {
 		const k = m[m.length - 1].toLowerCase();
 		keys[0] = k;
+		pressed = k || pressed;
 	};
 
 	let showLayout = false;
@@ -96,7 +98,7 @@
 		<center>
 
 		<p class="keyboard ">
-			<Keyboard on:keydown={({ detail }) => (keys[0] = detail)} />
+			<Keyboard on:keydown={({ detail }) => (keys[0] = detail)} bind:pressed />
 		</p>
 			<div class="hangul">
 				{hangulCharacter}

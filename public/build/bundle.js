@@ -169,6 +169,9 @@ var app = (function () {
     function add_render_callback(fn) {
         render_callbacks.push(fn);
     }
+    function add_flush_callback(fn) {
+        flush_callbacks.push(fn);
+    }
     // flush() calls callbacks in this order:
     // 1. All beforeUpdate callbacks, in order: parents before children
     // 2. All bind:this callbacks, in reverse order: children before parents.
@@ -268,6 +271,14 @@ var app = (function () {
         : typeof globalThis !== 'undefined'
             ? globalThis
             : global);
+
+    function bind(component, name, callback) {
+        const index = component.$$.props[name];
+        if (index !== undefined) {
+            component.$$.bound[index] = callback;
+            callback(component.$$.ctx[index]);
+        }
+    }
     function create_component(block) {
         block && block.c();
     }
@@ -1347,28 +1358,28 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[29] = list[i];
-    	child_ctx[31] = i;
+    	child_ctx[30] = list[i];
+    	child_ctx[32] = i;
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[32] = list[i];
-    	child_ctx[34] = i;
+    	child_ctx[33] = list[i];
+    	child_ctx[35] = i;
     	return child_ctx;
     }
 
     function get_each_context_2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[35] = list[i].value;
-    	child_ctx[36] = list[i].display;
+    	child_ctx[36] = list[i].value;
+    	child_ctx[37] = list[i].display;
     	return child_ctx;
     }
 
-    // (135:14) {:else}
+    // (138:14) {:else}
     function create_else_block$1(ctx) {
-    	let t_value = /*display*/ ctx[36] + "";
+    	let t_value = /*display*/ ctx[37] + "";
     	let t;
 
     	const block = {
@@ -1379,7 +1390,7 @@ var app = (function () {
     			insert_dev(target, t, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*rowData*/ 8 && t_value !== (t_value = /*display*/ ctx[36] + "")) set_data_dev(t, t_value);
+    			if (dirty[0] & /*rowData*/ 16 && t_value !== (t_value = /*display*/ ctx[37] + "")) set_data_dev(t, t_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(t);
@@ -1390,17 +1401,17 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(135:14) {:else}",
+    		source: "(138:14) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (133:14) {#if display && display.includes("<svg")}
+    // (136:14) {#if display && display.includes("<svg")}
     function create_if_block$1(ctx) {
     	let html_tag;
-    	let raw_value = /*display*/ ctx[36] + "";
+    	let raw_value = /*display*/ ctx[37] + "";
     	let html_anchor;
 
     	const block = {
@@ -1414,7 +1425,7 @@ var app = (function () {
     			insert_dev(target, html_anchor, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*rowData*/ 8 && raw_value !== (raw_value = /*display*/ ctx[36] + "")) html_tag.p(raw_value);
+    			if (dirty[0] & /*rowData*/ 16 && raw_value !== (raw_value = /*display*/ ctx[37] + "")) html_tag.p(raw_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(html_anchor);
@@ -1426,14 +1437,14 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(133:14) {#if display && display.includes(\\\"<svg\\\")}",
+    		source: "(136:14) {#if display && display.includes(\\\"<svg\\\")}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (122:10) {#each keys as { value, display }}
+    // (124:10) {#each keys as { value, display }}
     function create_each_block_2(ctx) {
     	let button;
     	let show_if;
@@ -1442,8 +1453,8 @@ var app = (function () {
     	let dispose;
 
     	function select_block_type(ctx, dirty) {
-    		if (dirty[0] & /*rowData*/ 8) show_if = null;
-    		if (show_if == null) show_if = !!(/*display*/ ctx[36] && /*display*/ ctx[36].includes("<svg"));
+    		if (dirty[0] & /*rowData*/ 16) show_if = null;
+    		if (show_if == null) show_if = !!(/*display*/ ctx[37] && /*display*/ ctx[37].includes("<svg"));
     		if (show_if) return create_if_block$1;
     		return create_else_block$1;
     	}
@@ -1452,30 +1463,31 @@ var app = (function () {
     	let if_block = current_block_type(ctx);
 
     	function touchstart_handler(...args) {
-    		return /*touchstart_handler*/ ctx[20](/*value*/ ctx[35], ...args);
+    		return /*touchstart_handler*/ ctx[21](/*value*/ ctx[36], ...args);
     	}
 
     	function mousedown_handler(...args) {
-    		return /*mousedown_handler*/ ctx[21](/*value*/ ctx[35], ...args);
+    		return /*mousedown_handler*/ ctx[22](/*value*/ ctx[36], ...args);
     	}
 
     	function touchend_handler() {
-    		return /*touchend_handler*/ ctx[22](/*value*/ ctx[35]);
+    		return /*touchend_handler*/ ctx[23](/*value*/ ctx[36]);
     	}
 
     	function mouseup_handler() {
-    		return /*mouseup_handler*/ ctx[23](/*value*/ ctx[35]);
+    		return /*mouseup_handler*/ ctx[24](/*value*/ ctx[36]);
     	}
 
     	const block = {
     		c: function create() {
     			button = element("button");
     			if_block.c();
-    			attr_dev(button, "class", button_class_value = "key key--" + /*value*/ ctx[35] + " " + (/*keyClass*/ ctx[0][/*value*/ ctx[35]] || '') + " svelte-zymn60");
-    			toggle_class(button, "single", /*value*/ ctx[35] && /*value*/ ctx[35].length === 1);
-    			toggle_class(button, "half", /*value*/ ctx[35] == ";");
-    			toggle_class(button, "active", /*value*/ ctx[35] === /*active*/ ctx[2]);
-    			add_location(button, file$1, 122, 12, 3350);
+    			attr_dev(button, "class", button_class_value = "key key--" + /*value*/ ctx[36] + " " + (/*keyClass*/ ctx[0][/*value*/ ctx[36]] || '') + " svelte-1mp5ksk");
+    			toggle_class(button, "single", /*value*/ ctx[36] && /*value*/ ctx[36].length === 1);
+    			toggle_class(button, "half", /*value*/ ctx[36] == ";");
+    			toggle_class(button, "active", /*value*/ ctx[36] === /*active*/ ctx[3]);
+    			toggle_class(button, "pressed", /*value*/ ctx[36] === /*pressed*/ ctx[1]);
+    			add_location(button, file$1, 124, 12, 3394);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
@@ -1507,20 +1519,24 @@ var app = (function () {
     				}
     			}
 
-    			if (dirty[0] & /*rowData, keyClass*/ 9 && button_class_value !== (button_class_value = "key key--" + /*value*/ ctx[35] + " " + (/*keyClass*/ ctx[0][/*value*/ ctx[35]] || '') + " svelte-zymn60")) {
+    			if (dirty[0] & /*rowData, keyClass*/ 17 && button_class_value !== (button_class_value = "key key--" + /*value*/ ctx[36] + " " + (/*keyClass*/ ctx[0][/*value*/ ctx[36]] || '') + " svelte-1mp5ksk")) {
     				attr_dev(button, "class", button_class_value);
     			}
 
-    			if (dirty[0] & /*rowData, keyClass, rowData*/ 9) {
-    				toggle_class(button, "single", /*value*/ ctx[35] && /*value*/ ctx[35].length === 1);
+    			if (dirty[0] & /*rowData, keyClass, rowData*/ 17) {
+    				toggle_class(button, "single", /*value*/ ctx[36] && /*value*/ ctx[36].length === 1);
     			}
 
-    			if (dirty[0] & /*rowData, keyClass, rowData*/ 9) {
-    				toggle_class(button, "half", /*value*/ ctx[35] == ";");
+    			if (dirty[0] & /*rowData, keyClass, rowData*/ 17) {
+    				toggle_class(button, "half", /*value*/ ctx[36] == ";");
     			}
 
-    			if (dirty[0] & /*rowData, keyClass, rowData, active*/ 13) {
-    				toggle_class(button, "active", /*value*/ ctx[35] === /*active*/ ctx[2]);
+    			if (dirty[0] & /*rowData, keyClass, rowData, active*/ 25) {
+    				toggle_class(button, "active", /*value*/ ctx[36] === /*active*/ ctx[3]);
+    			}
+
+    			if (dirty[0] & /*rowData, keyClass, rowData, pressed*/ 19) {
+    				toggle_class(button, "pressed", /*value*/ ctx[36] === /*pressed*/ ctx[1]);
     			}
     		},
     		d: function destroy(detaching) {
@@ -1535,20 +1551,20 @@ var app = (function () {
     		block,
     		id: create_each_block_2.name,
     		type: "each",
-    		source: "(122:10) {#each keys as { value, display }}",
+    		source: "(124:10) {#each keys as { value, display }}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (119:6) {#each row as keys, j}
+    // (121:6) {#each row as keys, j}
     function create_each_block_1(ctx) {
     	let div;
     	let html_tag;
-    	let raw_value = /*shiftKeys*/ ctx[6](/*j*/ ctx[34]) + "";
+    	let raw_value = /*shiftKeys*/ ctx[7](/*j*/ ctx[35]) + "";
     	let t;
-    	let each_value_2 = /*keys*/ ctx[32];
+    	let each_value_2 = /*keys*/ ctx[33];
     	validate_each_argument(each_value_2);
     	let each_blocks = [];
 
@@ -1567,8 +1583,8 @@ var app = (function () {
     			}
 
     			html_tag.a = t;
-    			attr_dev(div, "class", "row row--" + /*i*/ ctx[31] + " svelte-zymn60");
-    			add_location(div, file$1, 119, 8, 3235);
+    			attr_dev(div, "class", "row row--" + /*i*/ ctx[32] + " svelte-1mp5ksk");
+    			add_location(div, file$1, 121, 8, 3279);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -1580,8 +1596,8 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*rowData, keyClass, active, onKeyStart, onKeyEnd*/ 61) {
-    				each_value_2 = /*keys*/ ctx[32];
+    			if (dirty[0] & /*rowData, keyClass, active, pressed, onKeyStart, onKeyEnd*/ 123) {
+    				each_value_2 = /*keys*/ ctx[33];
     				validate_each_argument(each_value_2);
     				let i;
 
@@ -1614,18 +1630,18 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(119:6) {#each row as keys, j}",
+    		source: "(121:6) {#each row as keys, j}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (117:2) {#each rowData as row, i}
+    // (119:2) {#each rowData as row, i}
     function create_each_block(ctx) {
     	let div;
     	let t;
-    	let each_value_1 = /*row*/ ctx[29];
+    	let each_value_1 = /*row*/ ctx[30];
     	validate_each_argument(each_value_1);
     	let each_blocks = [];
 
@@ -1642,9 +1658,9 @@ var app = (function () {
     			}
 
     			t = space();
-    			attr_dev(div, "class", "page svelte-zymn60");
-    			toggle_class(div, "visible", /*i*/ ctx[31] === /*page*/ ctx[1]);
-    			add_location(div, file$1, 117, 4, 3152);
+    			attr_dev(div, "class", "page svelte-1mp5ksk");
+    			toggle_class(div, "visible", /*i*/ ctx[32] === /*page*/ ctx[2]);
+    			add_location(div, file$1, 119, 4, 3196);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -1656,8 +1672,8 @@ var app = (function () {
     			append_dev(div, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*rowData, keyClass, active, onKeyStart, onKeyEnd, shiftKeys*/ 125) {
-    				each_value_1 = /*row*/ ctx[29];
+    			if (dirty[0] & /*rowData, keyClass, active, pressed, onKeyStart, onKeyEnd, shiftKeys*/ 251) {
+    				each_value_1 = /*row*/ ctx[30];
     				validate_each_argument(each_value_1);
     				let i;
 
@@ -1680,8 +1696,8 @@ var app = (function () {
     				each_blocks.length = each_value_1.length;
     			}
 
-    			if (dirty[0] & /*page*/ 2) {
-    				toggle_class(div, "visible", /*i*/ ctx[31] === /*page*/ ctx[1]);
+    			if (dirty[0] & /*page*/ 4) {
+    				toggle_class(div, "visible", /*i*/ ctx[32] === /*page*/ ctx[2]);
     			}
     		},
     		d: function destroy(detaching) {
@@ -1694,7 +1710,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(117:2) {#each rowData as row, i}",
+    		source: "(119:2) {#each rowData as row, i}",
     		ctx
     	});
 
@@ -1703,7 +1719,7 @@ var app = (function () {
 
     function create_fragment$1(ctx) {
     	let div;
-    	let each_value = /*rowData*/ ctx[3];
+    	let each_value = /*rowData*/ ctx[4];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -1720,7 +1736,7 @@ var app = (function () {
     			}
 
     			attr_dev(div, "class", "svelte-keyboard");
-    			add_location(div, file$1, 115, 0, 3090);
+    			add_location(div, file$1, 117, 0, 3134);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1733,8 +1749,8 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*page, rowData, keyClass, active, onKeyStart, onKeyEnd, shiftKeys*/ 127) {
-    				each_value = /*rowData*/ ctx[3];
+    			if (dirty[0] & /*page, rowData, keyClass, active, pressed, onKeyStart, onKeyEnd, shiftKeys*/ 255) {
+    				each_value = /*rowData*/ ctx[4];
     				validate_each_argument(each_value);
     				let i;
 
@@ -1802,6 +1818,7 @@ var app = (function () {
 
     	let shifted = false;
     	let active = undefined;
+    	let { pressed } = $$props;
 
     	const layouts = {
     		qwerty: {
@@ -1832,12 +1849,13 @@ var app = (function () {
 
     	const onKeyStart = (event, value) => {
     		event.preventDefault();
-    		$$invalidate(2, active = value);
+    		$$invalidate(3, active = value);
+    		$$invalidate(1, pressed = active);
 
     		if (value && value.includes("Page")) {
-    			$$invalidate(1, page = +value.substr(-1));
+    			$$invalidate(2, page = +value.substr(-1));
     		} else if (value === "Shift") {
-    			$$invalidate(11, shifted = !shifted);
+    			$$invalidate(12, shifted = !shifted);
     		} else {
     			let output = value || "";
     			if (shifted && alphabet.includes(value)) output = value.toUpperCase() || "";
@@ -1851,7 +1869,7 @@ var app = (function () {
     	const onKeyEnd = value => {
     		setTimeout(
     			() => {
-    				if (value === active) $$invalidate(2, active = undefined);
+    				if (value === active) $$invalidate(3, active = undefined);
     			},
     			50
     		);
@@ -1870,7 +1888,7 @@ var app = (function () {
     		return spaces;
     	};
 
-    	const writable_props = ['custom', 'localizationLayout', 'layout', 'noSwap', 'keyClass'];
+    	const writable_props = ['custom', 'localizationLayout', 'layout', 'noSwap', 'keyClass', 'pressed'];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Keyboard> was created with unknown prop '${key}'`);
@@ -1882,11 +1900,12 @@ var app = (function () {
     	const mouseup_handler = value => onKeyEnd(value);
 
     	$$self.$$set = $$props => {
-    		if ('custom' in $$props) $$invalidate(7, custom = $$props.custom);
-    		if ('localizationLayout' in $$props) $$invalidate(8, localizationLayout = $$props.localizationLayout);
-    		if ('layout' in $$props) $$invalidate(9, layout = $$props.layout);
-    		if ('noSwap' in $$props) $$invalidate(10, noSwap = $$props.noSwap);
+    		if ('custom' in $$props) $$invalidate(8, custom = $$props.custom);
+    		if ('localizationLayout' in $$props) $$invalidate(9, localizationLayout = $$props.localizationLayout);
+    		if ('layout' in $$props) $$invalidate(10, layout = $$props.layout);
+    		if ('noSwap' in $$props) $$invalidate(11, noSwap = $$props.noSwap);
     		if ('keyClass' in $$props) $$invalidate(0, keyClass = $$props.keyClass);
+    		if ('pressed' in $$props) $$invalidate(1, pressed = $$props.pressed);
     	};
 
     	$$self.$capture_state = () => ({
@@ -1907,6 +1926,7 @@ var app = (function () {
     		page,
     		shifted,
     		active,
+    		pressed,
     		layouts,
     		dispatch,
     		alphabet,
@@ -1928,24 +1948,25 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ('custom' in $$props) $$invalidate(7, custom = $$props.custom);
-    		if ('localizationLayout' in $$props) $$invalidate(8, localizationLayout = $$props.localizationLayout);
-    		if ('layout' in $$props) $$invalidate(9, layout = $$props.layout);
-    		if ('noSwap' in $$props) $$invalidate(10, noSwap = $$props.noSwap);
+    		if ('custom' in $$props) $$invalidate(8, custom = $$props.custom);
+    		if ('localizationLayout' in $$props) $$invalidate(9, localizationLayout = $$props.localizationLayout);
+    		if ('layout' in $$props) $$invalidate(10, layout = $$props.layout);
+    		if ('noSwap' in $$props) $$invalidate(11, noSwap = $$props.noSwap);
     		if ('keyClass' in $$props) $$invalidate(0, keyClass = $$props.keyClass);
-    		if ('page' in $$props) $$invalidate(1, page = $$props.page);
-    		if ('shifted' in $$props) $$invalidate(11, shifted = $$props.shifted);
-    		if ('active' in $$props) $$invalidate(2, active = $$props.active);
+    		if ('page' in $$props) $$invalidate(2, page = $$props.page);
+    		if ('shifted' in $$props) $$invalidate(12, shifted = $$props.shifted);
+    		if ('active' in $$props) $$invalidate(3, active = $$props.active);
+    		if ('pressed' in $$props) $$invalidate(1, pressed = $$props.pressed);
     		if ('indent' in $$props) indent = $$props.indent;
-    		if ('rowData1' in $$props) $$invalidate(12, rowData1 = $$props.rowData1);
-    		if ('rowData0' in $$props) $$invalidate(13, rowData0 = $$props.rowData0);
-    		if ('rowData' in $$props) $$invalidate(3, rowData = $$props.rowData);
-    		if ('page1' in $$props) $$invalidate(14, page1 = $$props.page1);
-    		if ('rows0' in $$props) $$invalidate(15, rows0 = $$props.rows0);
-    		if ('page0' in $$props) $$invalidate(16, page0 = $$props.page0);
-    		if ('rows1' in $$props) $$invalidate(17, rows1 = $$props.rows1);
-    		if ('data' in $$props) $$invalidate(18, data = $$props.data);
-    		if ('rawData' in $$props) $$invalidate(19, rawData = $$props.rawData);
+    		if ('rowData1' in $$props) $$invalidate(13, rowData1 = $$props.rowData1);
+    		if ('rowData0' in $$props) $$invalidate(14, rowData0 = $$props.rowData0);
+    		if ('rowData' in $$props) $$invalidate(4, rowData = $$props.rowData);
+    		if ('page1' in $$props) $$invalidate(15, page1 = $$props.page1);
+    		if ('rows0' in $$props) $$invalidate(16, rows0 = $$props.rows0);
+    		if ('page0' in $$props) $$invalidate(17, page0 = $$props.page0);
+    		if ('rows1' in $$props) $$invalidate(18, rows1 = $$props.rows1);
+    		if ('data' in $$props) $$invalidate(19, data = $$props.data);
+    		if ('rawData' in $$props) $$invalidate(20, rawData = $$props.rawData);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -1953,13 +1974,13 @@ var app = (function () {
     	}
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty[0] & /*custom, localizationLayout, layout*/ 896) {
+    		if ($$self.$$.dirty[0] & /*custom, localizationLayout, layout*/ 1792) {
     			// reactive vars
-    			$$invalidate(19, rawData = custom || layouts[localizationLayout][layout] || standard);
+    			$$invalidate(20, rawData = custom || layouts[localizationLayout][layout] || standard);
     		}
 
-    		if ($$self.$$.dirty[0] & /*rawData, noSwap, shifted*/ 527360) {
-    			$$invalidate(18, data = rawData.map(d => {
+    		if ($$self.$$.dirty[0] & /*rawData, noSwap, shifted*/ 1054720) {
+    			$$invalidate(19, data = rawData.map(d => {
     				let display = d.display;
     				const s = swaps[d.value];
     				const shouldSwap = s && !noSwap.includes(d.value) && !d.noSwap;
@@ -1974,45 +1995,46 @@ var app = (function () {
     			}));
     		}
 
-    		if ($$self.$$.dirty[0] & /*data*/ 262144) {
-    			$$invalidate(16, page0 = data.filter(d => !d.page));
+    		if ($$self.$$.dirty[0] & /*data*/ 524288) {
+    			$$invalidate(17, page0 = data.filter(d => !d.page));
     		}
 
-    		if ($$self.$$.dirty[0] & /*data*/ 262144) {
-    			$$invalidate(14, page1 = data.filter(d => d.page));
+    		if ($$self.$$.dirty[0] & /*data*/ 524288) {
+    			$$invalidate(15, page1 = data.filter(d => d.page));
     		}
 
-    		if ($$self.$$.dirty[0] & /*page0*/ 65536) {
-    			$$invalidate(15, rows0 = unique(page0.map(d => d.row)));
+    		if ($$self.$$.dirty[0] & /*page0*/ 131072) {
+    			$$invalidate(16, rows0 = unique(page0.map(d => d.row)));
     		}
 
-    		if ($$self.$$.dirty[0] & /*rows0*/ 32768) {
+    		if ($$self.$$.dirty[0] & /*rows0*/ 65536) {
     			(rows0.sort((a, b) => a - b));
     		}
 
-    		if ($$self.$$.dirty[0] & /*page1*/ 16384) {
-    			$$invalidate(17, rows1 = unique(page1.map(d => d.row)));
+    		if ($$self.$$.dirty[0] & /*page1*/ 32768) {
+    			$$invalidate(18, rows1 = unique(page1.map(d => d.row)));
     		}
 
-    		if ($$self.$$.dirty[0] & /*rows1*/ 131072) {
+    		if ($$self.$$.dirty[0] & /*rows1*/ 262144) {
     			(rows1.sort((a, b) => a - b));
     		}
 
-    		if ($$self.$$.dirty[0] & /*rows0, page0*/ 98304) {
-    			$$invalidate(13, rowData0 = rows0.map(r => page0.filter(k => k.row === r)));
+    		if ($$self.$$.dirty[0] & /*rows0, page0*/ 196608) {
+    			$$invalidate(14, rowData0 = rows0.map(r => page0.filter(k => k.row === r)));
     		}
 
-    		if ($$self.$$.dirty[0] & /*rows0, page1*/ 49152) {
-    			$$invalidate(12, rowData1 = rows0.map(r => page1.filter(k => k.row === r)));
+    		if ($$self.$$.dirty[0] & /*rows0, page1*/ 98304) {
+    			$$invalidate(13, rowData1 = rows0.map(r => page1.filter(k => k.row === r)));
     		}
 
-    		if ($$self.$$.dirty[0] & /*rowData0, rowData1*/ 12288) {
-    			$$invalidate(3, rowData = [rowData0, rowData1]);
+    		if ($$self.$$.dirty[0] & /*rowData0, rowData1*/ 24576) {
+    			$$invalidate(4, rowData = [rowData0, rowData1]);
     		}
     	};
 
     	return [
     		keyClass,
+    		pressed,
     		page,
     		active,
     		rowData,
@@ -2050,11 +2072,12 @@ var app = (function () {
     			create_fragment$1,
     			safe_not_equal,
     			{
-    				custom: 7,
-    				localizationLayout: 8,
-    				layout: 9,
-    				noSwap: 10,
-    				keyClass: 0
+    				custom: 8,
+    				localizationLayout: 9,
+    				layout: 10,
+    				noSwap: 11,
+    				keyClass: 0,
+    				pressed: 1
     			},
     			null,
     			[-1, -1]
@@ -2070,8 +2093,12 @@ var app = (function () {
     		const { ctx } = this.$$;
     		const props = options.props || {};
 
-    		if (/*custom*/ ctx[7] === undefined && !('custom' in props)) {
+    		if (/*custom*/ ctx[8] === undefined && !('custom' in props)) {
     			console.warn("<Keyboard> was created without expected prop 'custom'");
+    		}
+
+    		if (/*pressed*/ ctx[1] === undefined && !('pressed' in props)) {
+    			console.warn("<Keyboard> was created without expected prop 'pressed'");
     		}
     	}
 
@@ -2112,6 +2139,14 @@ var app = (function () {
     	}
 
     	set keyClass(value) {
+    		throw new Error("<Keyboard>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get pressed() {
+    		throw new Error("<Keyboard>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set pressed(value) {
     		throw new Error("<Keyboard>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
@@ -2169,7 +2204,7 @@ var app = (function () {
     const { Object: Object_1, console: console_1 } = globals;
     const file = "src/App.svelte";
 
-    // (69:2) {:else}
+    // (71:2) {:else}
     function create_else_block(ctx) {
     	let t;
 
@@ -2189,14 +2224,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(69:2) {:else}",
+    		source: "(71:2) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (67:2) {#if showLayout}
+    // (69:2) {#if showLayout}
     function create_if_block_1(ctx) {
     	let t;
 
@@ -2216,14 +2251,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(67:2) {#if showLayout}",
+    		source: "(69:2) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (83:1) {#if showLayout}
+    // (85:1) {#if showLayout}
     function create_if_block(ctx) {
     	let center;
     	let img;
@@ -2235,8 +2270,8 @@ var app = (function () {
     			img = element("img");
     			if (!src_url_equal(img.src, img_src_value = "keyboard.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "class", "svelte-1posib5");
-    			add_location(img, file, 84, 3, 1311);
-    			add_location(center, file, 83, 2, 1299);
+    			add_location(img, file, 86, 3, 1331);
+    			add_location(center, file, 85, 2, 1319);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, center, anchor);
@@ -2251,7 +2286,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(83:1) {#if showLayout}",
+    		source: "(85:1) {#if showLayout}",
     		ctx
     	});
 
@@ -2283,6 +2318,7 @@ var app = (function () {
     	let center;
     	let p1;
     	let keyboard;
+    	let updating_pressed;
     	let t9;
     	let div1;
     	let t10;
@@ -2291,15 +2327,27 @@ var app = (function () {
     	let dispose;
 
     	function select_block_type(ctx, dirty) {
-    		if (/*showLayout*/ ctx[2]) return create_if_block_1;
+    		if (/*showLayout*/ ctx[3]) return create_if_block_1;
     		return create_else_block;
     	}
 
     	let current_block_type = select_block_type(ctx);
     	let if_block0 = current_block_type(ctx);
-    	let if_block1 = /*showLayout*/ ctx[2] && create_if_block(ctx);
-    	keyboard = new Keyboard({ $$inline: true });
-    	keyboard.$on("keydown", /*keydown_handler*/ ctx[7]);
+    	let if_block1 = /*showLayout*/ ctx[3] && create_if_block(ctx);
+
+    	function keyboard_pressed_binding(value) {
+    		/*keyboard_pressed_binding*/ ctx[8](value);
+    	}
+
+    	let keyboard_props = {};
+
+    	if (/*pressed*/ ctx[2] !== void 0) {
+    		keyboard_props.pressed = /*pressed*/ ctx[2];
+    	}
+
+    	keyboard = new Keyboard({ props: keyboard_props, $$inline: true });
+    	binding_callbacks.push(() => bind(keyboard, 'pressed', keyboard_pressed_binding));
+    	keyboard.$on("keydown", /*keydown_handler*/ ctx[9]);
 
     	const block = {
     		c: function create() {
@@ -2330,27 +2378,27 @@ var app = (function () {
     			div1 = element("div");
     			t10 = text(/*hangulCharacter*/ ctx[1]);
     			attr_dev(h1, "class", "svelte-1posib5");
-    			add_location(h1, file, 63, 1, 984);
-    			add_location(span, file, 64, 1, 1010);
-    			add_location(button, file, 65, 1, 1051);
-    			add_location(strong, file, 73, 15, 1174);
+    			add_location(h1, file, 65, 1, 1004);
+    			add_location(span, file, 66, 1, 1030);
+    			add_location(button, file, 67, 1, 1071);
+    			add_location(strong, file, 75, 15, 1194);
     			attr_dev(p0, "class", "svelte-1posib5");
-    			add_location(p0, file, 72, 1, 1155);
+    			add_location(p0, file, 74, 1, 1175);
     			attr_dev(nav, "class", "svelte-1posib5");
-    			add_location(nav, file, 61, 0, 975);
+    			add_location(nav, file, 63, 0, 995);
     			attr_dev(div0, "class", "keymap svelte-1posib5");
-    			add_location(div0, file, 81, 0, 1258);
+    			add_location(div0, file, 83, 0, 1278);
     			attr_dev(p1, "class", "keyboard  svelte-1posib5");
-    			add_location(p1, file, 97, 2, 1497);
+    			add_location(p1, file, 99, 2, 1517);
     			attr_dev(div1, "class", "hangul svelte-1posib5");
-    			add_location(div1, file, 100, 3, 1593);
+    			add_location(div1, file, 102, 3, 1626);
     			attr_dev(center, "class", "svelte-1posib5");
-    			add_location(center, file, 95, 2, 1485);
+    			add_location(center, file, 97, 2, 1505);
     			attr_dev(div2, "class", "info  svelte-1posib5");
-    			add_location(div2, file, 94, 1, 1463);
+    			add_location(div2, file, 96, 1, 1483);
     			main.hidden = false;
     			attr_dev(main, "class", "svelte-1posib5");
-    			add_location(main, file, 90, 0, 1367);
+    			add_location(main, file, 92, 0, 1387);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2384,10 +2432,10 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(button, "click", /*toggleView*/ ctx[5], false, false, false),
+    					listen_dev(button, "click", /*toggleView*/ ctx[6], false, false, false),
     					action_destroyer(shortcut.call(null, main, {
-    						code: /*keyArray*/ ctx[3],
-    						callback: /*shortcut_function*/ ctx[8]
+    						code: /*keyArray*/ ctx[4],
+    						callback: /*shortcut_function*/ ctx[10]
     					}))
     				];
 
@@ -2409,7 +2457,7 @@ var app = (function () {
     			? /*keys*/ ctx[0][0]
     			: "") + "")) set_data_dev(t6, t6_value);
 
-    			if (/*showLayout*/ ctx[2]) {
+    			if (/*showLayout*/ ctx[3]) {
     				if (if_block1) ; else {
     					if_block1 = create_if_block(ctx);
     					if_block1.c();
@@ -2420,6 +2468,15 @@ var app = (function () {
     				if_block1 = null;
     			}
 
+    			const keyboard_changes = {};
+
+    			if (!updating_pressed && dirty & /*pressed*/ 4) {
+    				updating_pressed = true;
+    				keyboard_changes.pressed = /*pressed*/ ctx[2];
+    				add_flush_callback(() => updating_pressed = false);
+    			}
+
+    			keyboard.$set(keyboard_changes);
     			if (!current || dirty & /*hangulCharacter*/ 2) set_data_dev(t10, /*hangulCharacter*/ ctx[1]);
     		},
     		i: function intro(local) {
@@ -2461,6 +2518,7 @@ var app = (function () {
     	validate_slots('App', slots, []);
     	const keyClass = {};
     	let hangulCharacter = "";
+    	let pressed = undefined;
 
     	const hangulValue = {
     		q: "ㅂ",
@@ -2498,12 +2556,13 @@ var app = (function () {
     	const handleKeypress = m => {
     		const k = m[m.length - 1].toLowerCase();
     		$$invalidate(0, keys[0] = k, keys);
+    		$$invalidate(2, pressed = k || pressed);
     	};
 
     	let showLayout = false;
 
     	const toggleView = () => {
-    		$$invalidate(2, showLayout = !showLayout);
+    		$$invalidate(3, showLayout = !showLayout);
     	};
 
     	const writable_props = [];
@@ -2511,6 +2570,11 @@ var app = (function () {
     	Object_1.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console_1.warn(`<App> was created with unknown prop '${key}'`);
     	});
+
+    	function keyboard_pressed_binding(value) {
+    		pressed = value;
+    		$$invalidate(2, pressed);
+    	}
 
     	const keydown_handler = ({ detail }) => $$invalidate(0, keys[0] = detail, keys);
     	const shortcut_function = m => handleKeypress(m);
@@ -2521,6 +2585,7 @@ var app = (function () {
     		shortcut,
     		keyClass,
     		hangulCharacter,
+    		pressed,
     		hangulValue,
     		characters,
     		keyArray,
@@ -2531,9 +2596,10 @@ var app = (function () {
 
     	$$self.$inject_state = $$props => {
     		if ('hangulCharacter' in $$props) $$invalidate(1, hangulCharacter = $$props.hangulCharacter);
+    		if ('pressed' in $$props) $$invalidate(2, pressed = $$props.pressed);
     		if ('characters' in $$props) characters = $$props.characters;
-    		if ('keyArray' in $$props) $$invalidate(3, keyArray = $$props.keyArray);
-    		if ('showLayout' in $$props) $$invalidate(2, showLayout = $$props.showLayout);
+    		if ('keyArray' in $$props) $$invalidate(4, keyArray = $$props.keyArray);
+    		if ('showLayout' in $$props) $$invalidate(3, showLayout = $$props.showLayout);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -2546,10 +2612,6 @@ var app = (function () {
     		}
 
     		if ($$self.$$.dirty & /*keys*/ 1) {
-    			console.log(typeof keys[0]);
-    		}
-
-    		if ($$self.$$.dirty & /*keys*/ 1) {
     			$$invalidate(1, hangulCharacter = String(keys[0].length == 1 ? hangulValue[keys[0]] || "" : ""));
     		}
     	};
@@ -2557,11 +2619,13 @@ var app = (function () {
     	return [
     		keys,
     		hangulCharacter,
+    		pressed,
     		showLayout,
     		keyArray,
     		handleKeypress,
     		toggleView,
     		hangulValue,
+    		keyboard_pressed_binding,
     		keydown_handler,
     		shortcut_function
     	];
@@ -2570,7 +2634,7 @@ var app = (function () {
     class App extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance, create_fragment, safe_not_equal, { hangulValue: 6 });
+    		init(this, options, instance, create_fragment, safe_not_equal, { hangulValue: 7 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -2581,7 +2645,7 @@ var app = (function () {
     	}
 
     	get hangulValue() {
-    		return this.$$.ctx[6];
+    		return this.$$.ctx[7];
     	}
 
     	set hangulValue(value) {

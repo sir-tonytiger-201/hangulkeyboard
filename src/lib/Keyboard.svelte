@@ -24,6 +24,7 @@
   let page = 0;
   let shifted = false;
   let active = undefined;
+  export let pressed;
 
     const layouts = {
     qwerty: {
@@ -54,6 +55,7 @@
   const onKeyStart = (event, value) => {
     event.preventDefault();
     active = value;
+    pressed = active;
     if (value && value.includes("Page")) {
       page = +value.substr(-1);
     } else if (value === "Shift") {
@@ -125,6 +127,7 @@
               class:single={value && value.length === 1}
               class:half={value == ";"}
               class:active={value === active}
+              class:pressed={value === pressed}
               on:touchstart={(e) => onKeyStart(e, value)}
               on:mousedown={(e) => onKeyStart(e, value)}
               on:touchend={() => onKeyEnd(value)}
@@ -189,6 +192,12 @@
     color: var(--active-color, #111);
     opacity: var(--active-opacity, 1);
     transform: var(--active-transform, none);
+  }
+
+  button.pressed {
+    color: #072e5b;
+    font-weight: bold;
+    background-color: #ffef12;
   }
 
   button.key--Space {
