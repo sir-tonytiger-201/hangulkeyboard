@@ -2,7 +2,9 @@
 	import keys from "./lib/layouts/qwerty/standard";
 	import Keyboard from "./lib/Keyboard.svelte";
 	import { shortcut } from "./lib/shortcut";
-
+	import { fly, fade, slide, scale } from 'svelte/transition';
+	import { flip } from 'svelte/animate'; 
+	import { cubicIn } from 'svelte/easing';
 	const keyClass = {};
 	let hangulCharacter = "";
 
@@ -90,9 +92,20 @@
 					bind:pressed
 				/>
 			</p>
-			<div class="hangul">
-				{hangulCharacter}
+			{#key hangulCharacter}
+			<div class="hangul" >
+				
+					{#if hangulCharacter}
+					<div in:fly={{easing: cubicIn, start: 0.5, opacity: 0.5, x:0, y:-320}}>
+						<div in:scale>
+							{hangulCharacter}
+						</div>
+					</div>
+					{/if}
+				
 			</div>
+			{/key}
+
 		</center>
 	</div>
 </main>
