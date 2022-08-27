@@ -4,7 +4,18 @@
 	import { shortcut } from "./lib/shortcut";
 	import { fly, fade, slide, scale } from "svelte/transition";
 	import { flip } from "svelte/animate";
-	import { bounceInOut, circIn, circOut, cubicIn, cubicOut, quadIn, quintIn, quintOut, sineIn, sineInOut } from "svelte/easing";
+	import {
+		bounceInOut,
+		circIn,
+		circOut,
+		cubicIn,
+		cubicOut,
+		quadIn,
+		quintIn,
+		quintOut,
+		sineIn,
+		sineInOut,
+	} from "svelte/easing";
 	const keyClass = {};
 	let hangulCharacter = "";
 
@@ -62,7 +73,7 @@
 	let faceIdx = 0;
 
 	const funnyface = () => {
-		const faces = ["😜", "😁", "😛", "😊",  ];
+		const faces = ["😜", "😁", "😛", "😊"];
 		const currentFace = faces[faceIdx];
 		faceIdx += 1;
 		if (faceIdx == faces.length) faceIdx = 0;
@@ -79,86 +90,114 @@
 
 	const handleKeypress = (m) => {
 		timestamp = Date.now();
-		if(slideshow) toggleSlideshow();
+		if (slideshow) toggleSlideshow();
 		//const k =  shifted ? m[m.length - 1] :  m[m.length - 1].toLowerCase();
 		const k = m[m.length - 1].toLowerCase();
 		pressed = k;
 		keys[0] = k;
-		
 	};
 
 	let showLayout = false;
 
-	const showkey = i => {
+	const showkey = (i) => {
 		timestamp = Date.now();
 		const keycode = "Key" + Object.keys(hangulValue)[i].toUpperCase();
 		const k = keycode[keycode.length - 1].toLowerCase();
 		pressed = k;
 		keys[0] = k;
-	}
+	};
 
 	const toggleView = () => {
 		showLayout = !showLayout;
 	};
 	let clearTimer;
 	const toggleSlideshow = () => {
-		
 		slideshow = !slideshow;
 		if (slideshow) {
 			slideIndex = 0;
 
-		clearTimer = setInterval(() => {
-		showkey(slideIndex++)
-		if(slideIndex > Object.keys(hangulValue).length - 1) slideIndex = 0;
-		
-  }, 1500)
-} else {
-	clearInterval(clearTimer)
-}
+			clearTimer = setInterval(() => {
+				showkey(slideIndex++);
+				if (slideIndex > Object.keys(hangulValue).length - 1)
+					slideIndex = 0;
+			}, 1500);
+		} else {
+			clearInterval(clearTimer);
+		}
 	};
-
 
 	//$: currentChar = hangulValue[slideIndex];
 	//$: console.log(currentChar)
 
-	import {tweened} from 'svelte/motion';
-	
+	import { tweened } from "svelte/motion";
+
 	let colorIndex = 0;
 	let keycolorIndex = 0;
 	let keybgcolorIndex = 0;
 	let boxshadowIndex = 0;
-	
-	const colors = ['fa0024', 'efff11', '00ff00', '072e5b', 'f9be8a','f36729', '59e8eb', '3548b7']; // red, yellow, green, blue
+
+	const colors = [
+		"fa0024",
+		"efff11",
+		"00ff00",
+		"072e5b",
+		"f9be8a",
+		"f36729",
+		"59e8eb",
+		"3548b7",
+	]; // red, yellow, green, blue
 	const keycolors = [];
-	colors.forEach(m => keycolors.unshift(m));
-	
-	const keybgcolors = ['023e8a','9CAEA9','2B2D42','6A4C93','6C757D'];
-	const boxshadowcolors = ['E500A4', 'f5a218', '228abf', '3dfa40', 'e893e9','0186cc', 'c51e85' ];
-	
+	colors.forEach((m) => keycolors.unshift(m));
+
+	const keybgcolors = ["023e8a", "9CAEA9", "2B2D42", "6A4C93", "6C757D"];
+	const boxshadowcolors = [
+		"E500A4",
+		"f5a218",
+		"228abf",
+		"3dfa40",
+		"e893e9",
+		"0186cc",
+		"c51e85",
+	];
+
 	//const colors = ['ff0000', '00ff00', '0000ff', '072e5b']; // red, green, blue
-	
+
 	// This converts a decimal number to a two-character hex number.
-	const decimalToHex = decimal => Math.round(decimal).toString(16).padStart(2, '0');
-	
+	const decimalToHex = (decimal) =>
+		Math.round(decimal).toString(16).padStart(2, "0");
+
 	// This cycles through the indexes of the colors array.
-	const goToNextColor = () => { colorIndex = (colorIndex + 1) % colors.length; }
-	const goToNextKeyColor = () => { keycolorIndex = (keycolorIndex + 1) % keycolors.length; }
-	const goToNextKeybgColor = () => { keybgcolorIndex = (keybgcolorIndex + 1) % keybgcolors.length; }
-	const goToNextBoxShadow = () => { boxshadowIndex = (boxshadowIndex + 1) % boxshadowcolors.length; }
+	const goToNextColor = () => {
+		colorIndex = (colorIndex + 1) % colors.length;
+	};
+	const goToNextKeyColor = () => {
+		keycolorIndex = (keycolorIndex + 1) % keycolors.length;
+	};
+	const goToNextKeybgColor = () => {
+		keybgcolorIndex = (keybgcolorIndex + 1) % keybgcolors.length;
+	};
+	const goToNextBoxShadow = () => {
+		boxshadowIndex = (boxshadowIndex + 1) % boxshadowcolors.length;
+	};
 	console.log("colorIndex", colorIndex);
-	
+
 	// This extracts two hex characters from an "rrggbb" color string
 	// and returns the value as a number between 0 and 255.
-	const getColor = (hex, index) => parseInt(hex.substring(index, index + 2), 16);
-	
+	const getColor = (hex, index) =>
+		parseInt(hex.substring(index, index + 2), 16);
+
 	// This gets an array of red, green, and blue values in the range 0 to 255
 	// from an "rrggbb" hex color string.
-	const getRGBs = hex => [getColor(hex, 0), getColor(hex, 2), getColor(hex, 4)];
-	
+	const getRGBs = (hex) => [
+		getColor(hex, 0),
+		getColor(hex, 2),
+		getColor(hex, 4),
+	];
+
 	// This computes a value that is t% of the way from
 	// start to start + delta where t is a number between 0 and 1.
 	const scaledValue = (start, delta, t) => start + delta * t;
-	
+
 	// This is an interpolate function used by the tweened function.
 	function rgbInterpolate(fromColor, toColor) {
 		const [fromRed, fromGreen, fromBlue] = getRGBs(fromColor);
@@ -166,64 +205,88 @@
 		const deltaRed = toRed - fromRed;
 		const deltaGreen = toGreen - fromGreen;
 		const deltaBlue = toBlue - fromBlue;
-		
-		return t => {
+
+		return (t) => {
 			const red = scaledValue(fromRed, deltaRed, t);
 			const green = scaledValue(fromGreen, deltaGreen, t);
 			const blue = scaledValue(fromBlue, deltaBlue, t);
 			return decimalToHex(red) + decimalToHex(green) + decimalToHex(blue);
 		};
 	}
-	
+
 	// Create a tweened store that holds an "rrggbb" hex color.
-	const color = tweened(colors[colorIndex], {duration: 2000, 
+	const color = tweened(colors[colorIndex], {
+		duration: 2000,
 		easing: sineIn,
-		interpolate: rgbInterpolate
+		interpolate: rgbInterpolate,
 	});
 
-	const keycolor = tweened(keycolors[keycolorIndex], {duration: 1000, 
+	const keycolor = tweened(keycolors[keycolorIndex], {
+		duration: 1000,
 		easing: circIn,
-		interpolate: rgbInterpolate
+		interpolate: rgbInterpolate,
 	});
 
-	const keybgcolor = tweened(keybgcolors[keybgcolorIndex], {duration: 3000, 
+	const keybgcolor = tweened(keybgcolors[keybgcolorIndex], {
+		duration: 3000,
 		easing: quadIn,
-		interpolate: rgbInterpolate
+		interpolate: rgbInterpolate,
 	});
-	
 
-	const boxshadowcolor = tweened(boxshadowcolors[boxshadowIndex], {duration: 1000, 
-		interpolate: rgbInterpolate
+	const boxshadowcolor = tweened(boxshadowcolors[boxshadowIndex], {
+		duration: 1000,
+		interpolate: rgbInterpolate,
 	});
-	
+
 	// Trigger tweening if colorIndex changes.
 	$: color.set(colors[colorIndex]);
 	$: keycolor.set(keycolors[keycolorIndex]);
 	$: keybgcolor.set(keybgcolors[keybgcolorIndex]);
 	$: boxshadowcolor.set(boxshadowcolors[boxshadowIndex]);
 	//$: console.log("color", $color, "keycolor", $keycolor)
-	
+
 	let prevColor = $color;
-	
-  setInterval(() => {
+
+	setInterval(() => {
 		goToNextColor();
 		clearInterval();
-  }, 2000)
+	}, 2000);
 
-  setInterval(() => {
+	setInterval(() => {
 		goToNextKeyColor();
 		clearInterval();
-  }, 1000)
+	}, 1000);
 
-  setInterval(() => {
+	setInterval(() => {
 		goToNextKeybgColor();
 		clearInterval();
-  }, 3000)
+	}, 3000);
 
-  setInterval(() => {
+	setInterval(() => {
 		goToNextBoxShadow();
 		clearInterval();
-  }, 1000)
+	}, 1000);
+
+	import { elasticOut } from "svelte/easing";
+
+	let visible = true;
+
+	function spin(node, { duration }) {
+		return {
+			duration,
+			css: (t) => {
+				const eased = elasticOut(t);
+
+				return `
+					transform: scale(${eased}) rotate(${eased * 720}deg);
+					color: hsl(
+						${~~(t * 360)},
+						${Math.min(100, 1000 - 1000 * t)}%,
+						${Math.min(50, 500 - 500 * t)}%
+					);`;
+			},
+		};
+	}
 </script>
 
 <nav>
@@ -240,12 +303,12 @@
 			View key map
 		{/if}
 	</button>
-	<button on:click={toggleSlideshow} >
-		{#if (slideshow)}
-		Stop 
+	<button on:click={toggleSlideshow}>
+		{#if slideshow}
+			Stop
 		{:else}
-		Start
-		{/if} 
+			Start
+		{/if}
 		Slideshow
 	</button>
 	{#if showLayout}
@@ -264,9 +327,9 @@
 			<p class="keyboard ">
 				<Keyboard
 					on:keydown={({ detail }) => {
-						keys[0] = detail; 
-						if(slideshow) toggleSlideshow();
-						}}
+						keys[0] = detail;
+						if (slideshow) toggleSlideshow();
+					}}
 					bind:pressed
 					bind:shifted
 					bind:timestamp
@@ -276,7 +339,11 @@
 				/>
 			</p>
 			{#key timestamp}
-				<div class="hangul" style="color: #{$color}" in:scale={{easing:cubicOut}}>
+				<div
+					class="hangul"
+					style="color: #{$color}"
+					in:scale={{ easing: cubicOut }}
+				>
 					{#if hangulCharacter}
 						<div
 							in:fly={{
@@ -286,9 +353,8 @@
 								x: 0,
 								y: -320,
 							}}
-							
 						>
-							<div in:scale>
+							<div in:spin={{ duration: 1200 }}>
 								{hangulCharacter == "undefined"
 									? funnyface()
 									: hangulCharacter}
