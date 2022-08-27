@@ -25,7 +25,7 @@
   let page = 0;
   export let shifted = false;
   let active = undefined;
-  
+
   export let pressed;
 
   // Use later
@@ -54,7 +54,6 @@
     Backspace: backspaceSVG,
   };
 
-
   // functions
   const unique = (arr) => [...new Set(arr)];
 
@@ -63,52 +62,43 @@
     event.preventDefault();
     //console.log(value)
     active = value;
-    
-    console.log("pressed", pressed)
-    if (value != undefined  && value.includes("Page")) {
+
+    if (value != undefined && value.includes("Page")) {
       page = +value?.substr(-1);
     } else if (value === "Shift") {
       shifted = !shifted;
     } else {
-      
-      let output = value //|| "";
+      let output = value; //|| "";
       if (shifted && alphabet.includes(value))
         output = value.toUpperCase() || "";
       dispatch("keydown", output);
     }
     event.stopPropagation();
     pressed = undefined;
-  
+
     return false;
   };
 
   const onKeyEnd = (value) => {
-    console.log("key up");
     setTimeout(() => {
       pressed = active;
-      if (value === active) 
-      {
-      //  active = undefined;
-      pressed = active;
+      if (value === active) {
+        //  active = undefined;
+        pressed = active;
       }
-      
     }, 50);
   };
 
   // reactive vars
-$:   if(!pressed) 
-{
-setTimeout(()=> {
+  $: if (!pressed) {
+    setTimeout(() => {
       {
-      console.log("timing")
-      pressed = active;
+        pressed = active;
       }
-      
     }, 100);
   } else {
     active = pressed;
   }
-
 
   $: rawData = custom || layouts[localizationLayout][layout] || standard;
 
@@ -121,10 +111,10 @@ setTimeout(()=> {
     if (shouldSwap) display = s;
     if (!display && d.value)
       display = shifted
-        ? (d.value.toUpperCase()) || ""
-        : (d.value.toLowerCase()) || "";
+        ? d.value.toUpperCase() || ""
+        : d.value.toLowerCase() || "";
     if (d.value === "Shift")
-      display = shifted ? s || "" : (s.toUpperCase()) || "";
+      display = shifted ? s || "" : s.toUpperCase() || "";
     return {
       ...d,
       display,
@@ -169,7 +159,6 @@ setTimeout(()=> {
               class="key key--{value} {keyClass[value] || ''}"
               class:single={value != undefined && value.length === 1}
               class:half={value == ";"}
-              
               on:touchstart={(e) => onKeyStart(e, value)}
               on:mousedown={(e) => onKeyStart(e, value)}
               on:touchend={() => onKeyEnd(value)}

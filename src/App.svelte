@@ -70,7 +70,6 @@
 		const faces = ["😜", "😉", "😊"];
 		const currentFace = faces[faceIdx];
 		faceIdx += 1;
-		console.log("current: ", currentFace, faceIdx);
 		if (faceIdx == faces.length) faceIdx = 0;
 		return currentFace;
 	};
@@ -85,12 +84,9 @@
 
 	const handleKeypress = (m) => {
 		timestamp = Date.now();
-		console.log("dsfsadfp");
 		//const k =  shifted ? m[m.length - 1] :  m[m.length - 1].toLowerCase();
 		const k = m[m.length - 1].toLowerCase();
 		pressed = k;
-		console.log("pressed", pressed, k);
-		console.log(k, shifted);
 		keys[0] = k;
 	};
 
@@ -122,7 +118,7 @@
 			View key map
 		{/if}
 	</button>
-	<button on:click={toggleSlideshow}>Slidehow</button>
+	<button on:click={toggleSlideshow} disabled>Slidehow</button>
 	{#if showLayout}
 		<center>
 			<img src="./keyboard.png" />
