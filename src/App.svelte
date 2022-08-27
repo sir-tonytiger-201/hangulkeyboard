@@ -18,7 +18,6 @@
 	export let shifted;
 
 	export const hangulValue = {
-		"NULL": "",
 		q: "ㅂ",
 		w: "ㅈ",
 		e: "ㄷ",
@@ -103,7 +102,7 @@
 			View key map
 		{/if}
 	</button>
-	<button on:click={toggleSlideshow}>Slidehow</button>
+	<button on:click={toggleSlideshow} disabled>Slidehow</button>
 	{#if showLayout}
 		<center>
 			<img src="./keyboard.png" />

@@ -2538,7 +2538,7 @@ var app = (function () {
     const { Object: Object_1, console: console_1 } = globals;
     const file = "src/App.svelte";
 
-    // (102:2) {:else}
+    // (101:2) {:else}
     function create_else_block(ctx) {
     	let t;
 
@@ -2558,14 +2558,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(102:2) {:else}",
+    		source: "(101:2) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (100:2) {#if showLayout}
+    // (99:2) {#if showLayout}
     function create_if_block_2(ctx) {
     	let t;
 
@@ -2585,14 +2585,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(100:2) {#if showLayout}",
+    		source: "(99:2) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (107:1) {#if showLayout}
+    // (106:1) {#if showLayout}
     function create_if_block_1(ctx) {
     	let center;
     	let img;
@@ -2604,8 +2604,8 @@ var app = (function () {
     			img = element("img");
     			if (!src_url_equal(img.src, img_src_value = "./keyboard.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "class", "svelte-1uchv6j");
-    			add_location(img, file, 108, 3, 1907);
-    			add_location(center, file, 107, 2, 1895);
+    			add_location(img, file, 107, 3, 1902);
+    			add_location(center, file, 106, 2, 1890);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, center, anchor);
@@ -2620,14 +2620,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(107:1) {#if showLayout}",
+    		source: "(106:1) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (129:5) {#if hangulCharacter}
+    // (128:5) {#if hangulCharacter}
     function create_if_block(ctx) {
     	let div1;
     	let div0;
@@ -2640,8 +2640,8 @@ var app = (function () {
     			div1 = element("div");
     			div0 = element("div");
     			t = text(/*hangulCharacter*/ ctx[2]);
-    			add_location(div0, file, 138, 7, 2462);
-    			add_location(div1, file, 129, 6, 2317);
+    			add_location(div0, file, 137, 7, 2457);
+    			add_location(div1, file, 128, 6, 2312);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -2684,14 +2684,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(129:5) {#if hangulCharacter}",
+    		source: "(128:5) {#if hangulCharacter}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (127:3) {#key hangulCharacter}
+    // (126:3) {#key hangulCharacter}
     function create_key_block(ctx) {
     	let div;
     	let if_block = /*hangulCharacter*/ ctx[2] && create_if_block(ctx);
@@ -2701,7 +2701,7 @@ var app = (function () {
     			div = element("div");
     			if (if_block) if_block.c();
     			attr_dev(div, "class", "hangul svelte-1uchv6j");
-    			add_location(div, file, 127, 4, 2263);
+    			add_location(div, file, 126, 4, 2258);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2740,7 +2740,7 @@ var app = (function () {
     		block,
     		id: create_key_block.name,
     		type: "key",
-    		source: "(127:3) {#key hangulCharacter}",
+    		source: "(126:3) {#key hangulCharacter}",
     		ctx
     	});
 
@@ -2842,27 +2842,28 @@ var app = (function () {
     			t11 = space();
     			key_block.c();
     			attr_dev(h1, "class", "svelte-1uchv6j");
-    			add_location(h1, file, 93, 3, 1589);
-    			add_location(i, file, 94, 9, 1623);
-    			add_location(small, file, 94, 2, 1616);
+    			add_location(h1, file, 92, 3, 1575);
+    			add_location(i, file, 93, 9, 1609);
+    			add_location(small, file, 93, 2, 1602);
     			attr_dev(span0, "class", "svelte-1uchv6j");
-    			add_location(span0, file, 92, 1, 1580);
-    			add_location(br, file, 96, 1, 1669);
+    			add_location(span0, file, 91, 1, 1566);
+    			add_location(br, file, 95, 1, 1655);
     			attr_dev(span1, "class", "svelte-1uchv6j");
-    			add_location(span1, file, 97, 1, 1677);
-    			add_location(button0, file, 98, 1, 1718);
-    			add_location(button1, file, 105, 1, 1822);
+    			add_location(span1, file, 96, 1, 1663);
+    			add_location(button0, file, 97, 1, 1704);
+    			button1.disabled = true;
+    			add_location(button1, file, 104, 1, 1808);
     			attr_dev(nav, "class", "svelte-1uchv6j");
-    			add_location(nav, file, 91, 0, 1573);
+    			add_location(nav, file, 90, 0, 1559);
     			attr_dev(p, "class", "keyboard  svelte-1uchv6j");
-    			add_location(p, file, 119, 3, 2093);
+    			add_location(p, file, 118, 3, 2088);
     			attr_dev(center, "class", "svelte-1uchv6j");
-    			add_location(center, file, 118, 2, 2081);
+    			add_location(center, file, 117, 2, 2076);
     			attr_dev(div, "class", "info  svelte-1uchv6j");
-    			add_location(div, file, 117, 1, 2059);
+    			add_location(div, file, 116, 1, 2054);
     			main.hidden = false;
     			attr_dev(main, "class", "svelte-1uchv6j");
-    			add_location(main, file, 113, 0, 1963);
+    			add_location(main, file, 112, 0, 1958);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3005,7 +3006,6 @@ var app = (function () {
     	let { shifted } = $$props;
 
     	const hangulValue = {
-    		"NULL": "",
     		q: "ㅂ",
     		w: "ㅈ",
     		e: "ㄷ",
