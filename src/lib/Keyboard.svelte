@@ -22,6 +22,11 @@
   export let timestamp;
   export let keycolor;
   export let keybackground;
+  export let boxshadowcolor;
+  
+  
+  //$: boxshadow=`5px 10px 2em ${boxshadowcolor}`;
+  console.log(boxshadowcolor);
 
 
   // vars
@@ -159,6 +164,7 @@
           {@html shiftKeys(j)}
           {#each keys as { value, display }}
             <button
+              style="--box-shadow: 5px 10px 2em #{boxshadowcolor}"
               class="key key--{value} {keyClass[value] || ''}"
               class:single={value != undefined && value.length === 1}
               class:half={value == ";"}
@@ -166,11 +172,13 @@
               on:mousedown={(e) => onKeyStart(e, value)}
               on:touchend={() => onKeyEnd(value)}
               on:mouseup={() => onKeyEnd(value)}
+              style:background-color=#{pressed==value ? 'd6ce9d' : keybackground}
               class:active={value === active}
               class:pressed={value === pressed}
-              style="background: #{keybackground};"
+
             >
-            <div style="color: #{keycolor};">
+            <!-- <div style="color: #{keycolor};"> -->
+              <div style:background=inherit style:color=#{keycolor}>
               {#if display && display.includes("<svg")}
               {@html display}
             {:else}{display}{/if}
@@ -192,6 +200,7 @@
   }
 
   button {
+    
     appearance: none;
     display: inline-block;
     text-align: center;
@@ -205,6 +214,7 @@
     border: var(--border, none);
     border-radius: var(--border-radius, 2px);
     box-shadow: var(--box-shadow, none);
+    box-shadow: var(--box-shadow);
     flex: var(--flex, 1);
     font-family: var(--font-family, sans-serif);
     font-size: var(--font-size, 20px);
@@ -272,6 +282,7 @@
     stroke-width: var(--stroke-width, 2px);
     vertical-align: middle;
     display: inline-flex;
-    overflow: hidden;
+    overflow: hidden;    
+
   }
 </style>

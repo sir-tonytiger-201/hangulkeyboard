@@ -18,7 +18,6 @@
 	export let shifted;
 
 	export const hangulValue = {
-		NULL: "",
 		q: "ㅂ",
 		w: "ㅈ",
 		e: "ㄷ",
@@ -60,10 +59,6 @@
 
 	characters.forEach((m) => keyArray.push("Key" + m.toUpperCase()));
 
-	$: if (slideIndex) {
-		console.dir(keys[slideIndex]?.value);
-	}
-
 	let faceIdx = 0;
 
 	const funnyface = () => {
@@ -84,21 +79,43 @@
 
 	const handleKeypress = (m) => {
 		timestamp = Date.now();
+		if(slideshow) toggleSlideshow();
 		//const k =  shifted ? m[m.length - 1] :  m[m.length - 1].toLowerCase();
 		const k = m[m.length - 1].toLowerCase();
 		pressed = k;
 		keys[0] = k;
+		
 	};
 
 	let showLayout = false;
 
+	const showkey = i => {
+		const keycode = "Key" + Object.keys(hangulValue)[i].toUpperCase();
+		const k = keycode[keycode.length - 1].toLowerCase();
+		pressed = k;
+		keys[0] = k;
+	}
+
 	const toggleView = () => {
 		showLayout = !showLayout;
 	};
+	let clearTimer;
 	const toggleSlideshow = () => {
+		
 		slideshow = !slideshow;
-		if (slideshow) slideIndex = 0;
+		if (slideshow) {
+			slideIndex = 0;
+
+		clearTimer = setInterval(() => {
+		showkey(slideIndex++)
+		if(slideIndex > Object.keys(hangulValue).length - 1) slideIndex = 0;
+		
+  }, 1500)
+} else {
+	clearInterval(clearTimer)
+}
 	};
+
 
 	//$: currentChar = hangulValue[slideIndex];
 	//$: console.log(currentChar)
@@ -108,12 +125,14 @@
 	let colorIndex = 0;
 	let keycolorIndex = 0;
 	let keybgcolorIndex = 0;
+	let boxshadowIndex = 0;
 	
 	const colors = ['fa0024', 'efff11', '00ff00', '072e5b', 'f9be8a','f36729', '59e8eb', '3548b7']; // red, yellow, green, blue
 	const keycolors = [];
 	colors.forEach(m => keycolors.unshift(m));
 	
 	const keybgcolors = ['023e8a','9CAEA9','2B2D42','6A4C93','6C757D'];
+	const boxshadowcolors = ['E500A4', 'f5a218', '228abf', '3dfa40', 'e893e9','0186cc', 'c51e85' ];
 	
 	//const colors = ['ff0000', '00ff00', '0000ff', '072e5b']; // red, green, blue
 	
@@ -124,6 +143,7 @@
 	const goToNextColor = () => { colorIndex = (colorIndex + 1) % colors.length; }
 	const goToNextKeyColor = () => { keycolorIndex = (keycolorIndex + 1) % keycolors.length; }
 	const goToNextKeybgColor = () => { keybgcolorIndex = (keybgcolorIndex + 1) % keybgcolors.length; }
+	const goToNextBoxShadow = () => { boxshadowIndex = (boxshadowIndex + 1) % boxshadowcolors.length; }
 	console.log("colorIndex", colorIndex);
 	
 	// This extracts two hex characters from an "rrggbb" color string
@@ -170,10 +190,16 @@
 		interpolate: rgbInterpolate
 	});
 	
+
+	const boxshadowcolor = tweened(boxshadowcolors[boxshadowIndex], {duration: 1000, 
+		interpolate: rgbInterpolate
+	});
+	
 	// Trigger tweening if colorIndex changes.
 	$: color.set(colors[colorIndex]);
 	$: keycolor.set(keycolors[keycolorIndex]);
 	$: keybgcolor.set(keybgcolors[keybgcolorIndex]);
+	$: boxshadowcolor.set(boxshadowcolors[boxshadowIndex]);
 	//$: console.log("color", $color, "keycolor", $keycolor)
 	
 	let prevColor = $color;
@@ -192,11 +218,16 @@
 		goToNextKeybgColor();
 		clearInterval();
   }, 3000)
+
+  setInterval(() => {
+		goToNextBoxShadow();
+		clearInterval();
+  }, 1000)
 </script>
 
 <nav>
 	<span
-		><h1>Hangul Keyboard</h1>
+		><h1>한글 Keyboard</h1>
 		<small><i>By sir-tonytiger-201</i></small></span
 	>
 	<br />
@@ -208,7 +239,14 @@
 			View key map
 		{/if}
 	</button>
-	<button on:click={toggleSlideshow} disabled>Slidehow</button>
+	<button on:click={toggleSlideshow} >
+		{#if (slideshow)}
+		Stop 
+		{:else}
+		Start
+		{/if} 
+		Slideshow
+	</button>
 	{#if showLayout}
 		<center>
 			<img src="./keyboard.png" />
@@ -224,16 +262,20 @@
 		<center>
 			<p class="keyboard ">
 				<Keyboard
-					on:keydown={({ detail }) => (keys[0] = detail)}
+					on:keydown={({ detail }) => {
+						keys[0] = detail; 
+						if(slideshow) toggleSlideshow();
+						}}
 					bind:pressed
 					bind:shifted
 					bind:timestamp
 					bind:keycolor={$keycolor}
 					bind:keybackground={$keybgcolor}
+					bind:boxshadowcolor={$boxshadowcolor}
 				/>
 			</p>
 			{#key timestamp}
-				<div class="hangul" style="color: #{$color}">
+				<div class="hangul" style="color: #{$color}" in:scale={{easing:cubicOut}}>
 					{#if hangulCharacter}
 						<div
 							in:fly={{
