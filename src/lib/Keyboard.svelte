@@ -53,6 +53,7 @@
     Backspace: backspaceSVG,
   };
 
+
   // functions
   const unique = (arr) => [...new Set(arr)];
 
@@ -61,6 +62,7 @@
     //console.log(value)
     active = value;
     pressed = active;
+    console.log("pressed", pressed)
     if (value != undefined  && value.includes("Page")) {
       page = +value?.substr(-1);
     } else if (value === "Shift") {
@@ -115,10 +117,12 @@
   $: rowData1 = rows0.map((r) => page1.filter((k) => k.row === r));
   $: rowData = [rowData0, rowData1];
 
+  $: active = pressed;
+
   let indent = 0;
 
   const shiftKeys = (m) => {
-    if (m > 0) return "";
+    if (m > 2) return "";
     let spaces = "";
     for (let i = 0; i < m; i++) {
       spaces += "&nbsp;&nbsp&nbsp";

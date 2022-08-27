@@ -8,7 +8,7 @@
 	const keyClass = {};
 	let hangulCharacter = "";
 
-	let pressed = undefined;
+	export let pressed = undefined;
 
 	let slideshow = false;
 	let slideIndex = 0;
@@ -18,6 +18,7 @@
 	export let shifted;
 
 	export const hangulValue = {
+		"NULL": "",
 		q: "ㅂ",
 		w: "ㅈ",
 		e: "ㄷ",
@@ -68,8 +69,10 @@
 	);
 
 	const handleKeypress = (m) => {
-		pressed = m;
+			
 		const k =  shifted ? m[m.length - 1] :  m[m.length - 1].toLowerCase();
+		pressed = k;
+		console.log("pressed", pressed, k)
 		console.log(k, shifted)
 		keys[0] = k;
 	};
@@ -102,7 +105,7 @@
 			View key map
 		{/if}
 	</button>
-	<button on:click={toggleSlideshow} disabled>Slidehow</button>
+	<button on:click={toggleSlideshow}>Slidehow</button>
 	{#if showLayout}
 		<center>
 			<img src="./keyboard.png" />
