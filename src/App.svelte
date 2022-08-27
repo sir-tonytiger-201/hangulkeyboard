@@ -65,12 +65,15 @@
 	}
 	
 	$: hangulCharacter = String(
-		keys[0].length == 1 ? hangulValue[keys[0]] || "" : ""
+		keys[0].length == 1 ? 
+		shifted ? hangulValue[keys[0].toUpperCase()] || "" : hangulValue[keys[0]]
+		|| "" : ""
 	);
 
 	const handleKeypress = (m) => {
 			
-		const k =  shifted ? m[m.length - 1] :  m[m.length - 1].toLowerCase();
+		//const k =  shifted ? m[m.length - 1] :  m[m.length - 1].toLowerCase();
+		const k=  m[m.length - 1].toLowerCase();
 		pressed = k;
 		console.log("pressed", pressed, k)
 		console.log(k, shifted)

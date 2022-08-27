@@ -61,30 +61,55 @@
     event.preventDefault();
     //console.log(value)
     active = value;
-    pressed = active;
+    
     console.log("pressed", pressed)
     if (value != undefined  && value.includes("Page")) {
       page = +value?.substr(-1);
     } else if (value === "Shift") {
       shifted = !shifted;
     } else {
+      
       let output = value //|| "";
       if (shifted && alphabet.includes(value))
         output = value.toUpperCase() || "";
       dispatch("keydown", output);
     }
     event.stopPropagation();
+    pressed = undefined;
+  
     return false;
   };
 
   const onKeyEnd = (value) => {
+    console.log("key up");
     setTimeout(() => {
-      if (value === active) active = undefined;
+      pressed = active;
+      if (value === active) 
+      {
+      //  active = undefined;
+      pressed = active;
+      }
+      
     }, 50);
   };
 
   // reactive vars
+$:   if(!pressed) 
+{
+setTimeout(()=> {
+      {
+      console.log("timing")
+      pressed = active;
+      }
+      
+    }, 100);
+  } else {
+    active = pressed;
+  }
+
+
   $: rawData = custom || layouts[localizationLayout][layout] || standard;
+
   $: data = rawData.map((d) => {
     //console.log("foo", d)
     let display = d.display;
@@ -117,7 +142,7 @@
   $: rowData1 = rows0.map((r) => page1.filter((k) => k.row === r));
   $: rowData = [rowData0, rowData1];
 
-  $: active = pressed;
+  //$: active = pressed;
 
   let indent = 0;
 
@@ -142,12 +167,13 @@
               class="key key--{value} {keyClass[value] || ''}"
               class:single={value != undefined && value.length === 1}
               class:half={value == ";"}
-              class:active={value === active}
-              class:pressed={value === pressed}
+              
               on:touchstart={(e) => onKeyStart(e, value)}
               on:mousedown={(e) => onKeyStart(e, value)}
               on:touchend={() => onKeyEnd(value)}
               on:mouseup={() => onKeyEnd(value)}
+              class:active={value === active}
+              class:pressed={value === pressed}
             >
               {#if display && display.includes("<svg")}
                 {@html display}

@@ -1589,7 +1589,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (154:14) {:else}
+    // (180:14) {:else}
     function create_else_block$1(ctx) {
     	let t_value = /*display*/ ctx[38] + "";
     	let t;
@@ -1613,14 +1613,14 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(154:14) {:else}",
+    		source: "(180:14) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (152:14) {#if display && display.includes("<svg")}
+    // (178:14) {#if display && display.includes("<svg")}
     function create_if_block$1(ctx) {
     	let html_tag;
     	let raw_value = /*display*/ ctx[38] + "";
@@ -1649,14 +1649,14 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(152:14) {#if display && display.includes(\\\"<svg\\\")}",
+    		source: "(178:14) {#if display && display.includes(\\\"<svg\\\")}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (140:10) {#each keys as { value, display }}
+    // (165:10) {#each keys as { value, display }}
     function create_each_block_2(ctx) {
     	let button;
     	let show_if;
@@ -1697,9 +1697,9 @@ var app = (function () {
     			attr_dev(button, "class", button_class_value = "key key--" + /*value*/ ctx[37] + " " + (/*keyClass*/ ctx[1][/*value*/ ctx[37]] || '') + " svelte-rj7hlc");
     			toggle_class(button, "single", /*value*/ ctx[37] != undefined && /*value*/ ctx[37].length === 1);
     			toggle_class(button, "half", /*value*/ ctx[37] == ";");
-    			toggle_class(button, "active", /*value*/ ctx[37] === /*active*/ ctx[3]);
+    			toggle_class(button, "active", /*value*/ ctx[37] === /*active*/ ctx[2]);
     			toggle_class(button, "pressed", /*value*/ ctx[37] === /*pressed*/ ctx[0]);
-    			add_location(button, file$1, 140, 12, 3633);
+    			add_location(button, file$1, 165, 12, 3929);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
@@ -1743,8 +1743,8 @@ var app = (function () {
     				toggle_class(button, "half", /*value*/ ctx[37] == ";");
     			}
 
-    			if (dirty[0] & /*rowData, keyClass, rowData, active*/ 26) {
-    				toggle_class(button, "active", /*value*/ ctx[37] === /*active*/ ctx[3]);
+    			if (dirty[0] & /*rowData, keyClass, rowData, active*/ 22) {
+    				toggle_class(button, "active", /*value*/ ctx[37] === /*active*/ ctx[2]);
     			}
 
     			if (dirty[0] & /*rowData, keyClass, rowData, pressed*/ 19) {
@@ -1763,14 +1763,14 @@ var app = (function () {
     		block,
     		id: create_each_block_2.name,
     		type: "each",
-    		source: "(140:10) {#each keys as { value, display }}",
+    		source: "(165:10) {#each keys as { value, display }}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (137:6) {#each row as keys, j}
+    // (162:6) {#each row as keys, j}
     function create_each_block_1(ctx) {
     	let div;
     	let html_tag;
@@ -1796,7 +1796,7 @@ var app = (function () {
 
     			html_tag.a = t;
     			attr_dev(div, "class", "row row--" + /*i*/ ctx[33] + " svelte-rj7hlc");
-    			add_location(div, file$1, 137, 8, 3518);
+    			add_location(div, file$1, 162, 8, 3814);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -1808,7 +1808,7 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*rowData, keyClass, active, pressed, onKeyStart, onKeyEnd*/ 123) {
+    			if (dirty[0] & /*rowData, keyClass, active, pressed, onKeyStart, onKeyEnd*/ 119) {
     				each_value_2 = /*keys*/ ctx[34];
     				validate_each_argument(each_value_2);
     				let i;
@@ -1842,14 +1842,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(137:6) {#each row as keys, j}",
+    		source: "(162:6) {#each row as keys, j}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (135:2) {#each rowData as row, i}
+    // (160:2) {#each rowData as row, i}
     function create_each_block(ctx) {
     	let div;
     	let t;
@@ -1871,8 +1871,8 @@ var app = (function () {
 
     			t = space();
     			attr_dev(div, "class", "page svelte-rj7hlc");
-    			toggle_class(div, "visible", /*i*/ ctx[33] === /*page*/ ctx[2]);
-    			add_location(div, file$1, 135, 4, 3435);
+    			toggle_class(div, "visible", /*i*/ ctx[33] === /*page*/ ctx[3]);
+    			add_location(div, file$1, 160, 4, 3731);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -1884,7 +1884,7 @@ var app = (function () {
     			append_dev(div, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*rowData, keyClass, active, pressed, onKeyStart, onKeyEnd, shiftKeys*/ 251) {
+    			if (dirty[0] & /*rowData, keyClass, active, pressed, onKeyStart, onKeyEnd, shiftKeys*/ 247) {
     				each_value_1 = /*row*/ ctx[31];
     				validate_each_argument(each_value_1);
     				let i;
@@ -1908,8 +1908,8 @@ var app = (function () {
     				each_blocks.length = each_value_1.length;
     			}
 
-    			if (dirty[0] & /*page*/ 4) {
-    				toggle_class(div, "visible", /*i*/ ctx[33] === /*page*/ ctx[2]);
+    			if (dirty[0] & /*page*/ 8) {
+    				toggle_class(div, "visible", /*i*/ ctx[33] === /*page*/ ctx[3]);
     			}
     		},
     		d: function destroy(detaching) {
@@ -1922,7 +1922,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(135:2) {#each rowData as row, i}",
+    		source: "(160:2) {#each rowData as row, i}",
     		ctx
     	});
 
@@ -1948,7 +1948,7 @@ var app = (function () {
     			}
 
     			attr_dev(div, "class", "svelte-keyboard");
-    			add_location(div, file$1, 133, 0, 3373);
+    			add_location(div, file$1, 158, 0, 3669);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2066,13 +2066,12 @@ var app = (function () {
     		event.preventDefault();
 
     		//console.log(value)
-    		$$invalidate(3, active = value);
+    		$$invalidate(2, active = value);
 
-    		$$invalidate(0, pressed = active);
     		console.log("pressed", pressed);
 
     		if (value != undefined && value.includes("Page")) {
-    			$$invalidate(2, page = +value?.substr(-1));
+    			$$invalidate(3, page = +value?.substr(-1));
     		} else if (value === "Shift") {
     			$$invalidate(8, shifted = !shifted);
     		} else {
@@ -2082,18 +2081,27 @@ var app = (function () {
     		}
 
     		event.stopPropagation();
+    		$$invalidate(0, pressed = undefined);
     		return false;
     	};
 
     	const onKeyEnd = value => {
+    		console.log("key up");
+
     		setTimeout(
     			() => {
-    				if (value === active) $$invalidate(3, active = undefined);
+    				$$invalidate(0, pressed = active);
+
+    				if (value === active) {
+    					//  active = undefined;
+    					$$invalidate(0, pressed = active);
+    				}
     			},
     			50
     		);
     	};
 
+    	//$: active = pressed;
     	let indent = 0;
 
     	const shiftKeys = m => {
@@ -2182,9 +2190,9 @@ var app = (function () {
     		if ('layout' in $$props) $$invalidate(11, layout = $$props.layout);
     		if ('noSwap' in $$props) $$invalidate(12, noSwap = $$props.noSwap);
     		if ('keyClass' in $$props) $$invalidate(1, keyClass = $$props.keyClass);
-    		if ('page' in $$props) $$invalidate(2, page = $$props.page);
+    		if ('page' in $$props) $$invalidate(3, page = $$props.page);
     		if ('shifted' in $$props) $$invalidate(8, shifted = $$props.shifted);
-    		if ('active' in $$props) $$invalidate(3, active = $$props.active);
+    		if ('active' in $$props) $$invalidate(2, active = $$props.active);
     		if ('pressed' in $$props) $$invalidate(0, pressed = $$props.pressed);
     		if ('upperCase' in $$props) upperCase = $$props.upperCase;
     		if ('indent' in $$props) indent = $$props.indent;
@@ -2204,8 +2212,24 @@ var app = (function () {
     	}
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty[0] & /*custom, localizationLayout, layout*/ 3584) {
+    		if ($$self.$$.dirty[0] & /*pressed, active*/ 5) {
     			// reactive vars
+    			if (!pressed) {
+    				setTimeout(
+    					() => {
+    						{
+    							console.log("timing");
+    							$$invalidate(0, pressed = active);
+    						}
+    					},
+    					100
+    				);
+    			} else {
+    				$$invalidate(2, active = pressed);
+    			}
+    		}
+
+    		if ($$self.$$.dirty[0] & /*custom, localizationLayout, layout*/ 3584) {
     			$$invalidate(20, rawData = custom || layouts[localizationLayout][layout] || standard);
     		}
 
@@ -2264,17 +2288,13 @@ var app = (function () {
     		if ($$self.$$.dirty[0] & /*rowData0, rowData1*/ 24576) {
     			$$invalidate(4, rowData = [rowData0, rowData1]);
     		}
-
-    		if ($$self.$$.dirty[0] & /*pressed*/ 1) {
-    			$$invalidate(3, active = pressed);
-    		}
     	};
 
     	return [
     		pressed,
     		keyClass,
-    		page,
     		active,
+    		page,
     		rowData,
     		onKeyStart,
     		onKeyEnd,
@@ -2545,7 +2565,7 @@ var app = (function () {
     const { Object: Object_1, console: console_1 } = globals;
     const file = "src/App.svelte";
 
-    // (104:2) {:else}
+    // (107:2) {:else}
     function create_else_block(ctx) {
     	let t;
 
@@ -2565,14 +2585,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(104:2) {:else}",
+    		source: "(107:2) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (102:2) {#if showLayout}
+    // (105:2) {#if showLayout}
     function create_if_block_2(ctx) {
     	let t;
 
@@ -2592,14 +2612,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(102:2) {#if showLayout}",
+    		source: "(105:2) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (109:1) {#if showLayout}
+    // (112:1) {#if showLayout}
     function create_if_block_1(ctx) {
     	let center;
     	let img;
@@ -2611,8 +2631,8 @@ var app = (function () {
     			img = element("img");
     			if (!src_url_equal(img.src, img_src_value = "./keyboard.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "class", "svelte-1uchv6j");
-    			add_location(img, file, 110, 3, 1955);
-    			add_location(center, file, 109, 2, 1943);
+    			add_location(img, file, 113, 3, 2058);
+    			add_location(center, file, 112, 2, 2046);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, center, anchor);
@@ -2627,14 +2647,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(109:1) {#if showLayout}",
+    		source: "(112:1) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (131:5) {#if hangulCharacter}
+    // (134:5) {#if hangulCharacter}
     function create_if_block(ctx) {
     	let div1;
     	let div0;
@@ -2647,8 +2667,8 @@ var app = (function () {
     			div1 = element("div");
     			div0 = element("div");
     			t = text(/*hangulCharacter*/ ctx[3]);
-    			add_location(div0, file, 140, 7, 2510);
-    			add_location(div1, file, 131, 6, 2365);
+    			add_location(div0, file, 143, 7, 2613);
+    			add_location(div1, file, 134, 6, 2468);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -2691,14 +2711,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(131:5) {#if hangulCharacter}",
+    		source: "(134:5) {#if hangulCharacter}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (129:3) {#key hangulCharacter}
+    // (132:3) {#key hangulCharacter}
     function create_key_block(ctx) {
     	let div;
     	let if_block = /*hangulCharacter*/ ctx[3] && create_if_block(ctx);
@@ -2708,7 +2728,7 @@ var app = (function () {
     			div = element("div");
     			if (if_block) if_block.c();
     			attr_dev(div, "class", "hangul svelte-1uchv6j");
-    			add_location(div, file, 129, 4, 2311);
+    			add_location(div, file, 132, 4, 2414);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2747,7 +2767,7 @@ var app = (function () {
     		block,
     		id: create_key_block.name,
     		type: "key",
-    		source: "(129:3) {#key hangulCharacter}",
+    		source: "(132:3) {#key hangulCharacter}",
     		ctx
     	});
 
@@ -2803,12 +2823,12 @@ var app = (function () {
 
     	let keyboard_props = {};
 
-    	if (/*pressed*/ ctx[0] !== void 0) {
-    		keyboard_props.pressed = /*pressed*/ ctx[0];
+    	if (/*pressed*/ ctx[1] !== void 0) {
+    		keyboard_props.pressed = /*pressed*/ ctx[1];
     	}
 
-    	if (/*shifted*/ ctx[1] !== void 0) {
-    		keyboard_props.shifted = /*shifted*/ ctx[1];
+    	if (/*shifted*/ ctx[0] !== void 0) {
+    		keyboard_props.shifted = /*shifted*/ ctx[0];
     	}
 
     	keyboard = new Keyboard({ props: keyboard_props, $$inline: true });
@@ -2849,27 +2869,27 @@ var app = (function () {
     			t11 = space();
     			key_block.c();
     			attr_dev(h1, "class", "svelte-1uchv6j");
-    			add_location(h1, file, 95, 3, 1637);
-    			add_location(i, file, 96, 9, 1671);
-    			add_location(small, file, 96, 2, 1664);
+    			add_location(h1, file, 98, 3, 1740);
+    			add_location(i, file, 99, 9, 1774);
+    			add_location(small, file, 99, 2, 1767);
     			attr_dev(span0, "class", "svelte-1uchv6j");
-    			add_location(span0, file, 94, 1, 1628);
-    			add_location(br, file, 98, 1, 1717);
+    			add_location(span0, file, 97, 1, 1731);
+    			add_location(br, file, 101, 1, 1820);
     			attr_dev(span1, "class", "svelte-1uchv6j");
-    			add_location(span1, file, 99, 1, 1725);
-    			add_location(button0, file, 100, 1, 1766);
-    			add_location(button1, file, 107, 1, 1870);
+    			add_location(span1, file, 102, 1, 1828);
+    			add_location(button0, file, 103, 1, 1869);
+    			add_location(button1, file, 110, 1, 1973);
     			attr_dev(nav, "class", "svelte-1uchv6j");
-    			add_location(nav, file, 93, 0, 1621);
+    			add_location(nav, file, 96, 0, 1724);
     			attr_dev(p, "class", "keyboard  svelte-1uchv6j");
-    			add_location(p, file, 121, 3, 2141);
+    			add_location(p, file, 124, 3, 2244);
     			attr_dev(center, "class", "svelte-1uchv6j");
-    			add_location(center, file, 120, 2, 2129);
+    			add_location(center, file, 123, 2, 2232);
     			attr_dev(div, "class", "info  svelte-1uchv6j");
-    			add_location(div, file, 119, 1, 2107);
+    			add_location(div, file, 122, 1, 2210);
     			main.hidden = false;
     			attr_dev(main, "class", "svelte-1uchv6j");
-    			add_location(main, file, 115, 0, 2011);
+    			add_location(main, file, 118, 0, 2114);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2939,15 +2959,15 @@ var app = (function () {
 
     			const keyboard_changes = {};
 
-    			if (!updating_pressed && dirty & /*pressed*/ 1) {
+    			if (!updating_pressed && dirty & /*pressed*/ 2) {
     				updating_pressed = true;
-    				keyboard_changes.pressed = /*pressed*/ ctx[0];
+    				keyboard_changes.pressed = /*pressed*/ ctx[1];
     				add_flush_callback(() => updating_pressed = false);
     			}
 
-    			if (!updating_shifted && dirty & /*shifted*/ 2) {
+    			if (!updating_shifted && dirty & /*shifted*/ 1) {
     				updating_shifted = true;
-    				keyboard_changes.shifted = /*shifted*/ ctx[1];
+    				keyboard_changes.shifted = /*shifted*/ ctx[0];
     				add_flush_callback(() => updating_shifted = false);
     			}
 
@@ -3053,11 +3073,10 @@ var app = (function () {
     	characters.forEach(m => keyArray.push("Key" + m.toUpperCase()));
 
     	const handleKeypress = m => {
-    		const k = shifted
-    		? m[m.length - 1]
-    		: m[m.length - 1].toLowerCase();
+    		//const k =  shifted ? m[m.length - 1] :  m[m.length - 1].toLowerCase();
+    		const k = m[m.length - 1].toLowerCase();
 
-    		$$invalidate(0, pressed = k);
+    		$$invalidate(1, pressed = k);
     		console.log("pressed", pressed, k);
     		console.log(k, shifted);
     		$$invalidate(2, keys[0] = k, keys);
@@ -3082,20 +3101,20 @@ var app = (function () {
 
     	function keyboard_pressed_binding(value) {
     		pressed = value;
-    		$$invalidate(0, pressed);
+    		$$invalidate(1, pressed);
     	}
 
     	function keyboard_shifted_binding(value) {
     		shifted = value;
-    		$$invalidate(1, shifted);
+    		$$invalidate(0, shifted);
     	}
 
     	const keydown_handler = ({ detail }) => $$invalidate(2, keys[0] = detail, keys);
     	const shortcut_function = m => handleKeypress(m);
 
     	$$self.$$set = $$props => {
-    		if ('pressed' in $$props) $$invalidate(0, pressed = $$props.pressed);
-    		if ('shifted' in $$props) $$invalidate(1, shifted = $$props.shifted);
+    		if ('pressed' in $$props) $$invalidate(1, pressed = $$props.pressed);
+    		if ('shifted' in $$props) $$invalidate(0, shifted = $$props.shifted);
     	};
 
     	$$self.$capture_state = () => ({
@@ -3126,11 +3145,11 @@ var app = (function () {
 
     	$$self.$inject_state = $$props => {
     		if ('hangulCharacter' in $$props) $$invalidate(3, hangulCharacter = $$props.hangulCharacter);
-    		if ('pressed' in $$props) $$invalidate(0, pressed = $$props.pressed);
+    		if ('pressed' in $$props) $$invalidate(1, pressed = $$props.pressed);
     		if ('slideshow' in $$props) slideshow = $$props.slideshow;
     		if ('slideIndex' in $$props) $$invalidate(10, slideIndex = $$props.slideIndex);
     		if ('currentChar' in $$props) currentChar = $$props.currentChar;
-    		if ('shifted' in $$props) $$invalidate(1, shifted = $$props.shifted);
+    		if ('shifted' in $$props) $$invalidate(0, shifted = $$props.shifted);
     		if ('characters' in $$props) characters = $$props.characters;
     		if ('keyArray' in $$props) $$invalidate(5, keyArray = $$props.keyArray);
     		if ('showLayout' in $$props) $$invalidate(4, showLayout = $$props.showLayout);
@@ -3147,14 +3166,18 @@ var app = (function () {
     			}
     		}
 
-    		if ($$self.$$.dirty & /*keys*/ 4) {
-    			$$invalidate(3, hangulCharacter = String(keys[0].length == 1 ? hangulValue[keys[0]] || "" : ""));
+    		if ($$self.$$.dirty & /*keys, shifted*/ 5) {
+    			$$invalidate(3, hangulCharacter = String(keys[0].length == 1
+    			? shifted
+    				? hangulValue[keys[0].toUpperCase()] || ""
+    				: hangulValue[keys[0]] || ""
+    			: ""));
     		}
     	};
 
     	return [
-    		pressed,
     		shifted,
+    		pressed,
     		keys,
     		hangulCharacter,
     		showLayout,
@@ -3174,7 +3197,7 @@ var app = (function () {
     class App extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance, create_fragment, safe_not_equal, { pressed: 0, shifted: 1, hangulValue: 9 });
+    		init(this, options, instance, create_fragment, safe_not_equal, { pressed: 1, shifted: 0, hangulValue: 9 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -3186,7 +3209,7 @@ var app = (function () {
     		const { ctx } = this.$$;
     		const props = options.props || {};
 
-    		if (/*shifted*/ ctx[1] === undefined && !('shifted' in props)) {
+    		if (/*shifted*/ ctx[0] === undefined && !('shifted' in props)) {
     			console_1.warn("<App> was created without expected prop 'shifted'");
     		}
     	}
