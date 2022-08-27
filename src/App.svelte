@@ -67,7 +67,7 @@
 	let faceIdx = 0;
 
 	const funnyface = () => {
-		const faces = ["😜", "😉", "😊"];
+		const faces = ["😜", "😁", "😛", "😊",  ];
 		const currentFace = faces[faceIdx];
 		faceIdx += 1;
 		if (faceIdx == faces.length) faceIdx = 0;

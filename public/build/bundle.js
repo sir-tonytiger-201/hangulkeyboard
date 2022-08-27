@@ -2644,8 +2644,8 @@ var app = (function () {
     			img = element("img");
     			if (!src_url_equal(img.src, img_src_value = "./keyboard.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "class", "svelte-1uchv6j");
-    			add_location(img, file, 123, 3, 2281);
-    			add_location(center, file, 122, 2, 2269);
+    			add_location(img, file, 123, 3, 2290);
+    			add_location(center, file, 122, 2, 2278);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, center, anchor);
@@ -2685,8 +2685,8 @@ var app = (function () {
     			div1 = element("div");
     			div0 = element("div");
     			t = text(t_value);
-    			add_location(div0, file, 154, 7, 2850);
-    			add_location(div1, file, 145, 6, 2705);
+    			add_location(div0, file, 154, 7, 2859);
+    			add_location(div1, file, 145, 6, 2714);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -2749,7 +2749,7 @@ var app = (function () {
     			div = element("div");
     			if (if_block) if_block.c();
     			attr_dev(div, "class", "hangul svelte-1uchv6j");
-    			add_location(div, file, 143, 4, 2651);
+    			add_location(div, file, 143, 4, 2660);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2900,28 +2900,28 @@ var app = (function () {
     			t11 = space();
     			key_block.c();
     			attr_dev(h1, "class", "svelte-1uchv6j");
-    			add_location(h1, file, 108, 3, 1954);
-    			add_location(i, file, 109, 9, 1988);
-    			add_location(small, file, 109, 2, 1981);
+    			add_location(h1, file, 108, 3, 1963);
+    			add_location(i, file, 109, 9, 1997);
+    			add_location(small, file, 109, 2, 1990);
     			attr_dev(span0, "class", "svelte-1uchv6j");
-    			add_location(span0, file, 107, 1, 1945);
-    			add_location(br, file, 111, 1, 2034);
+    			add_location(span0, file, 107, 1, 1954);
+    			add_location(br, file, 111, 1, 2043);
     			attr_dev(span1, "class", "svelte-1uchv6j");
-    			add_location(span1, file, 112, 1, 2042);
-    			add_location(button0, file, 113, 1, 2083);
+    			add_location(span1, file, 112, 1, 2051);
+    			add_location(button0, file, 113, 1, 2092);
     			button1.disabled = true;
-    			add_location(button1, file, 120, 1, 2187);
+    			add_location(button1, file, 120, 1, 2196);
     			attr_dev(nav, "class", "svelte-1uchv6j");
-    			add_location(nav, file, 106, 0, 1938);
+    			add_location(nav, file, 106, 0, 1947);
     			attr_dev(p, "class", "keyboard  svelte-1uchv6j");
-    			add_location(p, file, 134, 3, 2467);
+    			add_location(p, file, 134, 3, 2476);
     			attr_dev(center, "class", "svelte-1uchv6j");
-    			add_location(center, file, 133, 2, 2455);
+    			add_location(center, file, 133, 2, 2464);
     			attr_dev(div, "class", "info  svelte-1uchv6j");
-    			add_location(div, file, 132, 1, 2433);
+    			add_location(div, file, 132, 1, 2442);
     			main.hidden = false;
     			attr_dev(main, "class", "svelte-1uchv6j");
-    			add_location(main, file, 128, 0, 2337);
+    			add_location(main, file, 128, 0, 2346);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3113,7 +3113,7 @@ var app = (function () {
     	let faceIdx = 0;
 
     	const funnyface = () => {
-    		const faces = ["😜", "😉", "😊"];
+    		const faces = ["😜", "😁", "😛", "😊"];
     		const currentFace = faces[faceIdx];
     		faceIdx += 1;
     		if (faceIdx == faces.length) faceIdx = 0;
