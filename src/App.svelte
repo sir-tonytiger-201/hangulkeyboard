@@ -326,7 +326,7 @@
 		{:else}
 			Start
 		{/if}
-		Slideshow
+		slideshow
 	</button>
 	{#if showLayout}
 		<center>

@@ -3383,7 +3383,7 @@ var app = (function () {
     			t7 = space();
     			button1 = element("button");
     			if_block1.c();
-    			t8 = text("\n\t\tSlideshow");
+    			t8 = text("\n\t\tslideshow");
     			t9 = space();
     			if (if_block2) if_block2.c();
     			t10 = space();
