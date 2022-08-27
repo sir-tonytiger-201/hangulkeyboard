@@ -90,6 +90,7 @@
 	let showLayout = false;
 
 	const showkey = i => {
+		timestamp = Date.now();
 		const keycode = "Key" + Object.keys(hangulValue)[i].toUpperCase();
 		const k = keycode[keycode.length - 1].toLowerCase();
 		pressed = k;
