@@ -2,9 +2,9 @@
 	import keys from "./lib/layouts/qwerty/standard";
 	import Keyboard from "./lib/Keyboard.svelte";
 	import { shortcut } from "./lib/shortcut";
-	import { fly, fade, slide, scale } from 'svelte/transition';
-	import { flip } from 'svelte/animate'; 
-	import { cubicIn } from 'svelte/easing';
+	import { fly, fade, slide, scale } from "svelte/transition";
+	import { flip } from "svelte/animate";
+	import { cubicIn } from "svelte/easing";
 	const keyClass = {};
 	let hangulCharacter = "";
 
@@ -15,7 +15,10 @@
 
 	let currentChar = "";
 
+	export let shifted;
+
 	export const hangulValue = {
+		"NULL": "",
 		q: "ㅂ",
 		w: "ㅈ",
 		e: "ㄷ",
@@ -42,6 +45,13 @@
 		b: "ㅠ",
 		n: "ㅜ",
 		m: "ㅡ",
+		Q: "ㅃ",
+		W: "ㅉ",
+		E: "ㄸ",
+		R: "ㄲ",
+		T: "ㅆ",
+		O: "ㅒ",
+		P: "ㅖ",
 	};
 
 	let characters = Object.keys(hangulValue);
@@ -50,16 +60,19 @@
 
 	characters.forEach((m) => keyArray.push("Key" + m.toUpperCase()));
 
-	$: console.dir(keys[slideIndex]?.value);
+	$: if (slideIndex) {
+		console.dir(keys[slideIndex]?.value);
+	}
+	
 	$: hangulCharacter = String(
 		keys[0].length == 1 ? hangulValue[keys[0]] || "" : ""
 	);
 
 	const handleKeypress = (m) => {
-		const k = m[m.length - 1].toLowerCase();
+		pressed = m;
+		const k =  shifted ? m[m.length - 1] :  m[m.length - 1].toLowerCase();
+		console.log(k, shifted)
 		keys[0] = k;
-		pressed = k || pressed;
-		console.log(m)
 	};
 
 	let showLayout = false;
@@ -67,19 +80,21 @@
 	const toggleView = () => {
 		showLayout = !showLayout;
 	};
-const toggleSlideshow = () => {
-	slideshow = !slideshow;
-	if (slideshow) slideIndex = 0;
-}
+	const toggleSlideshow = () => {
+		slideshow = !slideshow;
+		if (slideshow) slideIndex = 0;
+	};
 
-//$: currentChar = hangulValue[slideIndex];
-//$: console.log(currentChar)
-
+	//$: currentChar = hangulValue[slideIndex];
+	//$: console.log(currentChar)
 </script>
 
 <nav>
-	<span><h1>Hangul Keyboard</h1> <small><i>By sir-tonytiger-201</i></small></span>
-	<br>
+	<span
+		><h1>Hangul Keyboard</h1>
+		<small><i>By sir-tonytiger-201</i></small></span
+	>
+	<br />
 	<span> Learn the layout. &emsp; </span>
 	<button on:click={toggleView}>
 		{#if showLayout}
@@ -90,10 +105,10 @@ const toggleSlideshow = () => {
 	</button>
 	<button on:click={toggleSlideshow}>Slidehow</button>
 	{#if showLayout}
-	<center>
-		<img src="./keyboard.png" />
-	</center>
-{/if}
+		<center>
+			<img src="./keyboard.png" />
+		</center>
+	{/if}
 </nav>
 
 <main
@@ -106,22 +121,28 @@ const toggleSlideshow = () => {
 				<Keyboard
 					on:keydown={({ detail }) => (keys[0] = detail)}
 					bind:pressed
+					bind:shifted
 				/>
 			</p>
 			{#key hangulCharacter}
-			<div class="hangul" >
-				
+				<div class="hangul">
 					{#if hangulCharacter}
-					<div in:fly={{easing: cubicIn, start: 0.5, opacity: 0.5, x:0, y:-320}}>
-						<div in:scale>
-							{hangulCharacter}
+						<div
+							in:fly={{
+								easing: cubicIn,
+								start: 0.5,
+								opacity: 0.5,
+								x: 0,
+								y: -320,
+							}}
+						>
+							<div in:scale>
+								{hangulCharacter}
+							</div>
 						</div>
-					</div>
 					{/if}
-				
-			</div>
+				</div>
 			{/key}
-
 		</center>
 	</div>
 </main>
@@ -148,7 +169,8 @@ const toggleSlideshow = () => {
 	.keymap {
 	}
 
-	h1, span {
+	h1,
+	span {
 		display: inline-block;
 	}
 

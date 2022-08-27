@@ -22,9 +22,13 @@
 
   // vars
   let page = 0;
-  let shifted = false;
+  export let shifted = false;
   let active = undefined;
+  
   export let pressed;
+
+  // Use later
+  let upperCase = false;
 
   const layouts = {
     qwerty: {
@@ -54,15 +58,16 @@
 
   const onKeyStart = (event, value) => {
     event.preventDefault();
+    //console.log(value)
     active = value;
     pressed = active;
-    if (value && value.includes("Page")) {
-      page = +value.substr(-1);
+    if (value != undefined  && value.includes("Page")) {
+      page = +value?.substr(-1);
     } else if (value === "Shift") {
       shifted = !shifted;
     } else {
-      let output = value || "";
-      if (shifted && alphabet.includes(value.toLowerCase()))
+      let output = value //|| "";
+      if (shifted && alphabet.includes(value))
         output = value.toUpperCase() || "";
       dispatch("keydown", output);
     }
@@ -79,16 +84,18 @@
   // reactive vars
   $: rawData = custom || layouts[localizationLayout][layout] || standard;
   $: data = rawData.map((d) => {
+    //console.log("foo", d)
     let display = d.display;
     const s = swaps[d.value];
     const shouldSwap = s && !noSwap.includes(d.value) && !d.noSwap;
+    //console.log("bar")
     if (shouldSwap) display = s;
     if (!display && d.value)
       display = shifted
-        ? (d && d.value.toUpperCase()) || ""
-        : (d && d.value.toLowerCase()) || "";
+        ? (d.value.toUpperCase()) || ""
+        : (d.value.toLowerCase()) || "";
     if (d.value === "Shift")
-      display = shifted ? s || "" : (s && s.toUpperCase()) || "";
+      display = shifted ? s || "" : (s.toUpperCase()) || "";
     return {
       ...d,
       display,
@@ -111,7 +118,7 @@
   let indent = 0;
 
   const shiftKeys = (m) => {
-    if (m > 1) return "";
+    if (m > 0) return "";
     let spaces = "";
     for (let i = 0; i < m; i++) {
       spaces += "&nbsp;&nbsp&nbsp";
@@ -129,7 +136,7 @@
           {#each keys as { value, display }}
             <button
               class="key key--{value} {keyClass[value] || ''}"
-              class:single={value && value.length === 1}
+              class:single={value != undefined && value.length === 1}
               class:half={value == ";"}
               class:active={value === active}
               class:pressed={value === pressed}
