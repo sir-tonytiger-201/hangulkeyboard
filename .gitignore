@@ -1,4 +1,8 @@
 /node_modules/
 /public/build/
+*.swap
 
 .DS_Store
+public/build/bundle.css
+public/build/bundle.js
+public/build/bundle.js.map
