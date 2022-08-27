@@ -78,7 +78,8 @@ const toggleSlideshow = () => {
 </script>
 
 <nav>
-	<h1>Hangul Keyboard</h1>
+	<span><h1>Hangul Keyboard</h1> <small><i>By sir-tonytiger-201</i></small></span>
+	<br>
 	<span> Learn the layout. &emsp; </span>
 	<button on:click={toggleView}>
 		{#if showLayout}
@@ -135,7 +136,6 @@ const toggleSlideshow = () => {
 		display: flexbox;
 	}
 
-	h1,
 	h3,
 	p,
 	.keyboard,
@@ -146,6 +146,10 @@ const toggleSlideshow = () => {
 	}
 
 	.keymap {
+	}
+
+	h1, span {
+		display: inline-block;
 	}
 
 	.keyboard {

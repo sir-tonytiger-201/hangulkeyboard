@@ -1587,7 +1587,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (138:14) {:else}
+    // (143:14) {:else}
     function create_else_block$1(ctx) {
     	let t_value = /*display*/ ctx[37] + "";
     	let t;
@@ -1611,14 +1611,14 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(138:14) {:else}",
+    		source: "(143:14) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (136:14) {#if display && display.includes("<svg")}
+    // (141:14) {#if display && display.includes("<svg")}
     function create_if_block$1(ctx) {
     	let html_tag;
     	let raw_value = /*display*/ ctx[37] + "";
@@ -1647,14 +1647,14 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(136:14) {#if display && display.includes(\\\"<svg\\\")}",
+    		source: "(141:14) {#if display && display.includes(\\\"<svg\\\")}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (124:10) {#each keys as { value, display }}
+    // (129:10) {#each keys as { value, display }}
     function create_each_block_2(ctx) {
     	let button;
     	let show_if;
@@ -1692,12 +1692,12 @@ var app = (function () {
     		c: function create() {
     			button = element("button");
     			if_block.c();
-    			attr_dev(button, "class", button_class_value = "key key--" + /*value*/ ctx[36] + " " + (/*keyClass*/ ctx[0][/*value*/ ctx[36]] || '') + " svelte-1mp5ksk");
+    			attr_dev(button, "class", button_class_value = "key key--" + /*value*/ ctx[36] + " " + (/*keyClass*/ ctx[0][/*value*/ ctx[36]] || '') + " svelte-rj7hlc");
     			toggle_class(button, "single", /*value*/ ctx[36] && /*value*/ ctx[36].length === 1);
     			toggle_class(button, "half", /*value*/ ctx[36] == ";");
     			toggle_class(button, "active", /*value*/ ctx[36] === /*active*/ ctx[3]);
     			toggle_class(button, "pressed", /*value*/ ctx[36] === /*pressed*/ ctx[1]);
-    			add_location(button, file$1, 124, 12, 3394);
+    			add_location(button, file$1, 129, 12, 3455);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
@@ -1729,7 +1729,7 @@ var app = (function () {
     				}
     			}
 
-    			if (dirty[0] & /*rowData, keyClass*/ 17 && button_class_value !== (button_class_value = "key key--" + /*value*/ ctx[36] + " " + (/*keyClass*/ ctx[0][/*value*/ ctx[36]] || '') + " svelte-1mp5ksk")) {
+    			if (dirty[0] & /*rowData, keyClass*/ 17 && button_class_value !== (button_class_value = "key key--" + /*value*/ ctx[36] + " " + (/*keyClass*/ ctx[0][/*value*/ ctx[36]] || '') + " svelte-rj7hlc")) {
     				attr_dev(button, "class", button_class_value);
     			}
 
@@ -1761,14 +1761,14 @@ var app = (function () {
     		block,
     		id: create_each_block_2.name,
     		type: "each",
-    		source: "(124:10) {#each keys as { value, display }}",
+    		source: "(129:10) {#each keys as { value, display }}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (121:6) {#each row as keys, j}
+    // (126:6) {#each row as keys, j}
     function create_each_block_1(ctx) {
     	let div;
     	let html_tag;
@@ -1793,8 +1793,8 @@ var app = (function () {
     			}
 
     			html_tag.a = t;
-    			attr_dev(div, "class", "row row--" + /*i*/ ctx[32] + " svelte-1mp5ksk");
-    			add_location(div, file$1, 121, 8, 3279);
+    			attr_dev(div, "class", "row row--" + /*i*/ ctx[32] + " svelte-rj7hlc");
+    			add_location(div, file$1, 126, 8, 3340);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -1840,14 +1840,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(121:6) {#each row as keys, j}",
+    		source: "(126:6) {#each row as keys, j}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (119:2) {#each rowData as row, i}
+    // (124:2) {#each rowData as row, i}
     function create_each_block(ctx) {
     	let div;
     	let t;
@@ -1868,9 +1868,9 @@ var app = (function () {
     			}
 
     			t = space();
-    			attr_dev(div, "class", "page svelte-1mp5ksk");
+    			attr_dev(div, "class", "page svelte-rj7hlc");
     			toggle_class(div, "visible", /*i*/ ctx[32] === /*page*/ ctx[2]);
-    			add_location(div, file$1, 119, 4, 3196);
+    			add_location(div, file$1, 124, 4, 3257);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -1920,7 +1920,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(119:2) {#each rowData as row, i}",
+    		source: "(124:2) {#each rowData as row, i}",
     		ctx
     	});
 
@@ -1946,7 +1946,7 @@ var app = (function () {
     			}
 
     			attr_dev(div, "class", "svelte-keyboard");
-    			add_location(div, file$1, 117, 0, 3134);
+    			add_location(div, file$1, 122, 0, 3195);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2068,7 +2068,7 @@ var app = (function () {
     			$$invalidate(12, shifted = !shifted);
     		} else {
     			let output = value || "";
-    			if (shifted && alphabet.includes(value)) output = value.toUpperCase() || "";
+    			if (shifted && alphabet.includes(value.toLowerCase())) output = value.toUpperCase() || "";
     			dispatch("keydown", output);
     		}
 
@@ -2508,7 +2508,7 @@ var app = (function () {
     const { Object: Object_1, console: console_1 } = globals;
     const file = "src/App.svelte";
 
-    // (86:2) {:else}
+    // (87:2) {:else}
     function create_else_block(ctx) {
     	let t;
 
@@ -2528,14 +2528,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(86:2) {:else}",
+    		source: "(87:2) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (84:2) {#if showLayout}
+    // (85:2) {#if showLayout}
     function create_if_block_2(ctx) {
     	let t;
 
@@ -2555,14 +2555,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(84:2) {#if showLayout}",
+    		source: "(85:2) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (91:1) {#if showLayout}
+    // (92:1) {#if showLayout}
     function create_if_block_1(ctx) {
     	let center;
     	let img;
@@ -2573,9 +2573,9 @@ var app = (function () {
     			center = element("center");
     			img = element("img");
     			if (!src_url_equal(img.src, img_src_value = "./keyboard.png")) attr_dev(img, "src", img_src_value);
-    			attr_dev(img, "class", "svelte-1uyjbpn");
-    			add_location(img, file, 92, 2, 1670);
-    			add_location(center, file, 91, 1, 1659);
+    			attr_dev(img, "class", "svelte-tpip3a");
+    			add_location(img, file, 93, 2, 1732);
+    			add_location(center, file, 92, 1, 1721);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, center, anchor);
@@ -2590,14 +2590,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(91:1) {#if showLayout}",
+    		source: "(92:1) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (113:5) {#if hangulCharacter}
+    // (114:5) {#if hangulCharacter}
     function create_if_block(ctx) {
     	let div1;
     	let div0;
@@ -2610,8 +2610,8 @@ var app = (function () {
     			div1 = element("div");
     			div0 = element("div");
     			t = text(/*hangulCharacter*/ ctx[1]);
-    			add_location(div0, file, 114, 6, 2142);
-    			add_location(div1, file, 113, 5, 2064);
+    			add_location(div0, file, 115, 6, 2204);
+    			add_location(div1, file, 114, 5, 2126);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -2654,14 +2654,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(113:5) {#if hangulCharacter}",
+    		source: "(114:5) {#if hangulCharacter}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (110:3) {#key hangulCharacter}
+    // (111:3) {#key hangulCharacter}
     function create_key_block(ctx) {
     	let div;
     	let if_block = /*hangulCharacter*/ ctx[1] && create_if_block(ctx);
@@ -2670,8 +2670,8 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			if (if_block) if_block.c();
-    			attr_dev(div, "class", "hangul svelte-1uyjbpn");
-    			add_location(div, file, 110, 3, 2005);
+    			attr_dev(div, "class", "hangul svelte-tpip3a");
+    			add_location(div, file, 111, 3, 2067);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2710,7 +2710,7 @@ var app = (function () {
     		block,
     		id: create_key_block.name,
     		type: "key",
-    		source: "(110:3) {#key hangulCharacter}",
+    		source: "(111:3) {#key hangulCharacter}",
     		ctx
     	});
 
@@ -2719,22 +2719,28 @@ var app = (function () {
 
     function create_fragment(ctx) {
     	let nav;
+    	let span0;
     	let h1;
     	let t1;
-    	let span;
+    	let small;
+    	let i;
     	let t3;
-    	let button0;
+    	let br;
     	let t4;
-    	let button1;
+    	let span1;
     	let t6;
+    	let button0;
     	let t7;
+    	let button1;
+    	let t9;
+    	let t10;
     	let main;
     	let div;
     	let center;
     	let p;
     	let keyboard;
     	let updating_pressed;
-    	let t8;
+    	let t11;
     	let previous_key = /*hangulCharacter*/ ctx[1];
     	let current;
     	let mounted;
@@ -2767,66 +2773,85 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			nav = element("nav");
+    			span0 = element("span");
     			h1 = element("h1");
     			h1.textContent = "Hangul Keyboard";
     			t1 = space();
-    			span = element("span");
-    			span.textContent = "Learn the layout.  ";
+    			small = element("small");
+    			i = element("i");
+    			i.textContent = "By sir-tonytiger-201";
     			t3 = space();
+    			br = element("br");
+    			t4 = space();
+    			span1 = element("span");
+    			span1.textContent = "Learn the layout.  ";
+    			t6 = space();
     			button0 = element("button");
     			if_block0.c();
-    			t4 = space();
+    			t7 = space();
     			button1 = element("button");
     			button1.textContent = "Slidehow";
-    			t6 = space();
+    			t9 = space();
     			if (if_block1) if_block1.c();
-    			t7 = space();
+    			t10 = space();
     			main = element("main");
     			div = element("div");
     			center = element("center");
     			p = element("p");
     			create_component(keyboard.$$.fragment);
-    			t8 = space();
+    			t11 = space();
     			key_block.c();
-    			attr_dev(h1, "class", "svelte-1uyjbpn");
-    			add_location(h1, file, 80, 1, 1416);
-    			add_location(span, file, 81, 1, 1442);
-    			add_location(button0, file, 82, 1, 1483);
-    			add_location(button1, file, 89, 1, 1587);
-    			attr_dev(nav, "class", "svelte-1uyjbpn");
+    			attr_dev(h1, "class", "svelte-tpip3a");
+    			add_location(h1, file, 80, 7, 1422);
+    			add_location(i, file, 80, 39, 1454);
+    			add_location(small, file, 80, 32, 1447);
+    			attr_dev(span0, "class", "svelte-tpip3a");
+    			add_location(span0, file, 80, 1, 1416);
+    			add_location(br, file, 81, 1, 1498);
+    			attr_dev(span1, "class", "svelte-tpip3a");
+    			add_location(span1, file, 82, 1, 1504);
+    			add_location(button0, file, 83, 1, 1545);
+    			add_location(button1, file, 90, 1, 1649);
+    			attr_dev(nav, "class", "svelte-tpip3a");
     			add_location(nav, file, 79, 0, 1409);
-    			attr_dev(p, "class", "keyboard  svelte-1uyjbpn");
-    			add_location(p, file, 103, 3, 1854);
-    			attr_dev(center, "class", "svelte-1uyjbpn");
-    			add_location(center, file, 102, 2, 1842);
-    			attr_dev(div, "class", "info  svelte-1uyjbpn");
-    			add_location(div, file, 101, 1, 1820);
+    			attr_dev(p, "class", "keyboard  svelte-tpip3a");
+    			add_location(p, file, 104, 3, 1916);
+    			attr_dev(center, "class", "svelte-tpip3a");
+    			add_location(center, file, 103, 2, 1904);
+    			attr_dev(div, "class", "info  svelte-tpip3a");
+    			add_location(div, file, 102, 1, 1882);
     			main.hidden = false;
-    			attr_dev(main, "class", "svelte-1uyjbpn");
-    			add_location(main, file, 97, 0, 1724);
+    			attr_dev(main, "class", "svelte-tpip3a");
+    			add_location(main, file, 98, 0, 1786);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, nav, anchor);
-    			append_dev(nav, h1);
-    			append_dev(nav, t1);
-    			append_dev(nav, span);
+    			append_dev(nav, span0);
+    			append_dev(span0, h1);
+    			append_dev(span0, t1);
+    			append_dev(span0, small);
+    			append_dev(small, i);
     			append_dev(nav, t3);
+    			append_dev(nav, br);
+    			append_dev(nav, t4);
+    			append_dev(nav, span1);
+    			append_dev(nav, t6);
     			append_dev(nav, button0);
     			if_block0.m(button0, null);
-    			append_dev(nav, t4);
+    			append_dev(nav, t7);
     			append_dev(nav, button1);
-    			append_dev(nav, t6);
+    			append_dev(nav, t9);
     			if (if_block1) if_block1.m(nav, null);
-    			insert_dev(target, t7, anchor);
+    			insert_dev(target, t10, anchor);
     			insert_dev(target, main, anchor);
     			append_dev(main, div);
     			append_dev(div, center);
     			append_dev(center, p);
     			mount_component(keyboard, p, null);
-    			append_dev(center, t8);
+    			append_dev(center, t11);
     			key_block.m(center, null);
     			current = true;
 
@@ -2902,7 +2927,7 @@ var app = (function () {
     			if (detaching) detach_dev(nav);
     			if_block0.d();
     			if (if_block1) if_block1.d();
-    			if (detaching) detach_dev(t7);
+    			if (detaching) detach_dev(t10);
     			if (detaching) detach_dev(main);
     			destroy_component(keyboard);
     			key_block.d(detaching);

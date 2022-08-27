@@ -18,7 +18,7 @@
   export let layout = "standard";
   export let noSwap = [];
   export let keyClass = {};
-  keyClass[";"]="half"
+  keyClass[";"] = "half";
 
   // vars
   let page = 0;
@@ -26,7 +26,7 @@
   let active = undefined;
   export let pressed;
 
-    const layouts = {
+  const layouts = {
     qwerty: {
       standard: qwertyStandard,
       crossword: qwertyCrossword,
@@ -62,7 +62,8 @@
       shifted = !shifted;
     } else {
       let output = value || "";
-      if (shifted && alphabet.includes(value)) output = value.toUpperCase() || "";
+      if (shifted && alphabet.includes(value.toLowerCase()))
+        output = value.toUpperCase() || "";
       dispatch("keydown", output);
     }
     event.stopPropagation();
@@ -82,8 +83,12 @@
     const s = swaps[d.value];
     const shouldSwap = s && !noSwap.includes(d.value) && !d.noSwap;
     if (shouldSwap) display = s;
-    if (!display && d.value) display = shifted ? d && d.value.toUpperCase() || "" : d && d.value.toLowerCase() || "";
-    if (d.value === "Shift") display = shifted ? s || "" : s && s.toUpperCase() || "";
+    if (!display && d.value)
+      display = shifted
+        ? (d && d.value.toUpperCase()) || ""
+        : (d && d.value.toLowerCase()) || "";
+    if (d.value === "Shift")
+      display = shifted ? s || "" : (s && s.toUpperCase()) || "";
     return {
       ...d,
       display,
@@ -105,14 +110,14 @@
 
   let indent = 0;
 
-  const shiftKeys = m => {
+  const shiftKeys = (m) => {
     if (m > 1) return "";
     let spaces = "";
-    for(let i = 0; i < m; i++) {
+    for (let i = 0; i < m; i++) {
       spaces += "&nbsp;&nbsp&nbsp";
     }
     return spaces;
-  }
+  };
 </script>
 
 <div class="svelte-keyboard">
@@ -219,7 +224,6 @@
   button.key--undefined {
     display: none;
   }
-
 
   .page {
     display: none;
