@@ -4,7 +4,7 @@
 	import { shortcut } from "./lib/shortcut";
 	import { fly, fade, slide, scale } from "svelte/transition";
 	import { flip } from "svelte/animate";
-	import { cubicIn } from "svelte/easing";
+	import { bounceInOut, circIn, circOut, cubicIn, cubicOut, quadIn, quintIn, quintOut, sineIn, sineInOut } from "svelte/easing";
 	const keyClass = {};
 	let hangulCharacter = "";
 
@@ -102,6 +102,96 @@
 
 	//$: currentChar = hangulValue[slideIndex];
 	//$: console.log(currentChar)
+
+	import {tweened} from 'svelte/motion';
+	
+	let colorIndex = 0;
+	let keycolorIndex = 0;
+	let keybgcolorIndex = 0;
+	
+	const colors = ['fa0024', 'efff11', '00ff00', '072e5b', 'f9be8a','f36729', '59e8eb', '3548b7']; // red, yellow, green, blue
+	const keycolors = [];
+	colors.forEach(m => keycolors.unshift(m));
+	
+	const keybgcolors = ['023e8a','9CAEA9','2B2D42','6A4C93','6C757D'];
+	
+	//const colors = ['ff0000', '00ff00', '0000ff', '072e5b']; // red, green, blue
+	
+	// This converts a decimal number to a two-character hex number.
+	const decimalToHex = decimal => Math.round(decimal).toString(16).padStart(2, '0');
+	
+	// This cycles through the indexes of the colors array.
+	const goToNextColor = () => { colorIndex = (colorIndex + 1) % colors.length; }
+	const goToNextKeyColor = () => { keycolorIndex = (keycolorIndex + 1) % keycolors.length; }
+	const goToNextKeybgColor = () => { keybgcolorIndex = (keybgcolorIndex + 1) % keybgcolors.length; }
+	console.log("colorIndex", colorIndex);
+	
+	// This extracts two hex characters from an "rrggbb" color string
+	// and returns the value as a number between 0 and 255.
+	const getColor = (hex, index) => parseInt(hex.substring(index, index + 2), 16);
+	
+	// This gets an array of red, green, and blue values in the range 0 to 255
+	// from an "rrggbb" hex color string.
+	const getRGBs = hex => [getColor(hex, 0), getColor(hex, 2), getColor(hex, 4)];
+	
+	// This computes a value that is t% of the way from
+	// start to start + delta where t is a number between 0 and 1.
+	const scaledValue = (start, delta, t) => start + delta * t;
+	
+	// This is an interpolate function used by the tweened function.
+	function rgbInterpolate(fromColor, toColor) {
+		const [fromRed, fromGreen, fromBlue] = getRGBs(fromColor);
+		const [toRed, toGreen, toBlue] = getRGBs(toColor);
+		const deltaRed = toRed - fromRed;
+		const deltaGreen = toGreen - fromGreen;
+		const deltaBlue = toBlue - fromBlue;
+		
+		return t => {
+			const red = scaledValue(fromRed, deltaRed, t);
+			const green = scaledValue(fromGreen, deltaGreen, t);
+			const blue = scaledValue(fromBlue, deltaBlue, t);
+			return decimalToHex(red) + decimalToHex(green) + decimalToHex(blue);
+		};
+	}
+	
+	// Create a tweened store that holds an "rrggbb" hex color.
+	const color = tweened(colors[colorIndex], {duration: 2000, 
+		easing: sineIn,
+		interpolate: rgbInterpolate
+	});
+
+	const keycolor = tweened(keycolors[keycolorIndex], {duration: 1000, 
+		easing: circIn,
+		interpolate: rgbInterpolate
+	});
+
+	const keybgcolor = tweened(keybgcolors[keybgcolorIndex], {duration: 3000, 
+		easing: quadIn,
+		interpolate: rgbInterpolate
+	});
+	
+	// Trigger tweening if colorIndex changes.
+	$: color.set(colors[colorIndex]);
+	$: keycolor.set(keycolors[keycolorIndex]);
+	$: keybgcolor.set(keybgcolors[keybgcolorIndex]);
+	//$: console.log("color", $color, "keycolor", $keycolor)
+	
+	let prevColor = $color;
+	
+  setInterval(() => {
+		goToNextColor();
+		clearInterval();
+  }, 2000)
+
+  setInterval(() => {
+		goToNextKeyColor();
+		clearInterval();
+  }, 1000)
+
+  setInterval(() => {
+		goToNextKeybgColor();
+		clearInterval();
+  }, 3000)
 </script>
 
 <nav>
@@ -138,10 +228,12 @@
 					bind:pressed
 					bind:shifted
 					bind:timestamp
+					bind:keycolor={$keycolor}
+					bind:keybackground={$keybgcolor}
 				/>
 			</p>
 			{#key timestamp}
-				<div class="hangul">
+				<div class="hangul" style="color: #{$color}">
 					{#if hangulCharacter}
 						<div
 							in:fly={{
@@ -151,6 +243,7 @@
 								x: 0,
 								y: -320,
 							}}
+							
 						>
 							<div in:scale>
 								{hangulCharacter == "undefined"

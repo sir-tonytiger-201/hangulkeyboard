@@ -20,6 +20,9 @@
   export let keyClass = {};
   keyClass[";"] = "half";
   export let timestamp;
+  export let keycolor;
+  export let keybackground;
+
 
   // vars
   let page = 0;
@@ -165,10 +168,14 @@
               on:mouseup={() => onKeyEnd(value)}
               class:active={value === active}
               class:pressed={value === pressed}
+              style="background: #{keybackground};"
             >
+            <div style="color: #{keycolor};">
               {#if display && display.includes("<svg")}
-                {@html display}
-              {:else}{display}{/if}
+              {@html display}
+            {:else}{display}{/if}
+            </div>
+              
             </button>
           {/each}
         </div>
@@ -193,7 +200,7 @@
     line-height: 1;
     transform-origin: 50% 50%;
     user-select: none;
-    background: var(--background, #eee);
+    background: var(--background, #E500A4);
     color: var(--color, #111);
     border: var(--border, none);
     border-radius: var(--border-radius, 2px);
