@@ -19,6 +19,7 @@
   export let noSwap = [];
   export let keyClass = {};
   keyClass[";"] = "half";
+  export let timestamp;
 
   // vars
   let page = 0;
@@ -58,6 +59,7 @@
   const unique = (arr) => [...new Set(arr)];
 
   const onKeyStart = (event, value) => {
+    timestamp = Date.now();
     event.preventDefault();
     //console.log(value)
     active = value;

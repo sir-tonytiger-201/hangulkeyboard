@@ -14,11 +14,11 @@
 	let slideIndex = 0;
 
 	let currentChar = "";
-
+	export let timestamp = Date.now();
 	export let shifted;
 
 	export const hangulValue = {
-		"NULL": "",
+		NULL: "",
 		q: "ㅂ",
 		w: "ㅈ",
 		e: "ㄷ",
@@ -63,20 +63,34 @@
 	$: if (slideIndex) {
 		console.dir(keys[slideIndex]?.value);
 	}
-	
+
+	let faceIdx = 0;
+
+	const funnyface = () => {
+		const faces = ["😜", "😉", "😊"];
+		const currentFace = faces[faceIdx];
+		faceIdx += 1;
+		console.log("current: ", currentFace, faceIdx);
+		if (faceIdx == faces.length) faceIdx = 0;
+		return currentFace;
+	};
+
 	$: hangulCharacter = String(
-		keys[0].length == 1 ? 
-		shifted ? hangulValue[keys[0].toUpperCase()] || "" : hangulValue[keys[0]]
-		|| "" : ""
+		keys[0].length == 1
+			? shifted
+				? hangulValue[keys[0].toUpperCase()] || undefined
+				: hangulValue[keys[0]] || ""
+			: ""
 	);
 
 	const handleKeypress = (m) => {
-			
+		timestamp = Date.now();
+		console.log("dsfsadfp");
 		//const k =  shifted ? m[m.length - 1] :  m[m.length - 1].toLowerCase();
-		const k=  m[m.length - 1].toLowerCase();
+		const k = m[m.length - 1].toLowerCase();
 		pressed = k;
-		console.log("pressed", pressed, k)
-		console.log(k, shifted)
+		console.log("pressed", pressed, k);
+		console.log(k, shifted);
 		keys[0] = k;
 	};
 
@@ -127,9 +141,10 @@
 					on:keydown={({ detail }) => (keys[0] = detail)}
 					bind:pressed
 					bind:shifted
+					bind:timestamp
 				/>
 			</p>
-			{#key hangulCharacter}
+			{#key timestamp}
 				<div class="hangul">
 					{#if hangulCharacter}
 						<div
@@ -142,7 +157,9 @@
 							}}
 						>
 							<div in:scale>
-								{hangulCharacter}
+								{hangulCharacter == "undefined"
+									? funnyface()
+									: hangulCharacter}
 							</div>
 						</div>
 					{/if}
