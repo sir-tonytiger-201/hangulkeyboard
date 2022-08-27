@@ -23,6 +23,7 @@
   export let keycolor;
   export let keybackground;
   export let boxshadowcolor;
+  export let boxsize;
   
   
   //$: boxshadow=`5px 10px 2em ${boxshadowcolor}`;
@@ -33,6 +34,8 @@
   let page = 0;
   export let shifted = false;
   let active = undefined;
+  
+
 
   export let pressed;
 
@@ -163,8 +166,9 @@
         <div class="row row--{i}">
           {@html shiftKeys(j)}
           {#each keys as { value, display }}
+          {#key boxsize}
             <button
-              style="--box-shadow: 5px 10px 2em #{boxshadowcolor}"
+              style="--box-shadow: {boxsize}px {boxsize*2}px 2em #{boxshadowcolor}"
               class="key key--{value} {keyClass[value] || ''}"
               class:single={value != undefined && value.length === 1}
               class:half={value == ";"}
@@ -185,6 +189,7 @@
             </div>
               
             </button>
+            {/key}
           {/each}
         </div>
       {/each}

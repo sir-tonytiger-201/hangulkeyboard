@@ -1599,28 +1599,28 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[35] = list[i];
-    	child_ctx[37] = i;
+    	child_ctx[36] = list[i];
+    	child_ctx[38] = i;
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[38] = list[i];
-    	child_ctx[40] = i;
+    	child_ctx[39] = list[i];
+    	child_ctx[41] = i;
     	return child_ctx;
     }
 
     function get_each_context_2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[41] = list[i].value;
-    	child_ctx[42] = list[i].display;
+    	child_ctx[42] = list[i].value;
+    	child_ctx[43] = list[i].display;
     	return child_ctx;
     }
 
-    // (184:12) {:else}
+    // (188:12) {:else}
     function create_else_block$1(ctx) {
-    	let t_value = /*display*/ ctx[42] + "";
+    	let t_value = /*display*/ ctx[43] + "";
     	let t;
 
     	const block = {
@@ -1631,7 +1631,7 @@ var app = (function () {
     			insert_dev(target, t, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*rowData*/ 128 && t_value !== (t_value = /*display*/ ctx[42] + "")) set_data_dev(t, t_value);
+    			if (dirty[0] & /*rowData*/ 256 && t_value !== (t_value = /*display*/ ctx[43] + "")) set_data_dev(t, t_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(t);
@@ -1642,17 +1642,17 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(184:12) {:else}",
+    		source: "(188:12) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (182:14) {#if display && display.includes("<svg")}
+    // (186:14) {#if display && display.includes("<svg")}
     function create_if_block$1(ctx) {
     	let html_tag;
-    	let raw_value = /*display*/ ctx[42] + "";
+    	let raw_value = /*display*/ ctx[43] + "";
     	let html_anchor;
 
     	const block = {
@@ -1666,7 +1666,7 @@ var app = (function () {
     			insert_dev(target, html_anchor, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*rowData*/ 128 && raw_value !== (raw_value = /*display*/ ctx[42] + "")) html_tag.p(raw_value);
+    			if (dirty[0] & /*rowData*/ 256 && raw_value !== (raw_value = /*display*/ ctx[43] + "")) html_tag.p(raw_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(html_anchor);
@@ -1678,22 +1678,22 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(182:14) {#if display && display.includes(\\\"<svg\\\")}",
+    		source: "(186:14) {#if display && display.includes(\\\"<svg\\\")}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (165:10) {#each keys as { value, display }}
-    function create_each_block_2(ctx) {
+    // (169:10) {#key boxsize}
+    function create_key_block$1(ctx) {
     	let button;
     	let div;
     	let show_if;
     	let style_color = `#${/*keycolor*/ ctx[2]}`;
     	let button_class_value;
 
-    	let style_background_color = `#${/*pressed*/ ctx[0] == /*value*/ ctx[41]
+    	let style_background_color = `#${/*pressed*/ ctx[0] == /*value*/ ctx[42]
 	? 'd6ce9d'
 	: /*keybackground*/ ctx[3]}`;
 
@@ -1701,8 +1701,8 @@ var app = (function () {
     	let dispose;
 
     	function select_block_type(ctx, dirty) {
-    		if (dirty[0] & /*rowData*/ 128) show_if = null;
-    		if (show_if == null) show_if = !!(/*display*/ ctx[42] && /*display*/ ctx[42].includes("<svg"));
+    		if (dirty[0] & /*rowData*/ 256) show_if = null;
+    		if (show_if == null) show_if = !!(/*display*/ ctx[43] && /*display*/ ctx[43].includes("<svg"));
     		if (show_if) return create_if_block$1;
     		return create_else_block$1;
     	}
@@ -1711,19 +1711,19 @@ var app = (function () {
     	let if_block = current_block_type(ctx);
 
     	function touchstart_handler(...args) {
-    		return /*touchstart_handler*/ ctx[25](/*value*/ ctx[41], ...args);
+    		return /*touchstart_handler*/ ctx[26](/*value*/ ctx[42], ...args);
     	}
 
     	function mousedown_handler(...args) {
-    		return /*mousedown_handler*/ ctx[26](/*value*/ ctx[41], ...args);
+    		return /*mousedown_handler*/ ctx[27](/*value*/ ctx[42], ...args);
     	}
 
     	function touchend_handler() {
-    		return /*touchend_handler*/ ctx[27](/*value*/ ctx[41]);
+    		return /*touchend_handler*/ ctx[28](/*value*/ ctx[42]);
     	}
 
     	function mouseup_handler() {
-    		return /*mouseup_handler*/ ctx[28](/*value*/ ctx[41]);
+    		return /*mouseup_handler*/ ctx[29](/*value*/ ctx[42]);
     	}
 
     	const block = {
@@ -1733,15 +1733,15 @@ var app = (function () {
     			if_block.c();
     			set_style(div, "background", `inherit`, false);
     			set_style(div, "color", style_color, false);
-    			add_location(div, file$1, 180, 14, 4748);
-    			set_style(button, "--box-shadow", "5px 10px 2em #" + /*boxshadowcolor*/ ctx[4]);
-    			attr_dev(button, "class", button_class_value = "key key--" + /*value*/ ctx[41] + " " + (/*keyClass*/ ctx[1][/*value*/ ctx[41]] || '') + " svelte-w0k3hv");
-    			toggle_class(button, "single", /*value*/ ctx[41] != undefined && /*value*/ ctx[41].length === 1);
-    			toggle_class(button, "half", /*value*/ ctx[41] == ";");
-    			toggle_class(button, "active", /*value*/ ctx[41] === /*active*/ ctx[5]);
-    			toggle_class(button, "pressed", /*value*/ ctx[41] === /*pressed*/ ctx[0]);
+    			add_location(div, file$1, 184, 14, 4816);
+    			set_style(button, "--box-shadow", /*boxsize*/ ctx[5] + "px " + /*boxsize*/ ctx[5] * 2 + "px 2em #" + /*boxshadowcolor*/ ctx[4]);
+    			attr_dev(button, "class", button_class_value = "key key--" + /*value*/ ctx[42] + " " + (/*keyClass*/ ctx[1][/*value*/ ctx[42]] || '') + " svelte-w0k3hv");
+    			toggle_class(button, "single", /*value*/ ctx[42] != undefined && /*value*/ ctx[42].length === 1);
+    			toggle_class(button, "half", /*value*/ ctx[42] == ";");
+    			toggle_class(button, "active", /*value*/ ctx[42] === /*active*/ ctx[6]);
+    			toggle_class(button, "pressed", /*value*/ ctx[42] === /*pressed*/ ctx[0]);
     			set_style(button, "background-color", style_background_color, false);
-    			add_location(button, file$1, 165, 12, 4026);
+    			add_location(button, file$1, 169, 12, 4077);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
@@ -1778,31 +1778,31 @@ var app = (function () {
     				set_style(div, "color", style_color, false);
     			}
 
-    			if (dirty[0] & /*boxshadowcolor*/ 16) {
-    				set_style(button, "--box-shadow", "5px 10px 2em #" + /*boxshadowcolor*/ ctx[4]);
+    			if (dirty[0] & /*boxsize, boxshadowcolor*/ 48) {
+    				set_style(button, "--box-shadow", /*boxsize*/ ctx[5] + "px " + /*boxsize*/ ctx[5] * 2 + "px 2em #" + /*boxshadowcolor*/ ctx[4]);
     			}
 
-    			if (dirty[0] & /*rowData, keyClass*/ 130 && button_class_value !== (button_class_value = "key key--" + /*value*/ ctx[41] + " " + (/*keyClass*/ ctx[1][/*value*/ ctx[41]] || '') + " svelte-w0k3hv")) {
+    			if (dirty[0] & /*rowData, keyClass*/ 258 && button_class_value !== (button_class_value = "key key--" + /*value*/ ctx[42] + " " + (/*keyClass*/ ctx[1][/*value*/ ctx[42]] || '') + " svelte-w0k3hv")) {
     				attr_dev(button, "class", button_class_value);
     			}
 
-    			if (dirty[0] & /*rowData, keyClass, rowData*/ 130) {
-    				toggle_class(button, "single", /*value*/ ctx[41] != undefined && /*value*/ ctx[41].length === 1);
+    			if (dirty[0] & /*rowData, keyClass, rowData*/ 258) {
+    				toggle_class(button, "single", /*value*/ ctx[42] != undefined && /*value*/ ctx[42].length === 1);
     			}
 
-    			if (dirty[0] & /*rowData, keyClass, rowData*/ 130) {
-    				toggle_class(button, "half", /*value*/ ctx[41] == ";");
+    			if (dirty[0] & /*rowData, keyClass, rowData*/ 258) {
+    				toggle_class(button, "half", /*value*/ ctx[42] == ";");
     			}
 
-    			if (dirty[0] & /*rowData, keyClass, rowData, active*/ 162) {
-    				toggle_class(button, "active", /*value*/ ctx[41] === /*active*/ ctx[5]);
+    			if (dirty[0] & /*rowData, keyClass, rowData, active*/ 322) {
+    				toggle_class(button, "active", /*value*/ ctx[42] === /*active*/ ctx[6]);
     			}
 
-    			if (dirty[0] & /*rowData, keyClass, rowData, pressed*/ 131) {
-    				toggle_class(button, "pressed", /*value*/ ctx[41] === /*pressed*/ ctx[0]);
+    			if (dirty[0] & /*rowData, keyClass, rowData, pressed*/ 259) {
+    				toggle_class(button, "pressed", /*value*/ ctx[42] === /*pressed*/ ctx[0]);
     			}
 
-    			if (dirty[0] & /*pressed, rowData, keybackground*/ 137 && style_background_color !== (style_background_color = `#${/*pressed*/ ctx[0] == /*value*/ ctx[41]
+    			if (dirty[0] & /*pressed, rowData, keybackground*/ 265 && style_background_color !== (style_background_color = `#${/*pressed*/ ctx[0] == /*value*/ ctx[42]
 			? 'd6ce9d'
 			: /*keybackground*/ ctx[3]}`)) {
     				set_style(button, "background-color", style_background_color, false);
@@ -1818,22 +1818,64 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_each_block_2.name,
-    		type: "each",
-    		source: "(165:10) {#each keys as { value, display }}",
+    		id: create_key_block$1.name,
+    		type: "key",
+    		source: "(169:10) {#key boxsize}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (162:6) {#each row as keys, j}
+    // (168:10) {#each keys as { value, display }}
+    function create_each_block_2(ctx) {
+    	let previous_key = /*boxsize*/ ctx[5];
+    	let key_block_anchor;
+    	let key_block = create_key_block$1(ctx);
+
+    	const block = {
+    		c: function create() {
+    			key_block.c();
+    			key_block_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			key_block.m(target, anchor);
+    			insert_dev(target, key_block_anchor, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*boxsize*/ 32 && safe_not_equal(previous_key, previous_key = /*boxsize*/ ctx[5])) {
+    				key_block.d(1);
+    				key_block = create_key_block$1(ctx);
+    				key_block.c();
+    				key_block.m(key_block_anchor.parentNode, key_block_anchor);
+    			} else {
+    				key_block.p(ctx, dirty);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(key_block_anchor);
+    			key_block.d(detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_2.name,
+    		type: "each",
+    		source: "(168:10) {#each keys as { value, display }}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (165:6) {#each row as keys, j}
     function create_each_block_1(ctx) {
     	let div;
     	let html_tag;
-    	let raw_value = /*shiftKeys*/ ctx[10](/*j*/ ctx[40]) + "";
+    	let raw_value = /*shiftKeys*/ ctx[11](/*j*/ ctx[41]) + "";
     	let t;
-    	let each_value_2 = /*keys*/ ctx[38];
+    	let each_value_2 = /*keys*/ ctx[39];
     	validate_each_argument(each_value_2);
     	let each_blocks = [];
 
@@ -1852,8 +1894,8 @@ var app = (function () {
     			}
 
     			html_tag.a = t;
-    			attr_dev(div, "class", "row row--" + /*i*/ ctx[37] + " svelte-w0k3hv");
-    			add_location(div, file$1, 162, 8, 3911);
+    			attr_dev(div, "class", "row row--" + /*i*/ ctx[38] + " svelte-w0k3hv");
+    			add_location(div, file$1, 165, 8, 3937);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -1865,8 +1907,8 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*boxshadowcolor, rowData, keyClass, active, pressed, keybackground, onKeyStart, onKeyEnd, keycolor*/ 959) {
-    				each_value_2 = /*keys*/ ctx[38];
+    			if (dirty[0] & /*boxsize, boxshadowcolor, rowData, keyClass, active, pressed, keybackground, onKeyStart, onKeyEnd, keycolor*/ 1919) {
+    				each_value_2 = /*keys*/ ctx[39];
     				validate_each_argument(each_value_2);
     				let i;
 
@@ -1899,18 +1941,18 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(162:6) {#each row as keys, j}",
+    		source: "(165:6) {#each row as keys, j}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (160:2) {#each rowData as row, i}
+    // (163:2) {#each rowData as row, i}
     function create_each_block(ctx) {
     	let div;
     	let t;
-    	let each_value_1 = /*row*/ ctx[35];
+    	let each_value_1 = /*row*/ ctx[36];
     	validate_each_argument(each_value_1);
     	let each_blocks = [];
 
@@ -1928,8 +1970,8 @@ var app = (function () {
 
     			t = space();
     			attr_dev(div, "class", "page svelte-w0k3hv");
-    			toggle_class(div, "visible", /*i*/ ctx[37] === /*page*/ ctx[6]);
-    			add_location(div, file$1, 160, 4, 3828);
+    			toggle_class(div, "visible", /*i*/ ctx[38] === /*page*/ ctx[7]);
+    			add_location(div, file$1, 163, 4, 3854);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -1941,8 +1983,8 @@ var app = (function () {
     			append_dev(div, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*rowData, boxshadowcolor, keyClass, active, pressed, keybackground, onKeyStart, onKeyEnd, keycolor, shiftKeys*/ 1983) {
-    				each_value_1 = /*row*/ ctx[35];
+    			if (dirty[0] & /*rowData, boxsize, boxshadowcolor, keyClass, active, pressed, keybackground, onKeyStart, onKeyEnd, keycolor, shiftKeys*/ 3967) {
+    				each_value_1 = /*row*/ ctx[36];
     				validate_each_argument(each_value_1);
     				let i;
 
@@ -1965,8 +2007,8 @@ var app = (function () {
     				each_blocks.length = each_value_1.length;
     			}
 
-    			if (dirty[0] & /*page*/ 64) {
-    				toggle_class(div, "visible", /*i*/ ctx[37] === /*page*/ ctx[6]);
+    			if (dirty[0] & /*page*/ 128) {
+    				toggle_class(div, "visible", /*i*/ ctx[38] === /*page*/ ctx[7]);
     			}
     		},
     		d: function destroy(detaching) {
@@ -1979,7 +2021,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(160:2) {#each rowData as row, i}",
+    		source: "(163:2) {#each rowData as row, i}",
     		ctx
     	});
 
@@ -1988,7 +2030,7 @@ var app = (function () {
 
     function create_fragment$1(ctx) {
     	let div;
-    	let each_value = /*rowData*/ ctx[7];
+    	let each_value = /*rowData*/ ctx[8];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -2005,7 +2047,7 @@ var app = (function () {
     			}
 
     			attr_dev(div, "class", "svelte-keyboard");
-    			add_location(div, file$1, 158, 0, 3766);
+    			add_location(div, file$1, 161, 0, 3792);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2018,8 +2060,8 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*page, rowData, boxshadowcolor, keyClass, active, pressed, keybackground, onKeyStart, onKeyEnd, keycolor, shiftKeys*/ 2047) {
-    				each_value = /*rowData*/ ctx[7];
+    			if (dirty[0] & /*page, rowData, boxsize, boxshadowcolor, keyClass, active, pressed, keybackground, onKeyStart, onKeyEnd, keycolor, shiftKeys*/ 4095) {
+    				each_value = /*rowData*/ ctx[8];
     				validate_each_argument(each_value);
     				let i;
 
@@ -2085,6 +2127,7 @@ var app = (function () {
     	let { keycolor } = $$props;
     	let { keybackground } = $$props;
     	let { boxshadowcolor } = $$props;
+    	let { boxsize } = $$props;
 
     	//$: boxshadow=`5px 10px 2em ${boxshadowcolor}`;
     	console.log(boxshadowcolor);
@@ -2127,16 +2170,16 @@ var app = (function () {
     	const unique = arr => [...new Set(arr)];
 
     	const onKeyStart = (event, value) => {
-    		$$invalidate(12, timestamp = Date.now());
+    		$$invalidate(13, timestamp = Date.now());
     		event.preventDefault();
 
     		//console.log(value)
-    		$$invalidate(5, active = value);
+    		$$invalidate(6, active = value);
 
     		if (value != undefined && value.includes("Page")) {
-    			$$invalidate(6, page = +value?.substr(-1));
+    			$$invalidate(7, page = +value?.substr(-1));
     		} else if (value === "Shift") {
-    			$$invalidate(11, shifted = !shifted);
+    			$$invalidate(12, shifted = !shifted);
     		} else {
     			let output = value; //|| "";
     			if (shifted && alphabet.includes(value)) output = value.toUpperCase() || "";
@@ -2186,6 +2229,7 @@ var app = (function () {
     		'keycolor',
     		'keybackground',
     		'boxshadowcolor',
+    		'boxsize',
     		'shifted',
     		'pressed'
     	];
@@ -2200,16 +2244,17 @@ var app = (function () {
     	const mouseup_handler = value => onKeyEnd(value);
 
     	$$self.$$set = $$props => {
-    		if ('custom' in $$props) $$invalidate(13, custom = $$props.custom);
-    		if ('localizationLayout' in $$props) $$invalidate(14, localizationLayout = $$props.localizationLayout);
-    		if ('layout' in $$props) $$invalidate(15, layout = $$props.layout);
-    		if ('noSwap' in $$props) $$invalidate(16, noSwap = $$props.noSwap);
+    		if ('custom' in $$props) $$invalidate(14, custom = $$props.custom);
+    		if ('localizationLayout' in $$props) $$invalidate(15, localizationLayout = $$props.localizationLayout);
+    		if ('layout' in $$props) $$invalidate(16, layout = $$props.layout);
+    		if ('noSwap' in $$props) $$invalidate(17, noSwap = $$props.noSwap);
     		if ('keyClass' in $$props) $$invalidate(1, keyClass = $$props.keyClass);
-    		if ('timestamp' in $$props) $$invalidate(12, timestamp = $$props.timestamp);
+    		if ('timestamp' in $$props) $$invalidate(13, timestamp = $$props.timestamp);
     		if ('keycolor' in $$props) $$invalidate(2, keycolor = $$props.keycolor);
     		if ('keybackground' in $$props) $$invalidate(3, keybackground = $$props.keybackground);
     		if ('boxshadowcolor' in $$props) $$invalidate(4, boxshadowcolor = $$props.boxshadowcolor);
-    		if ('shifted' in $$props) $$invalidate(11, shifted = $$props.shifted);
+    		if ('boxsize' in $$props) $$invalidate(5, boxsize = $$props.boxsize);
+    		if ('shifted' in $$props) $$invalidate(12, shifted = $$props.shifted);
     		if ('pressed' in $$props) $$invalidate(0, pressed = $$props.pressed);
     	};
 
@@ -2232,6 +2277,7 @@ var app = (function () {
     		keycolor,
     		keybackground,
     		boxshadowcolor,
+    		boxsize,
     		page,
     		shifted,
     		active,
@@ -2258,30 +2304,31 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ('custom' in $$props) $$invalidate(13, custom = $$props.custom);
-    		if ('localizationLayout' in $$props) $$invalidate(14, localizationLayout = $$props.localizationLayout);
-    		if ('layout' in $$props) $$invalidate(15, layout = $$props.layout);
-    		if ('noSwap' in $$props) $$invalidate(16, noSwap = $$props.noSwap);
+    		if ('custom' in $$props) $$invalidate(14, custom = $$props.custom);
+    		if ('localizationLayout' in $$props) $$invalidate(15, localizationLayout = $$props.localizationLayout);
+    		if ('layout' in $$props) $$invalidate(16, layout = $$props.layout);
+    		if ('noSwap' in $$props) $$invalidate(17, noSwap = $$props.noSwap);
     		if ('keyClass' in $$props) $$invalidate(1, keyClass = $$props.keyClass);
-    		if ('timestamp' in $$props) $$invalidate(12, timestamp = $$props.timestamp);
+    		if ('timestamp' in $$props) $$invalidate(13, timestamp = $$props.timestamp);
     		if ('keycolor' in $$props) $$invalidate(2, keycolor = $$props.keycolor);
     		if ('keybackground' in $$props) $$invalidate(3, keybackground = $$props.keybackground);
     		if ('boxshadowcolor' in $$props) $$invalidate(4, boxshadowcolor = $$props.boxshadowcolor);
-    		if ('page' in $$props) $$invalidate(6, page = $$props.page);
-    		if ('shifted' in $$props) $$invalidate(11, shifted = $$props.shifted);
-    		if ('active' in $$props) $$invalidate(5, active = $$props.active);
+    		if ('boxsize' in $$props) $$invalidate(5, boxsize = $$props.boxsize);
+    		if ('page' in $$props) $$invalidate(7, page = $$props.page);
+    		if ('shifted' in $$props) $$invalidate(12, shifted = $$props.shifted);
+    		if ('active' in $$props) $$invalidate(6, active = $$props.active);
     		if ('pressed' in $$props) $$invalidate(0, pressed = $$props.pressed);
     		if ('upperCase' in $$props) upperCase = $$props.upperCase;
     		if ('indent' in $$props) indent = $$props.indent;
-    		if ('rowData1' in $$props) $$invalidate(17, rowData1 = $$props.rowData1);
-    		if ('rowData0' in $$props) $$invalidate(18, rowData0 = $$props.rowData0);
-    		if ('rowData' in $$props) $$invalidate(7, rowData = $$props.rowData);
-    		if ('page1' in $$props) $$invalidate(19, page1 = $$props.page1);
-    		if ('rows0' in $$props) $$invalidate(20, rows0 = $$props.rows0);
-    		if ('page0' in $$props) $$invalidate(21, page0 = $$props.page0);
-    		if ('rows1' in $$props) $$invalidate(22, rows1 = $$props.rows1);
-    		if ('data' in $$props) $$invalidate(23, data = $$props.data);
-    		if ('rawData' in $$props) $$invalidate(24, rawData = $$props.rawData);
+    		if ('rowData1' in $$props) $$invalidate(18, rowData1 = $$props.rowData1);
+    		if ('rowData0' in $$props) $$invalidate(19, rowData0 = $$props.rowData0);
+    		if ('rowData' in $$props) $$invalidate(8, rowData = $$props.rowData);
+    		if ('page1' in $$props) $$invalidate(20, page1 = $$props.page1);
+    		if ('rows0' in $$props) $$invalidate(21, rows0 = $$props.rows0);
+    		if ('page0' in $$props) $$invalidate(22, page0 = $$props.page0);
+    		if ('rows1' in $$props) $$invalidate(23, rows1 = $$props.rows1);
+    		if ('data' in $$props) $$invalidate(24, data = $$props.data);
+    		if ('rawData' in $$props) $$invalidate(25, rawData = $$props.rawData);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -2289,7 +2336,7 @@ var app = (function () {
     	}
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty[0] & /*pressed, active*/ 33) {
+    		if ($$self.$$.dirty[0] & /*pressed, active*/ 65) {
     			// reactive vars
     			if (!pressed) {
     				setTimeout(
@@ -2301,16 +2348,16 @@ var app = (function () {
     					100
     				);
     			} else {
-    				$$invalidate(5, active = pressed);
+    				$$invalidate(6, active = pressed);
     			}
     		}
 
-    		if ($$self.$$.dirty[0] & /*custom, localizationLayout, layout*/ 57344) {
-    			$$invalidate(24, rawData = custom || layouts[localizationLayout][layout] || standard);
+    		if ($$self.$$.dirty[0] & /*custom, localizationLayout, layout*/ 114688) {
+    			$$invalidate(25, rawData = custom || layouts[localizationLayout][layout] || standard);
     		}
 
-    		if ($$self.$$.dirty[0] & /*rawData, noSwap, shifted*/ 16844800) {
-    			$$invalidate(23, data = rawData.map(d => {
+    		if ($$self.$$.dirty[0] & /*rawData, noSwap, shifted*/ 33689600) {
+    			$$invalidate(24, data = rawData.map(d => {
     				//console.log("foo", d)
     				let display = d.display;
 
@@ -2329,40 +2376,40 @@ var app = (function () {
     			}));
     		}
 
-    		if ($$self.$$.dirty[0] & /*data*/ 8388608) {
-    			$$invalidate(21, page0 = data.filter(d => !d.page));
+    		if ($$self.$$.dirty[0] & /*data*/ 16777216) {
+    			$$invalidate(22, page0 = data.filter(d => !d.page));
     		}
 
-    		if ($$self.$$.dirty[0] & /*data*/ 8388608) {
-    			$$invalidate(19, page1 = data.filter(d => d.page));
+    		if ($$self.$$.dirty[0] & /*data*/ 16777216) {
+    			$$invalidate(20, page1 = data.filter(d => d.page));
     		}
 
-    		if ($$self.$$.dirty[0] & /*page0*/ 2097152) {
-    			$$invalidate(20, rows0 = unique(page0.map(d => d.row)));
+    		if ($$self.$$.dirty[0] & /*page0*/ 4194304) {
+    			$$invalidate(21, rows0 = unique(page0.map(d => d.row)));
     		}
 
-    		if ($$self.$$.dirty[0] & /*rows0*/ 1048576) {
+    		if ($$self.$$.dirty[0] & /*rows0*/ 2097152) {
     			(rows0.sort((a, b) => a - b));
     		}
 
-    		if ($$self.$$.dirty[0] & /*page1*/ 524288) {
-    			$$invalidate(22, rows1 = unique(page1.map(d => d.row)));
+    		if ($$self.$$.dirty[0] & /*page1*/ 1048576) {
+    			$$invalidate(23, rows1 = unique(page1.map(d => d.row)));
     		}
 
-    		if ($$self.$$.dirty[0] & /*rows1*/ 4194304) {
+    		if ($$self.$$.dirty[0] & /*rows1*/ 8388608) {
     			(rows1.sort((a, b) => a - b));
     		}
 
-    		if ($$self.$$.dirty[0] & /*rows0, page0*/ 3145728) {
-    			$$invalidate(18, rowData0 = rows0.map(r => page0.filter(k => k.row === r)));
+    		if ($$self.$$.dirty[0] & /*rows0, page0*/ 6291456) {
+    			$$invalidate(19, rowData0 = rows0.map(r => page0.filter(k => k.row === r)));
     		}
 
-    		if ($$self.$$.dirty[0] & /*rows0, page1*/ 1572864) {
-    			$$invalidate(17, rowData1 = rows0.map(r => page1.filter(k => k.row === r)));
+    		if ($$self.$$.dirty[0] & /*rows0, page1*/ 3145728) {
+    			$$invalidate(18, rowData1 = rows0.map(r => page1.filter(k => k.row === r)));
     		}
 
-    		if ($$self.$$.dirty[0] & /*rowData0, rowData1*/ 393216) {
-    			$$invalidate(7, rowData = [rowData0, rowData1]);
+    		if ($$self.$$.dirty[0] & /*rowData0, rowData1*/ 786432) {
+    			$$invalidate(8, rowData = [rowData0, rowData1]);
     		}
     	};
 
@@ -2372,6 +2419,7 @@ var app = (function () {
     		keycolor,
     		keybackground,
     		boxshadowcolor,
+    		boxsize,
     		active,
     		page,
     		rowData,
@@ -2410,16 +2458,17 @@ var app = (function () {
     			create_fragment$1,
     			safe_not_equal,
     			{
-    				custom: 13,
-    				localizationLayout: 14,
-    				layout: 15,
-    				noSwap: 16,
+    				custom: 14,
+    				localizationLayout: 15,
+    				layout: 16,
+    				noSwap: 17,
     				keyClass: 1,
-    				timestamp: 12,
+    				timestamp: 13,
     				keycolor: 2,
     				keybackground: 3,
     				boxshadowcolor: 4,
-    				shifted: 11,
+    				boxsize: 5,
+    				shifted: 12,
     				pressed: 0
     			},
     			null,
@@ -2436,11 +2485,11 @@ var app = (function () {
     		const { ctx } = this.$$;
     		const props = options.props || {};
 
-    		if (/*custom*/ ctx[13] === undefined && !('custom' in props)) {
+    		if (/*custom*/ ctx[14] === undefined && !('custom' in props)) {
     			console_1$1.warn("<Keyboard> was created without expected prop 'custom'");
     		}
 
-    		if (/*timestamp*/ ctx[12] === undefined && !('timestamp' in props)) {
+    		if (/*timestamp*/ ctx[13] === undefined && !('timestamp' in props)) {
     			console_1$1.warn("<Keyboard> was created without expected prop 'timestamp'");
     		}
 
@@ -2454,6 +2503,10 @@ var app = (function () {
 
     		if (/*boxshadowcolor*/ ctx[4] === undefined && !('boxshadowcolor' in props)) {
     			console_1$1.warn("<Keyboard> was created without expected prop 'boxshadowcolor'");
+    		}
+
+    		if (/*boxsize*/ ctx[5] === undefined && !('boxsize' in props)) {
+    			console_1$1.warn("<Keyboard> was created without expected prop 'boxsize'");
     		}
 
     		if (/*pressed*/ ctx[0] === undefined && !('pressed' in props)) {
@@ -2530,6 +2583,14 @@ var app = (function () {
     	}
 
     	set boxshadowcolor(value) {
+    		throw new Error("<Keyboard>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get boxsize() {
+    		throw new Error("<Keyboard>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set boxsize(value) {
     		throw new Error("<Keyboard>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
@@ -2893,7 +2954,7 @@ var app = (function () {
     const { Object: Object_1, console: console_1 } = globals;
     const file = "src/App.svelte";
 
-    // (302:2) {:else}
+    // (319:2) {:else}
     function create_else_block_1(ctx) {
     	let t;
 
@@ -2913,14 +2974,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(302:2) {:else}",
+    		source: "(319:2) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (300:2) {#if showLayout}
+    // (317:2) {#if showLayout}
     function create_if_block_3(ctx) {
     	let t;
 
@@ -2940,14 +3001,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(300:2) {#if showLayout}",
+    		source: "(317:2) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (309:2) {:else}
+    // (326:2) {:else}
     function create_else_block(ctx) {
     	let t;
 
@@ -2967,14 +3028,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(309:2) {:else}",
+    		source: "(326:2) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (307:2) {#if slideshow}
+    // (324:2) {#if slideshow}
     function create_if_block_2(ctx) {
     	let t;
 
@@ -2994,14 +3055,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(307:2) {#if slideshow}",
+    		source: "(324:2) {#if slideshow}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (314:1) {#if showLayout}
+    // (331:1) {#if showLayout}
     function create_if_block_1(ctx) {
     	let center;
     	let img;
@@ -3013,8 +3074,8 @@ var app = (function () {
     			img = element("img");
     			if (!src_url_equal(img.src, img_src_value = "./keyboard.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "class", "svelte-1uchv6j");
-    			add_location(img, file, 315, 3, 6867);
-    			add_location(center, file, 314, 2, 6855);
+    			add_location(img, file, 332, 3, 7209);
+    			add_location(center, file, 331, 2, 7197);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, center, anchor);
@@ -3029,21 +3090,21 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(314:1) {#if showLayout}",
+    		source: "(331:1) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (347:5) {#if hangulCharacter}
+    // (365:5) {#if hangulCharacter}
     function create_if_block(ctx) {
     	let div1;
     	let div0;
 
-    	let t_value = (/*hangulCharacter*/ ctx[4] == "undefined"
-    	? /*funnyface*/ ctx[12]()
-    	: /*hangulCharacter*/ ctx[4]) + "";
+    	let t_value = (/*hangulCharacter*/ ctx[5] == "undefined"
+    	? /*funnyface*/ ctx[13]()
+    	: /*hangulCharacter*/ ctx[5]) + "";
 
     	let t;
     	let div0_intro;
@@ -3054,8 +3115,8 @@ var app = (function () {
     			div1 = element("div");
     			div0 = element("div");
     			t = text(t_value);
-    			add_location(div0, file, 356, 7, 7679);
-    			add_location(div1, file, 347, 6, 7534);
+    			add_location(div0, file, 374, 7, 8050);
+    			add_location(div1, file, 365, 6, 7905);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -3065,14 +3126,14 @@ var app = (function () {
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
 
-    			if (dirty[0] & /*hangulCharacter*/ 16 && t_value !== (t_value = (/*hangulCharacter*/ ctx[4] == "undefined"
-    			? /*funnyface*/ ctx[12]()
-    			: /*hangulCharacter*/ ctx[4]) + "")) set_data_dev(t, t_value);
+    			if (dirty[0] & /*hangulCharacter*/ 32 && t_value !== (t_value = (/*hangulCharacter*/ ctx[5] == "undefined"
+    			? /*funnyface*/ ctx[13]()
+    			: /*hangulCharacter*/ ctx[5]) + "")) set_data_dev(t, t_value);
     		},
     		i: function intro(local) {
     			if (!div0_intro) {
     				add_render_callback(() => {
-    					div0_intro = create_in_transition(div0, /*spin*/ ctx[20], { duration: 1200 });
+    					div0_intro = create_in_transition(div0, /*spin*/ ctx[22], { duration: 1200 });
     					div0_intro.start();
     				});
     			}
@@ -3101,26 +3162,26 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(347:5) {#if hangulCharacter}",
+    		source: "(365:5) {#if hangulCharacter}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (341:3) {#key timestamp}
+    // (359:3) {#key timestamp}
     function create_key_block(ctx) {
     	let div;
     	let div_intro;
-    	let if_block = /*hangulCharacter*/ ctx[4] && create_if_block(ctx);
+    	let if_block = /*hangulCharacter*/ ctx[5] && create_if_block(ctx);
 
     	const block = {
     		c: function create() {
     			div = element("div");
     			if (if_block) if_block.c();
     			attr_dev(div, "class", "hangul svelte-1uchv6j");
-    			set_style(div, "color", "#" + /*$color*/ ctx[7]);
-    			add_location(div, file, 341, 4, 7403);
+    			set_style(div, "color", "#" + /*$color*/ ctx[8]);
+    			add_location(div, file, 359, 4, 7774);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -3129,11 +3190,11 @@ var app = (function () {
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
 
-    			if (/*hangulCharacter*/ ctx[4]) {
+    			if (/*hangulCharacter*/ ctx[5]) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
 
-    					if (dirty[0] & /*hangulCharacter*/ 16) {
+    					if (dirty[0] & /*hangulCharacter*/ 32) {
     						transition_in(if_block, 1);
     					}
     				} else {
@@ -3147,8 +3208,8 @@ var app = (function () {
     				if_block = null;
     			}
 
-    			if (dirty[0] & /*$color*/ 128) {
-    				set_style(div, "color", "#" + /*$color*/ ctx[7]);
+    			if (dirty[0] & /*$color*/ 256) {
+    				set_style(div, "color", "#" + /*$color*/ ctx[8]);
     			}
     		},
     		i: function intro(local) {
@@ -3172,7 +3233,7 @@ var app = (function () {
     		block,
     		id: create_key_block.name,
     		type: "key",
-    		source: "(341:3) {#key timestamp}",
+    		source: "(359:3) {#key timestamp}",
     		ctx
     	});
 
@@ -3208,6 +3269,7 @@ var app = (function () {
     	let updating_keycolor;
     	let updating_keybackground;
     	let updating_boxshadowcolor;
+    	let updating_boxsize;
     	let t11;
     	let previous_key = /*timestamp*/ ctx[2];
     	let current;
@@ -3215,7 +3277,7 @@ var app = (function () {
     	let dispose;
 
     	function select_block_type(ctx, dirty) {
-    		if (/*showLayout*/ ctx[6]) return create_if_block_3;
+    		if (/*showLayout*/ ctx[7]) return create_if_block_3;
     		return create_else_block_1;
     	}
 
@@ -3223,36 +3285,40 @@ var app = (function () {
     	let if_block0 = current_block_type(ctx);
 
     	function select_block_type_1(ctx, dirty) {
-    		if (/*slideshow*/ ctx[5]) return create_if_block_2;
+    		if (/*slideshow*/ ctx[6]) return create_if_block_2;
     		return create_else_block;
     	}
 
     	let current_block_type_1 = select_block_type_1(ctx);
     	let if_block1 = current_block_type_1(ctx);
-    	let if_block2 = /*showLayout*/ ctx[6] && create_if_block_1(ctx);
+    	let if_block2 = /*showLayout*/ ctx[7] && create_if_block_1(ctx);
 
     	function keyboard_pressed_binding(value) {
-    		/*keyboard_pressed_binding*/ ctx[26](value);
+    		/*keyboard_pressed_binding*/ ctx[29](value);
     	}
 
     	function keyboard_shifted_binding(value) {
-    		/*keyboard_shifted_binding*/ ctx[27](value);
+    		/*keyboard_shifted_binding*/ ctx[30](value);
     	}
 
     	function keyboard_timestamp_binding(value) {
-    		/*keyboard_timestamp_binding*/ ctx[28](value);
+    		/*keyboard_timestamp_binding*/ ctx[31](value);
     	}
 
     	function keyboard_keycolor_binding(value) {
-    		/*keyboard_keycolor_binding*/ ctx[29](value);
+    		/*keyboard_keycolor_binding*/ ctx[32](value);
     	}
 
     	function keyboard_keybackground_binding(value) {
-    		/*keyboard_keybackground_binding*/ ctx[30](value);
+    		/*keyboard_keybackground_binding*/ ctx[33](value);
     	}
 
     	function keyboard_boxshadowcolor_binding(value) {
-    		/*keyboard_boxshadowcolor_binding*/ ctx[31](value);
+    		/*keyboard_boxshadowcolor_binding*/ ctx[34](value);
+    	}
+
+    	function keyboard_boxsize_binding(value) {
+    		/*keyboard_boxsize_binding*/ ctx[35](value);
     	}
 
     	let keyboard_props = {};
@@ -3269,16 +3335,20 @@ var app = (function () {
     		keyboard_props.timestamp = /*timestamp*/ ctx[2];
     	}
 
-    	if (/*$keycolor*/ ctx[8] !== void 0) {
-    		keyboard_props.keycolor = /*$keycolor*/ ctx[8];
+    	if (/*$keycolor*/ ctx[9] !== void 0) {
+    		keyboard_props.keycolor = /*$keycolor*/ ctx[9];
     	}
 
-    	if (/*$keybgcolor*/ ctx[9] !== void 0) {
-    		keyboard_props.keybackground = /*$keybgcolor*/ ctx[9];
+    	if (/*$keybgcolor*/ ctx[10] !== void 0) {
+    		keyboard_props.keybackground = /*$keybgcolor*/ ctx[10];
     	}
 
-    	if (/*$boxshadowcolor*/ ctx[10] !== void 0) {
-    		keyboard_props.boxshadowcolor = /*$boxshadowcolor*/ ctx[10];
+    	if (/*$boxshadowcolor*/ ctx[11] !== void 0) {
+    		keyboard_props.boxshadowcolor = /*$boxshadowcolor*/ ctx[11];
+    	}
+
+    	if (/*$boxsize*/ ctx[4] !== void 0) {
+    		keyboard_props.boxsize = /*$boxsize*/ ctx[4];
     	}
 
     	keyboard = new Keyboard({ props: keyboard_props, $$inline: true });
@@ -3288,7 +3358,8 @@ var app = (function () {
     	binding_callbacks.push(() => bind(keyboard, 'keycolor', keyboard_keycolor_binding));
     	binding_callbacks.push(() => bind(keyboard, 'keybackground', keyboard_keybackground_binding));
     	binding_callbacks.push(() => bind(keyboard, 'boxshadowcolor', keyboard_boxshadowcolor_binding));
-    	keyboard.$on("keydown", /*keydown_handler*/ ctx[32]);
+    	binding_callbacks.push(() => bind(keyboard, 'boxsize', keyboard_boxsize_binding));
+    	keyboard.$on("keydown", /*keydown_handler*/ ctx[36]);
     	let key_block = create_key_block(ctx);
 
     	const block = {
@@ -3324,27 +3395,27 @@ var app = (function () {
     			t11 = space();
     			key_block.c();
     			attr_dev(h1, "class", "svelte-1uchv6j");
-    			add_location(h1, file, 293, 3, 6494);
-    			add_location(i, file, 294, 9, 6524);
-    			add_location(small, file, 294, 2, 6517);
+    			add_location(h1, file, 310, 3, 6836);
+    			add_location(i, file, 311, 9, 6866);
+    			add_location(small, file, 311, 2, 6859);
     			attr_dev(span0, "class", "svelte-1uchv6j");
-    			add_location(span0, file, 292, 1, 6485);
-    			add_location(br, file, 296, 1, 6570);
+    			add_location(span0, file, 309, 1, 6827);
+    			add_location(br, file, 313, 1, 6912);
     			attr_dev(span1, "class", "svelte-1uchv6j");
-    			add_location(span1, file, 297, 1, 6578);
-    			add_location(button0, file, 298, 1, 6619);
-    			add_location(button1, file, 305, 1, 6723);
+    			add_location(span1, file, 314, 1, 6920);
+    			add_location(button0, file, 315, 1, 6961);
+    			add_location(button1, file, 322, 1, 7065);
     			attr_dev(nav, "class", "svelte-1uchv6j");
-    			add_location(nav, file, 291, 0, 6478);
+    			add_location(nav, file, 308, 0, 6820);
     			attr_dev(p, "class", "keyboard  svelte-1uchv6j");
-    			add_location(p, file, 326, 3, 7053);
+    			add_location(p, file, 343, 3, 7395);
     			attr_dev(center, "class", "svelte-1uchv6j");
-    			add_location(center, file, 325, 2, 7041);
+    			add_location(center, file, 342, 2, 7383);
     			attr_dev(div, "class", "info  svelte-1uchv6j");
-    			add_location(div, file, 324, 1, 7019);
+    			add_location(div, file, 341, 1, 7361);
     			main.hidden = false;
     			attr_dev(main, "class", "svelte-1uchv6j");
-    			add_location(main, file, 320, 0, 6923);
+    			add_location(main, file, 337, 0, 7265);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3381,11 +3452,11 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(button0, "click", /*toggleView*/ ctx[14], false, false, false),
-    					listen_dev(button1, "click", /*toggleSlideshow*/ ctx[15], false, false, false),
+    					listen_dev(button0, "click", /*toggleView*/ ctx[15], false, false, false),
+    					listen_dev(button1, "click", /*toggleSlideshow*/ ctx[16], false, false, false),
     					action_destroyer(shortcut.call(null, main, {
-    						code: /*keyArray*/ ctx[11],
-    						callback: /*shortcut_function*/ ctx[33]
+    						code: /*keyArray*/ ctx[12],
+    						callback: /*shortcut_function*/ ctx[37]
     					}))
     				];
 
@@ -3413,7 +3484,7 @@ var app = (function () {
     				}
     			}
 
-    			if (/*showLayout*/ ctx[6]) {
+    			if (/*showLayout*/ ctx[7]) {
     				if (if_block2) ; else {
     					if_block2 = create_if_block_1(ctx);
     					if_block2.c();
@@ -3444,22 +3515,28 @@ var app = (function () {
     				add_flush_callback(() => updating_timestamp = false);
     			}
 
-    			if (!updating_keycolor && dirty[0] & /*$keycolor*/ 256) {
+    			if (!updating_keycolor && dirty[0] & /*$keycolor*/ 512) {
     				updating_keycolor = true;
-    				keyboard_changes.keycolor = /*$keycolor*/ ctx[8];
+    				keyboard_changes.keycolor = /*$keycolor*/ ctx[9];
     				add_flush_callback(() => updating_keycolor = false);
     			}
 
-    			if (!updating_keybackground && dirty[0] & /*$keybgcolor*/ 512) {
+    			if (!updating_keybackground && dirty[0] & /*$keybgcolor*/ 1024) {
     				updating_keybackground = true;
-    				keyboard_changes.keybackground = /*$keybgcolor*/ ctx[9];
+    				keyboard_changes.keybackground = /*$keybgcolor*/ ctx[10];
     				add_flush_callback(() => updating_keybackground = false);
     			}
 
-    			if (!updating_boxshadowcolor && dirty[0] & /*$boxshadowcolor*/ 1024) {
+    			if (!updating_boxshadowcolor && dirty[0] & /*$boxshadowcolor*/ 2048) {
     				updating_boxshadowcolor = true;
-    				keyboard_changes.boxshadowcolor = /*$boxshadowcolor*/ ctx[10];
+    				keyboard_changes.boxshadowcolor = /*$boxshadowcolor*/ ctx[11];
     				add_flush_callback(() => updating_boxshadowcolor = false);
+    			}
+
+    			if (!updating_boxsize && dirty[0] & /*$boxsize*/ 16) {
+    				updating_boxsize = true;
+    				keyboard_changes.boxsize = /*$boxsize*/ ctx[4];
+    				add_flush_callback(() => updating_boxsize = false);
     			}
 
     			keyboard.$set(keyboard_changes);
@@ -3513,6 +3590,7 @@ var app = (function () {
     }
 
     function instance($$self, $$props, $$invalidate) {
+    	let $boxsize;
     	let $color;
     	let $keycolor;
     	let $keybgcolor;
@@ -3599,13 +3677,13 @@ var app = (function () {
     	};
 
     	const toggleView = () => {
-    		$$invalidate(6, showLayout = !showLayout);
+    		$$invalidate(7, showLayout = !showLayout);
     	};
 
     	let clearTimer;
 
     	const toggleSlideshow = () => {
-    		$$invalidate(5, slideshow = !slideshow);
+    		$$invalidate(6, slideshow = !slideshow);
 
     		if (slideshow) {
     			slideIndex = 0;
@@ -3626,9 +3704,11 @@ var app = (function () {
     	let keycolorIndex = 0;
     	let keybgcolorIndex = 0;
     	let boxshadowIndex = 0;
+    	let boxsizeIndex = 0;
     	const colors = ["fa0024", "efff11", "00ff00", "072e5b", "f9be8a", "f36729", "59e8eb", "3548b7"]; // red, yellow, green, blue
     	const keycolors = [];
     	colors.forEach(m => keycolors.unshift(m));
+    	const boxsizes = [2, 7];
     	const keybgcolors = ["023e8a", "9CAEA9", "2B2D42", "6A4C93", "6C757D"];
     	const boxshadowcolors = ["E500A4", "f5a218", "228abf", "3dfa40", "e893e9", "0186cc", "c51e85"];
 
@@ -3638,19 +3718,23 @@ var app = (function () {
 
     	// This cycles through the indexes of the colors array.
     	const goToNextColor = () => {
-    		$$invalidate(22, colorIndex = (colorIndex + 1) % colors.length);
+    		$$invalidate(24, colorIndex = (colorIndex + 1) % colors.length);
     	};
 
     	const goToNextKeyColor = () => {
-    		$$invalidate(23, keycolorIndex = (keycolorIndex + 1) % keycolors.length);
+    		$$invalidate(25, keycolorIndex = (keycolorIndex + 1) % keycolors.length);
     	};
 
     	const goToNextKeybgColor = () => {
-    		$$invalidate(24, keybgcolorIndex = (keybgcolorIndex + 1) % keybgcolors.length);
+    		$$invalidate(26, keybgcolorIndex = (keybgcolorIndex + 1) % keybgcolors.length);
     	};
 
     	const goToNextBoxShadow = () => {
-    		$$invalidate(25, boxshadowIndex = (boxshadowIndex + 1) % boxshadowcolors.length);
+    		$$invalidate(27, boxshadowIndex = (boxshadowIndex + 1) % boxshadowcolors.length);
+    	};
+
+    	const goToNextBoxSize = () => {
+    		$$invalidate(28, boxsizeIndex = (boxsizeIndex + 1) % boxsizes.length);
     	};
 
     	console.log("colorIndex", colorIndex);
@@ -3683,6 +3767,10 @@ var app = (function () {
     		};
     	}
 
+    	const boxsize = tweened(boxsizes[boxsizeIndex], { duration: 1000, easing: sineIn });
+    	validate_store(boxsize, 'boxsize');
+    	component_subscribe($$self, boxsize, value => $$invalidate(4, $boxsize = value));
+
     	// Create a tweened store that holds an "rrggbb" hex color.
     	const color = tweened(colors[colorIndex], {
     		duration: 2000,
@@ -3691,7 +3779,7 @@ var app = (function () {
     	});
 
     	validate_store(color, 'color');
-    	component_subscribe($$self, color, value => $$invalidate(7, $color = value));
+    	component_subscribe($$self, color, value => $$invalidate(8, $color = value));
 
     	const keycolor = tweened(keycolors[keycolorIndex], {
     		duration: 1000,
@@ -3700,7 +3788,7 @@ var app = (function () {
     	});
 
     	validate_store(keycolor, 'keycolor');
-    	component_subscribe($$self, keycolor, value => $$invalidate(8, $keycolor = value));
+    	component_subscribe($$self, keycolor, value => $$invalidate(9, $keycolor = value));
 
     	const keybgcolor = tweened(keybgcolors[keybgcolorIndex], {
     		duration: 3000,
@@ -3709,7 +3797,7 @@ var app = (function () {
     	});
 
     	validate_store(keybgcolor, 'keybgcolor');
-    	component_subscribe($$self, keybgcolor, value => $$invalidate(9, $keybgcolor = value));
+    	component_subscribe($$self, keybgcolor, value => $$invalidate(10, $keybgcolor = value));
 
     	const boxshadowcolor = tweened(boxshadowcolors[boxshadowIndex], {
     		duration: 1000,
@@ -3717,7 +3805,7 @@ var app = (function () {
     	});
 
     	validate_store(boxshadowcolor, 'boxshadowcolor');
-    	component_subscribe($$self, boxshadowcolor, value => $$invalidate(10, $boxshadowcolor = value));
+    	component_subscribe($$self, boxshadowcolor, value => $$invalidate(11, $boxshadowcolor = value));
 
     	//$: console.log("color", $color, "keycolor", $keycolor)
     	let prevColor = $color;
@@ -3742,6 +3830,7 @@ var app = (function () {
     		() => {
     			goToNextKeybgColor();
     			clearInterval();
+    			goToNextBoxSize();
     		},
     		3000
     	);
@@ -3809,6 +3898,11 @@ var app = (function () {
     		boxshadowcolor.set($boxshadowcolor);
     	}
 
+    	function keyboard_boxsize_binding(value) {
+    		$boxsize = value;
+    		boxsize.set($boxsize);
+    	}
+
     	const keydown_handler = ({ detail }) => {
     		$$invalidate(3, keys[0] = detail, keys);
     		if (slideshow) toggleSlideshow();
@@ -3865,8 +3959,10 @@ var app = (function () {
     		keycolorIndex,
     		keybgcolorIndex,
     		boxshadowIndex,
+    		boxsizeIndex,
     		colors,
     		keycolors,
+    		boxsizes,
     		keybgcolors,
     		boxshadowcolors,
     		decimalToHex,
@@ -3874,10 +3970,12 @@ var app = (function () {
     		goToNextKeyColor,
     		goToNextKeybgColor,
     		goToNextBoxShadow,
+    		goToNextBoxSize,
     		getColor,
     		getRGBs,
     		scaledValue,
     		rgbInterpolate,
+    		boxsize,
     		color,
     		keycolor,
     		keybgcolor,
@@ -3886,6 +3984,7 @@ var app = (function () {
     		elasticOut,
     		visible,
     		spin,
+    		$boxsize,
     		$color,
     		$keycolor,
     		$keybgcolor,
@@ -3893,22 +3992,23 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ('hangulCharacter' in $$props) $$invalidate(4, hangulCharacter = $$props.hangulCharacter);
+    		if ('hangulCharacter' in $$props) $$invalidate(5, hangulCharacter = $$props.hangulCharacter);
     		if ('pressed' in $$props) $$invalidate(1, pressed = $$props.pressed);
-    		if ('slideshow' in $$props) $$invalidate(5, slideshow = $$props.slideshow);
+    		if ('slideshow' in $$props) $$invalidate(6, slideshow = $$props.slideshow);
     		if ('slideIndex' in $$props) slideIndex = $$props.slideIndex;
     		if ('currentChar' in $$props) currentChar = $$props.currentChar;
     		if ('timestamp' in $$props) $$invalidate(2, timestamp = $$props.timestamp);
     		if ('shifted' in $$props) $$invalidate(0, shifted = $$props.shifted);
     		if ('characters' in $$props) characters = $$props.characters;
-    		if ('keyArray' in $$props) $$invalidate(11, keyArray = $$props.keyArray);
+    		if ('keyArray' in $$props) $$invalidate(12, keyArray = $$props.keyArray);
     		if ('faceIdx' in $$props) faceIdx = $$props.faceIdx;
-    		if ('showLayout' in $$props) $$invalidate(6, showLayout = $$props.showLayout);
+    		if ('showLayout' in $$props) $$invalidate(7, showLayout = $$props.showLayout);
     		if ('clearTimer' in $$props) clearTimer = $$props.clearTimer;
-    		if ('colorIndex' in $$props) $$invalidate(22, colorIndex = $$props.colorIndex);
-    		if ('keycolorIndex' in $$props) $$invalidate(23, keycolorIndex = $$props.keycolorIndex);
-    		if ('keybgcolorIndex' in $$props) $$invalidate(24, keybgcolorIndex = $$props.keybgcolorIndex);
-    		if ('boxshadowIndex' in $$props) $$invalidate(25, boxshadowIndex = $$props.boxshadowIndex);
+    		if ('colorIndex' in $$props) $$invalidate(24, colorIndex = $$props.colorIndex);
+    		if ('keycolorIndex' in $$props) $$invalidate(25, keycolorIndex = $$props.keycolorIndex);
+    		if ('keybgcolorIndex' in $$props) $$invalidate(26, keybgcolorIndex = $$props.keybgcolorIndex);
+    		if ('boxshadowIndex' in $$props) $$invalidate(27, boxshadowIndex = $$props.boxshadowIndex);
+    		if ('boxsizeIndex' in $$props) $$invalidate(28, boxsizeIndex = $$props.boxsizeIndex);
     		if ('prevColor' in $$props) prevColor = $$props.prevColor;
     		if ('visible' in $$props) visible = $$props.visible;
     	};
@@ -3919,28 +4019,36 @@ var app = (function () {
 
     	$$self.$$.update = () => {
     		if ($$self.$$.dirty[0] & /*keys, shifted*/ 9) {
-    			$$invalidate(4, hangulCharacter = String(keys[0].length == 1
+    			$$invalidate(5, hangulCharacter = String(keys[0].length == 1
     			? shifted
     				? hangulValue[keys[0].toUpperCase()] || undefined
     				: hangulValue[keys[0]] || ""
     			: ""));
     		}
 
-    		if ($$self.$$.dirty[0] & /*colorIndex*/ 4194304) {
+    		if ($$self.$$.dirty[0] & /*colorIndex*/ 16777216) {
     			// Trigger tweening if colorIndex changes.
     			color.set(colors[colorIndex]);
     		}
 
-    		if ($$self.$$.dirty[0] & /*keycolorIndex*/ 8388608) {
+    		if ($$self.$$.dirty[0] & /*keycolorIndex*/ 33554432) {
     			keycolor.set(keycolors[keycolorIndex]);
     		}
 
-    		if ($$self.$$.dirty[0] & /*keybgcolorIndex*/ 16777216) {
+    		if ($$self.$$.dirty[0] & /*keybgcolorIndex*/ 67108864) {
     			keybgcolor.set(keybgcolors[keybgcolorIndex]);
     		}
 
-    		if ($$self.$$.dirty[0] & /*boxshadowIndex*/ 33554432) {
+    		if ($$self.$$.dirty[0] & /*boxshadowIndex*/ 134217728) {
     			boxshadowcolor.set(boxshadowcolors[boxshadowIndex]);
+    		}
+
+    		if ($$self.$$.dirty[0] & /*boxsizeIndex*/ 268435456) {
+    			boxsize.set(boxsizes[boxsizeIndex]);
+    		}
+
+    		if ($$self.$$.dirty[0] & /*$boxsize*/ 16) {
+    			console.log("boxsize", $boxsize);
     		}
     	};
 
@@ -3949,6 +4057,7 @@ var app = (function () {
     		pressed,
     		timestamp,
     		keys,
+    		$boxsize,
     		hangulCharacter,
     		slideshow,
     		showLayout,
@@ -3961,6 +4070,7 @@ var app = (function () {
     		handleKeypress,
     		toggleView,
     		toggleSlideshow,
+    		boxsize,
     		color,
     		keycolor,
     		keybgcolor,
@@ -3971,12 +4081,14 @@ var app = (function () {
     		keycolorIndex,
     		keybgcolorIndex,
     		boxshadowIndex,
+    		boxsizeIndex,
     		keyboard_pressed_binding,
     		keyboard_shifted_binding,
     		keyboard_timestamp_binding,
     		keyboard_keycolor_binding,
     		keyboard_keybackground_binding,
     		keyboard_boxshadowcolor_binding,
+    		keyboard_boxsize_binding,
     		keydown_handler,
     		shortcut_function
     	];
@@ -3996,7 +4108,7 @@ var app = (function () {
     				pressed: 1,
     				timestamp: 2,
     				shifted: 0,
-    				hangulValue: 21
+    				hangulValue: 23
     			},
     			null,
     			[-1, -1]
@@ -4042,7 +4154,7 @@ var app = (function () {
     	}
 
     	get hangulValue() {
-    		return this.$$.ctx[21];
+    		return this.$$.ctx[23];
     	}
 
     	set hangulValue(value) {

@@ -23,7 +23,7 @@
 
 	let slideshow = false;
 	let slideIndex = 0;
-
+	
 	let currentChar = "";
 	export let timestamp = Date.now();
 	export let shifted;
@@ -135,6 +135,7 @@
 	let keycolorIndex = 0;
 	let keybgcolorIndex = 0;
 	let boxshadowIndex = 0;
+	let boxsizeIndex = 0;
 
 	const colors = [
 		"fa0024",
@@ -149,6 +150,7 @@
 	const keycolors = [];
 	colors.forEach((m) => keycolors.unshift(m));
 
+	const boxsizes = [2, 7];
 	const keybgcolors = ["023e8a", "9CAEA9", "2B2D42", "6A4C93", "6C757D"];
 	const boxshadowcolors = [
 		"E500A4",
@@ -167,6 +169,7 @@
 		Math.round(decimal).toString(16).padStart(2, "0");
 
 	// This cycles through the indexes of the colors array.
+	
 	const goToNextColor = () => {
 		colorIndex = (colorIndex + 1) % colors.length;
 	};
@@ -178,6 +181,9 @@
 	};
 	const goToNextBoxShadow = () => {
 		boxshadowIndex = (boxshadowIndex + 1) % boxshadowcolors.length;
+	};
+	const goToNextBoxSize = () => {
+		boxsizeIndex = (boxsizeIndex + 1) % boxsizes.length;
 	};
 	console.log("colorIndex", colorIndex);
 
@@ -214,6 +220,11 @@
 		};
 	}
 
+	const boxsize = tweened(boxsizes[boxsizeIndex], {
+		duration: 1000,
+		easing: sineIn,
+	});
+
 	// Create a tweened store that holds an "rrggbb" hex color.
 	const color = tweened(colors[colorIndex], {
 		duration: 2000,
@@ -243,6 +254,7 @@
 	$: keycolor.set(keycolors[keycolorIndex]);
 	$: keybgcolor.set(keybgcolors[keybgcolorIndex]);
 	$: boxshadowcolor.set(boxshadowcolors[boxshadowIndex]);
+	$: boxsize.set(boxsizes[boxsizeIndex]);
 	//$: console.log("color", $color, "keycolor", $keycolor)
 
 	let prevColor = $color;
@@ -260,12 +272,17 @@
 	setInterval(() => {
 		goToNextKeybgColor();
 		clearInterval();
+		goToNextBoxSize();
+
 	}, 3000);
 
 	setInterval(() => {
 		goToNextBoxShadow();
 		clearInterval();
+			
 	}, 1000);
+
+	$: console.log("boxsize", $boxsize)
 
 	import { elasticOut } from "svelte/easing";
 
@@ -336,6 +353,7 @@
 					bind:keycolor={$keycolor}
 					bind:keybackground={$keybgcolor}
 					bind:boxshadowcolor={$boxshadowcolor}
+					bind:boxsize={$boxsize}
 				/>
 			</p>
 			{#key timestamp}
