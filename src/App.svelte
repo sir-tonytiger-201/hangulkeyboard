@@ -10,6 +10,11 @@
 
 	let pressed = undefined;
 
+	let slideshow = false;
+	let slideIndex = 0;
+
+	let currentChar = "";
+
 	export const hangulValue = {
 		q: "ㅂ",
 		w: "ㅈ",
@@ -45,7 +50,7 @@
 
 	characters.forEach((m) => keyArray.push("Key" + m.toUpperCase()));
 
-	$: console.log(keys[0]);
+	$: console.dir(keys[slideIndex]?.value);
 	$: hangulCharacter = String(
 		keys[0].length == 1 ? hangulValue[keys[0]] || "" : ""
 	);
@@ -54,6 +59,7 @@
 		const k = m[m.length - 1].toLowerCase();
 		keys[0] = k;
 		pressed = k || pressed;
+		console.log(m)
 	};
 
 	let showLayout = false;
@@ -61,6 +67,14 @@
 	const toggleView = () => {
 		showLayout = !showLayout;
 	};
+const toggleSlideshow = () => {
+	slideshow = !slideshow;
+	if (slideshow) slideIndex = 0;
+}
+
+//$: currentChar = hangulValue[slideIndex];
+//$: console.log(currentChar)
+
 </script>
 
 <nav>
@@ -73,6 +87,7 @@
 			View key map
 		{/if}
 	</button>
+	<button on:click={toggleSlideshow}>Slidehow</button>
 	{#if showLayout}
 	<center>
 		<img src="./keyboard.png" />
