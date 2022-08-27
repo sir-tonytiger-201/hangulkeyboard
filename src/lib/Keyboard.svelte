@@ -26,8 +26,6 @@
   export let boxsize;
   
   
-  //$: boxshadow=`5px 10px 2em ${boxshadowcolor}`;
-  console.log(boxshadowcolor);
 
 
   // vars

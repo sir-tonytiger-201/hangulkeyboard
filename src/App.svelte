@@ -185,7 +185,6 @@
 	const goToNextBoxSize = () => {
 		boxsizeIndex = (boxsizeIndex + 1) % boxsizes.length;
 	};
-	console.log("colorIndex", colorIndex);
 
 	// This extracts two hex characters from an "rrggbb" color string
 	// and returns the value as a number between 0 and 255.
@@ -281,8 +280,6 @@
 		clearInterval();
 			
 	}, 1000);
-
-	$: console.log("boxsize", $boxsize)
 
 	import { elasticOut } from "svelte/easing";
 
