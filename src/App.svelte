@@ -66,12 +66,20 @@
 	};
 
 	const numberOfCharacters = Object.keys(hangulValue).length;
-	let characters = Object.keys(hangulValue);
+	const characters = Object.keys(hangulValue);
 	$: console.log("numberOfCharacters", numberOfCharacters);
 
 	let keyArray = [];
 
 	characters.forEach((m) => keyArray.push("Key" + m.toUpperCase()));
+
+	
+	// Will return a number from 1 to m.
+	const randomNumber = m => {
+		const result = Math.floor(Math.random() * m + 1);
+		return result;
+	}
+
 
 	let faceIdx = 0;
 
@@ -116,6 +124,7 @@
 	};
 	let clearTimer;
 	const toggleSlideshow = () => {
+		
 		slideshow = !slideshow;
 		console.log("randomize", randomize);
 		if (slideshow) {
@@ -311,13 +320,29 @@
 		};
 	}
 	import Switch from "./Switch.svelte";
+import SoundTest from "./SoundTest.svelte";
 
 	let switchValue;
 	let sliderValue;
 	let multiValue;
+
+	let audio = {};
+
+	$: if(pressedKey && audio.src) {
+		if(characters.find(m => m == pressedKey)) 
+					audio.src =`sounds/powerup_4_reverb.wav`;
+					else 
+					audio.src = `sounds/powerup (${randomNumber(50)}).wav`
+		audio.play();
+	}
 </script>
 
 <nav>
+	<audio src="" bind:this={audio}></audio>
+	<div hidden>
+		<SoundTest {randomNumber} />
+
+	</div>
 	<span
 		><h1>한글 Keyboard</h1>
 		<small><i>By sir-tonytiger-201</i></small></span
