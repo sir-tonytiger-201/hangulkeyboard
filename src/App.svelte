@@ -392,8 +392,8 @@
 					design="inner"
 				/>
 			</td>
-			<td style="font-size:small;">
-				<Switch bind:checked={sound} label="Sound" design="inner" />
+			<td style="font-size:larger;">
+				<Switch bind:checked={sound} label="&#x1F50A;" design="slider" />
 			</td>
 		</tr>
 	</table>

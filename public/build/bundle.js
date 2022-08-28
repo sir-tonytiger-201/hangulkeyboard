@@ -3854,8 +3854,8 @@ var app = (function () {
     			img = element("img");
     			if (!src_url_equal(img.src, img_src_value = "./keyboard.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "class", "svelte-1sthij4");
-    			add_location(img, file, 402, 3, 8782);
-    			add_location(center, file, 401, 2, 8770);
+    			add_location(img, file, 402, 3, 8788);
+    			add_location(center, file, 401, 2, 8776);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, center, anchor);
@@ -3895,8 +3895,8 @@ var app = (function () {
     			div1 = element("div");
     			div0 = element("div");
     			t = text(t_value);
-    			add_location(div0, file, 444, 7, 9626);
-    			add_location(div1, file, 435, 6, 9481);
+    			add_location(div0, file, 444, 7, 9632);
+    			add_location(div1, file, 435, 6, 9487);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -3961,7 +3961,7 @@ var app = (function () {
     			if (if_block) if_block.c();
     			attr_dev(div, "class", "hangul svelte-1sthij4");
     			set_style(div, "color", "#" + /*$color*/ ctx[10]);
-    			add_location(div, file, 429, 4, 9350);
+    			add_location(div, file, 429, 4, 9356);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -4113,7 +4113,7 @@ var app = (function () {
     		/*switch1_checked_binding*/ ctx[37](value);
     	}
 
-    	let switch1_props = { label: "Sound", design: "inner" };
+    	let switch1_props = { label: "🔊", design: "slider" };
 
     	if (/*sound*/ ctx[5] !== void 0) {
     		switch1_props.checked = /*sound*/ ctx[5];
@@ -4266,7 +4266,7 @@ var app = (function () {
     			set_style(td3, "font-size", "small");
     			attr_dev(td3, "class", "svelte-1sthij4");
     			add_location(td3, file, 387, 3, 8493);
-    			set_style(td4, "font-size", "small");
+    			set_style(td4, "font-size", "larger");
     			attr_dev(td4, "class", "svelte-1sthij4");
     			add_location(td4, file, 394, 3, 8627);
     			add_location(tr, file, 364, 2, 8128);
@@ -4274,14 +4274,14 @@ var app = (function () {
     			attr_dev(nav, "class", "svelte-1sthij4");
     			add_location(nav, file, 352, 0, 7928);
     			attr_dev(p, "class", "keyboard  svelte-1sthij4");
-    			add_location(p, file, 413, 3, 8968);
+    			add_location(p, file, 413, 3, 8974);
     			attr_dev(center, "class", "svelte-1sthij4");
-    			add_location(center, file, 412, 2, 8956);
+    			add_location(center, file, 412, 2, 8962);
     			attr_dev(div1, "class", "info  svelte-1sthij4");
-    			add_location(div1, file, 411, 1, 8934);
+    			add_location(div1, file, 411, 1, 8940);
     			main.hidden = false;
     			attr_dev(main, "class", "svelte-1sthij4");
-    			add_location(main, file, 407, 0, 8838);
+    			add_location(main, file, 407, 0, 8844);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
