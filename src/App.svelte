@@ -2,7 +2,7 @@
 	import keys from "./lib/layouts/qwerty/standard";
 	import Keyboard from "./lib/Keyboard.svelte";
 	import { shortcut } from "./lib/shortcut";
-	import { fly, fade, slide, scale } from "svelte/transition";
+	import { fly, fade, slide, scale, crossfade } from "svelte/transition";
 	import { flip } from "svelte/animate";
 	import {
 		bounceInOut,
@@ -152,7 +152,7 @@
 	let keybgcolorIndex = 0;
 	let boxshadowIndex = 0;
 	let boxsizeIndex = 0;
-	let randomize = true;
+	let randomize = false;
 
 	const colors = [
 		"fa0024",
@@ -316,6 +316,38 @@
 			},
 		};
 	}
+
+	let transitionIndex = 0
+	function randomtransition(node, { duration }) {
+		//return spin(node, { duration } );
+		const xoffset = randomNumber(500) * (randomNumber(2) > 1 ? -1: 1);
+		
+		const transitions = [
+			fly(node, {
+				easing: cubicIn,
+				start: 0.5,
+				opacity: 0.5,
+				x: xoffset,
+				y: -randomNumber(500),
+			}),
+			crossfade(node, {
+				easing: quintOut,
+				duration: 300,
+				start: 20,
+			}),
+			scale(node, {
+				easing: quintOut,
+				duration: 300,
+				start: 20,
+			}),
+			
+		];
+
+		/* if(transitionIndex >= transitions.length) transitionIndex = 0;
+		return transitions[transitionIndex++]; */
+		return transitions[randomNumber(transitions.length) - 1];
+	}
+
 	import Switch from "./Switch.svelte";
 	import SoundTest from "./SoundTest.svelte";
 
@@ -332,12 +364,10 @@
 			audio.src = `sounds/Spin.wav`;
 		else audio.src = `sounds/powerup (${randomNumber(50)}).wav`;
 
-		if(volume != undefined)
-		audio.volume = volume;
+		if (volume != undefined) audio.volume = volume;
 		audio.play();
 	}
 
-	
 	let sound = true;
 	let savedvolume = volume;
 	$: if (sound == false) {
@@ -393,7 +423,11 @@
 				/>
 			</td>
 			<td style="font-size:larger;">
-				<Switch bind:checked={sound} label="&#x1F50A;" design="slider" />
+				<Switch
+					bind:checked={sound}
+					label="&#x1F50A;"
+					design="slider"
+				/>
 			</td>
 		</tr>
 	</table>
@@ -433,15 +467,7 @@
 					in:scale={{ easing: cubicOut }}
 				>
 					{#if hangulCharacter}
-						<div
-							in:fly={{
-								easing: cubicIn,
-								start: 0.5,
-								opacity: 0.5,
-								x: 0,
-								y: -320,
-							}}
-						>
+						<div in:randomtransition>
 							<div in:spin={{ duration: 1200 }}>
 								{hangulCharacter == "undefined"
 									? funnyface()

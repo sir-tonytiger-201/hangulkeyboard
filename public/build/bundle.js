@@ -2715,6 +2715,32 @@ var app = (function () {
             return 1 - v;
     }
 
+    /*! *****************************************************************************
+    Copyright (c) Microsoft Corporation.
+
+    Permission to use, copy, modify, and/or distribute this software for any
+    purpose with or without fee is hereby granted.
+
+    THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+    REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+    AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+    INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+    LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+    OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+    PERFORMANCE OF THIS SOFTWARE.
+    ***************************************************************************** */
+
+    function __rest(s, e) {
+        var t = {};
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+            t[p] = s[p];
+        if (s != null && typeof Object.getOwnPropertySymbols === "function")
+            for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+                if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                    t[p[i]] = s[p[i]];
+            }
+        return t;
+    }
     function fade(node, { delay = 0, duration = 400, easing = identity } = {}) {
         const o = +getComputedStyle(node).opacity;
         return {
@@ -2778,6 +2804,56 @@ var app = (function () {
 			opacity: ${target_opacity - (od * u)}
 		`
         };
+    }
+    function crossfade(_a) {
+        var { fallback } = _a, defaults = __rest(_a, ["fallback"]);
+        const to_receive = new Map();
+        const to_send = new Map();
+        function crossfade(from, node, params) {
+            const { delay = 0, duration = d => Math.sqrt(d) * 30, easing = cubicOut } = assign(assign({}, defaults), params);
+            const to = node.getBoundingClientRect();
+            const dx = from.left - to.left;
+            const dy = from.top - to.top;
+            const dw = from.width / to.width;
+            const dh = from.height / to.height;
+            const d = Math.sqrt(dx * dx + dy * dy);
+            const style = getComputedStyle(node);
+            const transform = style.transform === 'none' ? '' : style.transform;
+            const opacity = +style.opacity;
+            return {
+                delay,
+                duration: is_function(duration) ? duration(d) : duration,
+                easing,
+                css: (t, u) => `
+				opacity: ${t * opacity};
+				transform-origin: top left;
+				transform: ${transform} translate(${u * dx}px,${u * dy}px) scale(${t + (1 - t) * dw}, ${t + (1 - t) * dh});
+			`
+            };
+        }
+        function transition(items, counterparts, intro) {
+            return (node, params) => {
+                items.set(params.key, {
+                    rect: node.getBoundingClientRect()
+                });
+                return () => {
+                    if (counterparts.has(params.key)) {
+                        const { rect } = counterparts.get(params.key);
+                        counterparts.delete(params.key);
+                        return crossfade(rect, node, params);
+                    }
+                    // if the node is disappearing altogether
+                    // (i.e. wasn't claimed by the other list)
+                    // then we need to supply an outro
+                    items.delete(params.key);
+                    return fallback && fallback(node, params, intro);
+                };
+            };
+        }
+        return [
+            transition(to_send, to_receive, false),
+            transition(to_receive, to_send, true)
+        ];
     }
 
     function flip(node, { from, to }, params = {}) {
@@ -3734,7 +3810,7 @@ var app = (function () {
     const { Object: Object_1, console: console_1 } = globals;
     const file = "src/App.svelte";
 
-    // (373:5) {:else}
+    // (403:5) {:else}
     function create_else_block_1(ctx) {
     	let t;
 
@@ -3754,14 +3830,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(373:5) {:else}",
+    		source: "(403:5) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (371:5) {#if showLayout}
+    // (401:5) {#if showLayout}
     function create_if_block_3(ctx) {
     	let t;
 
@@ -3781,14 +3857,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(371:5) {#if showLayout}",
+    		source: "(401:5) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (382:5) {:else}
+    // (412:5) {:else}
     function create_else_block(ctx) {
     	let t;
 
@@ -3808,14 +3884,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(382:5) {:else}",
+    		source: "(412:5) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (380:5) {#if slideshow}
+    // (410:5) {#if slideshow}
     function create_if_block_2(ctx) {
     	let t;
 
@@ -3835,14 +3911,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(380:5) {#if slideshow}",
+    		source: "(410:5) {#if slideshow}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (401:1) {#if showLayout}
+    // (435:1) {#if showLayout}
     function create_if_block_1(ctx) {
     	let center;
     	let img;
@@ -3854,8 +3930,8 @@ var app = (function () {
     			img = element("img");
     			if (!src_url_equal(img.src, img_src_value = "./keyboard.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "class", "svelte-1sthij4");
-    			add_location(img, file, 402, 3, 8788);
-    			add_location(center, file, 401, 2, 8776);
+    			add_location(img, file, 436, 3, 9495);
+    			add_location(center, file, 435, 2, 9483);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, center, anchor);
@@ -3870,14 +3946,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(401:1) {#if showLayout}",
+    		source: "(435:1) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (435:5) {#if hangulCharacter}
+    // (469:5) {#if hangulCharacter}
     function create_if_block(ctx) {
     	let div1;
     	let div0;
@@ -3895,17 +3971,15 @@ var app = (function () {
     			div1 = element("div");
     			div0 = element("div");
     			t = text(t_value);
-    			add_location(div0, file, 444, 7, 9632);
-    			add_location(div1, file, 435, 6, 9487);
+    			add_location(div0, file, 470, 7, 10227);
+    			add_location(div1, file, 469, 6, 10194);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
     			append_dev(div1, div0);
     			append_dev(div0, t);
     		},
-    		p: function update(new_ctx, dirty) {
-    			ctx = new_ctx;
-
+    		p: function update(ctx, dirty) {
     			if (dirty[0] & /*hangulCharacter*/ 64 && t_value !== (t_value = (/*hangulCharacter*/ ctx[6] == "undefined"
     			? /*funnyface*/ ctx[17]()
     			: /*hangulCharacter*/ ctx[6]) + "")) set_data_dev(t, t_value);
@@ -3920,14 +3994,7 @@ var app = (function () {
 
     			if (!div1_intro) {
     				add_render_callback(() => {
-    					div1_intro = create_in_transition(div1, fly, {
-    						easing: cubicIn,
-    						start: 0.5,
-    						opacity: 0.5,
-    						x: 0,
-    						y: -320
-    					});
-
+    					div1_intro = create_in_transition(div1, /*randomtransition*/ ctx[27], {});
     					div1_intro.start();
     				});
     			}
@@ -3942,14 +4009,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(435:5) {#if hangulCharacter}",
+    		source: "(469:5) {#if hangulCharacter}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (429:3) {#key timestamp}
+    // (463:3) {#key timestamp}
     function create_key_block(ctx) {
     	let div;
     	let div_intro;
@@ -3961,7 +4028,7 @@ var app = (function () {
     			if (if_block) if_block.c();
     			attr_dev(div, "class", "hangul svelte-1sthij4");
     			set_style(div, "color", "#" + /*$color*/ ctx[10]);
-    			add_location(div, file, 429, 4, 9356);
+    			add_location(div, file, 463, 4, 10063);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -4013,7 +4080,7 @@ var app = (function () {
     		block,
     		id: create_key_block.name,
     		type: "key",
-    		source: "(429:3) {#key timestamp}",
+    		source: "(463:3) {#key timestamp}",
     		ctx
     	});
 
@@ -4097,7 +4164,7 @@ var app = (function () {
     	let if_block1 = current_block_type_1(ctx);
 
     	function switch0_checked_binding(value) {
-    		/*switch0_checked_binding*/ ctx[36](value);
+    		/*switch0_checked_binding*/ ctx[37](value);
     	}
 
     	let switch0_props = { label: "Randomize", design: "inner" };
@@ -4110,7 +4177,7 @@ var app = (function () {
     	binding_callbacks.push(() => bind(switch0, 'checked', switch0_checked_binding));
 
     	function switch1_checked_binding(value) {
-    		/*switch1_checked_binding*/ ctx[37](value);
+    		/*switch1_checked_binding*/ ctx[38](value);
     	}
 
     	let switch1_props = { label: "🔊", design: "slider" };
@@ -4124,31 +4191,31 @@ var app = (function () {
     	let if_block2 = /*showLayout*/ ctx[8] && create_if_block_1(ctx);
 
     	function keyboard_pressed_binding(value) {
-    		/*keyboard_pressed_binding*/ ctx[38](value);
+    		/*keyboard_pressed_binding*/ ctx[39](value);
     	}
 
     	function keyboard_shifted_binding(value) {
-    		/*keyboard_shifted_binding*/ ctx[39](value);
+    		/*keyboard_shifted_binding*/ ctx[40](value);
     	}
 
     	function keyboard_timestamp_binding(value) {
-    		/*keyboard_timestamp_binding*/ ctx[40](value);
+    		/*keyboard_timestamp_binding*/ ctx[41](value);
     	}
 
     	function keyboard_keycolor_binding(value) {
-    		/*keyboard_keycolor_binding*/ ctx[41](value);
+    		/*keyboard_keycolor_binding*/ ctx[42](value);
     	}
 
     	function keyboard_keybackground_binding(value) {
-    		/*keyboard_keybackground_binding*/ ctx[42](value);
+    		/*keyboard_keybackground_binding*/ ctx[43](value);
     	}
 
     	function keyboard_boxshadowcolor_binding(value) {
-    		/*keyboard_boxshadowcolor_binding*/ ctx[43](value);
+    		/*keyboard_boxshadowcolor_binding*/ ctx[44](value);
     	}
 
     	function keyboard_boxsize_binding(value) {
-    		/*keyboard_boxsize_binding*/ ctx[44](value);
+    		/*keyboard_boxsize_binding*/ ctx[45](value);
     	}
 
     	let keyboard_props = {};
@@ -4189,7 +4256,7 @@ var app = (function () {
     	binding_callbacks.push(() => bind(keyboard, 'keybackground', keyboard_keybackground_binding));
     	binding_callbacks.push(() => bind(keyboard, 'boxshadowcolor', keyboard_boxshadowcolor_binding));
     	binding_callbacks.push(() => bind(keyboard, 'boxsize', keyboard_boxsize_binding));
-    	keyboard.$on("keydown", /*keydown_handler*/ ctx[45]);
+    	keyboard.$on("keydown", /*keydown_handler*/ ctx[46]);
     	let key_block = create_key_block(ctx);
 
     	const block = {
@@ -4241,47 +4308,47 @@ var app = (function () {
     			t15 = space();
     			key_block.c();
     			if (!src_url_equal(audio_1.src, audio_1_src_value = "")) attr_dev(audio_1, "src", audio_1_src_value);
-    			add_location(audio_1, file, 353, 1, 7935);
+    			add_location(audio_1, file, 383, 1, 8623);
     			div0.hidden = true;
-    			add_location(div0, file, 354, 1, 7971);
+    			add_location(div0, file, 384, 1, 8659);
     			attr_dev(h1, "class", "svelte-1sthij4");
-    			add_location(h1, file, 358, 3, 8033);
-    			add_location(i, file, 359, 9, 8063);
-    			add_location(small, file, 359, 2, 8056);
+    			add_location(h1, file, 388, 3, 8721);
+    			add_location(i, file, 389, 9, 8751);
+    			add_location(small, file, 389, 2, 8744);
     			attr_dev(span0, "class", "svelte-1sthij4");
-    			add_location(span0, file, 357, 1, 8024);
-    			add_location(br, file, 361, 1, 8109);
+    			add_location(span0, file, 387, 1, 8712);
+    			add_location(br, file, 391, 1, 8797);
     			attr_dev(span1, "class", "svelte-1sthij4");
-    			add_location(span1, file, 366, 4, 8145);
+    			add_location(span1, file, 396, 4, 8833);
     			attr_dev(td0, "class", "svelte-1sthij4");
-    			add_location(td0, file, 365, 3, 8136);
+    			add_location(td0, file, 395, 3, 8824);
     			attr_dev(button0, "class", "svelte-1sthij4");
-    			add_location(button0, file, 369, 4, 8206);
+    			add_location(button0, file, 399, 4, 8894);
     			attr_dev(td1, "class", "svelte-1sthij4");
-    			add_location(td1, file, 368, 3, 8197);
+    			add_location(td1, file, 398, 3, 8885);
     			attr_dev(button1, "class", "svelte-1sthij4");
-    			add_location(button1, file, 378, 4, 8348);
+    			add_location(button1, file, 408, 4, 9036);
     			attr_dev(td2, "class", "svelte-1sthij4");
-    			add_location(td2, file, 377, 3, 8339);
+    			add_location(td2, file, 407, 3, 9027);
     			set_style(td3, "font-size", "small");
     			attr_dev(td3, "class", "svelte-1sthij4");
-    			add_location(td3, file, 387, 3, 8493);
+    			add_location(td3, file, 417, 3, 9181);
     			set_style(td4, "font-size", "larger");
     			attr_dev(td4, "class", "svelte-1sthij4");
-    			add_location(td4, file, 394, 3, 8627);
-    			add_location(tr, file, 364, 2, 8128);
-    			add_location(table, file, 363, 1, 8118);
+    			add_location(td4, file, 424, 3, 9315);
+    			add_location(tr, file, 394, 2, 8816);
+    			add_location(table, file, 393, 1, 8806);
     			attr_dev(nav, "class", "svelte-1sthij4");
-    			add_location(nav, file, 352, 0, 7928);
+    			add_location(nav, file, 382, 0, 8616);
     			attr_dev(p, "class", "keyboard  svelte-1sthij4");
-    			add_location(p, file, 413, 3, 8974);
+    			add_location(p, file, 447, 3, 9681);
     			attr_dev(center, "class", "svelte-1sthij4");
-    			add_location(center, file, 412, 2, 8962);
+    			add_location(center, file, 446, 2, 9669);
     			attr_dev(div1, "class", "info  svelte-1sthij4");
-    			add_location(div1, file, 411, 1, 8940);
+    			add_location(div1, file, 445, 1, 9647);
     			main.hidden = false;
     			attr_dev(main, "class", "svelte-1sthij4");
-    			add_location(main, file, 407, 0, 8844);
+    			add_location(main, file, 441, 0, 9551);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -4289,7 +4356,7 @@ var app = (function () {
     		m: function mount(target, anchor) {
     			insert_dev(target, nav, anchor);
     			append_dev(nav, audio_1);
-    			/*audio_1_binding*/ ctx[35](audio_1);
+    			/*audio_1_binding*/ ctx[36](audio_1);
     			append_dev(nav, t0);
     			append_dev(nav, div0);
     			mount_component(soundtest, div0, null);
@@ -4339,7 +4406,7 @@ var app = (function () {
     					listen_dev(button1, "click", /*toggleSlideshow*/ ctx[20], false, false, false),
     					action_destroyer(shortcut.call(null, main, {
     						code: /*keyArray*/ ctx[15],
-    						callback: /*shortcut_function*/ ctx[46]
+    						callback: /*shortcut_function*/ ctx[47]
     					}))
     				];
 
@@ -4474,7 +4541,7 @@ var app = (function () {
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(nav);
-    			/*audio_1_binding*/ ctx[35](null);
+    			/*audio_1_binding*/ ctx[36](null);
     			destroy_component(soundtest);
     			if_block0.d();
     			if_block1.d();
@@ -4634,7 +4701,7 @@ var app = (function () {
     	let keybgcolorIndex = 0;
     	let boxshadowIndex = 0;
     	let boxsizeIndex = 0;
-    	let randomize = true;
+    	let randomize = false;
     	const colors = ["fa0024", "efff11", "00ff00", "072e5b", "f9be8a", "f36729", "59e8eb", "3548b7"]; // red, yellow, green, blue
     	const keycolors = [];
     	colors.forEach(m => keycolors.unshift(m));
@@ -4648,23 +4715,23 @@ var app = (function () {
 
     	// This cycles through the indexes of the colors array.
     	const goToNextColor = () => {
-    		$$invalidate(28, colorIndex = (colorIndex + 1) % colors.length);
+    		$$invalidate(29, colorIndex = (colorIndex + 1) % colors.length);
     	};
 
     	const goToNextKeyColor = () => {
-    		$$invalidate(29, keycolorIndex = (keycolorIndex + 1) % keycolors.length);
+    		$$invalidate(30, keycolorIndex = (keycolorIndex + 1) % keycolors.length);
     	};
 
     	const goToNextKeybgColor = () => {
-    		$$invalidate(30, keybgcolorIndex = (keybgcolorIndex + 1) % keybgcolors.length);
+    		$$invalidate(31, keybgcolorIndex = (keybgcolorIndex + 1) % keybgcolors.length);
     	};
 
     	const goToNextBoxShadow = () => {
-    		$$invalidate(31, boxshadowIndex = (boxshadowIndex + 1) % boxshadowcolors.length);
+    		$$invalidate(32, boxshadowIndex = (boxshadowIndex + 1) % boxshadowcolors.length);
     	};
 
     	const goToNextBoxSize = () => {
-    		$$invalidate(32, boxsizeIndex = (boxsizeIndex + 1) % boxsizes.length);
+    		$$invalidate(33, boxsizeIndex = (boxsizeIndex + 1) % boxsizes.length);
     	};
 
     	// This extracts two hex characters from an "rrggbb" color string
@@ -4790,6 +4857,33 @@ var app = (function () {
     		};
     	}
 
+    	let transitionIndex = 0;
+
+    	function randomtransition(node, { duration }) {
+    		//return spin(node, { duration } );
+    		const xoffset = randomNumber(500) * (randomNumber(2) > 1 ? -1 : 1);
+
+    		const transitions = [
+    			fly(node, {
+    				easing: cubicIn,
+    				start: 0.5,
+    				opacity: 0.5,
+    				x: xoffset,
+    				y: -randomNumber(500)
+    			}),
+    			crossfade(node),
+    			scale(node, {
+    				easing: quintOut,
+    				duration: 300,
+    				start: 20
+    			})
+    		];
+
+    		/* if(transitionIndex >= transitions.length) transitionIndex = 0;
+    return transitions[transitionIndex++]; */
+    		return transitions[randomNumber(transitions.length) - 1];
+    	}
+
     	let switchValue;
     	let sliderValue;
     	let multiValue;
@@ -4806,7 +4900,7 @@ var app = (function () {
     	function audio_1_binding($$value) {
     		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
     			audio = $$value;
-    			(((($$invalidate(4, audio), $$invalidate(3, pressedKey)), $$invalidate(33, volume)), $$invalidate(5, sound)), $$invalidate(34, savedvolume));
+    			(((($$invalidate(4, audio), $$invalidate(3, pressedKey)), $$invalidate(34, volume)), $$invalidate(5, sound)), $$invalidate(35, savedvolume));
     		});
     	}
 
@@ -4876,6 +4970,7 @@ var app = (function () {
     		fade,
     		slide,
     		scale,
+    		crossfade,
     		flip,
     		bounceInOut,
     		circIn,
@@ -4940,6 +5035,8 @@ var app = (function () {
     		elasticOut,
     		visible,
     		spin,
+    		transitionIndex,
+    		randomtransition,
     		Switch,
     		SoundTest,
     		switchValue,
@@ -4969,21 +5066,22 @@ var app = (function () {
     		if ('faceIdx' in $$props) faceIdx = $$props.faceIdx;
     		if ('showLayout' in $$props) $$invalidate(8, showLayout = $$props.showLayout);
     		if ('clearTimer' in $$props) clearTimer = $$props.clearTimer;
-    		if ('colorIndex' in $$props) $$invalidate(28, colorIndex = $$props.colorIndex);
-    		if ('keycolorIndex' in $$props) $$invalidate(29, keycolorIndex = $$props.keycolorIndex);
-    		if ('keybgcolorIndex' in $$props) $$invalidate(30, keybgcolorIndex = $$props.keybgcolorIndex);
-    		if ('boxshadowIndex' in $$props) $$invalidate(31, boxshadowIndex = $$props.boxshadowIndex);
-    		if ('boxsizeIndex' in $$props) $$invalidate(32, boxsizeIndex = $$props.boxsizeIndex);
+    		if ('colorIndex' in $$props) $$invalidate(29, colorIndex = $$props.colorIndex);
+    		if ('keycolorIndex' in $$props) $$invalidate(30, keycolorIndex = $$props.keycolorIndex);
+    		if ('keybgcolorIndex' in $$props) $$invalidate(31, keybgcolorIndex = $$props.keybgcolorIndex);
+    		if ('boxshadowIndex' in $$props) $$invalidate(32, boxshadowIndex = $$props.boxshadowIndex);
+    		if ('boxsizeIndex' in $$props) $$invalidate(33, boxsizeIndex = $$props.boxsizeIndex);
     		if ('randomize' in $$props) $$invalidate(9, randomize = $$props.randomize);
     		if ('prevColor' in $$props) prevColor = $$props.prevColor;
     		if ('visible' in $$props) visible = $$props.visible;
+    		if ('transitionIndex' in $$props) transitionIndex = $$props.transitionIndex;
     		if ('switchValue' in $$props) switchValue = $$props.switchValue;
     		if ('sliderValue' in $$props) sliderValue = $$props.sliderValue;
     		if ('multiValue' in $$props) multiValue = $$props.multiValue;
     		if ('audio' in $$props) $$invalidate(4, audio = $$props.audio);
-    		if ('volume' in $$props) $$invalidate(33, volume = $$props.volume);
+    		if ('volume' in $$props) $$invalidate(34, volume = $$props.volume);
     		if ('sound' in $$props) $$invalidate(5, sound = $$props.sound);
-    		if ('savedvolume' in $$props) $$invalidate(34, savedvolume = $$props.savedvolume);
+    		if ('savedvolume' in $$props) $$invalidate(35, savedvolume = $$props.savedvolume);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -4999,37 +5097,37 @@ var app = (function () {
     			: ""));
     		}
 
-    		if ($$self.$$.dirty[0] & /*colorIndex*/ 268435456) {
+    		if ($$self.$$.dirty[0] & /*colorIndex*/ 536870912) {
     			// Trigger tweening if colorIndex changes.
     			color.set(colors[colorIndex]);
     		}
 
-    		if ($$self.$$.dirty[0] & /*keycolorIndex*/ 536870912) {
+    		if ($$self.$$.dirty[0] & /*keycolorIndex*/ 1073741824) {
     			keycolor.set(keycolors[keycolorIndex]);
     		}
 
-    		if ($$self.$$.dirty[0] & /*keybgcolorIndex*/ 1073741824) {
+    		if ($$self.$$.dirty[1] & /*keybgcolorIndex*/ 1) {
     			keybgcolor.set(keybgcolors[keybgcolorIndex]);
     		}
 
-    		if ($$self.$$.dirty[1] & /*boxshadowIndex*/ 1) {
+    		if ($$self.$$.dirty[1] & /*boxshadowIndex*/ 2) {
     			boxshadowcolor.set(boxshadowcolors[boxshadowIndex]);
     		}
 
-    		if ($$self.$$.dirty[1] & /*boxsizeIndex*/ 2) {
+    		if ($$self.$$.dirty[1] & /*boxsizeIndex*/ 4) {
     			boxsize.set(boxsizes[boxsizeIndex]);
     		}
 
-    		if ($$self.$$.dirty[0] & /*sound*/ 32 | $$self.$$.dirty[1] & /*volume, savedvolume*/ 12) {
+    		if ($$self.$$.dirty[0] & /*sound*/ 32 | $$self.$$.dirty[1] & /*volume, savedvolume*/ 24) {
     			if (sound == false) {
-    				$$invalidate(34, savedvolume = volume);
-    				$$invalidate(33, volume = 0);
+    				$$invalidate(35, savedvolume = volume);
+    				$$invalidate(34, volume = 0);
     			} else {
-    				$$invalidate(33, volume = savedvolume);
+    				$$invalidate(34, volume = savedvolume);
     			}
     		}
 
-    		if ($$self.$$.dirty[0] & /*pressedKey, audio*/ 24 | $$self.$$.dirty[1] & /*volume*/ 4) {
+    		if ($$self.$$.dirty[0] & /*pressedKey, audio*/ 24 | $$self.$$.dirty[1] & /*volume*/ 8) {
     			if (pressedKey && audio.src) {
     				if (characters.find(m => m == pressedKey)) //audio.src =`sounds/powerup_4_reverb.wav`;
     				$$invalidate(4, audio.src = `sounds/Spin.wav`, audio); else $$invalidate(4, audio.src = `sounds/powerup (${randomNumber(50)}).wav`, audio);
@@ -5039,7 +5137,7 @@ var app = (function () {
     			}
     		}
 
-    		if ($$self.$$.dirty[1] & /*volume*/ 4) {
+    		if ($$self.$$.dirty[1] & /*volume*/ 8) {
     			if (volume != undefined) $$invalidate(4, audio.volume = volume, audio);
     		}
     	};
@@ -5074,6 +5172,7 @@ var app = (function () {
     		keybgcolor,
     		boxshadowcolor,
     		spin,
+    		randomtransition,
     		hangulValue,
     		colorIndex,
     		keycolorIndex,
@@ -5111,7 +5210,7 @@ var app = (function () {
     				pressed: 1,
     				timestamp: 2,
     				shifted: 0,
-    				hangulValue: 27
+    				hangulValue: 28
     			},
     			null,
     			[-1, -1, -1]
@@ -5157,7 +5256,7 @@ var app = (function () {
     	}
 
     	get hangulValue() {
-    		return this.$$.ctx[27];
+    		return this.$$.ctx[28];
     	}
 
     	set hangulValue(value) {
