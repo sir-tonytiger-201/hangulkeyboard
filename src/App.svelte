@@ -28,6 +28,7 @@
 	export let timestamp = Date.now();
 	export let shifted;
 	let pressedKey = ' ';
+	
 
 	export const hangulValue = {
 		q: "ㅂ",
@@ -64,8 +65,10 @@
 		O: "ㅒ",
 		P: "ㅖ",
 	};
-
+	
+	const numberOfCharacters = Object.keys(hangulValue).length;
 	let characters = Object.keys(hangulValue);
+	$: console.log("numberOfCharacters",numberOfCharacters)
 
 	let keyArray = [];
 
@@ -102,6 +105,7 @@
 
 	const showkey = (i) => {
 		timestamp = Date.now();
+		console.log(i)
 		const keycode = "Key" + Object.keys(hangulValue)[i].toUpperCase();
 		const k = keycode[keycode.length - 1].toLowerCase();
 		pressed = k;
@@ -114,11 +118,19 @@
 	let clearTimer;
 	const toggleSlideshow = () => {
 		slideshow = !slideshow;
+		console.log("randomize", randomize)
 		if (slideshow) {
 			slideIndex = 0;
 
 			clearTimer = setInterval(() => {
+				if(!randomize) {
 				showkey(slideIndex++);
+				} else 
+				{
+					
+					slideIndex = Math.floor(Math.random() * numberOfCharacters);
+					showkey(slideIndex);
+				}
 				if (slideIndex > Object.keys(hangulValue).length - 1)
 					slideIndex = 0;
 			}, 1500);
@@ -137,6 +149,7 @@
 	let keybgcolorIndex = 0;
 	let boxshadowIndex = 0;
 	let boxsizeIndex = 0;
+	let randomize = true;
 
 	const colors = [
 		"fa0024",
@@ -301,7 +314,13 @@
 					);`;
 			},
 		};
-	}
+
+}
+import Switch from './Switch.svelte'
+	
+	let switchValue;
+	let sliderValue;
+	let multiValue;
 </script>
 
 <nav>
@@ -310,22 +329,39 @@
 		<small><i>By sir-tonytiger-201</i></small></span
 	>
 	<br />
-	<span> Learn the layout. &emsp; </span>
-	<button on:click={toggleView}>
-		{#if showLayout}
-			Hide
-		{:else}
-			View key map
-		{/if}
-	</button>
-	<button on:click={toggleSlideshow}>
-		{#if slideshow}
-			Stop
-		{:else}
-			Start
-		{/if}
-		slideshow
-	</button>
+
+	<table>
+		<tr>
+			<td>
+				<span> Learn the layout. &emsp; </span>
+			</td>
+			<td>
+				<button on:click={toggleView}>
+					{#if showLayout}
+						Hide
+					{:else}
+						View key map
+					{/if}
+				</button>
+			</td>
+			<td>
+				<button on:click={toggleSlideshow}>
+					{#if slideshow}
+						Stop
+					{:else}
+						Start
+					{/if}
+					slideshow
+				</button>
+			</td>
+			<td>
+				<Switch bind:checked={randomize} label="Randomize" design="inner" />
+			</td>
+		</tr>
+	</table>
+	
+	
+	
 	{#if showLayout}
 		<center>
 			<img src="./keyboard.png" />
@@ -453,6 +489,10 @@
 		padding: 0;
 		border-collapse: collapse;
 		border-radius: 0;
+	}
+
+ td {
+		padding: 0  0  0 1rem;
 	}
 
 	:global(.key.clicked) {
