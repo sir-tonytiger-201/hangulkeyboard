@@ -3034,7 +3034,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (57:0) {:else}
+    // (53:0) {:else}
     function create_else_block$1(ctx) {
     	let div2;
     	let div1;
@@ -3063,15 +3063,15 @@ var app = (function () {
 
     			attr_dev(div0, "class", "legend");
     			attr_dev(div0, "id", `label-${/*uniqueID*/ ctx[6]}`);
-    			add_location(div0, file$2, 63, 4, 1781);
+    			add_location(div0, file$2, 61, 12, 1895);
     			attr_dev(div1, "role", "radiogroup");
-    			attr_dev(div1, "class", "group-container svelte-18nsj0r");
+    			attr_dev(div1, "class", "group-container svelte-1u4iklw");
     			attr_dev(div1, "aria-labelledby", `label-${/*uniqueID*/ ctx[6]}`);
     			set_style(div1, "font-size", /*fontSize*/ ctx[5] + "px");
     			attr_dev(div1, "id", `group-${/*uniqueID*/ ctx[6]}`);
-    			add_location(div1, file$2, 58, 4, 1614);
-    			attr_dev(div2, "class", "s s--multi svelte-18nsj0r");
-    			add_location(div2, file$2, 57, 0, 1585);
+    			add_location(div1, file$2, 54, 8, 1672);
+    			attr_dev(div2, "class", "s s--multi svelte-1u4iklw");
+    			add_location(div2, file$2, 53, 4, 1639);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div2, anchor);
@@ -3125,14 +3125,14 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(57:0) {:else}",
+    		source: "(53:0) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (47:29) 
+    // (43:29) 
     function create_if_block_1$1(ctx) {
     	let div;
     	let span;
@@ -3150,15 +3150,15 @@ var app = (function () {
     			t1 = space();
     			button = element("button");
     			attr_dev(span, "id", `switch-${/*uniqueID*/ ctx[6]}`);
-    			add_location(span, file$2, 48, 4, 1365);
+    			add_location(span, file$2, 44, 8, 1395);
     			attr_dev(button, "role", "switch");
     			attr_dev(button, "aria-checked", /*checked*/ ctx[1]);
     			attr_dev(button, "aria-labelledby", `switch-${/*uniqueID*/ ctx[6]}`);
-    			attr_dev(button, "class", "svelte-18nsj0r");
-    			add_location(button, file$2, 49, 4, 1416);
-    			attr_dev(div, "class", "s s--slider svelte-18nsj0r");
+    			attr_dev(button, "class", "svelte-1u4iklw");
+    			add_location(button, file$2, 45, 8, 1450);
+    			attr_dev(div, "class", "s s--slider svelte-1u4iklw");
     			set_style(div, "font-size", /*fontSize*/ ctx[5] + "px");
-    			add_location(div, file$2, 47, 0, 1304);
+    			add_location(div, file$2, 43, 4, 1330);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -3194,14 +3194,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$1.name,
     		type: "if",
-    		source: "(47:29) ",
+    		source: "(43:29) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (35:0) {#if design == 'inner'}
+    // (30:0) {#if design == "inner"}
     function create_if_block$1(ctx) {
     	let div;
     	let span0;
@@ -3227,19 +3227,19 @@ var app = (function () {
     			span2 = element("span");
     			span2.textContent = "off";
     			attr_dev(span0, "id", `switch-${/*uniqueID*/ ctx[6]}`);
-    			attr_dev(span0, "class", "svelte-18nsj0r");
-    			add_location(span0, file$2, 36, 4, 1005);
-    			attr_dev(span1, "class", "svelte-18nsj0r");
-    			add_location(span1, file$2, 42, 12, 1208);
-    			attr_dev(span2, "class", "svelte-18nsj0r");
-    			add_location(span2, file$2, 43, 12, 1236);
+    			attr_dev(span0, "class", "svelte-1u4iklw");
+    			add_location(span0, file$2, 31, 8, 990);
+    			attr_dev(span1, "class", "svelte-1u4iklw");
+    			add_location(span1, file$2, 38, 12, 1222);
+    			attr_dev(span2, "class", "svelte-1u4iklw");
+    			add_location(span2, file$2, 39, 12, 1250);
     			attr_dev(button, "role", "switch");
     			attr_dev(button, "aria-checked", /*checked*/ ctx[1]);
     			attr_dev(button, "aria-labelledby", `switch-${/*uniqueID*/ ctx[6]}`);
-    			attr_dev(button, "class", "svelte-18nsj0r");
-    			add_location(button, file$2, 37, 4, 1056);
-    			attr_dev(div, "class", "s s--inner svelte-18nsj0r");
-    			add_location(div, file$2, 35, 0, 976);
+    			attr_dev(button, "class", "svelte-1u4iklw");
+    			add_location(button, file$2, 32, 8, 1045);
+    			attr_dev(div, "class", "s s--inner svelte-1u4iklw");
+    			add_location(div, file$2, 30, 4, 957);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -3274,14 +3274,14 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(35:0) {#if design == 'inner'}",
+    		source: "(30:0) {#if design == \\\"inner\\\"}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (65:8) {#each options as option}
+    // (63:12) {#each options as option}
     function create_each_block$1(ctx) {
     	let input;
     	let input_id_value;
@@ -3306,12 +3306,12 @@ var app = (function () {
     			attr_dev(input, "id", input_id_value = `${/*option*/ ctx[11]}-${/*uniqueID*/ ctx[6]}`);
     			input.__value = input_value_value = /*option*/ ctx[11];
     			input.value = input.__value;
-    			attr_dev(input, "class", "svelte-18nsj0r");
+    			attr_dev(input, "class", "svelte-1u4iklw");
     			/*$$binding_groups*/ ctx[9][0].push(input);
-    			add_location(input, file$2, 65, 12, 1886);
+    			add_location(input, file$2, 63, 16, 2008);
     			attr_dev(label_1, "for", label_1_for_value = `${/*option*/ ctx[11]}-${/*uniqueID*/ ctx[6]}`);
-    			attr_dev(label_1, "class", "svelte-18nsj0r");
-    			add_location(label_1, file$2, 66, 12, 1982);
+    			attr_dev(label_1, "class", "svelte-1u4iklw");
+    			add_location(label_1, file$2, 69, 16, 2206);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
@@ -3360,7 +3360,7 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(65:8) {#each options as option}",
+    		source: "(63:12) {#each options as option}",
     		ctx
     	});
 
@@ -3371,8 +3371,8 @@ var app = (function () {
     	let if_block_anchor;
 
     	function select_block_type(ctx, dirty) {
-    		if (/*design*/ ctx[3] == 'inner') return create_if_block$1;
-    		if (/*design*/ ctx[3] == 'slider') return create_if_block_1$1;
+    		if (/*design*/ ctx[3] == "inner") return create_if_block$1;
+    		if (/*design*/ ctx[3] == "slider") return create_if_block_1$1;
     		return create_else_block$1;
     	}
 
@@ -3427,18 +3427,18 @@ var app = (function () {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Switch', slots, []);
     	let { label } = $$props;
-    	let { design = 'inner label' } = $$props;
+    	let { design = "inner label" } = $$props;
     	let { options = [] } = $$props;
     	let { fontSize = 16 } = $$props;
-    	let { value = 'on' } = $$props;
-    	let { checked = value == 'on' ? true : false } = $$props;
+    	let { value = "on" } = $$props;
+    	let { checked } = $$props;
     	const uniqueID = Math.floor(Math.random() * 100);
 
     	function handleClick(event) {
     		const target = event.target;
-    		const state = target.getAttribute('aria-checked');
-    		$$invalidate(1, checked = state === 'true' ? false : true);
-    		$$invalidate(0, value = checked === true ? 'on' : 'off');
+    		const state = target.getAttribute("aria-checked");
+    		$$invalidate(1, checked = state === "true" ? false : true);
+    		$$invalidate(0, value = checked === true ? "on" : "off");
     	}
 
     	const slugify = (str = "") => str.toLowerCase().replace(/ /g, "-").replace(/\./g, "");
@@ -3528,6 +3528,10 @@ var app = (function () {
 
     		if (/*label*/ ctx[2] === undefined && !('label' in props)) {
     			console.warn("<Switch> was created without expected prop 'label'");
+    		}
+
+    		if (/*checked*/ ctx[1] === undefined && !('checked' in props)) {
+    			console.warn("<Switch> was created without expected prop 'checked'");
     		}
     	}
 

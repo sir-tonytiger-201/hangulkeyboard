@@ -2,101 +2,101 @@
     // based on suggestions from:
     // Inclusive Components by Heydon Pickering https://inclusive-components.design/toggle-button/
     // On Designing and Building Toggle Switches by Sara Soueidan https://www.sarasoueidan.com/blog/toggle-switch-design/
-    // and this example by Scott O'hara https://codepen.io/scottohara/pen/zLZwNv 
-
+    // and this example by Scott O'hara https://codepen.io/scottohara/pen/zLZwNv
 
     export let label;
-    export let design = 'inner label'
+    export let design = "inner label";
     export let options = [];
-		export let fontSize = 16;
-	  export let value = 'on';
-      export let checked = value == 'on' ? true : false;
+    export let fontSize = 16;
+    export let value = "on";
+    export let checked;
 
-    
+    const uniqueID = Math.floor(Math.random() * 100);
 
+    function handleClick(event) {
+        const target = event.target;
 
-		const uniqueID = Math.floor(Math.random() * 100)
+        const state = target.getAttribute("aria-checked");
 
-    function handleClick(event){
-        const target = event.target
+        checked = (state === "true" ? false : true);
 
-        const state = target.getAttribute('aria-checked')
-
-        checked = state === 'true' ? false : true
-
-        value = checked === true ? 'on' : 'off'
+        value = (checked === true ? "on" : "off");
     }
-	
-	  const slugify = (str = "") =>
-    str.toLowerCase().replace(/ /g, "-").replace(/\./g, "");
 
+    const slugify = (str = "") =>
+        str.toLowerCase().replace(/ /g, "-").replace(/\./g, "");
 </script>
 
-{#if design == 'inner'}
-<div class="s s--inner">
-    <span id={`switch-${uniqueID}`}>{label}</span>
-    <button
-        role="switch"
-        aria-checked={checked}
-        aria-labelledby={`switch-${uniqueID}`}
-        on:click={handleClick}>
+{#if design == "inner"}
+    <div class="s s--inner">
+        <span id={`switch-${uniqueID}`}>{label}</span>
+        <button
+            role="switch"
+            aria-checked={checked}
+            aria-labelledby={`switch-${uniqueID}`}
+            on:click={handleClick}
+        >
             <span>on</span>
             <span>off</span>
-    </button>
-</div>
-{:else if design == 'slider'}
-<div class="s s--slider" style="font-size:{fontSize}px">
-    <span id={`switch-${uniqueID}`}>{label}</span>
-    <button
-        role="switch"
-        aria-checked={checked}
-        aria-labelledby={`switch-${uniqueID}`}
-        on:click={handleClick}>
-    </button>
-</div>
-{:else}
-<div class="s s--multi">
-    <div role='radiogroup'
-				 class="group-container"
-				 aria-labelledby={`label-${uniqueID}`}
-				 style="font-size:{fontSize}px" 
-				 id={`group-${uniqueID}`}>
-    <div class='legend' id={`label-${uniqueID}`}>{label}</div>
-        {#each options as option}
-            <input type="radio" id={`${option}-${uniqueID}`} value={option} bind:group={value}>
-            <label for={`${option}-${uniqueID}`}>
-                {option}
-            </label> 
-        {/each}
+        </button>
     </div>
-</div>
-
+{:else if design == "slider"}
+    <div class="s s--slider" style="font-size:{fontSize}px">
+        <span id={`switch-${uniqueID}`}>{label}</span>
+        <button
+            role="switch"
+            aria-checked={checked}
+            aria-labelledby={`switch-${uniqueID}`}
+            on:click={handleClick}
+        />
+    </div>
+{:else}
+    <div class="s s--multi">
+        <div
+            role="radiogroup"
+            class="group-container"
+            aria-labelledby={`label-${uniqueID}`}
+            style="font-size:{fontSize}px"
+            id={`group-${uniqueID}`}
+        >
+            <div class="legend" id={`label-${uniqueID}`}>{label}</div>
+            {#each options as option}
+                <input
+                    type="radio"
+                    id={`${option}-${uniqueID}`}
+                    value={option}
+                    bind:group={value}
+                />
+                <label for={`${option}-${uniqueID}`}>
+                    {option}
+                </label>
+            {/each}
+        </div>
+    </div>
 {/if}
 
 <style>
-			:root {
-		--accent-color: CornflowerBlue;
-		--gray: #ccc;
-        
-	}
+    :root {
+        --accent-color: CornflowerBlue;
+        --gray: #ccc;
+    }
     /* Inner Design Option */
     .s--inner button {
         border-radius: 1em;
-		padding: 0.25em 1em;
-		font-size: small;
+        padding: 0.25em 1em;
+        font-size: small;
         background-color: #fff;
         border: 1px solid var(--gray);
-
     }
-    [role='switch'][aria-checked='true'] :first-child,
-    [role='switch'][aria-checked='false'] :last-child {
+    [role="switch"][aria-checked="true"] :first-child,
+    [role="switch"][aria-checked="false"] :last-child {
         display: none;
         color: #fff;
     }
 
     .s--inner button span {
         user-select: none;
-        pointer-events:none;
+        pointer-events: none;
         padding: 0.25em;
     }
 
@@ -110,8 +110,8 @@
         display: flex;
         align-items: center;
         border-radius: 1em;
-		padding: 0.5em 1em;
-		font-size: small;
+        padding: 0.5em 1em;
+        font-size: small;
     }
 
     .s--slider button {
@@ -122,12 +122,12 @@
         background: var(--gray);
         border: none;
         border-radius: 1em;
-		padding: 0.5em 1em;
-		font-size: small;
+        padding: 0.5em 1em;
+        font-size: small;
     }
 
     .s--slider button::before {
-        content: '';
+        content: "";
         position: absolute;
         width: 1.3em;
         height: 1.3em;
@@ -137,11 +137,11 @@
         transition: transform 0.3s;
     }
 
-    .s--slider button[aria-checked='true']{
-        background-color: var(--accent-color)
+    .s--slider button[aria-checked="true"] {
+        background-color: var(--accent-color);
     }
 
-    .s--slider button[aria-checked='true']::before{
+    .s--slider button[aria-checked="true"]::before {
         transform: translateX(1.3em);
         transition: transform 0.3s;
     }
@@ -193,8 +193,6 @@
         border-radius: 1.5em;
     }
 
-
-
     /* making the switch UI.  */
     .s--multi label:first-of-type:before,
     .s--multi label:first-of-type:after {
@@ -222,10 +220,9 @@
         background: var(--accent-color);
         border-radius: 1em;
         margin: 0 1em;
-        transition: background .2s ease-in-out;
+        transition: background 0.2s ease-in-out;
         width: 3em;
         height: 1.6em;
-        
     }
 
     .s--multi input:first-of-type:checked ~ label:first-of-type:after {
@@ -245,11 +242,11 @@
         border-radius: 1.5em;
     }
 
-    /* gravy */ 
+    /* gravy */
 
     /* Inner Design Option */
-    [role='switch'][aria-checked='true'] :first-child,
-    [role='switch'][aria-checked='false'] :last-child {
+    [role="switch"][aria-checked="true"] :first-child,
+    [role="switch"][aria-checked="false"] :last-child {
         border-radius: 0.25em;
         background: var(--accent-color);
         display: inline-block;
@@ -263,8 +260,8 @@
     /* Slider Design Option */
     .s--slider button {
         border-radius: 1.5em;
-    } 
-    
+    }
+
     .s--slider button::before {
         border-radius: 100%;
     }
@@ -273,6 +270,4 @@
         box-shadow: 0 0px 8px var(--accent-color);
         border-radius: 1.5em;
     }
-   
-
 </style>
