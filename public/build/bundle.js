@@ -3810,62 +3810,8 @@ var app = (function () {
     const { Object: Object_1, console: console_1 } = globals;
     const file = "src/App.svelte";
 
-    // (403:5) {:else}
+    // (404:5) {:else}
     function create_else_block_1(ctx) {
-    	let t;
-
-    	const block = {
-    		c: function create() {
-    			t = text("View key map");
-    		},
-    		m: function mount(target, anchor) {
-    			insert_dev(target, t, anchor);
-    		},
-    		d: function destroy(detaching) {
-    			if (detaching) detach_dev(t);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_else_block_1.name,
-    		type: "else",
-    		source: "(403:5) {:else}",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    // (401:5) {#if showLayout}
-    function create_if_block_3(ctx) {
-    	let t;
-
-    	const block = {
-    		c: function create() {
-    			t = text("Hide");
-    		},
-    		m: function mount(target, anchor) {
-    			insert_dev(target, t, anchor);
-    		},
-    		d: function destroy(detaching) {
-    			if (detaching) detach_dev(t);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_if_block_3.name,
-    		type: "if",
-    		source: "(401:5) {#if showLayout}",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    // (412:5) {:else}
-    function create_else_block(ctx) {
     	let t;
 
     	const block = {
@@ -3882,17 +3828,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_else_block.name,
+    		id: create_else_block_1.name,
     		type: "else",
-    		source: "(412:5) {:else}",
+    		source: "(404:5) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (410:5) {#if slideshow}
-    function create_if_block_2(ctx) {
+    // (402:5) {#if slideshow}
+    function create_if_block_3(ctx) {
     	let t;
 
     	const block = {
@@ -3909,16 +3855,70 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_2.name,
+    		id: create_if_block_3.name,
     		type: "if",
-    		source: "(410:5) {#if slideshow}",
+    		source: "(402:5) {#if slideshow}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (435:1) {#if showLayout}
+    // (428:5) {:else}
+    function create_else_block(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("View key map");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block.name,
+    		type: "else",
+    		source: "(428:5) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (426:5) {#if showLayout}
+    function create_if_block_2(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("Hide");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_2.name,
+    		type: "if",
+    		source: "(426:5) {#if showLayout}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (436:1) {#if showLayout}
     function create_if_block_1(ctx) {
     	let center;
     	let img;
@@ -3930,8 +3930,8 @@ var app = (function () {
     			img = element("img");
     			if (!src_url_equal(img.src, img_src_value = "./keyboard.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "class", "svelte-1sthij4");
-    			add_location(img, file, 436, 3, 9518);
-    			add_location(center, file, 435, 2, 9506);
+    			add_location(img, file, 437, 3, 9522);
+    			add_location(center, file, 436, 2, 9510);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, center, anchor);
@@ -3946,14 +3946,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(435:1) {#if showLayout}",
+    		source: "(436:1) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (469:5) {#if hangulCharacter}
+    // (470:5) {#if hangulCharacter}
     function create_if_block(ctx) {
     	let div1;
     	let div0;
@@ -3971,8 +3971,8 @@ var app = (function () {
     			div1 = element("div");
     			div0 = element("div");
     			t = text(t_value);
-    			add_location(div0, file, 470, 7, 10250);
-    			add_location(div1, file, 469, 6, 10217);
+    			add_location(div0, file, 471, 7, 10254);
+    			add_location(div1, file, 470, 6, 10221);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -4009,14 +4009,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(469:5) {#if hangulCharacter}",
+    		source: "(470:5) {#if hangulCharacter}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (463:3) {#key timestamp}
+    // (464:3) {#key timestamp}
     function create_key_block(ctx) {
     	let div;
     	let div_intro;
@@ -4028,7 +4028,7 @@ var app = (function () {
     			if (if_block) if_block.c();
     			attr_dev(div, "class", "hangul svelte-1sthij4");
     			set_style(div, "color", "#" + /*$color*/ ctx[10]);
-    			add_location(div, file, 463, 4, 10086);
+    			add_location(div, file, 464, 4, 10090);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -4080,7 +4080,7 @@ var app = (function () {
     		block,
     		id: create_key_block.name,
     		type: "key",
-    		source: "(463:3) {#key timestamp}",
+    		source: "(464:3) {#key timestamp}",
     		ctx
     	});
 
@@ -4111,17 +4111,17 @@ var app = (function () {
     	let td1;
     	let button0;
     	let t9;
-    	let td2;
-    	let button1;
     	let t10;
-    	let t11;
-    	let td3;
+    	let td2;
     	let switch0;
     	let updating_checked;
-    	let t12;
-    	let td4;
+    	let t11;
+    	let td3;
     	let switch1;
     	let updating_checked_1;
+    	let t12;
+    	let td4;
+    	let button1;
     	let t13;
     	let t14;
     	let main;
@@ -4148,20 +4148,12 @@ var app = (function () {
     		});
 
     	function select_block_type(ctx, dirty) {
-    		if (/*showLayout*/ ctx[8]) return create_if_block_3;
+    		if (/*slideshow*/ ctx[7]) return create_if_block_3;
     		return create_else_block_1;
     	}
 
     	let current_block_type = select_block_type(ctx);
     	let if_block0 = current_block_type(ctx);
-
-    	function select_block_type_1(ctx, dirty) {
-    		if (/*slideshow*/ ctx[7]) return create_if_block_2;
-    		return create_else_block;
-    	}
-
-    	let current_block_type_1 = select_block_type_1(ctx);
-    	let if_block1 = current_block_type_1(ctx);
 
     	function switch0_checked_binding(value) {
     		/*switch0_checked_binding*/ ctx[37](value);
@@ -4188,6 +4180,14 @@ var app = (function () {
 
     	switch1 = new Switch({ props: switch1_props, $$inline: true });
     	binding_callbacks.push(() => bind(switch1, 'checked', switch1_checked_binding));
+
+    	function select_block_type_1(ctx, dirty) {
+    		if (/*showLayout*/ ctx[8]) return create_if_block_2;
+    		return create_else_block;
+    	}
+
+    	let current_block_type_1 = select_block_type_1(ctx);
+    	let if_block1 = current_block_type_1(ctx);
     	let if_block2 = /*showLayout*/ ctx[8] && create_if_block_1(ctx);
 
     	function keyboard_pressed_binding(value) {
@@ -4286,17 +4286,17 @@ var app = (function () {
     			td1 = element("td");
     			button0 = element("button");
     			if_block0.c();
-    			t9 = space();
+    			t9 = text("\n\t\t\t\t\tslideshow");
+    			t10 = space();
     			td2 = element("td");
-    			button1 = element("button");
-    			if_block1.c();
-    			t10 = text("\n\t\t\t\t\tslideshow");
+    			create_component(switch0.$$.fragment);
     			t11 = space();
     			td3 = element("td");
-    			create_component(switch0.$$.fragment);
+    			create_component(switch1.$$.fragment);
     			t12 = space();
     			td4 = element("td");
-    			create_component(switch1.$$.fragment);
+    			button1 = element("button");
+    			if_block1.c();
     			t13 = space();
     			if (if_block2) if_block2.c();
     			t14 = space();
@@ -4323,32 +4323,32 @@ var app = (function () {
     			attr_dev(td0, "class", "svelte-1sthij4");
     			add_location(td0, file, 395, 3, 8847);
     			attr_dev(button0, "class", "svelte-1sthij4");
-    			add_location(button0, file, 399, 4, 8917);
+    			add_location(button0, file, 400, 4, 8921);
     			attr_dev(td1, "class", "svelte-1sthij4");
-    			add_location(td1, file, 398, 3, 8908);
-    			attr_dev(button1, "class", "svelte-1sthij4");
-    			add_location(button1, file, 408, 4, 9059);
+    			add_location(td1, file, 399, 3, 8912);
+    			set_style(td2, "font-size", "small");
     			attr_dev(td2, "class", "svelte-1sthij4");
-    			add_location(td2, file, 407, 3, 9050);
-    			set_style(td3, "font-size", "small");
+    			add_location(td2, file, 409, 3, 9066);
+    			set_style(td3, "font-size", "larger");
     			attr_dev(td3, "class", "svelte-1sthij4");
-    			add_location(td3, file, 417, 3, 9204);
-    			set_style(td4, "font-size", "larger");
+    			add_location(td3, file, 416, 3, 9200);
+    			attr_dev(button1, "class", "svelte-1sthij4");
+    			add_location(button1, file, 424, 4, 9341);
     			attr_dev(td4, "class", "svelte-1sthij4");
-    			add_location(td4, file, 424, 3, 9338);
+    			add_location(td4, file, 423, 3, 9332);
     			add_location(tr, file, 394, 2, 8839);
     			add_location(table, file, 393, 1, 8829);
     			attr_dev(nav, "class", "svelte-1sthij4");
     			add_location(nav, file, 382, 0, 8639);
     			attr_dev(p, "class", "keyboard  svelte-1sthij4");
-    			add_location(p, file, 447, 3, 9704);
+    			add_location(p, file, 448, 3, 9708);
     			attr_dev(center, "class", "svelte-1sthij4");
-    			add_location(center, file, 446, 2, 9692);
+    			add_location(center, file, 447, 2, 9696);
     			attr_dev(div1, "class", "info  svelte-1sthij4");
-    			add_location(div1, file, 445, 1, 9670);
+    			add_location(div1, file, 446, 1, 9674);
     			main.hidden = false;
     			attr_dev(main, "class", "svelte-1sthij4");
-    			add_location(main, file, 441, 0, 9574);
+    			add_location(main, file, 442, 0, 9578);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -4377,17 +4377,17 @@ var app = (function () {
     			append_dev(tr, td1);
     			append_dev(td1, button0);
     			if_block0.m(button0, null);
-    			append_dev(tr, t9);
+    			append_dev(button0, t9);
+    			append_dev(tr, t10);
     			append_dev(tr, td2);
-    			append_dev(td2, button1);
-    			if_block1.m(button1, null);
-    			append_dev(button1, t10);
+    			mount_component(switch0, td2, null);
     			append_dev(tr, t11);
     			append_dev(tr, td3);
-    			mount_component(switch0, td3, null);
+    			mount_component(switch1, td3, null);
     			append_dev(tr, t12);
     			append_dev(tr, td4);
-    			mount_component(switch1, td4, null);
+    			append_dev(td4, button1);
+    			if_block1.m(button1, null);
     			append_dev(nav, t13);
     			if (if_block2) if_block2.m(nav, null);
     			insert_dev(target, t14, anchor);
@@ -4402,8 +4402,8 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(button0, "click", /*toggleView*/ ctx[19], false, false, false),
-    					listen_dev(button1, "click", /*toggleSlideshow*/ ctx[20], false, false, false),
+    					listen_dev(button0, "click", /*toggleSlideshow*/ ctx[20], false, false, false),
+    					listen_dev(button1, "click", /*toggleView*/ ctx[19], false, false, false),
     					action_destroyer(shortcut.call(null, main, {
     						code: /*keyArray*/ ctx[15],
     						callback: /*shortcut_function*/ ctx[47]
@@ -4420,17 +4420,7 @@ var app = (function () {
 
     				if (if_block0) {
     					if_block0.c();
-    					if_block0.m(button0, null);
-    				}
-    			}
-
-    			if (current_block_type_1 !== (current_block_type_1 = select_block_type_1(ctx))) {
-    				if_block1.d(1);
-    				if_block1 = current_block_type_1(ctx);
-
-    				if (if_block1) {
-    					if_block1.c();
-    					if_block1.m(button1, t10);
+    					if_block0.m(button0, t9);
     				}
     			}
 
@@ -4452,6 +4442,16 @@ var app = (function () {
     			}
 
     			switch1.$set(switch1_changes);
+
+    			if (current_block_type_1 !== (current_block_type_1 = select_block_type_1(ctx))) {
+    				if_block1.d(1);
+    				if_block1 = current_block_type_1(ctx);
+
+    				if (if_block1) {
+    					if_block1.c();
+    					if_block1.m(button1, null);
+    				}
+    			}
 
     			if (/*showLayout*/ ctx[8]) {
     				if (if_block2) ; else {
@@ -4544,9 +4544,9 @@ var app = (function () {
     			/*audio_1_binding*/ ctx[36](null);
     			destroy_component(soundtest);
     			if_block0.d();
-    			if_block1.d();
     			destroy_component(switch0);
     			destroy_component(switch1);
+    			if_block1.d();
     			if (if_block2) if_block2.d();
     			if (detaching) detach_dev(t14);
     			if (detaching) detach_dev(main);

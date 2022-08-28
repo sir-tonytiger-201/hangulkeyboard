@@ -396,15 +396,7 @@
 			<td>
 				<span> Learn the layout. &emsp; </span>
 			</td>
-			<td>
-				<button on:click={toggleView}>
-					{#if showLayout}
-						Hide
-					{:else}
-						View key map
-					{/if}
-				</button>
-			</td>
+			
 			<td>
 				<button on:click={toggleSlideshow}>
 					{#if slideshow}
@@ -428,6 +420,15 @@
 					label="&#x1F50A;"
 					design="slider"
 				/>
+			</td>
+			<td>
+				<button on:click={toggleView}>
+					{#if showLayout}
+						Hide
+					{:else}
+						View key map
+					{/if}
+				</button>
 			</td>
 		</tr>
 	</table>
