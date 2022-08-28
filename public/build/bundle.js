@@ -3814,7 +3814,7 @@ var app = (function () {
     const { Object: Object_1, console: console_1 } = globals;
     const file = "src/App.svelte";
 
-    // (403:5) {:else}
+    // (406:5) {:else}
     function create_else_block_1(ctx) {
     	let t;
 
@@ -3834,14 +3834,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(403:5) {:else}",
+    		source: "(406:5) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (401:5) {#if slideshow}
+    // (404:5) {#if slideshow}
     function create_if_block_3(ctx) {
     	let t;
 
@@ -3861,14 +3861,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(401:5) {#if slideshow}",
+    		source: "(404:5) {#if slideshow}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (427:5) {:else}
+    // (430:5) {:else}
     function create_else_block(ctx) {
     	let t;
 
@@ -3888,14 +3888,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(427:5) {:else}",
+    		source: "(430:5) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (425:5) {#if showLayout}
+    // (428:5) {#if showLayout}
     function create_if_block_2(ctx) {
     	let t;
 
@@ -3915,14 +3915,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(425:5) {#if showLayout}",
+    		source: "(428:5) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (435:1) {#if showLayout}
+    // (438:1) {#if showLayout}
     function create_if_block_1(ctx) {
     	let center;
     	let img;
@@ -3934,8 +3934,8 @@ var app = (function () {
     			img = element("img");
     			if (!src_url_equal(img.src, img_src_value = "./keyboard.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "class", "svelte-kakiy2");
-    			add_location(img, file, 436, 3, 9515);
-    			add_location(center, file, 435, 2, 9503);
+    			add_location(img, file, 439, 3, 9586);
+    			add_location(center, file, 438, 2, 9574);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, center, anchor);
@@ -3950,14 +3950,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(435:1) {#if showLayout}",
+    		source: "(438:1) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (469:5) {#if hangulCharacter}
+    // (472:5) {#if hangulCharacter}
     function create_if_block(ctx) {
     	let div1;
     	let div0;
@@ -3975,8 +3975,8 @@ var app = (function () {
     			div1 = element("div");
     			div0 = element("div");
     			t = text(t_value);
-    			add_location(div0, file, 470, 7, 10247);
-    			add_location(div1, file, 469, 6, 10214);
+    			add_location(div0, file, 473, 7, 10318);
+    			add_location(div1, file, 472, 6, 10285);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -4013,14 +4013,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(469:5) {#if hangulCharacter}",
+    		source: "(472:5) {#if hangulCharacter}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (463:3) {#key timestamp}
+    // (466:3) {#key timestamp}
     function create_key_block(ctx) {
     	let div;
     	let div_intro;
@@ -4032,7 +4032,7 @@ var app = (function () {
     			if (if_block) if_block.c();
     			attr_dev(div, "class", "hangul svelte-kakiy2");
     			set_style(div, "color", "#" + /*$color*/ ctx[10]);
-    			add_location(div, file, 463, 4, 10083);
+    			add_location(div, file, 466, 4, 10154);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -4084,7 +4084,7 @@ var app = (function () {
     		block,
     		id: create_key_block.name,
     		type: "key",
-    		source: "(463:3) {#key timestamp}",
+    		source: "(466:3) {#key timestamp}",
     		ctx
     	});
 
@@ -4312,47 +4312,47 @@ var app = (function () {
     			t15 = space();
     			key_block.c();
     			if (!src_url_equal(audio_1.src, audio_1_src_value = "")) attr_dev(audio_1, "src", audio_1_src_value);
-    			add_location(audio_1, file, 382, 1, 8642);
+    			add_location(audio_1, file, 385, 1, 8713);
     			div0.hidden = true;
-    			add_location(div0, file, 383, 1, 8678);
+    			add_location(div0, file, 386, 1, 8749);
     			attr_dev(h1, "class", "svelte-kakiy2");
-    			add_location(h1, file, 387, 3, 8740);
-    			add_location(i, file, 388, 9, 8770);
-    			add_location(small, file, 388, 2, 8763);
+    			add_location(h1, file, 390, 3, 8811);
+    			add_location(i, file, 391, 9, 8841);
+    			add_location(small, file, 391, 2, 8834);
     			attr_dev(span0, "class", "svelte-kakiy2");
-    			add_location(span0, file, 386, 1, 8731);
-    			add_location(br, file, 390, 1, 8816);
+    			add_location(span0, file, 389, 1, 8802);
+    			add_location(br, file, 393, 1, 8887);
     			attr_dev(span1, "class", "svelte-kakiy2");
-    			add_location(span1, file, 395, 4, 8852);
+    			add_location(span1, file, 398, 4, 8923);
     			attr_dev(td0, "class", "svelte-kakiy2");
-    			add_location(td0, file, 394, 3, 8843);
+    			add_location(td0, file, 397, 3, 8914);
     			attr_dev(button0, "class", "svelte-kakiy2");
-    			add_location(button0, file, 399, 4, 8914);
+    			add_location(button0, file, 402, 4, 8985);
     			attr_dev(td1, "class", "svelte-kakiy2");
-    			add_location(td1, file, 398, 3, 8905);
+    			add_location(td1, file, 401, 3, 8976);
     			set_style(td2, "font-size", "small");
     			attr_dev(td2, "class", "svelte-kakiy2");
-    			add_location(td2, file, 408, 3, 9059);
+    			add_location(td2, file, 411, 3, 9130);
     			set_style(td3, "font-size", "larger");
     			attr_dev(td3, "class", "svelte-kakiy2");
-    			add_location(td3, file, 415, 3, 9193);
+    			add_location(td3, file, 418, 3, 9264);
     			attr_dev(button1, "class", "svelte-kakiy2");
-    			add_location(button1, file, 423, 4, 9334);
+    			add_location(button1, file, 426, 4, 9405);
     			attr_dev(td4, "class", "svelte-kakiy2");
-    			add_location(td4, file, 422, 3, 9325);
-    			add_location(tr, file, 393, 2, 8835);
-    			add_location(table, file, 392, 1, 8825);
+    			add_location(td4, file, 425, 3, 9396);
+    			add_location(tr, file, 396, 2, 8906);
+    			add_location(table, file, 395, 1, 8896);
     			attr_dev(nav, "class", "svelte-kakiy2");
-    			add_location(nav, file, 381, 0, 8635);
+    			add_location(nav, file, 384, 0, 8706);
     			attr_dev(p, "class", "keyboard  svelte-kakiy2");
-    			add_location(p, file, 447, 3, 9701);
+    			add_location(p, file, 450, 3, 9772);
     			attr_dev(center, "class", "svelte-kakiy2");
-    			add_location(center, file, 446, 2, 9689);
+    			add_location(center, file, 449, 2, 9760);
     			attr_dev(div1, "class", "info  svelte-kakiy2");
-    			add_location(div1, file, 445, 1, 9667);
+    			add_location(div1, file, 448, 1, 9738);
     			main.hidden = false;
     			attr_dev(main, "class", "svelte-kakiy2");
-    			add_location(main, file, 441, 0, 9571);
+    			add_location(main, file, 444, 0, 9642);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -4644,6 +4644,7 @@ var app = (function () {
     		const currentFace = faces[faceIdx];
     		faceIdx += 1;
     		if (faceIdx == faces.length) faceIdx = 0;
+    		$$invalidate(4, audio.src = `sounds/powerup (${randomNumber(50)}).wav`, audio);
     		return currentFace;
     	};
 
@@ -5133,8 +5134,12 @@ var app = (function () {
 
     		if ($$self.$$.dirty[0] & /*pressedKey, audio, sound*/ 56 | $$self.$$.dirty[1] & /*volume*/ 8) {
     			if (pressedKey && audio.src) {
-    				if (characters.find(m => m == pressedKey)) //audio.src =`sounds/powerup_4_reverb.wav`;
-    				$$invalidate(4, audio.src = `sounds/Spin.wav`, audio); else $$invalidate(4, audio.src = `sounds/powerup (${randomNumber(50)}).wav`, audio);
+    				if (characters.find(m => m == pressedKey)) {
+    					//audio.src =`sounds/powerup_4_reverb.wav`;
+    					$$invalidate(4, audio.src = `sounds/Spin.wav`, audio);
+    				} else {
+    					$$invalidate(4, audio.src = `sounds/powerup (${randomNumber(50)}).wav`, audio);
+    				}
 
     				if (volume != undefined) $$invalidate(4, audio.volume = sound ? volume : 0, audio);
     				audio.play();

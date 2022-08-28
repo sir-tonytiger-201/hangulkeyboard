@@ -86,6 +86,7 @@
 		const currentFace = faces[faceIdx];
 		faceIdx += 1;
 		if (faceIdx == faces.length) faceIdx = 0;
+		audio.src = `sounds/powerup (${randomNumber(50)}).wav`;
 		return currentFace;
 	};
 
@@ -358,10 +359,12 @@
 	let volume = 0.5;
 
 	$: if (pressedKey && audio.src) {
-		if (characters.find((m) => m == pressedKey))
+		if (characters.find((m) => m == pressedKey)) {
 			//audio.src =`sounds/powerup_4_reverb.wav`;
 			audio.src = `sounds/Spin.wav`;
-		else audio.src = `sounds/powerup (${randomNumber(50)}).wav`;
+		} else {
+			audio.src = `sounds/powerup (${randomNumber(50)}).wav`;
+		}
 
 		if (volume != undefined) audio.volume = sound ? volume : 0;
 		audio.play();
