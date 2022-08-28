@@ -2949,7 +2949,7 @@ var app = (function () {
     const { Object: Object_1 } = globals;
     const file = "src/App.svelte";
 
-    // (316:2) {:else}
+    // (317:2) {:else}
     function create_else_block_1(ctx) {
     	let t;
 
@@ -2969,14 +2969,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(316:2) {:else}",
+    		source: "(317:2) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (314:2) {#if showLayout}
+    // (315:2) {#if showLayout}
     function create_if_block_3(ctx) {
     	let t;
 
@@ -2996,14 +2996,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(314:2) {#if showLayout}",
+    		source: "(315:2) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (323:2) {:else}
+    // (324:2) {:else}
     function create_else_block(ctx) {
     	let t;
 
@@ -3023,14 +3023,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(323:2) {:else}",
+    		source: "(324:2) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (321:2) {#if slideshow}
+    // (322:2) {#if slideshow}
     function create_if_block_2(ctx) {
     	let t;
 
@@ -3050,14 +3050,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(321:2) {#if slideshow}",
+    		source: "(322:2) {#if slideshow}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (328:1) {#if showLayout}
+    // (329:1) {#if showLayout}
     function create_if_block_1(ctx) {
     	let center;
     	let img;
@@ -3069,8 +3069,8 @@ var app = (function () {
     			img = element("img");
     			if (!src_url_equal(img.src, img_src_value = "./keyboard.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "class", "svelte-1uchv6j");
-    			add_location(img, file, 329, 3, 7131);
-    			add_location(center, file, 328, 2, 7119);
+    			add_location(img, file, 330, 3, 7169);
+    			add_location(center, file, 329, 2, 7157);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, center, anchor);
@@ -3085,14 +3085,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(328:1) {#if showLayout}",
+    		source: "(329:1) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (362:5) {#if hangulCharacter}
+    // (363:5) {#if hangulCharacter}
     function create_if_block(ctx) {
     	let div1;
     	let div0;
@@ -3110,8 +3110,8 @@ var app = (function () {
     			div1 = element("div");
     			div0 = element("div");
     			t = text(t_value);
-    			add_location(div0, file, 371, 7, 7972);
-    			add_location(div1, file, 362, 6, 7827);
+    			add_location(div0, file, 372, 7, 8013);
+    			add_location(div1, file, 363, 6, 7868);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -3157,14 +3157,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(362:5) {#if hangulCharacter}",
+    		source: "(363:5) {#if hangulCharacter}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (356:3) {#key timestamp}
+    // (357:3) {#key timestamp}
     function create_key_block(ctx) {
     	let div;
     	let div_intro;
@@ -3176,7 +3176,7 @@ var app = (function () {
     			if (if_block) if_block.c();
     			attr_dev(div, "class", "hangul svelte-1uchv6j");
     			set_style(div, "color", "#" + /*$color*/ ctx[7]);
-    			add_location(div, file, 356, 4, 7696);
+    			add_location(div, file, 357, 4, 7737);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -3228,7 +3228,7 @@ var app = (function () {
     		block,
     		id: create_key_block.name,
     		type: "key",
-    		source: "(356:3) {#key timestamp}",
+    		source: "(357:3) {#key timestamp}",
     		ctx
     	});
 
@@ -3390,27 +3390,27 @@ var app = (function () {
     			t11 = space();
     			key_block.c();
     			attr_dev(h1, "class", "svelte-1uchv6j");
-    			add_location(h1, file, 307, 3, 6758);
-    			add_location(i, file, 308, 9, 6788);
-    			add_location(small, file, 308, 2, 6781);
+    			add_location(h1, file, 308, 3, 6796);
+    			add_location(i, file, 309, 9, 6826);
+    			add_location(small, file, 309, 2, 6819);
     			attr_dev(span0, "class", "svelte-1uchv6j");
-    			add_location(span0, file, 306, 1, 6749);
-    			add_location(br, file, 310, 1, 6834);
+    			add_location(span0, file, 307, 1, 6787);
+    			add_location(br, file, 311, 1, 6872);
     			attr_dev(span1, "class", "svelte-1uchv6j");
-    			add_location(span1, file, 311, 1, 6842);
-    			add_location(button0, file, 312, 1, 6883);
-    			add_location(button1, file, 319, 1, 6987);
+    			add_location(span1, file, 312, 1, 6880);
+    			add_location(button0, file, 313, 1, 6921);
+    			add_location(button1, file, 320, 1, 7025);
     			attr_dev(nav, "class", "svelte-1uchv6j");
-    			add_location(nav, file, 305, 0, 6742);
+    			add_location(nav, file, 306, 0, 6780);
     			attr_dev(p, "class", "keyboard  svelte-1uchv6j");
-    			add_location(p, file, 340, 3, 7317);
+    			add_location(p, file, 341, 3, 7355);
     			attr_dev(center, "class", "svelte-1uchv6j");
-    			add_location(center, file, 339, 2, 7305);
+    			add_location(center, file, 340, 2, 7343);
     			attr_dev(div, "class", "info  svelte-1uchv6j");
-    			add_location(div, file, 338, 1, 7283);
+    			add_location(div, file, 339, 1, 7321);
     			main.hidden = false;
     			attr_dev(main, "class", "svelte-1uchv6j");
-    			add_location(main, file, 334, 0, 7187);
+    			add_location(main, file, 335, 0, 7225);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3600,6 +3600,7 @@ var app = (function () {
     	let currentChar = "";
     	let { timestamp = Date.now() } = $$props;
     	let { shifted } = $$props;
+    	let pressedKey = ' ';
 
     	const hangulValue = {
     		q: "ㅂ",
@@ -3658,7 +3659,7 @@ var app = (function () {
     		const k = m[m.length - 1].toLowerCase();
 
     		$$invalidate(1, pressed = k);
-    		$$invalidate(3, keys[0] = k, keys);
+    		$$invalidate(3, pressedKey = k);
     	};
 
     	let showLayout = false;
@@ -3668,7 +3669,7 @@ var app = (function () {
     		const keycode = "Key" + Object.keys(hangulValue)[i].toUpperCase();
     		const k = keycode[keycode.length - 1].toLowerCase();
     		$$invalidate(1, pressed = k);
-    		$$invalidate(3, keys[0] = k, keys);
+    		$$invalidate(3, pressedKey = k);
     	};
 
     	const toggleView = () => {
@@ -3897,7 +3898,7 @@ var app = (function () {
     	}
 
     	const keydown_handler = ({ detail }) => {
-    		$$invalidate(3, keys[0] = detail, keys);
+    		$$invalidate(3, pressedKey = detail);
     		if (slideshow) toggleSlideshow();
     	};
 
@@ -3936,6 +3937,7 @@ var app = (function () {
     		currentChar,
     		timestamp,
     		shifted,
+    		pressedKey,
     		hangulValue,
     		characters,
     		keyArray,
@@ -3992,6 +3994,7 @@ var app = (function () {
     		if ('currentChar' in $$props) currentChar = $$props.currentChar;
     		if ('timestamp' in $$props) $$invalidate(2, timestamp = $$props.timestamp);
     		if ('shifted' in $$props) $$invalidate(0, shifted = $$props.shifted);
+    		if ('pressedKey' in $$props) $$invalidate(3, pressedKey = $$props.pressedKey);
     		if ('characters' in $$props) characters = $$props.characters;
     		if ('keyArray' in $$props) $$invalidate(12, keyArray = $$props.keyArray);
     		if ('faceIdx' in $$props) faceIdx = $$props.faceIdx;
@@ -4011,11 +4014,11 @@ var app = (function () {
     	}
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty[0] & /*keys, shifted*/ 9) {
-    			$$invalidate(4, hangulCharacter = String(keys[0].length == 1
+    		if ($$self.$$.dirty[0] & /*pressedKey, shifted*/ 9) {
+    			$$invalidate(4, hangulCharacter = String(pressedKey.length == 1
     			? shifted
-    				? hangulValue[keys[0].toUpperCase()] || undefined
-    				: hangulValue[keys[0]] || ""
+    				? hangulValue[pressedKey.toUpperCase()] || undefined
+    				: hangulValue[pressedKey] || ""
     			: ""));
     		}
 
@@ -4045,7 +4048,7 @@ var app = (function () {
     		shifted,
     		pressed,
     		timestamp,
-    		keys,
+    		pressedKey,
     		hangulCharacter,
     		slideshow,
     		showLayout,

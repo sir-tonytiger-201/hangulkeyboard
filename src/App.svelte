@@ -27,6 +27,7 @@
 	let currentChar = "";
 	export let timestamp = Date.now();
 	export let shifted;
+	let pressedKey = ' ';
 
 	export const hangulValue = {
 		q: "ㅂ",
@@ -81,10 +82,10 @@
 	};
 
 	$: hangulCharacter = String(
-		keys[0].length == 1
+		pressedKey.length == 1
 			? shifted
-				? hangulValue[keys[0].toUpperCase()] || undefined
-				: hangulValue[keys[0]] || ""
+				? hangulValue[pressedKey.toUpperCase()] || undefined
+				: hangulValue[pressedKey] || ""
 			: ""
 	);
 
@@ -94,7 +95,7 @@
 		//const k =  shifted ? m[m.length - 1] :  m[m.length - 1].toLowerCase();
 		const k = m[m.length - 1].toLowerCase();
 		pressed = k;
-		keys[0] = k;
+		pressedKey = k;
 	};
 
 	let showLayout = false;
@@ -104,7 +105,7 @@
 		const keycode = "Key" + Object.keys(hangulValue)[i].toUpperCase();
 		const k = keycode[keycode.length - 1].toLowerCase();
 		pressed = k;
-		keys[0] = k;
+		pressedKey = k;
 	};
 
 	const toggleView = () => {
@@ -341,7 +342,7 @@
 			<p class="keyboard ">
 				<Keyboard
 					on:keydown={({ detail }) => {
-						keys[0] = detail;
+						pressedKey = detail;
 						if (slideshow) toggleSlideshow();
 					}}
 					bind:pressed
