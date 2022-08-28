@@ -330,7 +330,8 @@ import SoundTest from "./SoundTest.svelte";
 
 	$: if(pressedKey && audio.src) {
 		if(characters.find(m => m == pressedKey)) 
-					audio.src =`sounds/powerup_4_reverb.wav`;
+					//audio.src =`sounds/powerup_4_reverb.wav`;
+					audio.src =`sounds/Spin.wav`;
 					else 
 					audio.src = `sounds/powerup (${randomNumber(50)}).wav`
 		audio.play();

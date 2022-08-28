@@ -3734,7 +3734,7 @@ var app = (function () {
     const { Object: Object_1, console: console_1 } = globals;
     const file = "src/App.svelte";
 
-    // (361:5) {:else}
+    // (362:5) {:else}
     function create_else_block_1(ctx) {
     	let t;
 
@@ -3754,14 +3754,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(361:5) {:else}",
+    		source: "(362:5) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (359:5) {#if showLayout}
+    // (360:5) {#if showLayout}
     function create_if_block_3(ctx) {
     	let t;
 
@@ -3781,14 +3781,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(359:5) {#if showLayout}",
+    		source: "(360:5) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (370:5) {:else}
+    // (371:5) {:else}
     function create_else_block(ctx) {
     	let t;
 
@@ -3808,14 +3808,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(370:5) {:else}",
+    		source: "(371:5) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (368:5) {#if slideshow}
+    // (369:5) {#if slideshow}
     function create_if_block_2(ctx) {
     	let t;
 
@@ -3835,14 +3835,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(368:5) {#if slideshow}",
+    		source: "(369:5) {#if slideshow}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (386:1) {#if showLayout}
+    // (387:1) {#if showLayout}
     function create_if_block_1(ctx) {
     	let center;
     	let img;
@@ -3854,8 +3854,8 @@ var app = (function () {
     			img = element("img");
     			if (!src_url_equal(img.src, img_src_value = "./keyboard.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "class", "svelte-1sthij4");
-    			add_location(img, file, 387, 3, 8381);
-    			add_location(center, file, 386, 2, 8369);
+    			add_location(img, file, 388, 3, 8418);
+    			add_location(center, file, 387, 2, 8406);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, center, anchor);
@@ -3870,14 +3870,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(386:1) {#if showLayout}",
+    		source: "(387:1) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (420:5) {#if hangulCharacter}
+    // (421:5) {#if hangulCharacter}
     function create_if_block(ctx) {
     	let div1;
     	let div0;
@@ -3895,8 +3895,8 @@ var app = (function () {
     			div1 = element("div");
     			div0 = element("div");
     			t = text(t_value);
-    			add_location(div0, file, 429, 7, 9225);
-    			add_location(div1, file, 420, 6, 9080);
+    			add_location(div0, file, 430, 7, 9262);
+    			add_location(div1, file, 421, 6, 9117);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -3942,14 +3942,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(420:5) {#if hangulCharacter}",
+    		source: "(421:5) {#if hangulCharacter}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (414:3) {#key timestamp}
+    // (415:3) {#key timestamp}
     function create_key_block(ctx) {
     	let div;
     	let div_intro;
@@ -3961,7 +3961,7 @@ var app = (function () {
     			if (if_block) if_block.c();
     			attr_dev(div, "class", "hangul svelte-1sthij4");
     			set_style(div, "color", "#" + /*$color*/ ctx[9]);
-    			add_location(div, file, 414, 4, 8949);
+    			add_location(div, file, 415, 4, 8986);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -4013,7 +4013,7 @@ var app = (function () {
     		block,
     		id: create_key_block.name,
     		type: "key",
-    		source: "(414:3) {#key timestamp}",
+    		source: "(415:3) {#key timestamp}",
     		ctx
     	});
 
@@ -4221,44 +4221,44 @@ var app = (function () {
     			t14 = space();
     			key_block.c();
     			if (!src_url_equal(audio_1.src, audio_1_src_value = "")) attr_dev(audio_1, "src", audio_1_src_value);
-    			add_location(audio_1, file, 340, 1, 7634);
+    			add_location(audio_1, file, 341, 1, 7671);
     			div0.hidden = true;
-    			add_location(div0, file, 341, 1, 7676);
+    			add_location(div0, file, 342, 1, 7713);
     			attr_dev(h1, "class", "svelte-1sthij4");
-    			add_location(h1, file, 346, 3, 7739);
-    			add_location(i, file, 347, 9, 7769);
-    			add_location(small, file, 347, 2, 7762);
+    			add_location(h1, file, 347, 3, 7776);
+    			add_location(i, file, 348, 9, 7806);
+    			add_location(small, file, 348, 2, 7799);
     			attr_dev(span0, "class", "svelte-1sthij4");
-    			add_location(span0, file, 345, 1, 7730);
-    			add_location(br, file, 349, 1, 7815);
+    			add_location(span0, file, 346, 1, 7767);
+    			add_location(br, file, 350, 1, 7852);
     			attr_dev(span1, "class", "svelte-1sthij4");
-    			add_location(span1, file, 354, 4, 7851);
+    			add_location(span1, file, 355, 4, 7888);
     			attr_dev(td0, "class", "svelte-1sthij4");
-    			add_location(td0, file, 353, 3, 7842);
+    			add_location(td0, file, 354, 3, 7879);
     			attr_dev(button0, "class", "svelte-1sthij4");
-    			add_location(button0, file, 357, 4, 7912);
+    			add_location(button0, file, 358, 4, 7949);
     			attr_dev(td1, "class", "svelte-1sthij4");
-    			add_location(td1, file, 356, 3, 7903);
+    			add_location(td1, file, 357, 3, 7940);
     			attr_dev(button1, "class", "svelte-1sthij4");
-    			add_location(button1, file, 366, 4, 8054);
+    			add_location(button1, file, 367, 4, 8091);
     			attr_dev(td2, "class", "svelte-1sthij4");
-    			add_location(td2, file, 365, 3, 8045);
+    			add_location(td2, file, 366, 3, 8082);
     			set_style(td3, "font-size", "small");
     			attr_dev(td3, "class", "svelte-1sthij4");
-    			add_location(td3, file, 375, 3, 8199);
-    			add_location(tr, file, 352, 2, 7834);
-    			add_location(table, file, 351, 1, 7824);
+    			add_location(td3, file, 376, 3, 8236);
+    			add_location(tr, file, 353, 2, 7871);
+    			add_location(table, file, 352, 1, 7861);
     			attr_dev(nav, "class", "svelte-1sthij4");
-    			add_location(nav, file, 339, 0, 7627);
+    			add_location(nav, file, 340, 0, 7664);
     			attr_dev(p, "class", "keyboard  svelte-1sthij4");
-    			add_location(p, file, 398, 3, 8567);
+    			add_location(p, file, 399, 3, 8604);
     			attr_dev(center, "class", "svelte-1sthij4");
-    			add_location(center, file, 397, 2, 8555);
+    			add_location(center, file, 398, 2, 8592);
     			attr_dev(div1, "class", "info  svelte-1sthij4");
-    			add_location(div1, file, 396, 1, 8533);
+    			add_location(div1, file, 397, 1, 8570);
     			main.hidden = false;
     			attr_dev(main, "class", "svelte-1sthij4");
-    			add_location(main, file, 392, 0, 8437);
+    			add_location(main, file, 393, 0, 8474);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -4970,7 +4970,9 @@ var app = (function () {
 
     		if ($$self.$$.dirty[0] & /*pressedKey, audio*/ 24) {
     			if (pressedKey && audio.src) {
-    				if (characters.find(m => m == pressedKey)) $$invalidate(4, audio.src = `sounds/powerup_4_reverb.wav`, audio); else $$invalidate(4, audio.src = `sounds/powerup (${randomNumber(50)}).wav`, audio);
+    				if (characters.find(m => m == pressedKey)) //audio.src =`sounds/powerup_4_reverb.wav`;
+    				$$invalidate(4, audio.src = `sounds/Spin.wav`, audio); else $$invalidate(4, audio.src = `sounds/powerup (${randomNumber(50)}).wav`, audio);
+
     				audio.play();
     			}
     		}
