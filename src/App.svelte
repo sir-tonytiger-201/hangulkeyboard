@@ -327,6 +327,7 @@ import SoundTest from "./SoundTest.svelte";
 	let multiValue;
 
 	let audio = {};
+	
 
 	$: if(pressedKey && audio.src) {
 		if(characters.find(m => m == pressedKey)) 
@@ -334,6 +335,8 @@ import SoundTest from "./SoundTest.svelte";
 					audio.src =`sounds/Spin.wav`;
 					else 
 					audio.src = `sounds/powerup (${randomNumber(50)}).wav`
+		
+					audio.volume = 0.5;
 		audio.play();
 	}
 </script>
