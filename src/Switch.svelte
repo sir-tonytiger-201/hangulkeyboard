@@ -77,12 +77,16 @@
 			:root {
 		--accent-color: CornflowerBlue;
 		--gray: #ccc;
+        
 	}
     /* Inner Design Option */
     .s--inner button {
-        padding: 0.5em;
+        border-radius: 1em;
+		padding: 0.25em 1em;
+		font-size: small;
         background-color: #fff;
         border: 1px solid var(--gray);
+
     }
     [role='switch'][aria-checked='true'] :first-child,
     [role='switch'][aria-checked='false'] :last-child {
@@ -105,6 +109,9 @@
     .s--slider {
         display: flex;
         align-items: center;
+        border-radius: 1em;
+		padding: 0.5em 1em;
+		font-size: small;
     }
 
     .s--slider button {
@@ -114,6 +121,9 @@
         margin: 0 0 0 0.5em;
         background: var(--gray);
         border: none;
+        border-radius: 1em;
+		padding: 0.5em 1em;
+		font-size: small;
     }
 
     .s--slider button::before {
@@ -215,6 +225,7 @@
         transition: background .2s ease-in-out;
         width: 3em;
         height: 1.6em;
+        
     }
 
     .s--multi input:first-of-type:checked ~ label:first-of-type:after {

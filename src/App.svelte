@@ -23,12 +23,11 @@
 
 	let slideshow = false;
 	let slideIndex = 0;
-	
+
 	let currentChar = "";
 	export let timestamp = Date.now();
 	export let shifted;
-	let pressedKey = ' ';
-	
+	let pressedKey = " ";
 
 	export const hangulValue = {
 		q: "ㅂ",
@@ -65,10 +64,10 @@
 		O: "ㅒ",
 		P: "ㅖ",
 	};
-	
+
 	const numberOfCharacters = Object.keys(hangulValue).length;
 	let characters = Object.keys(hangulValue);
-	$: console.log("numberOfCharacters",numberOfCharacters)
+	$: console.log("numberOfCharacters", numberOfCharacters);
 
 	let keyArray = [];
 
@@ -105,7 +104,7 @@
 
 	const showkey = (i) => {
 		timestamp = Date.now();
-		console.log(i)
+		console.log(i);
 		const keycode = "Key" + Object.keys(hangulValue)[i].toUpperCase();
 		const k = keycode[keycode.length - 1].toLowerCase();
 		pressed = k;
@@ -118,16 +117,14 @@
 	let clearTimer;
 	const toggleSlideshow = () => {
 		slideshow = !slideshow;
-		console.log("randomize", randomize)
+		console.log("randomize", randomize);
 		if (slideshow) {
 			slideIndex = 0;
 
 			clearTimer = setInterval(() => {
-				if(!randomize) {
-				showkey(slideIndex++);
-				} else 
-				{
-					
+				if (!randomize) {
+					showkey(slideIndex++);
+				} else {
 					slideIndex = Math.floor(Math.random() * numberOfCharacters);
 					showkey(slideIndex);
 				}
@@ -183,7 +180,7 @@
 		Math.round(decimal).toString(16).padStart(2, "0");
 
 	// This cycles through the indexes of the colors array.
-	
+
 	const goToNextColor = () => {
 		colorIndex = (colorIndex + 1) % colors.length;
 	};
@@ -286,13 +283,11 @@
 		goToNextKeybgColor();
 		clearInterval();
 		goToNextBoxSize();
-
 	}, 3000);
 
 	setInterval(() => {
 		goToNextBoxShadow();
 		clearInterval();
-			
 	}, 1000);
 
 	import { elasticOut } from "svelte/easing";
@@ -314,10 +309,9 @@
 					);`;
 			},
 		};
+	}
+	import Switch from "./Switch.svelte";
 
-}
-import Switch from './Switch.svelte'
-	
 	let switchValue;
 	let sliderValue;
 	let multiValue;
@@ -354,14 +348,16 @@ import Switch from './Switch.svelte'
 					slideshow
 				</button>
 			</td>
-			<td>
-				<Switch bind:checked={randomize} label="Randomize" design="inner" />
+			<td style="font-size:small;">
+				<Switch
+					bind:checked={randomize}
+					label="Randomize"
+					design="inner"
+				/>
 			</td>
 		</tr>
 	</table>
-	
-	
-	
+
 	{#if showLayout}
 		<center>
 			<img src="./keyboard.png" />
@@ -491,8 +487,14 @@ import Switch from './Switch.svelte'
 		border-radius: 0;
 	}
 
- td {
-		padding: 0  0  0 1rem;
+	td {
+		padding: 0 0 0 1rem;
+	}
+
+	button {
+		border-radius: 1em;
+		padding: 0.5em 1em;
+		font-size: small;
 	}
 
 	:global(.key.clicked) {
