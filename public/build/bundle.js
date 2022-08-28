@@ -3933,8 +3933,9 @@ var app = (function () {
     			center = element("center");
     			img = element("img");
     			if (!src_url_equal(img.src, img_src_value = "./keyboard.png")) attr_dev(img, "src", img_src_value);
-    			attr_dev(img, "class", "svelte-kakiy2");
+    			attr_dev(img, "class", "svelte-1lv2k6i");
     			add_location(img, file, 439, 3, 9586);
+    			attr_dev(center, "class", "svelte-1lv2k6i");
     			add_location(center, file, 438, 2, 9574);
     		},
     		m: function mount(target, anchor) {
@@ -3975,7 +3976,9 @@ var app = (function () {
     			div1 = element("div");
     			div0 = element("div");
     			t = text(t_value);
+    			attr_dev(div0, "class", "svelte-1lv2k6i");
     			add_location(div0, file, 473, 7, 10318);
+    			attr_dev(div1, "class", "svelte-1lv2k6i");
     			add_location(div1, file, 472, 6, 10285);
     		},
     		m: function mount(target, anchor) {
@@ -4030,7 +4033,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			if (if_block) if_block.c();
-    			attr_dev(div, "class", "hangul svelte-kakiy2");
+    			attr_dev(div, "class", "hangul svelte-1lv2k6i");
     			set_style(div, "color", "#" + /*$color*/ ctx[10]);
     			add_location(div, file, 466, 4, 10154);
     		},
@@ -4312,46 +4315,53 @@ var app = (function () {
     			t15 = space();
     			key_block.c();
     			if (!src_url_equal(audio_1.src, audio_1_src_value = "")) attr_dev(audio_1, "src", audio_1_src_value);
+    			attr_dev(audio_1, "class", "svelte-1lv2k6i");
     			add_location(audio_1, file, 385, 1, 8713);
     			div0.hidden = true;
+    			attr_dev(div0, "class", "svelte-1lv2k6i");
     			add_location(div0, file, 386, 1, 8749);
-    			attr_dev(h1, "class", "svelte-kakiy2");
+    			attr_dev(h1, "class", "svelte-1lv2k6i");
     			add_location(h1, file, 390, 3, 8811);
+    			attr_dev(i, "class", "svelte-1lv2k6i");
     			add_location(i, file, 391, 9, 8841);
+    			attr_dev(small, "class", "svelte-1lv2k6i");
     			add_location(small, file, 391, 2, 8834);
-    			attr_dev(span0, "class", "svelte-kakiy2");
+    			attr_dev(span0, "class", "svelte-1lv2k6i");
     			add_location(span0, file, 389, 1, 8802);
+    			attr_dev(br, "class", "svelte-1lv2k6i");
     			add_location(br, file, 393, 1, 8887);
-    			attr_dev(span1, "class", "svelte-kakiy2");
+    			attr_dev(span1, "class", "svelte-1lv2k6i");
     			add_location(span1, file, 398, 4, 8923);
-    			attr_dev(td0, "class", "svelte-kakiy2");
+    			attr_dev(td0, "class", "svelte-1lv2k6i");
     			add_location(td0, file, 397, 3, 8914);
-    			attr_dev(button0, "class", "svelte-kakiy2");
+    			attr_dev(button0, "class", "svelte-1lv2k6i");
     			add_location(button0, file, 402, 4, 8985);
-    			attr_dev(td1, "class", "svelte-kakiy2");
+    			attr_dev(td1, "class", "svelte-1lv2k6i");
     			add_location(td1, file, 401, 3, 8976);
     			set_style(td2, "font-size", "small");
-    			attr_dev(td2, "class", "svelte-kakiy2");
+    			attr_dev(td2, "class", "svelte-1lv2k6i");
     			add_location(td2, file, 411, 3, 9130);
     			set_style(td3, "font-size", "larger");
-    			attr_dev(td3, "class", "svelte-kakiy2");
+    			attr_dev(td3, "class", "svelte-1lv2k6i");
     			add_location(td3, file, 418, 3, 9264);
-    			attr_dev(button1, "class", "svelte-kakiy2");
+    			attr_dev(button1, "class", "svelte-1lv2k6i");
     			add_location(button1, file, 426, 4, 9405);
-    			attr_dev(td4, "class", "svelte-kakiy2");
+    			attr_dev(td4, "class", "svelte-1lv2k6i");
     			add_location(td4, file, 425, 3, 9396);
+    			attr_dev(tr, "class", "svelte-1lv2k6i");
     			add_location(tr, file, 396, 2, 8906);
+    			attr_dev(table, "class", "svelte-1lv2k6i");
     			add_location(table, file, 395, 1, 8896);
-    			attr_dev(nav, "class", "svelte-kakiy2");
+    			attr_dev(nav, "class", "svelte-1lv2k6i");
     			add_location(nav, file, 384, 0, 8706);
-    			attr_dev(p, "class", "keyboard  svelte-kakiy2");
+    			attr_dev(p, "class", "keyboard  svelte-1lv2k6i");
     			add_location(p, file, 450, 3, 9772);
-    			attr_dev(center, "class", "svelte-kakiy2");
+    			attr_dev(center, "class", "svelte-1lv2k6i");
     			add_location(center, file, 449, 2, 9760);
-    			attr_dev(div1, "class", "info  svelte-kakiy2");
+    			attr_dev(div1, "class", "info  svelte-1lv2k6i");
     			add_location(div1, file, 448, 1, 9738);
     			main.hidden = false;
-    			attr_dev(main, "class", "svelte-kakiy2");
+    			attr_dev(main, "class", "svelte-1lv2k6i");
     			add_location(main, file, 444, 0, 9642);
     		},
     		l: function claim(nodes) {

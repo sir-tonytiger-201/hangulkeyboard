@@ -485,6 +485,10 @@
 </main>
 
 <style>
+	  :root {
+        --accent-color: CornflowerBlue;
+        --gray: #ccc;
+    }
 	main,
 	nav {
 		border-collapse: collapse;
@@ -565,7 +569,10 @@
 		border-radius: 1em;
 		padding: 0.5em 1em;
 		font-size: small;
+	} :focus {
+		box-shadow: 0 0px 0px 1px var(--accent-color);
 	}
+
 
 	:global(.key.clicked) {
 		--background: pink;
