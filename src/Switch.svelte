@@ -80,6 +80,10 @@
         --accent-color: CornflowerBlue;
         --gray: #ccc;
     }
+
+    button {
+        border-radius: 1em;
+    }
     /* Inner Design Option */
     .s--inner button {
         border-radius: 1em;
@@ -254,7 +258,7 @@
 
     .s--inner button:focus {
         box-shadow: 0 0px 8px var(--accent-color);
-        border-radius: 0.1em;
+        border-radius: 1em;
     }
 
     /* Slider Design Option */

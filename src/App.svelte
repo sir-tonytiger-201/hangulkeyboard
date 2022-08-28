@@ -317,11 +317,11 @@
 		};
 	}
 
-	let transitionIndex = 0
+	let transitionIndex = 0;
 	function randomtransition(node, { duration }) {
 		//return spin(node, { duration } );
-		const xoffset = randomNumber(500) * (randomNumber(2) > 1 ? -1: 1);
-		
+		const xoffset = randomNumber(500) * (randomNumber(2) > 1 ? -1 : 1);
+
 		const transitions = [
 			fly(node, {
 				easing: cubicIn,
@@ -340,7 +340,6 @@
 				duration: 300,
 				start: 20,
 			}),
-			
 		];
 
 		/* if(transitionIndex >= transitions.length) transitionIndex = 0;
@@ -396,7 +395,7 @@
 			<td>
 				<span> Learn the layout. &emsp; </span>
 			</td>
-			
+
 			<td>
 				<button on:click={toggleSlideshow}>
 					{#if slideshow}
@@ -555,7 +554,8 @@
 	}
 
 	td {
-		padding: 0 0 0 1rem;
+		padding: 0 0 0 0.5em;
+		border-collapse: collapse;
 	}
 
 	button {

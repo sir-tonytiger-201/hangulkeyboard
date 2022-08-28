@@ -3065,12 +3065,12 @@ var app = (function () {
     			attr_dev(div0, "id", `label-${/*uniqueID*/ ctx[6]}`);
     			add_location(div0, file$2, 61, 12, 1895);
     			attr_dev(div1, "role", "radiogroup");
-    			attr_dev(div1, "class", "group-container svelte-1u4iklw");
+    			attr_dev(div1, "class", "group-container svelte-2460jv");
     			attr_dev(div1, "aria-labelledby", `label-${/*uniqueID*/ ctx[6]}`);
     			set_style(div1, "font-size", /*fontSize*/ ctx[5] + "px");
     			attr_dev(div1, "id", `group-${/*uniqueID*/ ctx[6]}`);
     			add_location(div1, file$2, 54, 8, 1672);
-    			attr_dev(div2, "class", "s s--multi svelte-1u4iklw");
+    			attr_dev(div2, "class", "s s--multi svelte-2460jv");
     			add_location(div2, file$2, 53, 4, 1639);
     		},
     		m: function mount(target, anchor) {
@@ -3154,9 +3154,9 @@ var app = (function () {
     			attr_dev(button, "role", "switch");
     			attr_dev(button, "aria-checked", /*checked*/ ctx[1]);
     			attr_dev(button, "aria-labelledby", `switch-${/*uniqueID*/ ctx[6]}`);
-    			attr_dev(button, "class", "svelte-1u4iklw");
+    			attr_dev(button, "class", "svelte-2460jv");
     			add_location(button, file$2, 45, 8, 1450);
-    			attr_dev(div, "class", "s s--slider svelte-1u4iklw");
+    			attr_dev(div, "class", "s s--slider svelte-2460jv");
     			set_style(div, "font-size", /*fontSize*/ ctx[5] + "px");
     			add_location(div, file$2, 43, 4, 1330);
     		},
@@ -3227,18 +3227,18 @@ var app = (function () {
     			span2 = element("span");
     			span2.textContent = "off";
     			attr_dev(span0, "id", `switch-${/*uniqueID*/ ctx[6]}`);
-    			attr_dev(span0, "class", "svelte-1u4iklw");
+    			attr_dev(span0, "class", "svelte-2460jv");
     			add_location(span0, file$2, 31, 8, 990);
-    			attr_dev(span1, "class", "svelte-1u4iklw");
+    			attr_dev(span1, "class", "svelte-2460jv");
     			add_location(span1, file$2, 38, 12, 1222);
-    			attr_dev(span2, "class", "svelte-1u4iklw");
+    			attr_dev(span2, "class", "svelte-2460jv");
     			add_location(span2, file$2, 39, 12, 1250);
     			attr_dev(button, "role", "switch");
     			attr_dev(button, "aria-checked", /*checked*/ ctx[1]);
     			attr_dev(button, "aria-labelledby", `switch-${/*uniqueID*/ ctx[6]}`);
-    			attr_dev(button, "class", "svelte-1u4iklw");
+    			attr_dev(button, "class", "svelte-2460jv");
     			add_location(button, file$2, 32, 8, 1045);
-    			attr_dev(div, "class", "s s--inner svelte-1u4iklw");
+    			attr_dev(div, "class", "s s--inner svelte-2460jv");
     			add_location(div, file$2, 30, 4, 957);
     		},
     		m: function mount(target, anchor) {
@@ -3306,11 +3306,11 @@ var app = (function () {
     			attr_dev(input, "id", input_id_value = `${/*option*/ ctx[11]}-${/*uniqueID*/ ctx[6]}`);
     			input.__value = input_value_value = /*option*/ ctx[11];
     			input.value = input.__value;
-    			attr_dev(input, "class", "svelte-1u4iklw");
+    			attr_dev(input, "class", "svelte-2460jv");
     			/*$$binding_groups*/ ctx[9][0].push(input);
     			add_location(input, file$2, 63, 16, 2008);
     			attr_dev(label_1, "for", label_1_for_value = `${/*option*/ ctx[11]}-${/*uniqueID*/ ctx[6]}`);
-    			attr_dev(label_1, "class", "svelte-1u4iklw");
+    			attr_dev(label_1, "class", "svelte-2460jv");
     			add_location(label_1, file$2, 69, 16, 2206);
     		},
     		m: function mount(target, anchor) {
@@ -3814,7 +3814,7 @@ var app = (function () {
     const { Object: Object_1, console: console_1 } = globals;
     const file = "src/App.svelte";
 
-    // (404:5) {:else}
+    // (403:5) {:else}
     function create_else_block_1(ctx) {
     	let t;
 
@@ -3834,14 +3834,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(404:5) {:else}",
+    		source: "(403:5) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (402:5) {#if slideshow}
+    // (401:5) {#if slideshow}
     function create_if_block_3(ctx) {
     	let t;
 
@@ -3861,14 +3861,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(402:5) {#if slideshow}",
+    		source: "(401:5) {#if slideshow}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (428:5) {:else}
+    // (427:5) {:else}
     function create_else_block(ctx) {
     	let t;
 
@@ -3888,14 +3888,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(428:5) {:else}",
+    		source: "(427:5) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (426:5) {#if showLayout}
+    // (425:5) {#if showLayout}
     function create_if_block_2(ctx) {
     	let t;
 
@@ -3915,14 +3915,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(426:5) {#if showLayout}",
+    		source: "(425:5) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (436:1) {#if showLayout}
+    // (435:1) {#if showLayout}
     function create_if_block_1(ctx) {
     	let center;
     	let img;
@@ -3933,9 +3933,9 @@ var app = (function () {
     			center = element("center");
     			img = element("img");
     			if (!src_url_equal(img.src, img_src_value = "./keyboard.png")) attr_dev(img, "src", img_src_value);
-    			attr_dev(img, "class", "svelte-1sthij4");
-    			add_location(img, file, 437, 3, 9522);
-    			add_location(center, file, 436, 2, 9510);
+    			attr_dev(img, "class", "svelte-kakiy2");
+    			add_location(img, file, 436, 3, 9515);
+    			add_location(center, file, 435, 2, 9503);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, center, anchor);
@@ -3950,14 +3950,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(436:1) {#if showLayout}",
+    		source: "(435:1) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (470:5) {#if hangulCharacter}
+    // (469:5) {#if hangulCharacter}
     function create_if_block(ctx) {
     	let div1;
     	let div0;
@@ -3975,8 +3975,8 @@ var app = (function () {
     			div1 = element("div");
     			div0 = element("div");
     			t = text(t_value);
-    			add_location(div0, file, 471, 7, 10254);
-    			add_location(div1, file, 470, 6, 10221);
+    			add_location(div0, file, 470, 7, 10247);
+    			add_location(div1, file, 469, 6, 10214);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -4013,14 +4013,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(470:5) {#if hangulCharacter}",
+    		source: "(469:5) {#if hangulCharacter}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (464:3) {#key timestamp}
+    // (463:3) {#key timestamp}
     function create_key_block(ctx) {
     	let div;
     	let div_intro;
@@ -4030,9 +4030,9 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			if (if_block) if_block.c();
-    			attr_dev(div, "class", "hangul svelte-1sthij4");
+    			attr_dev(div, "class", "hangul svelte-kakiy2");
     			set_style(div, "color", "#" + /*$color*/ ctx[10]);
-    			add_location(div, file, 464, 4, 10090);
+    			add_location(div, file, 463, 4, 10083);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -4084,7 +4084,7 @@ var app = (function () {
     		block,
     		id: create_key_block.name,
     		type: "key",
-    		source: "(464:3) {#key timestamp}",
+    		source: "(463:3) {#key timestamp}",
     		ctx
     	});
 
@@ -4312,47 +4312,47 @@ var app = (function () {
     			t15 = space();
     			key_block.c();
     			if (!src_url_equal(audio_1.src, audio_1_src_value = "")) attr_dev(audio_1, "src", audio_1_src_value);
-    			add_location(audio_1, file, 383, 1, 8646);
+    			add_location(audio_1, file, 382, 1, 8642);
     			div0.hidden = true;
-    			add_location(div0, file, 384, 1, 8682);
-    			attr_dev(h1, "class", "svelte-1sthij4");
-    			add_location(h1, file, 388, 3, 8744);
-    			add_location(i, file, 389, 9, 8774);
-    			add_location(small, file, 389, 2, 8767);
-    			attr_dev(span0, "class", "svelte-1sthij4");
-    			add_location(span0, file, 387, 1, 8735);
-    			add_location(br, file, 391, 1, 8820);
-    			attr_dev(span1, "class", "svelte-1sthij4");
-    			add_location(span1, file, 396, 4, 8856);
-    			attr_dev(td0, "class", "svelte-1sthij4");
-    			add_location(td0, file, 395, 3, 8847);
-    			attr_dev(button0, "class", "svelte-1sthij4");
-    			add_location(button0, file, 400, 4, 8921);
-    			attr_dev(td1, "class", "svelte-1sthij4");
-    			add_location(td1, file, 399, 3, 8912);
+    			add_location(div0, file, 383, 1, 8678);
+    			attr_dev(h1, "class", "svelte-kakiy2");
+    			add_location(h1, file, 387, 3, 8740);
+    			add_location(i, file, 388, 9, 8770);
+    			add_location(small, file, 388, 2, 8763);
+    			attr_dev(span0, "class", "svelte-kakiy2");
+    			add_location(span0, file, 386, 1, 8731);
+    			add_location(br, file, 390, 1, 8816);
+    			attr_dev(span1, "class", "svelte-kakiy2");
+    			add_location(span1, file, 395, 4, 8852);
+    			attr_dev(td0, "class", "svelte-kakiy2");
+    			add_location(td0, file, 394, 3, 8843);
+    			attr_dev(button0, "class", "svelte-kakiy2");
+    			add_location(button0, file, 399, 4, 8914);
+    			attr_dev(td1, "class", "svelte-kakiy2");
+    			add_location(td1, file, 398, 3, 8905);
     			set_style(td2, "font-size", "small");
-    			attr_dev(td2, "class", "svelte-1sthij4");
-    			add_location(td2, file, 409, 3, 9066);
+    			attr_dev(td2, "class", "svelte-kakiy2");
+    			add_location(td2, file, 408, 3, 9059);
     			set_style(td3, "font-size", "larger");
-    			attr_dev(td3, "class", "svelte-1sthij4");
-    			add_location(td3, file, 416, 3, 9200);
-    			attr_dev(button1, "class", "svelte-1sthij4");
-    			add_location(button1, file, 424, 4, 9341);
-    			attr_dev(td4, "class", "svelte-1sthij4");
-    			add_location(td4, file, 423, 3, 9332);
-    			add_location(tr, file, 394, 2, 8839);
-    			add_location(table, file, 393, 1, 8829);
-    			attr_dev(nav, "class", "svelte-1sthij4");
-    			add_location(nav, file, 382, 0, 8639);
-    			attr_dev(p, "class", "keyboard  svelte-1sthij4");
-    			add_location(p, file, 448, 3, 9708);
-    			attr_dev(center, "class", "svelte-1sthij4");
-    			add_location(center, file, 447, 2, 9696);
-    			attr_dev(div1, "class", "info  svelte-1sthij4");
-    			add_location(div1, file, 446, 1, 9674);
+    			attr_dev(td3, "class", "svelte-kakiy2");
+    			add_location(td3, file, 415, 3, 9193);
+    			attr_dev(button1, "class", "svelte-kakiy2");
+    			add_location(button1, file, 423, 4, 9334);
+    			attr_dev(td4, "class", "svelte-kakiy2");
+    			add_location(td4, file, 422, 3, 9325);
+    			add_location(tr, file, 393, 2, 8835);
+    			add_location(table, file, 392, 1, 8825);
+    			attr_dev(nav, "class", "svelte-kakiy2");
+    			add_location(nav, file, 381, 0, 8635);
+    			attr_dev(p, "class", "keyboard  svelte-kakiy2");
+    			add_location(p, file, 447, 3, 9701);
+    			attr_dev(center, "class", "svelte-kakiy2");
+    			add_location(center, file, 446, 2, 9689);
+    			attr_dev(div1, "class", "info  svelte-kakiy2");
+    			add_location(div1, file, 445, 1, 9667);
     			main.hidden = false;
-    			attr_dev(main, "class", "svelte-1sthij4");
-    			add_location(main, file, 442, 0, 9578);
+    			attr_dev(main, "class", "svelte-kakiy2");
+    			add_location(main, file, 441, 0, 9571);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
