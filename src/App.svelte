@@ -364,20 +364,20 @@
 			audio.src = `sounds/Spin.wav`;
 		else audio.src = `sounds/powerup (${randomNumber(50)}).wav`;
 
-		if (volume != undefined) audio.volume = volume;
+		if (volume != undefined) audio.volume = sound ? volume : 0;
 		audio.play();
 	}
 
 	let sound = true;
 	let savedvolume = volume;
-	$: if (sound == false) {
+	$: if (sound != true) {
 		savedvolume = volume;
 		volume = 0;
 	} else {
 		volume = savedvolume;
 	}
 
-	$: if (volume != undefined) audio.volume = volume;
+	$: if (volume != undefined) audio.volume = sound ? volume : 0;
 </script>
 
 <nav>

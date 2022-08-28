@@ -3930,8 +3930,8 @@ var app = (function () {
     			img = element("img");
     			if (!src_url_equal(img.src, img_src_value = "./keyboard.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "class", "svelte-1sthij4");
-    			add_location(img, file, 436, 3, 9495);
-    			add_location(center, file, 435, 2, 9483);
+    			add_location(img, file, 436, 3, 9518);
+    			add_location(center, file, 435, 2, 9506);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, center, anchor);
@@ -3971,8 +3971,8 @@ var app = (function () {
     			div1 = element("div");
     			div0 = element("div");
     			t = text(t_value);
-    			add_location(div0, file, 470, 7, 10227);
-    			add_location(div1, file, 469, 6, 10194);
+    			add_location(div0, file, 470, 7, 10250);
+    			add_location(div1, file, 469, 6, 10217);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -4028,7 +4028,7 @@ var app = (function () {
     			if (if_block) if_block.c();
     			attr_dev(div, "class", "hangul svelte-1sthij4");
     			set_style(div, "color", "#" + /*$color*/ ctx[10]);
-    			add_location(div, file, 463, 4, 10063);
+    			add_location(div, file, 463, 4, 10086);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -4308,47 +4308,47 @@ var app = (function () {
     			t15 = space();
     			key_block.c();
     			if (!src_url_equal(audio_1.src, audio_1_src_value = "")) attr_dev(audio_1, "src", audio_1_src_value);
-    			add_location(audio_1, file, 383, 1, 8623);
+    			add_location(audio_1, file, 383, 1, 8646);
     			div0.hidden = true;
-    			add_location(div0, file, 384, 1, 8659);
+    			add_location(div0, file, 384, 1, 8682);
     			attr_dev(h1, "class", "svelte-1sthij4");
-    			add_location(h1, file, 388, 3, 8721);
-    			add_location(i, file, 389, 9, 8751);
-    			add_location(small, file, 389, 2, 8744);
+    			add_location(h1, file, 388, 3, 8744);
+    			add_location(i, file, 389, 9, 8774);
+    			add_location(small, file, 389, 2, 8767);
     			attr_dev(span0, "class", "svelte-1sthij4");
-    			add_location(span0, file, 387, 1, 8712);
-    			add_location(br, file, 391, 1, 8797);
+    			add_location(span0, file, 387, 1, 8735);
+    			add_location(br, file, 391, 1, 8820);
     			attr_dev(span1, "class", "svelte-1sthij4");
-    			add_location(span1, file, 396, 4, 8833);
+    			add_location(span1, file, 396, 4, 8856);
     			attr_dev(td0, "class", "svelte-1sthij4");
-    			add_location(td0, file, 395, 3, 8824);
+    			add_location(td0, file, 395, 3, 8847);
     			attr_dev(button0, "class", "svelte-1sthij4");
-    			add_location(button0, file, 399, 4, 8894);
+    			add_location(button0, file, 399, 4, 8917);
     			attr_dev(td1, "class", "svelte-1sthij4");
-    			add_location(td1, file, 398, 3, 8885);
+    			add_location(td1, file, 398, 3, 8908);
     			attr_dev(button1, "class", "svelte-1sthij4");
-    			add_location(button1, file, 408, 4, 9036);
+    			add_location(button1, file, 408, 4, 9059);
     			attr_dev(td2, "class", "svelte-1sthij4");
-    			add_location(td2, file, 407, 3, 9027);
+    			add_location(td2, file, 407, 3, 9050);
     			set_style(td3, "font-size", "small");
     			attr_dev(td3, "class", "svelte-1sthij4");
-    			add_location(td3, file, 417, 3, 9181);
+    			add_location(td3, file, 417, 3, 9204);
     			set_style(td4, "font-size", "larger");
     			attr_dev(td4, "class", "svelte-1sthij4");
-    			add_location(td4, file, 424, 3, 9315);
-    			add_location(tr, file, 394, 2, 8816);
-    			add_location(table, file, 393, 1, 8806);
+    			add_location(td4, file, 424, 3, 9338);
+    			add_location(tr, file, 394, 2, 8839);
+    			add_location(table, file, 393, 1, 8829);
     			attr_dev(nav, "class", "svelte-1sthij4");
-    			add_location(nav, file, 382, 0, 8616);
+    			add_location(nav, file, 382, 0, 8639);
     			attr_dev(p, "class", "keyboard  svelte-1sthij4");
-    			add_location(p, file, 447, 3, 9681);
+    			add_location(p, file, 447, 3, 9704);
     			attr_dev(center, "class", "svelte-1sthij4");
-    			add_location(center, file, 446, 2, 9669);
+    			add_location(center, file, 446, 2, 9692);
     			attr_dev(div1, "class", "info  svelte-1sthij4");
-    			add_location(div1, file, 445, 1, 9647);
+    			add_location(div1, file, 445, 1, 9670);
     			main.hidden = false;
     			attr_dev(main, "class", "svelte-1sthij4");
-    			add_location(main, file, 441, 0, 9551);
+    			add_location(main, file, 441, 0, 9574);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5119,7 +5119,7 @@ var app = (function () {
     		}
 
     		if ($$self.$$.dirty[0] & /*sound*/ 32 | $$self.$$.dirty[1] & /*volume, savedvolume*/ 24) {
-    			if (sound == false) {
+    			if (sound != true) {
     				$$invalidate(35, savedvolume = volume);
     				$$invalidate(34, volume = 0);
     			} else {
@@ -5127,18 +5127,18 @@ var app = (function () {
     			}
     		}
 
-    		if ($$self.$$.dirty[0] & /*pressedKey, audio*/ 24 | $$self.$$.dirty[1] & /*volume*/ 8) {
+    		if ($$self.$$.dirty[0] & /*pressedKey, audio, sound*/ 56 | $$self.$$.dirty[1] & /*volume*/ 8) {
     			if (pressedKey && audio.src) {
     				if (characters.find(m => m == pressedKey)) //audio.src =`sounds/powerup_4_reverb.wav`;
     				$$invalidate(4, audio.src = `sounds/Spin.wav`, audio); else $$invalidate(4, audio.src = `sounds/powerup (${randomNumber(50)}).wav`, audio);
 
-    				if (volume != undefined) $$invalidate(4, audio.volume = volume, audio);
+    				if (volume != undefined) $$invalidate(4, audio.volume = sound ? volume : 0, audio);
     				audio.play();
     			}
     		}
 
-    		if ($$self.$$.dirty[1] & /*volume*/ 8) {
-    			if (volume != undefined) $$invalidate(4, audio.volume = volume, audio);
+    		if ($$self.$$.dirty[0] & /*sound*/ 32 | $$self.$$.dirty[1] & /*volume*/ 8) {
+    			if (volume != undefined) $$invalidate(4, audio.volume = sound ? volume : 0, audio);
     		}
     	};
 
