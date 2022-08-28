@@ -73,13 +73,11 @@
 
 	characters.forEach((m) => keyArray.push("Key" + m.toUpperCase()));
 
-	
 	// Will return a number from 1 to m.
-	const randomNumber = m => {
+	const randomNumber = (m) => {
 		const result = Math.floor(Math.random() * m + 1);
 		return result;
-	}
-
+	};
 
 	let faceIdx = 0;
 
@@ -124,7 +122,6 @@
 	};
 	let clearTimer;
 	const toggleSlideshow = () => {
-		
 		slideshow = !slideshow;
 		console.log("randomize", randomize);
 		if (slideshow) {
@@ -320,32 +317,43 @@
 		};
 	}
 	import Switch from "./Switch.svelte";
-import SoundTest from "./SoundTest.svelte";
+	import SoundTest from "./SoundTest.svelte";
 
 	let switchValue;
 	let sliderValue;
 	let multiValue;
 
 	let audio = {};
-	
+	let volume = 0.5;
 
-	$: if(pressedKey && audio.src) {
-		if(characters.find(m => m == pressedKey)) 
-					//audio.src =`sounds/powerup_4_reverb.wav`;
-					audio.src =`sounds/Spin.wav`;
-					else 
-					audio.src = `sounds/powerup (${randomNumber(50)}).wav`
-		
-					audio.volume = 0.5;
+	$: if (pressedKey && audio.src) {
+		if (characters.find((m) => m == pressedKey))
+			//audio.src =`sounds/powerup_4_reverb.wav`;
+			audio.src = `sounds/Spin.wav`;
+		else audio.src = `sounds/powerup (${randomNumber(50)}).wav`;
+
+		if(volume != undefined)
+		audio.volume = volume;
 		audio.play();
 	}
+
+	
+	let sound = true;
+	let savedvolume = volume;
+	$: if (sound == false) {
+		savedvolume = volume;
+		volume = 0;
+	} else {
+		volume = savedvolume;
+	}
+
+	$: if (volume != undefined) audio.volume = volume;
 </script>
 
 <nav>
-	<audio src="" bind:this={audio}></audio>
+	<audio src="" bind:this={audio} />
 	<div hidden>
 		<SoundTest {randomNumber} />
-
 	</div>
 	<span
 		><h1>한글 Keyboard</h1>
@@ -383,6 +391,9 @@ import SoundTest from "./SoundTest.svelte";
 					label="Randomize"
 					design="inner"
 				/>
+			</td>
+			<td style="font-size:small;">
+				<Switch bind:checked={sound} label="Sound" design="inner" />
 			</td>
 		</tr>
 	</table>

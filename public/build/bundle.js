@@ -3734,7 +3734,7 @@ var app = (function () {
     const { Object: Object_1, console: console_1 } = globals;
     const file = "src/App.svelte";
 
-    // (365:5) {:else}
+    // (373:5) {:else}
     function create_else_block_1(ctx) {
     	let t;
 
@@ -3754,14 +3754,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(365:5) {:else}",
+    		source: "(373:5) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (363:5) {#if showLayout}
+    // (371:5) {#if showLayout}
     function create_if_block_3(ctx) {
     	let t;
 
@@ -3781,14 +3781,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(363:5) {#if showLayout}",
+    		source: "(371:5) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (374:5) {:else}
+    // (382:5) {:else}
     function create_else_block(ctx) {
     	let t;
 
@@ -3808,14 +3808,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(374:5) {:else}",
+    		source: "(382:5) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (372:5) {#if slideshow}
+    // (380:5) {#if slideshow}
     function create_if_block_2(ctx) {
     	let t;
 
@@ -3835,14 +3835,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(372:5) {#if slideshow}",
+    		source: "(380:5) {#if slideshow}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (390:1) {#if showLayout}
+    // (401:1) {#if showLayout}
     function create_if_block_1(ctx) {
     	let center;
     	let img;
@@ -3854,8 +3854,8 @@ var app = (function () {
     			img = element("img");
     			if (!src_url_equal(img.src, img_src_value = "./keyboard.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "class", "svelte-1sthij4");
-    			add_location(img, file, 391, 3, 8448);
-    			add_location(center, file, 390, 2, 8436);
+    			add_location(img, file, 402, 3, 8782);
+    			add_location(center, file, 401, 2, 8770);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, center, anchor);
@@ -3870,21 +3870,21 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(390:1) {#if showLayout}",
+    		source: "(401:1) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (424:5) {#if hangulCharacter}
+    // (435:5) {#if hangulCharacter}
     function create_if_block(ctx) {
     	let div1;
     	let div0;
 
-    	let t_value = (/*hangulCharacter*/ ctx[5] == "undefined"
-    	? /*funnyface*/ ctx[16]()
-    	: /*hangulCharacter*/ ctx[5]) + "";
+    	let t_value = (/*hangulCharacter*/ ctx[6] == "undefined"
+    	? /*funnyface*/ ctx[17]()
+    	: /*hangulCharacter*/ ctx[6]) + "";
 
     	let t;
     	let div0_intro;
@@ -3895,8 +3895,8 @@ var app = (function () {
     			div1 = element("div");
     			div0 = element("div");
     			t = text(t_value);
-    			add_location(div0, file, 433, 7, 9292);
-    			add_location(div1, file, 424, 6, 9147);
+    			add_location(div0, file, 444, 7, 9626);
+    			add_location(div1, file, 435, 6, 9481);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -3906,14 +3906,14 @@ var app = (function () {
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
 
-    			if (dirty[0] & /*hangulCharacter*/ 32 && t_value !== (t_value = (/*hangulCharacter*/ ctx[5] == "undefined"
-    			? /*funnyface*/ ctx[16]()
-    			: /*hangulCharacter*/ ctx[5]) + "")) set_data_dev(t, t_value);
+    			if (dirty[0] & /*hangulCharacter*/ 64 && t_value !== (t_value = (/*hangulCharacter*/ ctx[6] == "undefined"
+    			? /*funnyface*/ ctx[17]()
+    			: /*hangulCharacter*/ ctx[6]) + "")) set_data_dev(t, t_value);
     		},
     		i: function intro(local) {
     			if (!div0_intro) {
     				add_render_callback(() => {
-    					div0_intro = create_in_transition(div0, /*spin*/ ctx[25], { duration: 1200 });
+    					div0_intro = create_in_transition(div0, /*spin*/ ctx[26], { duration: 1200 });
     					div0_intro.start();
     				});
     			}
@@ -3942,26 +3942,26 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(424:5) {#if hangulCharacter}",
+    		source: "(435:5) {#if hangulCharacter}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (418:3) {#key timestamp}
+    // (429:3) {#key timestamp}
     function create_key_block(ctx) {
     	let div;
     	let div_intro;
-    	let if_block = /*hangulCharacter*/ ctx[5] && create_if_block(ctx);
+    	let if_block = /*hangulCharacter*/ ctx[6] && create_if_block(ctx);
 
     	const block = {
     		c: function create() {
     			div = element("div");
     			if (if_block) if_block.c();
     			attr_dev(div, "class", "hangul svelte-1sthij4");
-    			set_style(div, "color", "#" + /*$color*/ ctx[9]);
-    			add_location(div, file, 418, 4, 9016);
+    			set_style(div, "color", "#" + /*$color*/ ctx[10]);
+    			add_location(div, file, 429, 4, 9350);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -3970,11 +3970,11 @@ var app = (function () {
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
 
-    			if (/*hangulCharacter*/ ctx[5]) {
+    			if (/*hangulCharacter*/ ctx[6]) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
 
-    					if (dirty[0] & /*hangulCharacter*/ 32) {
+    					if (dirty[0] & /*hangulCharacter*/ 64) {
     						transition_in(if_block, 1);
     					}
     				} else {
@@ -3988,8 +3988,8 @@ var app = (function () {
     				if_block = null;
     			}
 
-    			if (dirty[0] & /*$color*/ 512) {
-    				set_style(div, "color", "#" + /*$color*/ ctx[9]);
+    			if (dirty[0] & /*$color*/ 1024) {
+    				set_style(div, "color", "#" + /*$color*/ ctx[10]);
     			}
     		},
     		i: function intro(local) {
@@ -4013,7 +4013,7 @@ var app = (function () {
     		block,
     		id: create_key_block.name,
     		type: "key",
-    		source: "(418:3) {#key timestamp}",
+    		source: "(429:3) {#key timestamp}",
     		ctx
     	});
 
@@ -4049,10 +4049,14 @@ var app = (function () {
     	let t10;
     	let t11;
     	let td3;
-    	let switch_1;
+    	let switch0;
     	let updating_checked;
     	let t12;
+    	let td4;
+    	let switch1;
+    	let updating_checked_1;
     	let t13;
+    	let t14;
     	let main;
     	let div1;
     	let center;
@@ -4065,19 +4069,19 @@ var app = (function () {
     	let updating_keybackground;
     	let updating_boxshadowcolor;
     	let updating_boxsize;
-    	let t14;
+    	let t15;
     	let previous_key = /*timestamp*/ ctx[2];
     	let current;
     	let mounted;
     	let dispose;
 
     	soundtest = new SoundTest({
-    			props: { randomNumber: /*randomNumber*/ ctx[15] },
+    			props: { randomNumber: /*randomNumber*/ ctx[16] },
     			$$inline: true
     		});
 
     	function select_block_type(ctx, dirty) {
-    		if (/*showLayout*/ ctx[7]) return create_if_block_3;
+    		if (/*showLayout*/ ctx[8]) return create_if_block_3;
     		return create_else_block_1;
     	}
 
@@ -4085,53 +4089,66 @@ var app = (function () {
     	let if_block0 = current_block_type(ctx);
 
     	function select_block_type_1(ctx, dirty) {
-    		if (/*slideshow*/ ctx[6]) return create_if_block_2;
+    		if (/*slideshow*/ ctx[7]) return create_if_block_2;
     		return create_else_block;
     	}
 
     	let current_block_type_1 = select_block_type_1(ctx);
     	let if_block1 = current_block_type_1(ctx);
 
-    	function switch_1_checked_binding(value) {
-    		/*switch_1_checked_binding*/ ctx[33](value);
+    	function switch0_checked_binding(value) {
+    		/*switch0_checked_binding*/ ctx[36](value);
     	}
 
-    	let switch_1_props = { label: "Randomize", design: "inner" };
+    	let switch0_props = { label: "Randomize", design: "inner" };
 
-    	if (/*randomize*/ ctx[8] !== void 0) {
-    		switch_1_props.checked = /*randomize*/ ctx[8];
+    	if (/*randomize*/ ctx[9] !== void 0) {
+    		switch0_props.checked = /*randomize*/ ctx[9];
     	}
 
-    	switch_1 = new Switch({ props: switch_1_props, $$inline: true });
-    	binding_callbacks.push(() => bind(switch_1, 'checked', switch_1_checked_binding));
-    	let if_block2 = /*showLayout*/ ctx[7] && create_if_block_1(ctx);
+    	switch0 = new Switch({ props: switch0_props, $$inline: true });
+    	binding_callbacks.push(() => bind(switch0, 'checked', switch0_checked_binding));
+
+    	function switch1_checked_binding(value) {
+    		/*switch1_checked_binding*/ ctx[37](value);
+    	}
+
+    	let switch1_props = { label: "Sound", design: "inner" };
+
+    	if (/*sound*/ ctx[5] !== void 0) {
+    		switch1_props.checked = /*sound*/ ctx[5];
+    	}
+
+    	switch1 = new Switch({ props: switch1_props, $$inline: true });
+    	binding_callbacks.push(() => bind(switch1, 'checked', switch1_checked_binding));
+    	let if_block2 = /*showLayout*/ ctx[8] && create_if_block_1(ctx);
 
     	function keyboard_pressed_binding(value) {
-    		/*keyboard_pressed_binding*/ ctx[34](value);
+    		/*keyboard_pressed_binding*/ ctx[38](value);
     	}
 
     	function keyboard_shifted_binding(value) {
-    		/*keyboard_shifted_binding*/ ctx[35](value);
+    		/*keyboard_shifted_binding*/ ctx[39](value);
     	}
 
     	function keyboard_timestamp_binding(value) {
-    		/*keyboard_timestamp_binding*/ ctx[36](value);
+    		/*keyboard_timestamp_binding*/ ctx[40](value);
     	}
 
     	function keyboard_keycolor_binding(value) {
-    		/*keyboard_keycolor_binding*/ ctx[37](value);
+    		/*keyboard_keycolor_binding*/ ctx[41](value);
     	}
 
     	function keyboard_keybackground_binding(value) {
-    		/*keyboard_keybackground_binding*/ ctx[38](value);
+    		/*keyboard_keybackground_binding*/ ctx[42](value);
     	}
 
     	function keyboard_boxshadowcolor_binding(value) {
-    		/*keyboard_boxshadowcolor_binding*/ ctx[39](value);
+    		/*keyboard_boxshadowcolor_binding*/ ctx[43](value);
     	}
 
     	function keyboard_boxsize_binding(value) {
-    		/*keyboard_boxsize_binding*/ ctx[40](value);
+    		/*keyboard_boxsize_binding*/ ctx[44](value);
     	}
 
     	let keyboard_props = {};
@@ -4148,20 +4165,20 @@ var app = (function () {
     		keyboard_props.timestamp = /*timestamp*/ ctx[2];
     	}
 
-    	if (/*$keycolor*/ ctx[10] !== void 0) {
-    		keyboard_props.keycolor = /*$keycolor*/ ctx[10];
+    	if (/*$keycolor*/ ctx[11] !== void 0) {
+    		keyboard_props.keycolor = /*$keycolor*/ ctx[11];
     	}
 
-    	if (/*$keybgcolor*/ ctx[11] !== void 0) {
-    		keyboard_props.keybackground = /*$keybgcolor*/ ctx[11];
+    	if (/*$keybgcolor*/ ctx[12] !== void 0) {
+    		keyboard_props.keybackground = /*$keybgcolor*/ ctx[12];
     	}
 
-    	if (/*$boxshadowcolor*/ ctx[12] !== void 0) {
-    		keyboard_props.boxshadowcolor = /*$boxshadowcolor*/ ctx[12];
+    	if (/*$boxshadowcolor*/ ctx[13] !== void 0) {
+    		keyboard_props.boxshadowcolor = /*$boxshadowcolor*/ ctx[13];
     	}
 
-    	if (/*$boxsize*/ ctx[13] !== void 0) {
-    		keyboard_props.boxsize = /*$boxsize*/ ctx[13];
+    	if (/*$boxsize*/ ctx[14] !== void 0) {
+    		keyboard_props.boxsize = /*$boxsize*/ ctx[14];
     	}
 
     	keyboard = new Keyboard({ props: keyboard_props, $$inline: true });
@@ -4172,7 +4189,7 @@ var app = (function () {
     	binding_callbacks.push(() => bind(keyboard, 'keybackground', keyboard_keybackground_binding));
     	binding_callbacks.push(() => bind(keyboard, 'boxshadowcolor', keyboard_boxshadowcolor_binding));
     	binding_callbacks.push(() => bind(keyboard, 'boxsize', keyboard_boxsize_binding));
-    	keyboard.$on("keydown", /*keydown_handler*/ ctx[41]);
+    	keyboard.$on("keydown", /*keydown_handler*/ ctx[45]);
     	let key_block = create_key_block(ctx);
 
     	const block = {
@@ -4209,56 +4226,62 @@ var app = (function () {
     			t10 = text("\n\t\t\t\t\tslideshow");
     			t11 = space();
     			td3 = element("td");
-    			create_component(switch_1.$$.fragment);
+    			create_component(switch0.$$.fragment);
     			t12 = space();
-    			if (if_block2) if_block2.c();
+    			td4 = element("td");
+    			create_component(switch1.$$.fragment);
     			t13 = space();
+    			if (if_block2) if_block2.c();
+    			t14 = space();
     			main = element("main");
     			div1 = element("div");
     			center = element("center");
     			p = element("p");
     			create_component(keyboard.$$.fragment);
-    			t14 = space();
+    			t15 = space();
     			key_block.c();
     			if (!src_url_equal(audio_1.src, audio_1_src_value = "")) attr_dev(audio_1, "src", audio_1_src_value);
-    			add_location(audio_1, file, 344, 1, 7701);
+    			add_location(audio_1, file, 353, 1, 7935);
     			div0.hidden = true;
-    			add_location(div0, file, 345, 1, 7743);
+    			add_location(div0, file, 354, 1, 7971);
     			attr_dev(h1, "class", "svelte-1sthij4");
-    			add_location(h1, file, 350, 3, 7806);
-    			add_location(i, file, 351, 9, 7836);
-    			add_location(small, file, 351, 2, 7829);
+    			add_location(h1, file, 358, 3, 8033);
+    			add_location(i, file, 359, 9, 8063);
+    			add_location(small, file, 359, 2, 8056);
     			attr_dev(span0, "class", "svelte-1sthij4");
-    			add_location(span0, file, 349, 1, 7797);
-    			add_location(br, file, 353, 1, 7882);
+    			add_location(span0, file, 357, 1, 8024);
+    			add_location(br, file, 361, 1, 8109);
     			attr_dev(span1, "class", "svelte-1sthij4");
-    			add_location(span1, file, 358, 4, 7918);
+    			add_location(span1, file, 366, 4, 8145);
     			attr_dev(td0, "class", "svelte-1sthij4");
-    			add_location(td0, file, 357, 3, 7909);
+    			add_location(td0, file, 365, 3, 8136);
     			attr_dev(button0, "class", "svelte-1sthij4");
-    			add_location(button0, file, 361, 4, 7979);
+    			add_location(button0, file, 369, 4, 8206);
     			attr_dev(td1, "class", "svelte-1sthij4");
-    			add_location(td1, file, 360, 3, 7970);
+    			add_location(td1, file, 368, 3, 8197);
     			attr_dev(button1, "class", "svelte-1sthij4");
-    			add_location(button1, file, 370, 4, 8121);
+    			add_location(button1, file, 378, 4, 8348);
     			attr_dev(td2, "class", "svelte-1sthij4");
-    			add_location(td2, file, 369, 3, 8112);
+    			add_location(td2, file, 377, 3, 8339);
     			set_style(td3, "font-size", "small");
     			attr_dev(td3, "class", "svelte-1sthij4");
-    			add_location(td3, file, 379, 3, 8266);
-    			add_location(tr, file, 356, 2, 7901);
-    			add_location(table, file, 355, 1, 7891);
+    			add_location(td3, file, 387, 3, 8493);
+    			set_style(td4, "font-size", "small");
+    			attr_dev(td4, "class", "svelte-1sthij4");
+    			add_location(td4, file, 394, 3, 8627);
+    			add_location(tr, file, 364, 2, 8128);
+    			add_location(table, file, 363, 1, 8118);
     			attr_dev(nav, "class", "svelte-1sthij4");
-    			add_location(nav, file, 343, 0, 7694);
+    			add_location(nav, file, 352, 0, 7928);
     			attr_dev(p, "class", "keyboard  svelte-1sthij4");
-    			add_location(p, file, 402, 3, 8634);
+    			add_location(p, file, 413, 3, 8968);
     			attr_dev(center, "class", "svelte-1sthij4");
-    			add_location(center, file, 401, 2, 8622);
+    			add_location(center, file, 412, 2, 8956);
     			attr_dev(div1, "class", "info  svelte-1sthij4");
-    			add_location(div1, file, 400, 1, 8600);
+    			add_location(div1, file, 411, 1, 8934);
     			main.hidden = false;
     			attr_dev(main, "class", "svelte-1sthij4");
-    			add_location(main, file, 396, 0, 8504);
+    			add_location(main, file, 407, 0, 8838);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -4266,7 +4289,7 @@ var app = (function () {
     		m: function mount(target, anchor) {
     			insert_dev(target, nav, anchor);
     			append_dev(nav, audio_1);
-    			/*audio_1_binding*/ ctx[32](audio_1);
+    			/*audio_1_binding*/ ctx[35](audio_1);
     			append_dev(nav, t0);
     			append_dev(nav, div0);
     			mount_component(soundtest, div0, null);
@@ -4294,26 +4317,29 @@ var app = (function () {
     			append_dev(button1, t10);
     			append_dev(tr, t11);
     			append_dev(tr, td3);
-    			mount_component(switch_1, td3, null);
-    			append_dev(nav, t12);
+    			mount_component(switch0, td3, null);
+    			append_dev(tr, t12);
+    			append_dev(tr, td4);
+    			mount_component(switch1, td4, null);
+    			append_dev(nav, t13);
     			if (if_block2) if_block2.m(nav, null);
-    			insert_dev(target, t13, anchor);
+    			insert_dev(target, t14, anchor);
     			insert_dev(target, main, anchor);
     			append_dev(main, div1);
     			append_dev(div1, center);
     			append_dev(center, p);
     			mount_component(keyboard, p, null);
-    			append_dev(center, t14);
+    			append_dev(center, t15);
     			key_block.m(center, null);
     			current = true;
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(button0, "click", /*toggleView*/ ctx[18], false, false, false),
-    					listen_dev(button1, "click", /*toggleSlideshow*/ ctx[19], false, false, false),
+    					listen_dev(button0, "click", /*toggleView*/ ctx[19], false, false, false),
+    					listen_dev(button1, "click", /*toggleSlideshow*/ ctx[20], false, false, false),
     					action_destroyer(shortcut.call(null, main, {
-    						code: /*keyArray*/ ctx[14],
-    						callback: /*shortcut_function*/ ctx[42]
+    						code: /*keyArray*/ ctx[15],
+    						callback: /*shortcut_function*/ ctx[46]
     					}))
     				];
 
@@ -4341,17 +4367,26 @@ var app = (function () {
     				}
     			}
 
-    			const switch_1_changes = {};
+    			const switch0_changes = {};
 
-    			if (!updating_checked && dirty[0] & /*randomize*/ 256) {
+    			if (!updating_checked && dirty[0] & /*randomize*/ 512) {
     				updating_checked = true;
-    				switch_1_changes.checked = /*randomize*/ ctx[8];
+    				switch0_changes.checked = /*randomize*/ ctx[9];
     				add_flush_callback(() => updating_checked = false);
     			}
 
-    			switch_1.$set(switch_1_changes);
+    			switch0.$set(switch0_changes);
+    			const switch1_changes = {};
 
-    			if (/*showLayout*/ ctx[7]) {
+    			if (!updating_checked_1 && dirty[0] & /*sound*/ 32) {
+    				updating_checked_1 = true;
+    				switch1_changes.checked = /*sound*/ ctx[5];
+    				add_flush_callback(() => updating_checked_1 = false);
+    			}
+
+    			switch1.$set(switch1_changes);
+
+    			if (/*showLayout*/ ctx[8]) {
     				if (if_block2) ; else {
     					if_block2 = create_if_block_1(ctx);
     					if_block2.c();
@@ -4382,27 +4417,27 @@ var app = (function () {
     				add_flush_callback(() => updating_timestamp = false);
     			}
 
-    			if (!updating_keycolor && dirty[0] & /*$keycolor*/ 1024) {
+    			if (!updating_keycolor && dirty[0] & /*$keycolor*/ 2048) {
     				updating_keycolor = true;
-    				keyboard_changes.keycolor = /*$keycolor*/ ctx[10];
+    				keyboard_changes.keycolor = /*$keycolor*/ ctx[11];
     				add_flush_callback(() => updating_keycolor = false);
     			}
 
-    			if (!updating_keybackground && dirty[0] & /*$keybgcolor*/ 2048) {
+    			if (!updating_keybackground && dirty[0] & /*$keybgcolor*/ 4096) {
     				updating_keybackground = true;
-    				keyboard_changes.keybackground = /*$keybgcolor*/ ctx[11];
+    				keyboard_changes.keybackground = /*$keybgcolor*/ ctx[12];
     				add_flush_callback(() => updating_keybackground = false);
     			}
 
-    			if (!updating_boxshadowcolor && dirty[0] & /*$boxshadowcolor*/ 4096) {
+    			if (!updating_boxshadowcolor && dirty[0] & /*$boxshadowcolor*/ 8192) {
     				updating_boxshadowcolor = true;
-    				keyboard_changes.boxshadowcolor = /*$boxshadowcolor*/ ctx[12];
+    				keyboard_changes.boxshadowcolor = /*$boxshadowcolor*/ ctx[13];
     				add_flush_callback(() => updating_boxshadowcolor = false);
     			}
 
-    			if (!updating_boxsize && dirty[0] & /*$boxsize*/ 8192) {
+    			if (!updating_boxsize && dirty[0] & /*$boxsize*/ 16384) {
     				updating_boxsize = true;
-    				keyboard_changes.boxsize = /*$boxsize*/ ctx[13];
+    				keyboard_changes.boxsize = /*$boxsize*/ ctx[14];
     				add_flush_callback(() => updating_boxsize = false);
     			}
 
@@ -4423,27 +4458,30 @@ var app = (function () {
     		i: function intro(local) {
     			if (current) return;
     			transition_in(soundtest.$$.fragment, local);
-    			transition_in(switch_1.$$.fragment, local);
+    			transition_in(switch0.$$.fragment, local);
+    			transition_in(switch1.$$.fragment, local);
     			transition_in(keyboard.$$.fragment, local);
     			transition_in(key_block);
     			current = true;
     		},
     		o: function outro(local) {
     			transition_out(soundtest.$$.fragment, local);
-    			transition_out(switch_1.$$.fragment, local);
+    			transition_out(switch0.$$.fragment, local);
+    			transition_out(switch1.$$.fragment, local);
     			transition_out(keyboard.$$.fragment, local);
     			transition_out(key_block);
     			current = false;
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(nav);
-    			/*audio_1_binding*/ ctx[32](null);
+    			/*audio_1_binding*/ ctx[35](null);
     			destroy_component(soundtest);
     			if_block0.d();
     			if_block1.d();
-    			destroy_component(switch_1);
+    			destroy_component(switch0);
+    			destroy_component(switch1);
     			if (if_block2) if_block2.d();
-    			if (detaching) detach_dev(t13);
+    			if (detaching) detach_dev(t14);
     			if (detaching) detach_dev(main);
     			destroy_component(keyboard);
     			key_block.d(detaching);
@@ -4561,13 +4599,13 @@ var app = (function () {
     	};
 
     	const toggleView = () => {
-    		$$invalidate(7, showLayout = !showLayout);
+    		$$invalidate(8, showLayout = !showLayout);
     	};
 
     	let clearTimer;
 
     	const toggleSlideshow = () => {
-    		$$invalidate(6, slideshow = !slideshow);
+    		$$invalidate(7, slideshow = !slideshow);
     		console.log("randomize", randomize);
 
     		if (slideshow) {
@@ -4610,23 +4648,23 @@ var app = (function () {
 
     	// This cycles through the indexes of the colors array.
     	const goToNextColor = () => {
-    		$$invalidate(27, colorIndex = (colorIndex + 1) % colors.length);
+    		$$invalidate(28, colorIndex = (colorIndex + 1) % colors.length);
     	};
 
     	const goToNextKeyColor = () => {
-    		$$invalidate(28, keycolorIndex = (keycolorIndex + 1) % keycolors.length);
+    		$$invalidate(29, keycolorIndex = (keycolorIndex + 1) % keycolors.length);
     	};
 
     	const goToNextKeybgColor = () => {
-    		$$invalidate(29, keybgcolorIndex = (keybgcolorIndex + 1) % keybgcolors.length);
+    		$$invalidate(30, keybgcolorIndex = (keybgcolorIndex + 1) % keybgcolors.length);
     	};
 
     	const goToNextBoxShadow = () => {
-    		$$invalidate(30, boxshadowIndex = (boxshadowIndex + 1) % boxshadowcolors.length);
+    		$$invalidate(31, boxshadowIndex = (boxshadowIndex + 1) % boxshadowcolors.length);
     	};
 
     	const goToNextBoxSize = () => {
-    		$$invalidate(31, boxsizeIndex = (boxsizeIndex + 1) % boxsizes.length);
+    		$$invalidate(32, boxsizeIndex = (boxsizeIndex + 1) % boxsizes.length);
     	};
 
     	// This extracts two hex characters from an "rrggbb" color string
@@ -4659,7 +4697,7 @@ var app = (function () {
 
     	const boxsize = tweened(boxsizes[boxsizeIndex], { duration: 1000, easing: sineIn });
     	validate_store(boxsize, 'boxsize');
-    	component_subscribe($$self, boxsize, value => $$invalidate(13, $boxsize = value));
+    	component_subscribe($$self, boxsize, value => $$invalidate(14, $boxsize = value));
 
     	// Create a tweened store that holds an "rrggbb" hex color.
     	const color = tweened(colors[colorIndex], {
@@ -4669,7 +4707,7 @@ var app = (function () {
     	});
 
     	validate_store(color, 'color');
-    	component_subscribe($$self, color, value => $$invalidate(9, $color = value));
+    	component_subscribe($$self, color, value => $$invalidate(10, $color = value));
 
     	const keycolor = tweened(keycolors[keycolorIndex], {
     		duration: 1000,
@@ -4678,7 +4716,7 @@ var app = (function () {
     	});
 
     	validate_store(keycolor, 'keycolor');
-    	component_subscribe($$self, keycolor, value => $$invalidate(10, $keycolor = value));
+    	component_subscribe($$self, keycolor, value => $$invalidate(11, $keycolor = value));
 
     	const keybgcolor = tweened(keybgcolors[keybgcolorIndex], {
     		duration: 3000,
@@ -4687,7 +4725,7 @@ var app = (function () {
     	});
 
     	validate_store(keybgcolor, 'keybgcolor');
-    	component_subscribe($$self, keybgcolor, value => $$invalidate(11, $keybgcolor = value));
+    	component_subscribe($$self, keybgcolor, value => $$invalidate(12, $keybgcolor = value));
 
     	const boxshadowcolor = tweened(boxshadowcolors[boxshadowIndex], {
     		duration: 1000,
@@ -4695,7 +4733,7 @@ var app = (function () {
     	});
 
     	validate_store(boxshadowcolor, 'boxshadowcolor');
-    	component_subscribe($$self, boxshadowcolor, value => $$invalidate(12, $boxshadowcolor = value));
+    	component_subscribe($$self, boxshadowcolor, value => $$invalidate(13, $boxshadowcolor = value));
 
     	//$: console.log("color", $color, "keycolor", $keycolor)
     	let prevColor = $color;
@@ -4756,6 +4794,9 @@ var app = (function () {
     	let sliderValue;
     	let multiValue;
     	let audio = {};
+    	let volume = 0.5;
+    	let sound = true;
+    	let savedvolume = volume;
     	const writable_props = ['pressed', 'timestamp', 'shifted'];
 
     	Object_1.keys($$props).forEach(key => {
@@ -4765,13 +4806,18 @@ var app = (function () {
     	function audio_1_binding($$value) {
     		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
     			audio = $$value;
-    			($$invalidate(4, audio), $$invalidate(3, pressedKey));
+    			(((($$invalidate(4, audio), $$invalidate(3, pressedKey)), $$invalidate(33, volume)), $$invalidate(5, sound)), $$invalidate(34, savedvolume));
     		});
     	}
 
-    	function switch_1_checked_binding(value) {
+    	function switch0_checked_binding(value) {
     		randomize = value;
-    		$$invalidate(8, randomize);
+    		$$invalidate(9, randomize);
+    	}
+
+    	function switch1_checked_binding(value) {
+    		sound = value;
+    		$$invalidate(5, sound);
     	}
 
     	function keyboard_pressed_binding(value) {
@@ -4900,6 +4946,9 @@ var app = (function () {
     		sliderValue,
     		multiValue,
     		audio,
+    		volume,
+    		sound,
+    		savedvolume,
     		$color,
     		$keycolor,
     		$keybgcolor,
@@ -4908,30 +4957,33 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ('hangulCharacter' in $$props) $$invalidate(5, hangulCharacter = $$props.hangulCharacter);
+    		if ('hangulCharacter' in $$props) $$invalidate(6, hangulCharacter = $$props.hangulCharacter);
     		if ('pressed' in $$props) $$invalidate(1, pressed = $$props.pressed);
-    		if ('slideshow' in $$props) $$invalidate(6, slideshow = $$props.slideshow);
+    		if ('slideshow' in $$props) $$invalidate(7, slideshow = $$props.slideshow);
     		if ('slideIndex' in $$props) slideIndex = $$props.slideIndex;
     		if ('currentChar' in $$props) currentChar = $$props.currentChar;
     		if ('timestamp' in $$props) $$invalidate(2, timestamp = $$props.timestamp);
     		if ('shifted' in $$props) $$invalidate(0, shifted = $$props.shifted);
     		if ('pressedKey' in $$props) $$invalidate(3, pressedKey = $$props.pressedKey);
-    		if ('keyArray' in $$props) $$invalidate(14, keyArray = $$props.keyArray);
+    		if ('keyArray' in $$props) $$invalidate(15, keyArray = $$props.keyArray);
     		if ('faceIdx' in $$props) faceIdx = $$props.faceIdx;
-    		if ('showLayout' in $$props) $$invalidate(7, showLayout = $$props.showLayout);
+    		if ('showLayout' in $$props) $$invalidate(8, showLayout = $$props.showLayout);
     		if ('clearTimer' in $$props) clearTimer = $$props.clearTimer;
-    		if ('colorIndex' in $$props) $$invalidate(27, colorIndex = $$props.colorIndex);
-    		if ('keycolorIndex' in $$props) $$invalidate(28, keycolorIndex = $$props.keycolorIndex);
-    		if ('keybgcolorIndex' in $$props) $$invalidate(29, keybgcolorIndex = $$props.keybgcolorIndex);
-    		if ('boxshadowIndex' in $$props) $$invalidate(30, boxshadowIndex = $$props.boxshadowIndex);
-    		if ('boxsizeIndex' in $$props) $$invalidate(31, boxsizeIndex = $$props.boxsizeIndex);
-    		if ('randomize' in $$props) $$invalidate(8, randomize = $$props.randomize);
+    		if ('colorIndex' in $$props) $$invalidate(28, colorIndex = $$props.colorIndex);
+    		if ('keycolorIndex' in $$props) $$invalidate(29, keycolorIndex = $$props.keycolorIndex);
+    		if ('keybgcolorIndex' in $$props) $$invalidate(30, keybgcolorIndex = $$props.keybgcolorIndex);
+    		if ('boxshadowIndex' in $$props) $$invalidate(31, boxshadowIndex = $$props.boxshadowIndex);
+    		if ('boxsizeIndex' in $$props) $$invalidate(32, boxsizeIndex = $$props.boxsizeIndex);
+    		if ('randomize' in $$props) $$invalidate(9, randomize = $$props.randomize);
     		if ('prevColor' in $$props) prevColor = $$props.prevColor;
     		if ('visible' in $$props) visible = $$props.visible;
     		if ('switchValue' in $$props) switchValue = $$props.switchValue;
     		if ('sliderValue' in $$props) sliderValue = $$props.sliderValue;
     		if ('multiValue' in $$props) multiValue = $$props.multiValue;
     		if ('audio' in $$props) $$invalidate(4, audio = $$props.audio);
+    		if ('volume' in $$props) $$invalidate(33, volume = $$props.volume);
+    		if ('sound' in $$props) $$invalidate(5, sound = $$props.sound);
+    		if ('savedvolume' in $$props) $$invalidate(34, savedvolume = $$props.savedvolume);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -4940,42 +4992,55 @@ var app = (function () {
 
     	$$self.$$.update = () => {
     		if ($$self.$$.dirty[0] & /*pressedKey, shifted*/ 9) {
-    			$$invalidate(5, hangulCharacter = String(pressedKey.length == 1
+    			$$invalidate(6, hangulCharacter = String(pressedKey.length == 1
     			? shifted
     				? hangulValue[pressedKey.toUpperCase()] || undefined
     				: hangulValue[pressedKey] || ""
     			: ""));
     		}
 
-    		if ($$self.$$.dirty[0] & /*colorIndex*/ 134217728) {
+    		if ($$self.$$.dirty[0] & /*colorIndex*/ 268435456) {
     			// Trigger tweening if colorIndex changes.
     			color.set(colors[colorIndex]);
     		}
 
-    		if ($$self.$$.dirty[0] & /*keycolorIndex*/ 268435456) {
+    		if ($$self.$$.dirty[0] & /*keycolorIndex*/ 536870912) {
     			keycolor.set(keycolors[keycolorIndex]);
     		}
 
-    		if ($$self.$$.dirty[0] & /*keybgcolorIndex*/ 536870912) {
+    		if ($$self.$$.dirty[0] & /*keybgcolorIndex*/ 1073741824) {
     			keybgcolor.set(keybgcolors[keybgcolorIndex]);
     		}
 
-    		if ($$self.$$.dirty[0] & /*boxshadowIndex*/ 1073741824) {
+    		if ($$self.$$.dirty[1] & /*boxshadowIndex*/ 1) {
     			boxshadowcolor.set(boxshadowcolors[boxshadowIndex]);
     		}
 
-    		if ($$self.$$.dirty[1] & /*boxsizeIndex*/ 1) {
+    		if ($$self.$$.dirty[1] & /*boxsizeIndex*/ 2) {
     			boxsize.set(boxsizes[boxsizeIndex]);
     		}
 
-    		if ($$self.$$.dirty[0] & /*pressedKey, audio*/ 24) {
+    		if ($$self.$$.dirty[0] & /*sound*/ 32 | $$self.$$.dirty[1] & /*volume, savedvolume*/ 12) {
+    			if (sound == false) {
+    				$$invalidate(34, savedvolume = volume);
+    				$$invalidate(33, volume = 0);
+    			} else {
+    				$$invalidate(33, volume = savedvolume);
+    			}
+    		}
+
+    		if ($$self.$$.dirty[0] & /*pressedKey, audio*/ 24 | $$self.$$.dirty[1] & /*volume*/ 4) {
     			if (pressedKey && audio.src) {
     				if (characters.find(m => m == pressedKey)) //audio.src =`sounds/powerup_4_reverb.wav`;
     				$$invalidate(4, audio.src = `sounds/Spin.wav`, audio); else $$invalidate(4, audio.src = `sounds/powerup (${randomNumber(50)}).wav`, audio);
 
-    				$$invalidate(4, audio.volume = 0.5, audio);
+    				if (volume != undefined) $$invalidate(4, audio.volume = volume, audio);
     				audio.play();
     			}
+    		}
+
+    		if ($$self.$$.dirty[1] & /*volume*/ 4) {
+    			if (volume != undefined) $$invalidate(4, audio.volume = volume, audio);
     		}
     	};
 
@@ -4987,6 +5052,7 @@ var app = (function () {
     		timestamp,
     		pressedKey,
     		audio,
+    		sound,
     		hangulCharacter,
     		slideshow,
     		showLayout,
@@ -5014,8 +5080,11 @@ var app = (function () {
     		keybgcolorIndex,
     		boxshadowIndex,
     		boxsizeIndex,
+    		volume,
+    		savedvolume,
     		audio_1_binding,
-    		switch_1_checked_binding,
+    		switch0_checked_binding,
+    		switch1_checked_binding,
     		keyboard_pressed_binding,
     		keyboard_shifted_binding,
     		keyboard_timestamp_binding,
@@ -5042,7 +5111,7 @@ var app = (function () {
     				pressed: 1,
     				timestamp: 2,
     				shifted: 0,
-    				hangulValue: 26
+    				hangulValue: 27
     			},
     			null,
     			[-1, -1, -1]
@@ -5088,7 +5157,7 @@ var app = (function () {
     	}
 
     	get hangulValue() {
-    		return this.$$.ctx[26];
+    		return this.$$.ctx[27];
     	}
 
     	set hangulValue(value) {
