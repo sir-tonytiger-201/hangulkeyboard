@@ -3920,9 +3920,9 @@ var app = (function () {
     			img = element("img");
     			if (!src_url_equal(img.src, img_src_value = "./keyboard.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "class", "svelte-viuq84");
-    			add_location(img, file, 448, 3, 9841);
+    			add_location(img, file, 448, 3, 9850);
     			attr_dev(center, "class", "svelte-viuq84");
-    			add_location(center, file, 447, 2, 9829);
+    			add_location(center, file, 447, 2, 9838);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, center, anchor);
@@ -3963,9 +3963,9 @@ var app = (function () {
     			div0 = element("div");
     			t = text(t_value);
     			attr_dev(div0, "class", "svelte-viuq84");
-    			add_location(div0, file, 482, 7, 10573);
+    			add_location(div0, file, 482, 7, 10582);
     			attr_dev(div1, "class", "svelte-viuq84");
-    			add_location(div1, file, 481, 6, 10540);
+    			add_location(div1, file, 481, 6, 10549);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -4021,7 +4021,7 @@ var app = (function () {
     			if (if_block) if_block.c();
     			attr_dev(div, "class", "hangul svelte-viuq84");
     			set_style(div, "color", "#" + /*$color*/ ctx[10]);
-    			add_location(div, file, 475, 4, 10409);
+    			add_location(div, file, 475, 4, 10418);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -4302,53 +4302,53 @@ var app = (function () {
     			key_block.c();
     			if (!src_url_equal(audio_1.src, audio_1_src_value = "")) attr_dev(audio_1, "src", audio_1_src_value);
     			attr_dev(audio_1, "class", "svelte-viuq84");
-    			add_location(audio_1, file, 398, 1, 8988);
+    			add_location(audio_1, file, 398, 1, 8997);
     			div0.hidden = true;
     			attr_dev(div0, "class", "svelte-viuq84");
-    			add_location(div0, file, 399, 1, 9024);
+    			add_location(div0, file, 399, 1, 9033);
     			attr_dev(h1, "class", "svelte-viuq84");
-    			add_location(h1, file, 403, 3, 9086);
+    			add_location(h1, file, 403, 3, 9095);
     			attr_dev(i, "class", "svelte-viuq84");
-    			add_location(i, file, 404, 9, 9116);
+    			add_location(i, file, 404, 9, 9125);
     			attr_dev(small, "class", "svelte-viuq84");
-    			add_location(small, file, 404, 2, 9109);
+    			add_location(small, file, 404, 2, 9118);
     			attr_dev(span0, "class", "svelte-viuq84");
-    			add_location(span0, file, 402, 1, 9077);
+    			add_location(span0, file, 402, 1, 9086);
     			attr_dev(br, "class", "svelte-viuq84");
-    			add_location(br, file, 406, 1, 9162);
+    			add_location(br, file, 406, 1, 9171);
     			attr_dev(span1, "class", "svelte-viuq84");
-    			add_location(span1, file, 411, 4, 9198);
+    			add_location(span1, file, 411, 4, 9207);
     			attr_dev(td0, "class", "svelte-viuq84");
-    			add_location(td0, file, 410, 3, 9189);
+    			add_location(td0, file, 410, 3, 9198);
     			attr_dev(button0, "class", "svelte-viuq84");
-    			add_location(button0, file, 415, 4, 9260);
+    			add_location(button0, file, 415, 4, 9269);
     			attr_dev(td1, "class", "svelte-viuq84");
-    			add_location(td1, file, 414, 3, 9251);
+    			add_location(td1, file, 414, 3, 9260);
     			set_style(td2, "font-size", "small");
     			attr_dev(td2, "class", "svelte-viuq84");
-    			add_location(td2, file, 424, 3, 9405);
+    			add_location(td2, file, 424, 3, 9414);
     			set_style(td3, "font-size", "larger");
     			attr_dev(td3, "class", "svelte-viuq84");
-    			add_location(td3, file, 431, 3, 9539);
+    			add_location(td3, file, 431, 3, 9548);
     			attr_dev(button1, "class", "svelte-viuq84");
-    			add_location(button1, file, 435, 4, 9660);
+    			add_location(button1, file, 435, 4, 9669);
     			attr_dev(td4, "class", "svelte-viuq84");
-    			add_location(td4, file, 434, 3, 9651);
+    			add_location(td4, file, 434, 3, 9660);
     			attr_dev(tr, "class", "svelte-viuq84");
-    			add_location(tr, file, 409, 2, 9181);
+    			add_location(tr, file, 409, 2, 9190);
     			attr_dev(table, "class", "svelte-viuq84");
-    			add_location(table, file, 408, 1, 9171);
+    			add_location(table, file, 408, 1, 9180);
     			attr_dev(nav, "class", "svelte-viuq84");
-    			add_location(nav, file, 397, 0, 8981);
+    			add_location(nav, file, 397, 0, 8990);
     			attr_dev(p, "class", "keyboard  svelte-viuq84");
-    			add_location(p, file, 459, 3, 10027);
+    			add_location(p, file, 459, 3, 10036);
     			attr_dev(center, "class", "svelte-viuq84");
-    			add_location(center, file, 458, 2, 10015);
+    			add_location(center, file, 458, 2, 10024);
     			attr_dev(div1, "class", "info  svelte-viuq84");
-    			add_location(div1, file, 457, 1, 9993);
+    			add_location(div1, file, 457, 1, 10002);
     			main.hidden = false;
     			attr_dev(main, "class", "svelte-viuq84");
-    			add_location(main, file, 453, 0, 9897);
+    			add_location(main, file, 453, 0, 9906);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -4862,7 +4862,7 @@ var app = (function () {
     	let transitionIndex = 0;
 
     	function randomtransition(node, { duration }) {
-    		if (pressedKey && audio.src) {
+    		if (sound && pressedKey && audio.src) {
     			if (characters.find(m => m == pressedKey)) {
     				//audio.src =`sounds/powerup_4_reverb.wav`;
     				$$invalidate(9, audio.src = `sounds/Spin.wav`, audio);

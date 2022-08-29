@@ -319,7 +319,7 @@
 
 	let transitionIndex = 0;
 	function randomtransition(node, { duration }) {
-		if (pressedKey && audio.src) {
+		if (sound && pressedKey && audio.src) {
 			if (characters.find((m) => m == pressedKey)) {
 				//audio.src =`sounds/powerup_4_reverb.wav`;
 				audio.src = `sounds/Spin.wav`;
