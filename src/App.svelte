@@ -110,7 +110,6 @@
 
 	const showkey = (i) => {
 		timestamp = Date.now();
-		console.log(i);
 		const keycode = "Key" + Object.keys(hangulValue)[i].toUpperCase();
 		const k = keycode[keycode.length - 1].toLowerCase();
 		pressed = k;
@@ -123,7 +122,7 @@
 	let clearTimer;
 	const toggleSlideshow = () => {
 		slideshow = !slideshow;
-		console.log("randomize", randomize);
+		//console.log("randomize", randomize);
 		if (slideshow) {
 			slideIndex = 0;
 
@@ -320,6 +319,31 @@
 
 	let transitionIndex = 0;
 	function randomtransition(node, { duration }) {
+		if (pressedKey && audio.src) {
+			if (characters.find((m) => m == pressedKey)) {
+				//audio.src =`sounds/powerup_4_reverb.wav`;
+				audio.src = `sounds/Spin.wav`;
+			} else {
+				audio.src = `sounds/powerup (${randomNumber(50)}).wav`;
+			}
+
+			if (volume != undefined) audio.volume = sound ? volume : 0;
+
+			// Play sound
+			const playPromise = audio.play();
+
+			if (playPromise !== undefined) {
+				playPromise
+					.then((_) => {
+						// Automatic playback started!
+						// Show playing UI.
+					})
+					.catch((error) => {
+						// Auto-play was prevented
+						// Show paused UI.
+					});
+			}
+		}
 		//return spin(node, { duration } );
 		const xoffset = randomNumber(500) * (randomNumber(2) > 1 ? -1 : 1);
 
@@ -358,32 +382,6 @@
 
 	let audio = {};
 	let volume = 0.5;
-
-	$: if (pressedKey && audio.src) {
-		if (characters.find((m) => m == pressedKey)) {
-			//audio.src =`sounds/powerup_4_reverb.wav`;
-			audio.src = `sounds/Spin.wav`;
-		} else {
-			audio.src = `sounds/powerup (${randomNumber(50)}).wav`;
-		}
-
-		if (volume != undefined) audio.volume = sound ? volume : 0;
-
-		// Play sound
-		const playPromise = audio.play();
-
-		if (playPromise !== undefined) {
-			playPromise
-				.then((_) => {
-					// Automatic playback started!
-					// Show playing UI.
-				})
-				.catch((error) => {
-					// Auto-play was prevented
-					// Show paused UI.
-				});
-		}
-	}
 
 	let sound = true;
 	let savedvolume = volume;
@@ -432,11 +430,7 @@
 				/>
 			</td>
 			<td style="font-size:larger;">
-				<Switch
-					bind:checked={sound}
-					label="&#x1F50A;"
-					design="slider"
-				/>
+				<Switch bind:checked={sound} label="&#x1F50A;" design="inner" />
 			</td>
 			<td>
 				<button on:click={toggleView}>
