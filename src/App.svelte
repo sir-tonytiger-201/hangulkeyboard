@@ -19,7 +19,7 @@
 	const keyClass = {};
 	let hangulCharacter = "";
 
-	export let pressed = undefined;
+	export let pressed = "";
 
 	let slideshow = false;
 	let slideIndex = 0;
@@ -27,7 +27,7 @@
 	let currentChar = "";
 	export let timestamp = Date.now();
 	export let shifted;
-	let pressedKey = " ";
+	let pressedKey = "";
 
 	export const hangulValue = {
 		q: "ㅂ",
@@ -67,7 +67,6 @@
 
 	const numberOfCharacters = Object.keys(hangulValue).length;
 	const characters = Object.keys(hangulValue);
-	$: console.log("numberOfCharacters", numberOfCharacters);
 
 	let keyArray = [];
 
@@ -276,27 +275,28 @@
 
 	let prevColor = $color;
 
-	setInterval(() => {
-		goToNextColor();
-		clearInterval();
-	}, 2000);
+	onMount(() => {
+		setInterval(() => {
+			goToNextColor();
+			clearInterval();
+		}, 2000);
 
-	setInterval(() => {
-		goToNextKeyColor();
-		clearInterval();
-	}, 1000);
+		setInterval(() => {
+			goToNextKeyColor();
+			clearInterval();
+		}, 1000);
 
-	setInterval(() => {
-		goToNextKeybgColor();
-		clearInterval();
-		goToNextBoxSize();
-	}, 3000);
+		setInterval(() => {
+			goToNextKeybgColor();
+			clearInterval();
+			goToNextBoxSize();
+		}, 3000);
 
-	setInterval(() => {
-		goToNextBoxShadow();
-		clearInterval();
-	}, 1000);
-
+		setInterval(() => {
+			goToNextBoxShadow();
+			clearInterval();
+		}, 1000);
+	});
 	import { elasticOut } from "svelte/easing";
 
 	let visible = true;
@@ -350,6 +350,7 @@
 
 	import Switch from "./Switch.svelte";
 	import SoundTest from "./SoundTest.svelte";
+	import { onMount } from "svelte";
 
 	let switchValue;
 	let sliderValue;
@@ -367,7 +368,21 @@
 		}
 
 		if (volume != undefined) audio.volume = sound ? volume : 0;
-		audio.play();
+
+		// Play sound
+		const playPromise = audio.play();
+
+		if (playPromise !== undefined) {
+			playPromise
+				.then((_) => {
+					// Automatic playback started!
+					// Show playing UI.
+				})
+				.catch((error) => {
+					// Auto-play was prevented
+					// Show paused UI.
+				});
+		}
 	}
 
 	let sound = true;
@@ -485,10 +500,10 @@
 </main>
 
 <style>
-	  :root {
-        --accent-color: CornflowerBlue;
-        --gray: #ccc;
-    }
+	:root {
+		--accent-color: CornflowerBlue;
+		--gray: #ccc;
+	}
 	main,
 	nav {
 		border-collapse: collapse;
@@ -569,10 +584,10 @@
 		border-radius: 1em;
 		padding: 0.5em 1em;
 		font-size: small;
-	} :focus {
+	}
+	:focus {
 		box-shadow: 0 0px 0px 1px var(--accent-color);
 	}
-
 
 	:global(.key.clicked) {
 		--background: pink;

@@ -13,7 +13,8 @@
   import enterSVG from "./svg/enter.js";
 
   // exposed props
-  export let custom;
+  //export let custom;
+  const custom = false;
   export let localizationLayout = "qwerty";
   export let layout = "standard";
   export let noSwap = [];

@@ -285,6 +285,9 @@ var app = (function () {
             throw new Error('Function called outside component initialization');
         return current_component;
     }
+    function onMount(fn) {
+        get_current_component().$$.on_mount.push(fn);
+    }
     function createEventDispatcher() {
         const component = get_current_component();
         return (type, detail, { cancelable = false } = {}) => {
@@ -1601,28 +1604,28 @@ var app = (function () {
 
     function get_each_context$2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[36] = list[i];
-    	child_ctx[38] = i;
+    	child_ctx[35] = list[i];
+    	child_ctx[37] = i;
     	return child_ctx;
     }
 
     function get_each_context_1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[39] = list[i];
-    	child_ctx[41] = i;
+    	child_ctx[38] = list[i];
+    	child_ctx[40] = i;
     	return child_ctx;
     }
 
     function get_each_context_2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[42] = list[i].value;
-    	child_ctx[43] = list[i].display;
+    	child_ctx[41] = list[i].value;
+    	child_ctx[42] = list[i].display;
     	return child_ctx;
     }
 
-    // (186:12) {:else}
+    // (187:12) {:else}
     function create_else_block$2(ctx) {
-    	let t_value = /*display*/ ctx[43] + "";
+    	let t_value = /*display*/ ctx[42] + "";
     	let t;
 
     	const block = {
@@ -1633,7 +1636,7 @@ var app = (function () {
     			insert_dev(target, t, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*rowData*/ 256 && t_value !== (t_value = /*display*/ ctx[43] + "")) set_data_dev(t, t_value);
+    			if (dirty[0] & /*rowData*/ 256 && t_value !== (t_value = /*display*/ ctx[42] + "")) set_data_dev(t, t_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(t);
@@ -1644,17 +1647,17 @@ var app = (function () {
     		block,
     		id: create_else_block$2.name,
     		type: "else",
-    		source: "(186:12) {:else}",
+    		source: "(187:12) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (184:14) {#if display && display.includes("<svg")}
+    // (185:14) {#if display && display.includes("<svg")}
     function create_if_block$2(ctx) {
     	let html_tag;
-    	let raw_value = /*display*/ ctx[43] + "";
+    	let raw_value = /*display*/ ctx[42] + "";
     	let html_anchor;
 
     	const block = {
@@ -1668,7 +1671,7 @@ var app = (function () {
     			insert_dev(target, html_anchor, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*rowData*/ 256 && raw_value !== (raw_value = /*display*/ ctx[43] + "")) html_tag.p(raw_value);
+    			if (dirty[0] & /*rowData*/ 256 && raw_value !== (raw_value = /*display*/ ctx[42] + "")) html_tag.p(raw_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(html_anchor);
@@ -1680,14 +1683,14 @@ var app = (function () {
     		block,
     		id: create_if_block$2.name,
     		type: "if",
-    		source: "(184:14) {#if display && display.includes(\\\"<svg\\\")}",
+    		source: "(185:14) {#if display && display.includes(\\\"<svg\\\")}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (167:10) {#key boxsize}
+    // (168:10) {#key boxsize}
     function create_key_block$1(ctx) {
     	let button;
     	let div;
@@ -1695,7 +1698,7 @@ var app = (function () {
     	let style_color = `#${/*keycolor*/ ctx[2]}`;
     	let button_class_value;
 
-    	let style_background_color = `#${/*pressed*/ ctx[0] == /*value*/ ctx[42]
+    	let style_background_color = `#${/*pressed*/ ctx[0] == /*value*/ ctx[41]
 	? 'd6ce9d'
 	: /*keybackground*/ ctx[3]}`;
 
@@ -1704,7 +1707,7 @@ var app = (function () {
 
     	function select_block_type(ctx, dirty) {
     		if (dirty[0] & /*rowData*/ 256) show_if = null;
-    		if (show_if == null) show_if = !!(/*display*/ ctx[43] && /*display*/ ctx[43].includes("<svg"));
+    		if (show_if == null) show_if = !!(/*display*/ ctx[42] && /*display*/ ctx[42].includes("<svg"));
     		if (show_if) return create_if_block$2;
     		return create_else_block$2;
     	}
@@ -1713,19 +1716,19 @@ var app = (function () {
     	let if_block = current_block_type(ctx);
 
     	function touchstart_handler(...args) {
-    		return /*touchstart_handler*/ ctx[26](/*value*/ ctx[42], ...args);
+    		return /*touchstart_handler*/ ctx[25](/*value*/ ctx[41], ...args);
     	}
 
     	function mousedown_handler(...args) {
-    		return /*mousedown_handler*/ ctx[27](/*value*/ ctx[42], ...args);
+    		return /*mousedown_handler*/ ctx[26](/*value*/ ctx[41], ...args);
     	}
 
     	function touchend_handler() {
-    		return /*touchend_handler*/ ctx[28](/*value*/ ctx[42]);
+    		return /*touchend_handler*/ ctx[27](/*value*/ ctx[41]);
     	}
 
     	function mouseup_handler() {
-    		return /*mouseup_handler*/ ctx[29](/*value*/ ctx[42]);
+    		return /*mouseup_handler*/ ctx[28](/*value*/ ctx[41]);
     	}
 
     	const block = {
@@ -1735,15 +1738,15 @@ var app = (function () {
     			if_block.c();
     			set_style(div, "background", `inherit`, false);
     			set_style(div, "color", style_color, false);
-    			add_location(div, file$3, 182, 14, 4734);
+    			add_location(div, file$3, 183, 14, 4760);
     			set_style(button, "--box-shadow", /*boxsize*/ ctx[5] + "px " + /*boxsize*/ ctx[5] * 2 + "px 2em #" + /*boxshadowcolor*/ ctx[4]);
-    			attr_dev(button, "class", button_class_value = "key key--" + /*value*/ ctx[42] + " " + (/*keyClass*/ ctx[1][/*value*/ ctx[42]] || '') + " svelte-w0k3hv");
-    			toggle_class(button, "single", /*value*/ ctx[42] != undefined && /*value*/ ctx[42].length === 1);
-    			toggle_class(button, "half", /*value*/ ctx[42] == ";");
-    			toggle_class(button, "active", /*value*/ ctx[42] === /*active*/ ctx[6]);
-    			toggle_class(button, "pressed", /*value*/ ctx[42] === /*pressed*/ ctx[0]);
+    			attr_dev(button, "class", button_class_value = "key key--" + /*value*/ ctx[41] + " " + (/*keyClass*/ ctx[1][/*value*/ ctx[41]] || '') + " svelte-w0k3hv");
+    			toggle_class(button, "single", /*value*/ ctx[41] != undefined && /*value*/ ctx[41].length === 1);
+    			toggle_class(button, "half", /*value*/ ctx[41] == ";");
+    			toggle_class(button, "active", /*value*/ ctx[41] === /*active*/ ctx[6]);
+    			toggle_class(button, "pressed", /*value*/ ctx[41] === /*pressed*/ ctx[0]);
     			set_style(button, "background-color", style_background_color, false);
-    			add_location(button, file$3, 167, 12, 3995);
+    			add_location(button, file$3, 168, 12, 4021);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
@@ -1784,27 +1787,27 @@ var app = (function () {
     				set_style(button, "--box-shadow", /*boxsize*/ ctx[5] + "px " + /*boxsize*/ ctx[5] * 2 + "px 2em #" + /*boxshadowcolor*/ ctx[4]);
     			}
 
-    			if (dirty[0] & /*rowData, keyClass*/ 258 && button_class_value !== (button_class_value = "key key--" + /*value*/ ctx[42] + " " + (/*keyClass*/ ctx[1][/*value*/ ctx[42]] || '') + " svelte-w0k3hv")) {
+    			if (dirty[0] & /*rowData, keyClass*/ 258 && button_class_value !== (button_class_value = "key key--" + /*value*/ ctx[41] + " " + (/*keyClass*/ ctx[1][/*value*/ ctx[41]] || '') + " svelte-w0k3hv")) {
     				attr_dev(button, "class", button_class_value);
     			}
 
     			if (dirty[0] & /*rowData, keyClass, rowData*/ 258) {
-    				toggle_class(button, "single", /*value*/ ctx[42] != undefined && /*value*/ ctx[42].length === 1);
+    				toggle_class(button, "single", /*value*/ ctx[41] != undefined && /*value*/ ctx[41].length === 1);
     			}
 
     			if (dirty[0] & /*rowData, keyClass, rowData*/ 258) {
-    				toggle_class(button, "half", /*value*/ ctx[42] == ";");
+    				toggle_class(button, "half", /*value*/ ctx[41] == ";");
     			}
 
     			if (dirty[0] & /*rowData, keyClass, rowData, active*/ 322) {
-    				toggle_class(button, "active", /*value*/ ctx[42] === /*active*/ ctx[6]);
+    				toggle_class(button, "active", /*value*/ ctx[41] === /*active*/ ctx[6]);
     			}
 
     			if (dirty[0] & /*rowData, keyClass, rowData, pressed*/ 259) {
-    				toggle_class(button, "pressed", /*value*/ ctx[42] === /*pressed*/ ctx[0]);
+    				toggle_class(button, "pressed", /*value*/ ctx[41] === /*pressed*/ ctx[0]);
     			}
 
-    			if (dirty[0] & /*pressed, rowData, keybackground*/ 265 && style_background_color !== (style_background_color = `#${/*pressed*/ ctx[0] == /*value*/ ctx[42]
+    			if (dirty[0] & /*pressed, rowData, keybackground*/ 265 && style_background_color !== (style_background_color = `#${/*pressed*/ ctx[0] == /*value*/ ctx[41]
 			? 'd6ce9d'
 			: /*keybackground*/ ctx[3]}`)) {
     				set_style(button, "background-color", style_background_color, false);
@@ -1822,14 +1825,14 @@ var app = (function () {
     		block,
     		id: create_key_block$1.name,
     		type: "key",
-    		source: "(167:10) {#key boxsize}",
+    		source: "(168:10) {#key boxsize}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (166:10) {#each keys as { value, display }}
+    // (167:10) {#each keys as { value, display }}
     function create_each_block_2(ctx) {
     	let previous_key = /*boxsize*/ ctx[5];
     	let key_block_anchor;
@@ -1864,20 +1867,20 @@ var app = (function () {
     		block,
     		id: create_each_block_2.name,
     		type: "each",
-    		source: "(166:10) {#each keys as { value, display }}",
+    		source: "(167:10) {#each keys as { value, display }}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (163:6) {#each row as keys, j}
+    // (164:6) {#each row as keys, j}
     function create_each_block_1(ctx) {
     	let div;
     	let html_tag;
-    	let raw_value = /*shiftKeys*/ ctx[11](/*j*/ ctx[41]) + "";
+    	let raw_value = /*shiftKeys*/ ctx[11](/*j*/ ctx[40]) + "";
     	let t;
-    	let each_value_2 = /*keys*/ ctx[39];
+    	let each_value_2 = /*keys*/ ctx[38];
     	validate_each_argument(each_value_2);
     	let each_blocks = [];
 
@@ -1896,8 +1899,8 @@ var app = (function () {
     			}
 
     			html_tag.a = t;
-    			attr_dev(div, "class", "row row--" + /*i*/ ctx[38] + " svelte-w0k3hv");
-    			add_location(div, file$3, 163, 8, 3855);
+    			attr_dev(div, "class", "row row--" + /*i*/ ctx[37] + " svelte-w0k3hv");
+    			add_location(div, file$3, 164, 8, 3881);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -1910,7 +1913,7 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			if (dirty[0] & /*boxsize, boxshadowcolor, rowData, keyClass, active, pressed, keybackground, onKeyStart, onKeyEnd, keycolor*/ 1919) {
-    				each_value_2 = /*keys*/ ctx[39];
+    				each_value_2 = /*keys*/ ctx[38];
     				validate_each_argument(each_value_2);
     				let i;
 
@@ -1943,18 +1946,18 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(163:6) {#each row as keys, j}",
+    		source: "(164:6) {#each row as keys, j}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (161:2) {#each rowData as row, i}
+    // (162:2) {#each rowData as row, i}
     function create_each_block$2(ctx) {
     	let div;
     	let t;
-    	let each_value_1 = /*row*/ ctx[36];
+    	let each_value_1 = /*row*/ ctx[35];
     	validate_each_argument(each_value_1);
     	let each_blocks = [];
 
@@ -1972,8 +1975,8 @@ var app = (function () {
 
     			t = space();
     			attr_dev(div, "class", "page svelte-w0k3hv");
-    			toggle_class(div, "visible", /*i*/ ctx[38] === /*page*/ ctx[7]);
-    			add_location(div, file$3, 161, 4, 3772);
+    			toggle_class(div, "visible", /*i*/ ctx[37] === /*page*/ ctx[7]);
+    			add_location(div, file$3, 162, 4, 3798);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -1986,7 +1989,7 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			if (dirty[0] & /*rowData, boxsize, boxshadowcolor, keyClass, active, pressed, keybackground, onKeyStart, onKeyEnd, keycolor, shiftKeys*/ 3967) {
-    				each_value_1 = /*row*/ ctx[36];
+    				each_value_1 = /*row*/ ctx[35];
     				validate_each_argument(each_value_1);
     				let i;
 
@@ -2010,7 +2013,7 @@ var app = (function () {
     			}
 
     			if (dirty[0] & /*page*/ 128) {
-    				toggle_class(div, "visible", /*i*/ ctx[38] === /*page*/ ctx[7]);
+    				toggle_class(div, "visible", /*i*/ ctx[37] === /*page*/ ctx[7]);
     			}
     		},
     		d: function destroy(detaching) {
@@ -2023,7 +2026,7 @@ var app = (function () {
     		block,
     		id: create_each_block$2.name,
     		type: "each",
-    		source: "(161:2) {#each rowData as row, i}",
+    		source: "(162:2) {#each rowData as row, i}",
     		ctx
     	});
 
@@ -2049,7 +2052,7 @@ var app = (function () {
     			}
 
     			attr_dev(div, "class", "svelte-keyboard");
-    			add_location(div, file$3, 159, 0, 3710);
+    			add_location(div, file$3, 160, 0, 3736);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2105,6 +2108,7 @@ var app = (function () {
     	return block;
     }
 
+    const custom = false;
     const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
     function instance$3($$self, $$props, $$invalidate) {
@@ -2119,7 +2123,6 @@ var app = (function () {
     	let rowData;
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Keyboard', slots, []);
-    	let { custom } = $$props;
     	let { localizationLayout = "qwerty" } = $$props;
     	let { layout = "standard" } = $$props;
     	let { noSwap = [] } = $$props;
@@ -2219,7 +2222,6 @@ var app = (function () {
     	};
 
     	const writable_props = [
-    		'custom',
     		'localizationLayout',
     		'layout',
     		'noSwap',
@@ -2243,10 +2245,9 @@ var app = (function () {
     	const mouseup_handler = value => onKeyEnd(value);
 
     	$$self.$$set = $$props => {
-    		if ('custom' in $$props) $$invalidate(14, custom = $$props.custom);
-    		if ('localizationLayout' in $$props) $$invalidate(15, localizationLayout = $$props.localizationLayout);
-    		if ('layout' in $$props) $$invalidate(16, layout = $$props.layout);
-    		if ('noSwap' in $$props) $$invalidate(17, noSwap = $$props.noSwap);
+    		if ('localizationLayout' in $$props) $$invalidate(14, localizationLayout = $$props.localizationLayout);
+    		if ('layout' in $$props) $$invalidate(15, layout = $$props.layout);
+    		if ('noSwap' in $$props) $$invalidate(16, noSwap = $$props.noSwap);
     		if ('keyClass' in $$props) $$invalidate(1, keyClass = $$props.keyClass);
     		if ('timestamp' in $$props) $$invalidate(13, timestamp = $$props.timestamp);
     		if ('keycolor' in $$props) $$invalidate(2, keycolor = $$props.keycolor);
@@ -2303,10 +2304,9 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ('custom' in $$props) $$invalidate(14, custom = $$props.custom);
-    		if ('localizationLayout' in $$props) $$invalidate(15, localizationLayout = $$props.localizationLayout);
-    		if ('layout' in $$props) $$invalidate(16, layout = $$props.layout);
-    		if ('noSwap' in $$props) $$invalidate(17, noSwap = $$props.noSwap);
+    		if ('localizationLayout' in $$props) $$invalidate(14, localizationLayout = $$props.localizationLayout);
+    		if ('layout' in $$props) $$invalidate(15, layout = $$props.layout);
+    		if ('noSwap' in $$props) $$invalidate(16, noSwap = $$props.noSwap);
     		if ('keyClass' in $$props) $$invalidate(1, keyClass = $$props.keyClass);
     		if ('timestamp' in $$props) $$invalidate(13, timestamp = $$props.timestamp);
     		if ('keycolor' in $$props) $$invalidate(2, keycolor = $$props.keycolor);
@@ -2319,15 +2319,15 @@ var app = (function () {
     		if ('pressed' in $$props) $$invalidate(0, pressed = $$props.pressed);
     		if ('upperCase' in $$props) upperCase = $$props.upperCase;
     		if ('indent' in $$props) indent = $$props.indent;
-    		if ('rowData1' in $$props) $$invalidate(18, rowData1 = $$props.rowData1);
-    		if ('rowData0' in $$props) $$invalidate(19, rowData0 = $$props.rowData0);
+    		if ('rowData1' in $$props) $$invalidate(17, rowData1 = $$props.rowData1);
+    		if ('rowData0' in $$props) $$invalidate(18, rowData0 = $$props.rowData0);
     		if ('rowData' in $$props) $$invalidate(8, rowData = $$props.rowData);
-    		if ('page1' in $$props) $$invalidate(20, page1 = $$props.page1);
-    		if ('rows0' in $$props) $$invalidate(21, rows0 = $$props.rows0);
-    		if ('page0' in $$props) $$invalidate(22, page0 = $$props.page0);
-    		if ('rows1' in $$props) $$invalidate(23, rows1 = $$props.rows1);
-    		if ('data' in $$props) $$invalidate(24, data = $$props.data);
-    		if ('rawData' in $$props) $$invalidate(25, rawData = $$props.rawData);
+    		if ('page1' in $$props) $$invalidate(19, page1 = $$props.page1);
+    		if ('rows0' in $$props) $$invalidate(20, rows0 = $$props.rows0);
+    		if ('page0' in $$props) $$invalidate(21, page0 = $$props.page0);
+    		if ('rows1' in $$props) $$invalidate(22, rows1 = $$props.rows1);
+    		if ('data' in $$props) $$invalidate(23, data = $$props.data);
+    		if ('rawData' in $$props) $$invalidate(24, rawData = $$props.rawData);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -2351,12 +2351,12 @@ var app = (function () {
     			}
     		}
 
-    		if ($$self.$$.dirty[0] & /*custom, localizationLayout, layout*/ 114688) {
-    			$$invalidate(25, rawData = custom || layouts[localizationLayout][layout] || standard);
+    		if ($$self.$$.dirty[0] & /*localizationLayout, layout*/ 49152) {
+    			$$invalidate(24, rawData = layouts[localizationLayout][layout] || standard);
     		}
 
-    		if ($$self.$$.dirty[0] & /*rawData, noSwap, shifted*/ 33689600) {
-    			$$invalidate(24, data = rawData.map(d => {
+    		if ($$self.$$.dirty[0] & /*rawData, noSwap, shifted*/ 16846848) {
+    			$$invalidate(23, data = rawData.map(d => {
     				//console.log("foo", d)
     				let display = d.display;
 
@@ -2375,39 +2375,39 @@ var app = (function () {
     			}));
     		}
 
-    		if ($$self.$$.dirty[0] & /*data*/ 16777216) {
-    			$$invalidate(22, page0 = data.filter(d => !d.page));
+    		if ($$self.$$.dirty[0] & /*data*/ 8388608) {
+    			$$invalidate(21, page0 = data.filter(d => !d.page));
     		}
 
-    		if ($$self.$$.dirty[0] & /*data*/ 16777216) {
-    			$$invalidate(20, page1 = data.filter(d => d.page));
+    		if ($$self.$$.dirty[0] & /*data*/ 8388608) {
+    			$$invalidate(19, page1 = data.filter(d => d.page));
     		}
 
-    		if ($$self.$$.dirty[0] & /*page0*/ 4194304) {
-    			$$invalidate(21, rows0 = unique(page0.map(d => d.row)));
+    		if ($$self.$$.dirty[0] & /*page0*/ 2097152) {
+    			$$invalidate(20, rows0 = unique(page0.map(d => d.row)));
     		}
 
-    		if ($$self.$$.dirty[0] & /*rows0*/ 2097152) {
+    		if ($$self.$$.dirty[0] & /*rows0*/ 1048576) {
     			(rows0.sort((a, b) => a - b));
     		}
 
-    		if ($$self.$$.dirty[0] & /*page1*/ 1048576) {
-    			$$invalidate(23, rows1 = unique(page1.map(d => d.row)));
+    		if ($$self.$$.dirty[0] & /*page1*/ 524288) {
+    			$$invalidate(22, rows1 = unique(page1.map(d => d.row)));
     		}
 
-    		if ($$self.$$.dirty[0] & /*rows1*/ 8388608) {
+    		if ($$self.$$.dirty[0] & /*rows1*/ 4194304) {
     			(rows1.sort((a, b) => a - b));
     		}
 
-    		if ($$self.$$.dirty[0] & /*rows0, page0*/ 6291456) {
-    			$$invalidate(19, rowData0 = rows0.map(r => page0.filter(k => k.row === r)));
+    		if ($$self.$$.dirty[0] & /*rows0, page0*/ 3145728) {
+    			$$invalidate(18, rowData0 = rows0.map(r => page0.filter(k => k.row === r)));
     		}
 
-    		if ($$self.$$.dirty[0] & /*rows0, page1*/ 3145728) {
-    			$$invalidate(18, rowData1 = rows0.map(r => page1.filter(k => k.row === r)));
+    		if ($$self.$$.dirty[0] & /*rows0, page1*/ 1572864) {
+    			$$invalidate(17, rowData1 = rows0.map(r => page1.filter(k => k.row === r)));
     		}
 
-    		if ($$self.$$.dirty[0] & /*rowData0, rowData1*/ 786432) {
+    		if ($$self.$$.dirty[0] & /*rowData0, rowData1*/ 393216) {
     			$$invalidate(8, rowData = [rowData0, rowData1]);
     		}
     	};
@@ -2427,7 +2427,6 @@ var app = (function () {
     		shiftKeys,
     		shifted,
     		timestamp,
-    		custom,
     		localizationLayout,
     		layout,
     		noSwap,
@@ -2457,10 +2456,9 @@ var app = (function () {
     			create_fragment$3,
     			safe_not_equal,
     			{
-    				custom: 14,
-    				localizationLayout: 15,
-    				layout: 16,
-    				noSwap: 17,
+    				localizationLayout: 14,
+    				layout: 15,
+    				noSwap: 16,
     				keyClass: 1,
     				timestamp: 13,
     				keycolor: 2,
@@ -2483,10 +2481,6 @@ var app = (function () {
 
     		const { ctx } = this.$$;
     		const props = options.props || {};
-
-    		if (/*custom*/ ctx[14] === undefined && !('custom' in props)) {
-    			console.warn("<Keyboard> was created without expected prop 'custom'");
-    		}
 
     		if (/*timestamp*/ ctx[13] === undefined && !('timestamp' in props)) {
     			console.warn("<Keyboard> was created without expected prop 'timestamp'");
@@ -2511,14 +2505,6 @@ var app = (function () {
     		if (/*pressed*/ ctx[0] === undefined && !('pressed' in props)) {
     			console.warn("<Keyboard> was created without expected prop 'pressed'");
     		}
-    	}
-
-    	get custom() {
-    		throw new Error("<Keyboard>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	set custom(value) {
-    		throw new Error("<Keyboard>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
     	get localizationLayout() {
@@ -3814,7 +3800,7 @@ var app = (function () {
     const { Object: Object_1, console: console_1 } = globals;
     const file = "src/App.svelte";
 
-    // (406:5) {:else}
+    // (421:5) {:else}
     function create_else_block_1(ctx) {
     	let t;
 
@@ -3834,14 +3820,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(406:5) {:else}",
+    		source: "(421:5) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (404:5) {#if slideshow}
+    // (419:5) {#if slideshow}
     function create_if_block_3(ctx) {
     	let t;
 
@@ -3861,14 +3847,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(404:5) {#if slideshow}",
+    		source: "(419:5) {#if slideshow}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (430:5) {:else}
+    // (445:5) {:else}
     function create_else_block(ctx) {
     	let t;
 
@@ -3888,14 +3874,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(430:5) {:else}",
+    		source: "(445:5) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (428:5) {#if showLayout}
+    // (443:5) {#if showLayout}
     function create_if_block_2(ctx) {
     	let t;
 
@@ -3915,14 +3901,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(428:5) {#if showLayout}",
+    		source: "(443:5) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (438:1) {#if showLayout}
+    // (453:1) {#if showLayout}
     function create_if_block_1(ctx) {
     	let center;
     	let img;
@@ -3933,10 +3919,10 @@ var app = (function () {
     			center = element("center");
     			img = element("img");
     			if (!src_url_equal(img.src, img_src_value = "./keyboard.png")) attr_dev(img, "src", img_src_value);
-    			attr_dev(img, "class", "svelte-1lv2k6i");
-    			add_location(img, file, 439, 3, 9586);
-    			attr_dev(center, "class", "svelte-1lv2k6i");
-    			add_location(center, file, 438, 2, 9574);
+    			attr_dev(img, "class", "svelte-viuq84");
+    			add_location(img, file, 454, 3, 9859);
+    			attr_dev(center, "class", "svelte-viuq84");
+    			add_location(center, file, 453, 2, 9847);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, center, anchor);
@@ -3951,14 +3937,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(438:1) {#if showLayout}",
+    		source: "(453:1) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (472:5) {#if hangulCharacter}
+    // (487:5) {#if hangulCharacter}
     function create_if_block(ctx) {
     	let div1;
     	let div0;
@@ -3976,10 +3962,10 @@ var app = (function () {
     			div1 = element("div");
     			div0 = element("div");
     			t = text(t_value);
-    			attr_dev(div0, "class", "svelte-1lv2k6i");
-    			add_location(div0, file, 473, 7, 10318);
-    			attr_dev(div1, "class", "svelte-1lv2k6i");
-    			add_location(div1, file, 472, 6, 10285);
+    			attr_dev(div0, "class", "svelte-viuq84");
+    			add_location(div0, file, 488, 7, 10591);
+    			attr_dev(div1, "class", "svelte-viuq84");
+    			add_location(div1, file, 487, 6, 10558);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -4016,14 +4002,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(472:5) {#if hangulCharacter}",
+    		source: "(487:5) {#if hangulCharacter}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (466:3) {#key timestamp}
+    // (481:3) {#key timestamp}
     function create_key_block(ctx) {
     	let div;
     	let div_intro;
@@ -4033,9 +4019,9 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			if (if_block) if_block.c();
-    			attr_dev(div, "class", "hangul svelte-1lv2k6i");
+    			attr_dev(div, "class", "hangul svelte-viuq84");
     			set_style(div, "color", "#" + /*$color*/ ctx[10]);
-    			add_location(div, file, 466, 4, 10154);
+    			add_location(div, file, 481, 4, 10427);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -4087,7 +4073,7 @@ var app = (function () {
     		block,
     		id: create_key_block.name,
     		type: "key",
-    		source: "(466:3) {#key timestamp}",
+    		source: "(481:3) {#key timestamp}",
     		ctx
     	});
 
@@ -4315,54 +4301,54 @@ var app = (function () {
     			t15 = space();
     			key_block.c();
     			if (!src_url_equal(audio_1.src, audio_1_src_value = "")) attr_dev(audio_1, "src", audio_1_src_value);
-    			attr_dev(audio_1, "class", "svelte-1lv2k6i");
-    			add_location(audio_1, file, 385, 1, 8713);
+    			attr_dev(audio_1, "class", "svelte-viuq84");
+    			add_location(audio_1, file, 400, 1, 8986);
     			div0.hidden = true;
-    			attr_dev(div0, "class", "svelte-1lv2k6i");
-    			add_location(div0, file, 386, 1, 8749);
-    			attr_dev(h1, "class", "svelte-1lv2k6i");
-    			add_location(h1, file, 390, 3, 8811);
-    			attr_dev(i, "class", "svelte-1lv2k6i");
-    			add_location(i, file, 391, 9, 8841);
-    			attr_dev(small, "class", "svelte-1lv2k6i");
-    			add_location(small, file, 391, 2, 8834);
-    			attr_dev(span0, "class", "svelte-1lv2k6i");
-    			add_location(span0, file, 389, 1, 8802);
-    			attr_dev(br, "class", "svelte-1lv2k6i");
-    			add_location(br, file, 393, 1, 8887);
-    			attr_dev(span1, "class", "svelte-1lv2k6i");
-    			add_location(span1, file, 398, 4, 8923);
-    			attr_dev(td0, "class", "svelte-1lv2k6i");
-    			add_location(td0, file, 397, 3, 8914);
-    			attr_dev(button0, "class", "svelte-1lv2k6i");
-    			add_location(button0, file, 402, 4, 8985);
-    			attr_dev(td1, "class", "svelte-1lv2k6i");
-    			add_location(td1, file, 401, 3, 8976);
+    			attr_dev(div0, "class", "svelte-viuq84");
+    			add_location(div0, file, 401, 1, 9022);
+    			attr_dev(h1, "class", "svelte-viuq84");
+    			add_location(h1, file, 405, 3, 9084);
+    			attr_dev(i, "class", "svelte-viuq84");
+    			add_location(i, file, 406, 9, 9114);
+    			attr_dev(small, "class", "svelte-viuq84");
+    			add_location(small, file, 406, 2, 9107);
+    			attr_dev(span0, "class", "svelte-viuq84");
+    			add_location(span0, file, 404, 1, 9075);
+    			attr_dev(br, "class", "svelte-viuq84");
+    			add_location(br, file, 408, 1, 9160);
+    			attr_dev(span1, "class", "svelte-viuq84");
+    			add_location(span1, file, 413, 4, 9196);
+    			attr_dev(td0, "class", "svelte-viuq84");
+    			add_location(td0, file, 412, 3, 9187);
+    			attr_dev(button0, "class", "svelte-viuq84");
+    			add_location(button0, file, 417, 4, 9258);
+    			attr_dev(td1, "class", "svelte-viuq84");
+    			add_location(td1, file, 416, 3, 9249);
     			set_style(td2, "font-size", "small");
-    			attr_dev(td2, "class", "svelte-1lv2k6i");
-    			add_location(td2, file, 411, 3, 9130);
+    			attr_dev(td2, "class", "svelte-viuq84");
+    			add_location(td2, file, 426, 3, 9403);
     			set_style(td3, "font-size", "larger");
-    			attr_dev(td3, "class", "svelte-1lv2k6i");
-    			add_location(td3, file, 418, 3, 9264);
-    			attr_dev(button1, "class", "svelte-1lv2k6i");
-    			add_location(button1, file, 426, 4, 9405);
-    			attr_dev(td4, "class", "svelte-1lv2k6i");
-    			add_location(td4, file, 425, 3, 9396);
-    			attr_dev(tr, "class", "svelte-1lv2k6i");
-    			add_location(tr, file, 396, 2, 8906);
-    			attr_dev(table, "class", "svelte-1lv2k6i");
-    			add_location(table, file, 395, 1, 8896);
-    			attr_dev(nav, "class", "svelte-1lv2k6i");
-    			add_location(nav, file, 384, 0, 8706);
-    			attr_dev(p, "class", "keyboard  svelte-1lv2k6i");
-    			add_location(p, file, 450, 3, 9772);
-    			attr_dev(center, "class", "svelte-1lv2k6i");
-    			add_location(center, file, 449, 2, 9760);
-    			attr_dev(div1, "class", "info  svelte-1lv2k6i");
-    			add_location(div1, file, 448, 1, 9738);
+    			attr_dev(td3, "class", "svelte-viuq84");
+    			add_location(td3, file, 433, 3, 9537);
+    			attr_dev(button1, "class", "svelte-viuq84");
+    			add_location(button1, file, 441, 4, 9678);
+    			attr_dev(td4, "class", "svelte-viuq84");
+    			add_location(td4, file, 440, 3, 9669);
+    			attr_dev(tr, "class", "svelte-viuq84");
+    			add_location(tr, file, 411, 2, 9179);
+    			attr_dev(table, "class", "svelte-viuq84");
+    			add_location(table, file, 410, 1, 9169);
+    			attr_dev(nav, "class", "svelte-viuq84");
+    			add_location(nav, file, 399, 0, 8979);
+    			attr_dev(p, "class", "keyboard  svelte-viuq84");
+    			add_location(p, file, 465, 3, 10045);
+    			attr_dev(center, "class", "svelte-viuq84");
+    			add_location(center, file, 464, 2, 10033);
+    			attr_dev(div1, "class", "info  svelte-viuq84");
+    			add_location(div1, file, 463, 1, 10011);
     			main.hidden = false;
-    			attr_dev(main, "class", "svelte-1lv2k6i");
-    			add_location(main, file, 444, 0, 9642);
+    			attr_dev(main, "class", "svelte-viuq84");
+    			add_location(main, file, 459, 0, 9915);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -4592,13 +4578,13 @@ var app = (function () {
     	validate_slots('App', slots, []);
     	const keyClass = {};
     	let hangulCharacter = "";
-    	let { pressed = undefined } = $$props;
+    	let { pressed = "" } = $$props;
     	let slideshow = false;
     	let slideIndex = 0;
     	let currentChar = "";
     	let { timestamp = Date.now() } = $$props;
     	let { shifted } = $$props;
-    	let pressedKey = " ";
+    	let pressedKey = "";
 
     	const hangulValue = {
     		q: "ㅂ",
@@ -4820,38 +4806,40 @@ var app = (function () {
     	//$: console.log("color", $color, "keycolor", $keycolor)
     	let prevColor = $color;
 
-    	setInterval(
-    		() => {
-    			goToNextColor();
-    			clearInterval();
-    		},
-    		2000
-    	);
+    	onMount(() => {
+    		setInterval(
+    			() => {
+    				goToNextColor();
+    				clearInterval();
+    			},
+    			2000
+    		);
 
-    	setInterval(
-    		() => {
-    			goToNextKeyColor();
-    			clearInterval();
-    		},
-    		1000
-    	);
+    		setInterval(
+    			() => {
+    				goToNextKeyColor();
+    				clearInterval();
+    			},
+    			1000
+    		);
 
-    	setInterval(
-    		() => {
-    			goToNextKeybgColor();
-    			clearInterval();
-    			goToNextBoxSize();
-    		},
-    		3000
-    	);
+    		setInterval(
+    			() => {
+    				goToNextKeybgColor();
+    				clearInterval();
+    				goToNextBoxSize();
+    			},
+    			3000
+    		);
 
-    	setInterval(
-    		() => {
-    			goToNextBoxShadow();
-    			clearInterval();
-    		},
-    		1000
-    	);
+    		setInterval(
+    			() => {
+    				goToNextBoxShadow();
+    				clearInterval();
+    			},
+    			1000
+    		);
+    	});
 
     	let visible = true;
 
@@ -5054,6 +5042,7 @@ var app = (function () {
     		randomtransition,
     		Switch,
     		SoundTest,
+    		onMount,
     		switchValue,
     		sliderValue,
     		multiValue,
@@ -5152,7 +5141,20 @@ var app = (function () {
     				}
 
     				if (volume != undefined) $$invalidate(4, audio.volume = sound ? volume : 0, audio);
-    				audio.play();
+
+    				// Play sound
+    				const playPromise = audio.play();
+
+    				if (playPromise !== undefined) {
+    					playPromise.then(_ => {
+    						
+    					}).catch(error => {
+    						
+    					}); // Automatic playback started!
+    					// Show playing UI.
+    					// Auto-play was prevented
+    					// Show paused UI.
+    				}
     			}
     		}
 
@@ -5160,8 +5162,6 @@ var app = (function () {
     			if (volume != undefined) $$invalidate(4, audio.volume = sound ? volume : 0, audio);
     		}
     	};
-
-    	console.log("numberOfCharacters", numberOfCharacters);
 
     	return [
     		shifted,
