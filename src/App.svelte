@@ -322,7 +322,8 @@
 		if (sound && pressedKey && audio.src) {
 			if (characters.find((m) => m == pressedKey)) {
 				//audio.src =`sounds/powerup_4_reverb.wav`;
-				audio.src = `sounds/Spin.wav`;
+				//audio.src = `sounds/Spin.wav`;
+				audio.src = `sounds/pronunciation/${hangulValue[pressedKey]}.ogg`
 			} else {
 				audio.src = `sounds/powerup (${randomNumber(50)}).wav`;
 			}
@@ -330,6 +331,7 @@
 			if (volume != undefined) audio.volume = sound ? volume : 0;
 
 			// Play sound
+			console.log("Playing sound for", hangulValue[pressedKey]);
 			const playPromise = audio.play();
 
 			if (playPromise !== undefined) {
