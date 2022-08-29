@@ -323,7 +323,8 @@
 			if (characters.find((m) => m == pressedKey)) {
 				//audio.src =`sounds/powerup_4_reverb.wav`;
 				//audio.src = `sounds/Spin.wav`;
-				audio.src = `sounds/pronunciation/${hangulValue[pressedKey]}.ogg`
+				// Only play voice if being used locally.
+				audio.src = (location.hostname == 'localhost' ? `sounds/pronunciation/${hangulValue[pressedKey]}.ogg` :`sounds/Spin.wav`);
 			} else {
 				audio.src = `sounds/powerup (${randomNumber(50)}).wav`;
 			}
@@ -432,7 +433,7 @@
 				/>
 			</td>
 			<td style="font-size:larger;">
-				<Switch bind:checked={sound} label="&#x1F50A;" design="inner" />
+				<Switch bind:checked={sound} label="&#x1F50A;" design="slider" />
 			</td>
 			<td>
 				<button on:click={toggleView}>
