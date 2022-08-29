@@ -409,7 +409,7 @@
 	<table>
 		<tr>
 			<td>
-				<span> Learn the layout. &emsp; </span>
+				<span> Learn the layout. &nbsp; </span>
 			</td>
 
 			<td>
