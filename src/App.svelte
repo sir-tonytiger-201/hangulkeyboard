@@ -17,6 +17,7 @@
 		sineInOut,
 	} from "svelte/easing";
 	const keyClass = {};
+	let slideShowInterval = 1500; //0;
 	let hangulCharacter = "";
 
 	export let pressed = "";
@@ -108,8 +109,10 @@
 
 	let showLayout = false;
 
-	const showkey = (i) => {
+	const showkey = (i = 0) => {
 		timestamp = Date.now();
+		if (!i) i = 0;
+		console.log(i, Object.keys(hangulValue)[i])
 		const keycode = "Key" + Object.keys(hangulValue)[i].toUpperCase();
 		const k = keycode[keycode.length - 1].toLowerCase();
 		pressed = k;
@@ -120,26 +123,39 @@
 		showLayout = !showLayout;
 	};
 	let clearTimer;
-	const toggleSlideshow = () => {
+	const toggleSlideshow = (slideIndex = 0) => {
+		
 		slideshow = !slideshow;
+		const shownext = () => {
+			//if (!slideIndex) slideIndex = 0;
+			
+			if (!randomize) {
+				console.log(slideIndex)
+				showkey(slideIndex++);
+			} else {
+				slideIndex = Math.floor(Math.random() * numberOfCharacters);
+				showkey(slideIndex);
+			}
+		};
 		//console.log("randomize", randomize);
 		if (slideshow) {
-			slideIndex = 0;
-
+			shownext();
 			clearTimer = setInterval(() => {
-				if (!randomize) {
-					showkey(slideIndex++);
-				} else {
-					slideIndex = Math.floor(Math.random() * numberOfCharacters);
-					showkey(slideIndex);
-				}
+				shownext();
 				if (slideIndex > Object.keys(hangulValue).length - 1)
 					slideIndex = 0;
-			}, 1500);
+			}, slideShowInterval);
 		} else {
 			clearInterval(clearTimer);
 		}
 	};
+
+	$: if (slideShowInterval && slideshow) {
+		const i = slideIndex;
+		console.log(i)
+		toggleSlideshow(i);
+		toggleSlideshow(i);
+	}
 
 	//$: currentChar = hangulValue[slideIndex];
 	//$: console.log(currentChar)
@@ -324,7 +340,10 @@
 				//audio.src =`sounds/powerup_4_reverb.wav`;
 				//audio.src = `sounds/Spin.wav`;
 				// Only play voice if being used locally.
-				audio.src = (location.hostname == 'localhost' ? `sounds/pronunciation/${hangulValue[pressedKey]}.ogg` :`sounds/Spin.wav`);
+				audio.src =
+					location.hostname == "localhost"
+						? `sounds/pronunciation/${hangulValue[pressedKey]}.ogg`
+						: `sounds/Spin.wav`;
 			} else {
 				audio.src = `sounds/powerup (${randomNumber(50)}).wav`;
 			}
@@ -433,7 +452,11 @@
 				/>
 			</td>
 			<td style="font-size:larger;">
-				<Switch bind:checked={sound} label="&#x1F50A;" design="slider" />
+				<Switch
+					bind:checked={sound}
+					label="&#x1F50A;"
+					design="slider"
+				/>
 			</td>
 			<td>
 				<button on:click={toggleView}>
@@ -443,6 +466,15 @@
 						View key map
 					{/if}
 				</button>
+			</td>
+			<td>
+				<textarea
+					name=""
+					id=""
+					cols="7"
+					rows="1"
+					bind:value={slideShowInterval}
+				/>
 			</td>
 		</tr>
 	</table>

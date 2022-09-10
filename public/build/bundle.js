@@ -155,6 +155,9 @@ var app = (function () {
     function children(element) {
         return Array.from(element.childNodes);
     }
+    function set_input_value(input, value) {
+        input.value = value == null ? '' : value;
+    }
     function set_style(node, key, value, important) {
         if (value === null) {
             node.style.removeProperty(key);
@@ -3800,7 +3803,7 @@ var app = (function () {
     const { Object: Object_1, console: console_1 } = globals;
     const file = "src/App.svelte";
 
-    // (422:5) {:else}
+    // (441:5) {:else}
     function create_else_block_1(ctx) {
     	let t;
 
@@ -3820,14 +3823,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(422:5) {:else}",
+    		source: "(441:5) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (420:5) {#if slideshow}
+    // (439:5) {#if slideshow}
     function create_if_block_3(ctx) {
     	let t;
 
@@ -3847,14 +3850,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(420:5) {#if slideshow}",
+    		source: "(439:5) {#if slideshow}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (442:5) {:else}
+    // (465:5) {:else}
     function create_else_block(ctx) {
     	let t;
 
@@ -3874,14 +3877,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(442:5) {:else}",
+    		source: "(465:5) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (440:5) {#if showLayout}
+    // (463:5) {#if showLayout}
     function create_if_block_2(ctx) {
     	let t;
 
@@ -3901,14 +3904,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(440:5) {#if showLayout}",
+    		source: "(463:5) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (450:1) {#if showLayout}
+    // (482:1) {#if showLayout}
     function create_if_block_1(ctx) {
     	let center;
     	let img;
@@ -3920,9 +3923,9 @@ var app = (function () {
     			img = element("img");
     			if (!src_url_equal(img.src, img_src_value = "./keyboard.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "class", "svelte-viuq84");
-    			add_location(img, file, 451, 3, 10088);
+    			add_location(img, file, 483, 3, 10620);
     			attr_dev(center, "class", "svelte-viuq84");
-    			add_location(center, file, 450, 2, 10076);
+    			add_location(center, file, 482, 2, 10608);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, center, anchor);
@@ -3937,21 +3940,21 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(450:1) {#if showLayout}",
+    		source: "(482:1) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (484:5) {#if hangulCharacter}
+    // (516:5) {#if hangulCharacter}
     function create_if_block(ctx) {
     	let div1;
     	let div0;
 
-    	let t_value = (/*hangulCharacter*/ ctx[5] == "undefined"
-    	? /*funnyface*/ ctx[17]()
-    	: /*hangulCharacter*/ ctx[5]) + "";
+    	let t_value = (/*hangulCharacter*/ ctx[7] == "undefined"
+    	? /*funnyface*/ ctx[18]()
+    	: /*hangulCharacter*/ ctx[7]) + "";
 
     	let t;
     	let div0_intro;
@@ -3963,9 +3966,9 @@ var app = (function () {
     			div0 = element("div");
     			t = text(t_value);
     			attr_dev(div0, "class", "svelte-viuq84");
-    			add_location(div0, file, 485, 7, 10820);
+    			add_location(div0, file, 517, 7, 11352);
     			attr_dev(div1, "class", "svelte-viuq84");
-    			add_location(div1, file, 484, 6, 10787);
+    			add_location(div1, file, 516, 6, 11319);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -3973,21 +3976,21 @@ var app = (function () {
     			append_dev(div0, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*hangulCharacter*/ 32 && t_value !== (t_value = (/*hangulCharacter*/ ctx[5] == "undefined"
-    			? /*funnyface*/ ctx[17]()
-    			: /*hangulCharacter*/ ctx[5]) + "")) set_data_dev(t, t_value);
+    			if (dirty[0] & /*hangulCharacter*/ 128 && t_value !== (t_value = (/*hangulCharacter*/ ctx[7] == "undefined"
+    			? /*funnyface*/ ctx[18]()
+    			: /*hangulCharacter*/ ctx[7]) + "")) set_data_dev(t, t_value);
     		},
     		i: function intro(local) {
     			if (!div0_intro) {
     				add_render_callback(() => {
-    					div0_intro = create_in_transition(div0, /*spin*/ ctx[26], { duration: 1200 });
+    					div0_intro = create_in_transition(div0, /*spin*/ ctx[27], { duration: 1200 });
     					div0_intro.start();
     				});
     			}
 
     			if (!div1_intro) {
     				add_render_callback(() => {
-    					div1_intro = create_in_transition(div1, /*randomtransition*/ ctx[27], {});
+    					div1_intro = create_in_transition(div1, /*randomtransition*/ ctx[28], {});
     					div1_intro.start();
     				});
     			}
@@ -4002,26 +4005,26 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(484:5) {#if hangulCharacter}",
+    		source: "(516:5) {#if hangulCharacter}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (478:3) {#key timestamp}
+    // (510:3) {#key timestamp}
     function create_key_block(ctx) {
     	let div;
     	let div_intro;
-    	let if_block = /*hangulCharacter*/ ctx[5] && create_if_block(ctx);
+    	let if_block = /*hangulCharacter*/ ctx[7] && create_if_block(ctx);
 
     	const block = {
     		c: function create() {
     			div = element("div");
     			if (if_block) if_block.c();
     			attr_dev(div, "class", "hangul svelte-viuq84");
-    			set_style(div, "color", "#" + /*$color*/ ctx[10]);
-    			add_location(div, file, 478, 4, 10656);
+    			set_style(div, "color", "#" + /*$color*/ ctx[11]);
+    			add_location(div, file, 510, 4, 11188);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -4030,11 +4033,11 @@ var app = (function () {
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
 
-    			if (/*hangulCharacter*/ ctx[5]) {
+    			if (/*hangulCharacter*/ ctx[7]) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
 
-    					if (dirty[0] & /*hangulCharacter*/ 32) {
+    					if (dirty[0] & /*hangulCharacter*/ 128) {
     						transition_in(if_block, 1);
     					}
     				} else {
@@ -4048,8 +4051,8 @@ var app = (function () {
     				if_block = null;
     			}
 
-    			if (dirty[0] & /*$color*/ 1024) {
-    				set_style(div, "color", "#" + /*$color*/ ctx[10]);
+    			if (dirty[0] & /*$color*/ 2048) {
+    				set_style(div, "color", "#" + /*$color*/ ctx[11]);
     			}
     		},
     		i: function intro(local) {
@@ -4073,7 +4076,7 @@ var app = (function () {
     		block,
     		id: create_key_block.name,
     		type: "key",
-    		source: "(478:3) {#key timestamp}",
+    		source: "(510:3) {#key timestamp}",
     		ctx
     	});
 
@@ -4116,7 +4119,10 @@ var app = (function () {
     	let td4;
     	let button1;
     	let t13;
+    	let td5;
+    	let textarea;
     	let t14;
+    	let t15;
     	let main;
     	let div1;
     	let center;
@@ -4129,19 +4135,19 @@ var app = (function () {
     	let updating_keybackground;
     	let updating_boxshadowcolor;
     	let updating_boxsize;
-    	let t15;
+    	let t16;
     	let previous_key = /*timestamp*/ ctx[2];
     	let current;
     	let mounted;
     	let dispose;
 
     	soundtest = new SoundTest({
-    			props: { randomNumber: /*randomNumber*/ ctx[16] },
+    			props: { randomNumber: /*randomNumber*/ ctx[17] },
     			$$inline: true
     		});
 
     	function select_block_type(ctx, dirty) {
-    		if (/*slideshow*/ ctx[6]) return create_if_block_3;
+    		if (/*slideshow*/ ctx[4]) return create_if_block_3;
     		return create_else_block_1;
     	}
 
@@ -4149,66 +4155,66 @@ var app = (function () {
     	let if_block0 = current_block_type(ctx);
 
     	function switch0_checked_binding(value) {
-    		/*switch0_checked_binding*/ ctx[37](value);
+    		/*switch0_checked_binding*/ ctx[38](value);
     	}
 
     	let switch0_props = { label: "Randomize", design: "inner" };
 
-    	if (/*randomize*/ ctx[8] !== void 0) {
-    		switch0_props.checked = /*randomize*/ ctx[8];
+    	if (/*randomize*/ ctx[9] !== void 0) {
+    		switch0_props.checked = /*randomize*/ ctx[9];
     	}
 
     	switch0 = new Switch({ props: switch0_props, $$inline: true });
     	binding_callbacks.push(() => bind(switch0, 'checked', switch0_checked_binding));
 
     	function switch1_checked_binding(value) {
-    		/*switch1_checked_binding*/ ctx[38](value);
+    		/*switch1_checked_binding*/ ctx[39](value);
     	}
 
     	let switch1_props = { label: "🔊", design: "slider" };
 
-    	if (/*sound*/ ctx[4] !== void 0) {
-    		switch1_props.checked = /*sound*/ ctx[4];
+    	if (/*sound*/ ctx[6] !== void 0) {
+    		switch1_props.checked = /*sound*/ ctx[6];
     	}
 
     	switch1 = new Switch({ props: switch1_props, $$inline: true });
     	binding_callbacks.push(() => bind(switch1, 'checked', switch1_checked_binding));
 
     	function select_block_type_1(ctx, dirty) {
-    		if (/*showLayout*/ ctx[7]) return create_if_block_2;
+    		if (/*showLayout*/ ctx[8]) return create_if_block_2;
     		return create_else_block;
     	}
 
     	let current_block_type_1 = select_block_type_1(ctx);
     	let if_block1 = current_block_type_1(ctx);
-    	let if_block2 = /*showLayout*/ ctx[7] && create_if_block_1(ctx);
+    	let if_block2 = /*showLayout*/ ctx[8] && create_if_block_1(ctx);
 
     	function keyboard_pressed_binding(value) {
-    		/*keyboard_pressed_binding*/ ctx[39](value);
+    		/*keyboard_pressed_binding*/ ctx[41](value);
     	}
 
     	function keyboard_shifted_binding(value) {
-    		/*keyboard_shifted_binding*/ ctx[40](value);
+    		/*keyboard_shifted_binding*/ ctx[42](value);
     	}
 
     	function keyboard_timestamp_binding(value) {
-    		/*keyboard_timestamp_binding*/ ctx[41](value);
+    		/*keyboard_timestamp_binding*/ ctx[43](value);
     	}
 
     	function keyboard_keycolor_binding(value) {
-    		/*keyboard_keycolor_binding*/ ctx[42](value);
+    		/*keyboard_keycolor_binding*/ ctx[44](value);
     	}
 
     	function keyboard_keybackground_binding(value) {
-    		/*keyboard_keybackground_binding*/ ctx[43](value);
+    		/*keyboard_keybackground_binding*/ ctx[45](value);
     	}
 
     	function keyboard_boxshadowcolor_binding(value) {
-    		/*keyboard_boxshadowcolor_binding*/ ctx[44](value);
+    		/*keyboard_boxshadowcolor_binding*/ ctx[46](value);
     	}
 
     	function keyboard_boxsize_binding(value) {
-    		/*keyboard_boxsize_binding*/ ctx[45](value);
+    		/*keyboard_boxsize_binding*/ ctx[47](value);
     	}
 
     	let keyboard_props = {};
@@ -4225,20 +4231,20 @@ var app = (function () {
     		keyboard_props.timestamp = /*timestamp*/ ctx[2];
     	}
 
-    	if (/*$keycolor*/ ctx[11] !== void 0) {
-    		keyboard_props.keycolor = /*$keycolor*/ ctx[11];
+    	if (/*$keycolor*/ ctx[12] !== void 0) {
+    		keyboard_props.keycolor = /*$keycolor*/ ctx[12];
     	}
 
-    	if (/*$keybgcolor*/ ctx[12] !== void 0) {
-    		keyboard_props.keybackground = /*$keybgcolor*/ ctx[12];
+    	if (/*$keybgcolor*/ ctx[13] !== void 0) {
+    		keyboard_props.keybackground = /*$keybgcolor*/ ctx[13];
     	}
 
-    	if (/*$boxshadowcolor*/ ctx[13] !== void 0) {
-    		keyboard_props.boxshadowcolor = /*$boxshadowcolor*/ ctx[13];
+    	if (/*$boxshadowcolor*/ ctx[14] !== void 0) {
+    		keyboard_props.boxshadowcolor = /*$boxshadowcolor*/ ctx[14];
     	}
 
-    	if (/*$boxsize*/ ctx[14] !== void 0) {
-    		keyboard_props.boxsize = /*$boxsize*/ ctx[14];
+    	if (/*$boxsize*/ ctx[15] !== void 0) {
+    		keyboard_props.boxsize = /*$boxsize*/ ctx[15];
     	}
 
     	keyboard = new Keyboard({ props: keyboard_props, $$inline: true });
@@ -4249,7 +4255,7 @@ var app = (function () {
     	binding_callbacks.push(() => bind(keyboard, 'keybackground', keyboard_keybackground_binding));
     	binding_callbacks.push(() => bind(keyboard, 'boxshadowcolor', keyboard_boxshadowcolor_binding));
     	binding_callbacks.push(() => bind(keyboard, 'boxsize', keyboard_boxsize_binding));
-    	keyboard.$on("keydown", /*keydown_handler*/ ctx[46]);
+    	keyboard.$on("keydown", /*keydown_handler*/ ctx[48]);
     	let key_block = create_key_block(ctx);
 
     	const block = {
@@ -4291,64 +4297,75 @@ var app = (function () {
     			button1 = element("button");
     			if_block1.c();
     			t13 = space();
-    			if (if_block2) if_block2.c();
+    			td5 = element("td");
+    			textarea = element("textarea");
     			t14 = space();
+    			if (if_block2) if_block2.c();
+    			t15 = space();
     			main = element("main");
     			div1 = element("div");
     			center = element("center");
     			p = element("p");
     			create_component(keyboard.$$.fragment);
-    			t15 = space();
+    			t16 = space();
     			key_block.c();
     			if (!src_url_equal(audio_1.src, audio_1_src_value = "")) attr_dev(audio_1, "src", audio_1_src_value);
     			attr_dev(audio_1, "class", "svelte-viuq84");
-    			add_location(audio_1, file, 401, 1, 9234);
+    			add_location(audio_1, file, 420, 1, 9621);
     			div0.hidden = true;
     			attr_dev(div0, "class", "svelte-viuq84");
-    			add_location(div0, file, 402, 1, 9270);
+    			add_location(div0, file, 421, 1, 9657);
     			attr_dev(h1, "class", "svelte-viuq84");
-    			add_location(h1, file, 406, 3, 9332);
+    			add_location(h1, file, 425, 3, 9719);
     			attr_dev(i, "class", "svelte-viuq84");
-    			add_location(i, file, 407, 9, 9362);
+    			add_location(i, file, 426, 9, 9749);
     			attr_dev(small, "class", "svelte-viuq84");
-    			add_location(small, file, 407, 2, 9355);
+    			add_location(small, file, 426, 2, 9742);
     			attr_dev(span0, "class", "svelte-viuq84");
-    			add_location(span0, file, 405, 1, 9323);
+    			add_location(span0, file, 424, 1, 9710);
     			attr_dev(br, "class", "svelte-viuq84");
-    			add_location(br, file, 409, 1, 9408);
+    			add_location(br, file, 428, 1, 9795);
     			attr_dev(span1, "class", "svelte-viuq84");
-    			add_location(span1, file, 414, 4, 9444);
+    			add_location(span1, file, 433, 4, 9831);
     			attr_dev(td0, "class", "svelte-viuq84");
-    			add_location(td0, file, 413, 3, 9435);
+    			add_location(td0, file, 432, 3, 9822);
     			attr_dev(button0, "class", "svelte-viuq84");
-    			add_location(button0, file, 418, 4, 9506);
+    			add_location(button0, file, 437, 4, 9893);
     			attr_dev(td1, "class", "svelte-viuq84");
-    			add_location(td1, file, 417, 3, 9497);
+    			add_location(td1, file, 436, 3, 9884);
     			set_style(td2, "font-size", "small");
     			attr_dev(td2, "class", "svelte-viuq84");
-    			add_location(td2, file, 427, 3, 9651);
+    			add_location(td2, file, 446, 3, 10038);
     			set_style(td3, "font-size", "larger");
     			attr_dev(td3, "class", "svelte-viuq84");
-    			add_location(td3, file, 434, 3, 9785);
+    			add_location(td3, file, 453, 3, 10172);
     			attr_dev(button1, "class", "svelte-viuq84");
-    			add_location(button1, file, 438, 4, 9907);
+    			add_location(button1, file, 461, 4, 10313);
     			attr_dev(td4, "class", "svelte-viuq84");
-    			add_location(td4, file, 437, 3, 9898);
+    			add_location(td4, file, 460, 3, 10304);
+    			attr_dev(textarea, "name", "");
+    			attr_dev(textarea, "id", "");
+    			attr_dev(textarea, "cols", "7");
+    			attr_dev(textarea, "rows", "1");
+    			attr_dev(textarea, "class", "svelte-viuq84");
+    			add_location(textarea, file, 470, 4, 10455);
+    			attr_dev(td5, "class", "svelte-viuq84");
+    			add_location(td5, file, 469, 3, 10446);
     			attr_dev(tr, "class", "svelte-viuq84");
-    			add_location(tr, file, 412, 2, 9427);
+    			add_location(tr, file, 431, 2, 9814);
     			attr_dev(table, "class", "svelte-viuq84");
-    			add_location(table, file, 411, 1, 9417);
+    			add_location(table, file, 430, 1, 9804);
     			attr_dev(nav, "class", "svelte-viuq84");
-    			add_location(nav, file, 400, 0, 9227);
+    			add_location(nav, file, 419, 0, 9614);
     			attr_dev(p, "class", "keyboard  svelte-viuq84");
-    			add_location(p, file, 462, 3, 10274);
+    			add_location(p, file, 494, 3, 10806);
     			attr_dev(center, "class", "svelte-viuq84");
-    			add_location(center, file, 461, 2, 10262);
+    			add_location(center, file, 493, 2, 10794);
     			attr_dev(div1, "class", "info  svelte-viuq84");
-    			add_location(div1, file, 460, 1, 10240);
+    			add_location(div1, file, 492, 1, 10772);
     			main.hidden = false;
     			attr_dev(main, "class", "svelte-viuq84");
-    			add_location(main, file, 456, 0, 10144);
+    			add_location(main, file, 488, 0, 10676);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -4356,7 +4373,7 @@ var app = (function () {
     		m: function mount(target, anchor) {
     			insert_dev(target, nav, anchor);
     			append_dev(nav, audio_1);
-    			/*audio_1_binding*/ ctx[36](audio_1);
+    			/*audio_1_binding*/ ctx[37](audio_1);
     			append_dev(nav, t0);
     			append_dev(nav, div0);
     			mount_component(soundtest, div0, null);
@@ -4388,25 +4405,30 @@ var app = (function () {
     			append_dev(tr, td4);
     			append_dev(td4, button1);
     			if_block1.m(button1, null);
-    			append_dev(nav, t13);
+    			append_dev(tr, t13);
+    			append_dev(tr, td5);
+    			append_dev(td5, textarea);
+    			set_input_value(textarea, /*slideShowInterval*/ ctx[3]);
+    			append_dev(nav, t14);
     			if (if_block2) if_block2.m(nav, null);
-    			insert_dev(target, t14, anchor);
+    			insert_dev(target, t15, anchor);
     			insert_dev(target, main, anchor);
     			append_dev(main, div1);
     			append_dev(div1, center);
     			append_dev(center, p);
     			mount_component(keyboard, p, null);
-    			append_dev(center, t15);
+    			append_dev(center, t16);
     			key_block.m(center, null);
     			current = true;
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(button0, "click", /*toggleSlideshow*/ ctx[20], false, false, false),
-    					listen_dev(button1, "click", /*toggleView*/ ctx[19], false, false, false),
+    					listen_dev(button0, "click", /*toggleSlideshow*/ ctx[21], false, false, false),
+    					listen_dev(button1, "click", /*toggleView*/ ctx[20], false, false, false),
+    					listen_dev(textarea, "input", /*textarea_input_handler*/ ctx[40]),
     					action_destroyer(shortcut.call(null, main, {
-    						code: /*keyArray*/ ctx[15],
-    						callback: /*shortcut_function*/ ctx[47]
+    						code: /*keyArray*/ ctx[16],
+    						callback: /*shortcut_function*/ ctx[49]
     					}))
     				];
 
@@ -4426,18 +4448,18 @@ var app = (function () {
 
     			const switch0_changes = {};
 
-    			if (!updating_checked && dirty[0] & /*randomize*/ 256) {
+    			if (!updating_checked && dirty[0] & /*randomize*/ 512) {
     				updating_checked = true;
-    				switch0_changes.checked = /*randomize*/ ctx[8];
+    				switch0_changes.checked = /*randomize*/ ctx[9];
     				add_flush_callback(() => updating_checked = false);
     			}
 
     			switch0.$set(switch0_changes);
     			const switch1_changes = {};
 
-    			if (!updating_checked_1 && dirty[0] & /*sound*/ 16) {
+    			if (!updating_checked_1 && dirty[0] & /*sound*/ 64) {
     				updating_checked_1 = true;
-    				switch1_changes.checked = /*sound*/ ctx[4];
+    				switch1_changes.checked = /*sound*/ ctx[6];
     				add_flush_callback(() => updating_checked_1 = false);
     			}
 
@@ -4453,7 +4475,11 @@ var app = (function () {
     				}
     			}
 
-    			if (/*showLayout*/ ctx[7]) {
+    			if (dirty[0] & /*slideShowInterval*/ 8) {
+    				set_input_value(textarea, /*slideShowInterval*/ ctx[3]);
+    			}
+
+    			if (/*showLayout*/ ctx[8]) {
     				if (if_block2) ; else {
     					if_block2 = create_if_block_1(ctx);
     					if_block2.c();
@@ -4484,27 +4510,27 @@ var app = (function () {
     				add_flush_callback(() => updating_timestamp = false);
     			}
 
-    			if (!updating_keycolor && dirty[0] & /*$keycolor*/ 2048) {
+    			if (!updating_keycolor && dirty[0] & /*$keycolor*/ 4096) {
     				updating_keycolor = true;
-    				keyboard_changes.keycolor = /*$keycolor*/ ctx[11];
+    				keyboard_changes.keycolor = /*$keycolor*/ ctx[12];
     				add_flush_callback(() => updating_keycolor = false);
     			}
 
-    			if (!updating_keybackground && dirty[0] & /*$keybgcolor*/ 4096) {
+    			if (!updating_keybackground && dirty[0] & /*$keybgcolor*/ 8192) {
     				updating_keybackground = true;
-    				keyboard_changes.keybackground = /*$keybgcolor*/ ctx[12];
+    				keyboard_changes.keybackground = /*$keybgcolor*/ ctx[13];
     				add_flush_callback(() => updating_keybackground = false);
     			}
 
-    			if (!updating_boxshadowcolor && dirty[0] & /*$boxshadowcolor*/ 8192) {
+    			if (!updating_boxshadowcolor && dirty[0] & /*$boxshadowcolor*/ 16384) {
     				updating_boxshadowcolor = true;
-    				keyboard_changes.boxshadowcolor = /*$boxshadowcolor*/ ctx[13];
+    				keyboard_changes.boxshadowcolor = /*$boxshadowcolor*/ ctx[14];
     				add_flush_callback(() => updating_boxshadowcolor = false);
     			}
 
-    			if (!updating_boxsize && dirty[0] & /*$boxsize*/ 16384) {
+    			if (!updating_boxsize && dirty[0] & /*$boxsize*/ 32768) {
     				updating_boxsize = true;
-    				keyboard_changes.boxsize = /*$boxsize*/ ctx[14];
+    				keyboard_changes.boxsize = /*$boxsize*/ ctx[15];
     				add_flush_callback(() => updating_boxsize = false);
     			}
 
@@ -4541,14 +4567,14 @@ var app = (function () {
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(nav);
-    			/*audio_1_binding*/ ctx[36](null);
+    			/*audio_1_binding*/ ctx[37](null);
     			destroy_component(soundtest);
     			if_block0.d();
     			destroy_component(switch0);
     			destroy_component(switch1);
     			if_block1.d();
     			if (if_block2) if_block2.d();
-    			if (detaching) detach_dev(t14);
+    			if (detaching) detach_dev(t15);
     			if (detaching) detach_dev(main);
     			destroy_component(keyboard);
     			key_block.d(detaching);
@@ -4577,6 +4603,7 @@ var app = (function () {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('App', slots, []);
     	const keyClass = {};
+    	let slideShowInterval = 1500; //0;
     	let hangulCharacter = "";
     	let { pressed = "" } = $$props;
     	let slideshow = false;
@@ -4640,7 +4667,7 @@ var app = (function () {
     		const currentFace = faces[faceIdx];
     		faceIdx += 1;
     		if (faceIdx == faces.length) faceIdx = 0;
-    		$$invalidate(9, audio.src = `sounds/powerup (${randomNumber(50)}).wav`, audio);
+    		$$invalidate(10, audio.src = `sounds/powerup (${randomNumber(50)}).wav`, audio);
     		return currentFace;
     	};
 
@@ -4652,44 +4679,51 @@ var app = (function () {
     		const k = m[m.length - 1].toLowerCase();
 
     		$$invalidate(1, pressed = k);
-    		$$invalidate(3, pressedKey = k);
+    		$$invalidate(5, pressedKey = k);
     	};
 
     	let showLayout = false;
 
-    	const showkey = i => {
+    	const showkey = (i = 0) => {
     		$$invalidate(2, timestamp = Date.now());
+    		if (!i) i = 0;
+    		console.log(i, Object.keys(hangulValue)[i]);
     		const keycode = "Key" + Object.keys(hangulValue)[i].toUpperCase();
     		const k = keycode[keycode.length - 1].toLowerCase();
     		$$invalidate(1, pressed = k);
-    		$$invalidate(3, pressedKey = k);
+    		$$invalidate(5, pressedKey = k);
     	};
 
     	const toggleView = () => {
-    		$$invalidate(7, showLayout = !showLayout);
+    		$$invalidate(8, showLayout = !showLayout);
     	};
 
     	let clearTimer;
 
-    	const toggleSlideshow = () => {
-    		$$invalidate(6, slideshow = !slideshow);
+    	const toggleSlideshow = (slideIndex = 0) => {
+    		$$invalidate(4, slideshow = !slideshow);
+
+    		const shownext = () => {
+    			//if (!slideIndex) slideIndex = 0;
+    			if (!randomize) {
+    				console.log(slideIndex);
+    				showkey(slideIndex++);
+    			} else {
+    				slideIndex = Math.floor(Math.random() * numberOfCharacters);
+    				showkey(slideIndex);
+    			}
+    		};
 
     		//console.log("randomize", randomize);
     		if (slideshow) {
-    			slideIndex = 0;
+    			shownext();
 
     			clearTimer = setInterval(
     				() => {
-    					if (!randomize) {
-    						showkey(slideIndex++);
-    					} else {
-    						slideIndex = Math.floor(Math.random() * numberOfCharacters);
-    						showkey(slideIndex);
-    					}
-
+    					shownext();
     					if (slideIndex > Object.keys(hangulValue).length - 1) slideIndex = 0;
     				},
-    				1500
+    				slideShowInterval
     			);
     		} else {
     			clearInterval(clearTimer);
@@ -4715,23 +4749,23 @@ var app = (function () {
 
     	// This cycles through the indexes of the colors array.
     	const goToNextColor = () => {
-    		$$invalidate(29, colorIndex = (colorIndex + 1) % colors.length);
+    		$$invalidate(30, colorIndex = (colorIndex + 1) % colors.length);
     	};
 
     	const goToNextKeyColor = () => {
-    		$$invalidate(30, keycolorIndex = (keycolorIndex + 1) % keycolors.length);
+    		$$invalidate(31, keycolorIndex = (keycolorIndex + 1) % keycolors.length);
     	};
 
     	const goToNextKeybgColor = () => {
-    		$$invalidate(31, keybgcolorIndex = (keybgcolorIndex + 1) % keybgcolors.length);
+    		$$invalidate(32, keybgcolorIndex = (keybgcolorIndex + 1) % keybgcolors.length);
     	};
 
     	const goToNextBoxShadow = () => {
-    		$$invalidate(32, boxshadowIndex = (boxshadowIndex + 1) % boxshadowcolors.length);
+    		$$invalidate(33, boxshadowIndex = (boxshadowIndex + 1) % boxshadowcolors.length);
     	};
 
     	const goToNextBoxSize = () => {
-    		$$invalidate(33, boxsizeIndex = (boxsizeIndex + 1) % boxsizes.length);
+    		$$invalidate(34, boxsizeIndex = (boxsizeIndex + 1) % boxsizes.length);
     	};
 
     	// This extracts two hex characters from an "rrggbb" color string
@@ -4764,7 +4798,7 @@ var app = (function () {
 
     	const boxsize = tweened(boxsizes[boxsizeIndex], { duration: 1000, easing: sineIn });
     	validate_store(boxsize, 'boxsize');
-    	component_subscribe($$self, boxsize, value => $$invalidate(14, $boxsize = value));
+    	component_subscribe($$self, boxsize, value => $$invalidate(15, $boxsize = value));
 
     	// Create a tweened store that holds an "rrggbb" hex color.
     	const color = tweened(colors[colorIndex], {
@@ -4774,7 +4808,7 @@ var app = (function () {
     	});
 
     	validate_store(color, 'color');
-    	component_subscribe($$self, color, value => $$invalidate(10, $color = value));
+    	component_subscribe($$self, color, value => $$invalidate(11, $color = value));
 
     	const keycolor = tweened(keycolors[keycolorIndex], {
     		duration: 1000,
@@ -4783,7 +4817,7 @@ var app = (function () {
     	});
 
     	validate_store(keycolor, 'keycolor');
-    	component_subscribe($$self, keycolor, value => $$invalidate(11, $keycolor = value));
+    	component_subscribe($$self, keycolor, value => $$invalidate(12, $keycolor = value));
 
     	const keybgcolor = tweened(keybgcolors[keybgcolorIndex], {
     		duration: 3000,
@@ -4792,7 +4826,7 @@ var app = (function () {
     	});
 
     	validate_store(keybgcolor, 'keybgcolor');
-    	component_subscribe($$self, keybgcolor, value => $$invalidate(12, $keybgcolor = value));
+    	component_subscribe($$self, keybgcolor, value => $$invalidate(13, $keybgcolor = value));
 
     	const boxshadowcolor = tweened(boxshadowcolors[boxshadowIndex], {
     		duration: 1000,
@@ -4800,7 +4834,7 @@ var app = (function () {
     	});
 
     	validate_store(boxshadowcolor, 'boxshadowcolor');
-    	component_subscribe($$self, boxshadowcolor, value => $$invalidate(13, $boxshadowcolor = value));
+    	component_subscribe($$self, boxshadowcolor, value => $$invalidate(14, $boxshadowcolor = value));
 
     	//$: console.log("color", $color, "keycolor", $keycolor)
     	let prevColor = $color;
@@ -4868,17 +4902,17 @@ var app = (function () {
     				//audio.src = `sounds/Spin.wav`;
     				// Only play voice if being used locally.
     				$$invalidate(
-    					9,
-    					audio.src = location.hostname == 'localhost'
+    					10,
+    					audio.src = location.hostname == "localhost"
     					? `sounds/pronunciation/${hangulValue[pressedKey]}.ogg`
     					: `sounds/Spin.wav`,
     					audio
     				);
     			} else {
-    				$$invalidate(9, audio.src = `sounds/powerup (${randomNumber(50)}).wav`, audio);
+    				$$invalidate(10, audio.src = `sounds/powerup (${randomNumber(50)}).wav`, audio);
     			}
 
-    			if (volume != undefined) $$invalidate(9, audio.volume = sound ? volume : 0, audio);
+    			if (volume != undefined) $$invalidate(10, audio.volume = sound ? volume : 0, audio);
 
     			// Play sound
     			console.log("Playing sound for", hangulValue[pressedKey]);
@@ -4937,18 +4971,23 @@ var app = (function () {
     	function audio_1_binding($$value) {
     		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
     			audio = $$value;
-    			((($$invalidate(9, audio), $$invalidate(34, volume)), $$invalidate(4, sound)), $$invalidate(35, savedvolume));
+    			((($$invalidate(10, audio), $$invalidate(35, volume)), $$invalidate(6, sound)), $$invalidate(36, savedvolume));
     		});
     	}
 
     	function switch0_checked_binding(value) {
     		randomize = value;
-    		$$invalidate(8, randomize);
+    		$$invalidate(9, randomize);
     	}
 
     	function switch1_checked_binding(value) {
     		sound = value;
-    		$$invalidate(4, sound);
+    		$$invalidate(6, sound);
+    	}
+
+    	function textarea_input_handler() {
+    		slideShowInterval = this.value;
+    		$$invalidate(3, slideShowInterval);
     	}
 
     	function keyboard_pressed_binding(value) {
@@ -4987,7 +5026,7 @@ var app = (function () {
     	}
 
     	const keydown_handler = ({ detail }) => {
-    		$$invalidate(3, pressedKey = detail);
+    		$$invalidate(5, pressedKey = detail);
     		if (slideshow) toggleSlideshow();
     	};
 
@@ -5020,6 +5059,7 @@ var app = (function () {
     		sineIn,
     		sineInOut,
     		keyClass,
+    		slideShowInterval,
     		hangulCharacter,
     		pressed,
     		slideshow,
@@ -5092,34 +5132,35 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ('hangulCharacter' in $$props) $$invalidate(5, hangulCharacter = $$props.hangulCharacter);
+    		if ('slideShowInterval' in $$props) $$invalidate(3, slideShowInterval = $$props.slideShowInterval);
+    		if ('hangulCharacter' in $$props) $$invalidate(7, hangulCharacter = $$props.hangulCharacter);
     		if ('pressed' in $$props) $$invalidate(1, pressed = $$props.pressed);
-    		if ('slideshow' in $$props) $$invalidate(6, slideshow = $$props.slideshow);
-    		if ('slideIndex' in $$props) slideIndex = $$props.slideIndex;
+    		if ('slideshow' in $$props) $$invalidate(4, slideshow = $$props.slideshow);
+    		if ('slideIndex' in $$props) $$invalidate(53, slideIndex = $$props.slideIndex);
     		if ('currentChar' in $$props) currentChar = $$props.currentChar;
     		if ('timestamp' in $$props) $$invalidate(2, timestamp = $$props.timestamp);
     		if ('shifted' in $$props) $$invalidate(0, shifted = $$props.shifted);
-    		if ('pressedKey' in $$props) $$invalidate(3, pressedKey = $$props.pressedKey);
-    		if ('keyArray' in $$props) $$invalidate(15, keyArray = $$props.keyArray);
+    		if ('pressedKey' in $$props) $$invalidate(5, pressedKey = $$props.pressedKey);
+    		if ('keyArray' in $$props) $$invalidate(16, keyArray = $$props.keyArray);
     		if ('faceIdx' in $$props) faceIdx = $$props.faceIdx;
-    		if ('showLayout' in $$props) $$invalidate(7, showLayout = $$props.showLayout);
+    		if ('showLayout' in $$props) $$invalidate(8, showLayout = $$props.showLayout);
     		if ('clearTimer' in $$props) clearTimer = $$props.clearTimer;
-    		if ('colorIndex' in $$props) $$invalidate(29, colorIndex = $$props.colorIndex);
-    		if ('keycolorIndex' in $$props) $$invalidate(30, keycolorIndex = $$props.keycolorIndex);
-    		if ('keybgcolorIndex' in $$props) $$invalidate(31, keybgcolorIndex = $$props.keybgcolorIndex);
-    		if ('boxshadowIndex' in $$props) $$invalidate(32, boxshadowIndex = $$props.boxshadowIndex);
-    		if ('boxsizeIndex' in $$props) $$invalidate(33, boxsizeIndex = $$props.boxsizeIndex);
-    		if ('randomize' in $$props) $$invalidate(8, randomize = $$props.randomize);
+    		if ('colorIndex' in $$props) $$invalidate(30, colorIndex = $$props.colorIndex);
+    		if ('keycolorIndex' in $$props) $$invalidate(31, keycolorIndex = $$props.keycolorIndex);
+    		if ('keybgcolorIndex' in $$props) $$invalidate(32, keybgcolorIndex = $$props.keybgcolorIndex);
+    		if ('boxshadowIndex' in $$props) $$invalidate(33, boxshadowIndex = $$props.boxshadowIndex);
+    		if ('boxsizeIndex' in $$props) $$invalidate(34, boxsizeIndex = $$props.boxsizeIndex);
+    		if ('randomize' in $$props) $$invalidate(9, randomize = $$props.randomize);
     		if ('prevColor' in $$props) prevColor = $$props.prevColor;
     		if ('visible' in $$props) visible = $$props.visible;
     		if ('transitionIndex' in $$props) transitionIndex = $$props.transitionIndex;
     		if ('switchValue' in $$props) switchValue = $$props.switchValue;
     		if ('sliderValue' in $$props) sliderValue = $$props.sliderValue;
     		if ('multiValue' in $$props) multiValue = $$props.multiValue;
-    		if ('audio' in $$props) $$invalidate(9, audio = $$props.audio);
-    		if ('volume' in $$props) $$invalidate(34, volume = $$props.volume);
-    		if ('sound' in $$props) $$invalidate(4, sound = $$props.sound);
-    		if ('savedvolume' in $$props) $$invalidate(35, savedvolume = $$props.savedvolume);
+    		if ('audio' in $$props) $$invalidate(10, audio = $$props.audio);
+    		if ('volume' in $$props) $$invalidate(35, volume = $$props.volume);
+    		if ('sound' in $$props) $$invalidate(6, sound = $$props.sound);
+    		if ('savedvolume' in $$props) $$invalidate(36, savedvolume = $$props.savedvolume);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -5127,46 +5168,55 @@ var app = (function () {
     	}
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty[0] & /*pressedKey, shifted*/ 9) {
-    			$$invalidate(5, hangulCharacter = String(pressedKey.length == 1
+    		if ($$self.$$.dirty[0] & /*pressedKey, shifted*/ 33) {
+    			$$invalidate(7, hangulCharacter = String(pressedKey.length == 1
     			? shifted
     				? hangulValue[pressedKey.toUpperCase()] || undefined
     				: hangulValue[pressedKey] || ""
     			: ""));
     		}
 
-    		if ($$self.$$.dirty[0] & /*colorIndex*/ 536870912) {
+    		if ($$self.$$.dirty[0] & /*slideShowInterval, slideshow*/ 24) {
+    			if (slideShowInterval && slideshow) {
+    				const i = slideIndex;
+    				console.log(i);
+    				toggleSlideshow(i);
+    				toggleSlideshow(i);
+    			}
+    		}
+
+    		if ($$self.$$.dirty[0] & /*colorIndex*/ 1073741824) {
     			// Trigger tweening if colorIndex changes.
     			color.set(colors[colorIndex]);
     		}
 
-    		if ($$self.$$.dirty[0] & /*keycolorIndex*/ 1073741824) {
+    		if ($$self.$$.dirty[1] & /*keycolorIndex*/ 1) {
     			keycolor.set(keycolors[keycolorIndex]);
     		}
 
-    		if ($$self.$$.dirty[1] & /*keybgcolorIndex*/ 1) {
+    		if ($$self.$$.dirty[1] & /*keybgcolorIndex*/ 2) {
     			keybgcolor.set(keybgcolors[keybgcolorIndex]);
     		}
 
-    		if ($$self.$$.dirty[1] & /*boxshadowIndex*/ 2) {
+    		if ($$self.$$.dirty[1] & /*boxshadowIndex*/ 4) {
     			boxshadowcolor.set(boxshadowcolors[boxshadowIndex]);
     		}
 
-    		if ($$self.$$.dirty[1] & /*boxsizeIndex*/ 4) {
+    		if ($$self.$$.dirty[1] & /*boxsizeIndex*/ 8) {
     			boxsize.set(boxsizes[boxsizeIndex]);
     		}
 
-    		if ($$self.$$.dirty[0] & /*sound*/ 16 | $$self.$$.dirty[1] & /*volume, savedvolume*/ 24) {
+    		if ($$self.$$.dirty[0] & /*sound*/ 64 | $$self.$$.dirty[1] & /*volume, savedvolume*/ 48) {
     			if (sound != true) {
-    				$$invalidate(35, savedvolume = volume);
-    				$$invalidate(34, volume = 0);
+    				$$invalidate(36, savedvolume = volume);
+    				$$invalidate(35, volume = 0);
     			} else {
-    				$$invalidate(34, volume = savedvolume);
+    				$$invalidate(35, volume = savedvolume);
     			}
     		}
 
-    		if ($$self.$$.dirty[0] & /*sound*/ 16 | $$self.$$.dirty[1] & /*volume*/ 8) {
-    			if (volume != undefined) $$invalidate(9, audio.volume = sound ? volume : 0, audio);
+    		if ($$self.$$.dirty[0] & /*sound*/ 64 | $$self.$$.dirty[1] & /*volume*/ 16) {
+    			if (volume != undefined) $$invalidate(10, audio.volume = sound ? volume : 0, audio);
     		}
     	};
 
@@ -5174,10 +5224,11 @@ var app = (function () {
     		shifted,
     		pressed,
     		timestamp,
+    		slideShowInterval,
+    		slideshow,
     		pressedKey,
     		sound,
     		hangulCharacter,
-    		slideshow,
     		showLayout,
     		randomize,
     		audio,
@@ -5210,6 +5261,7 @@ var app = (function () {
     		audio_1_binding,
     		switch0_checked_binding,
     		switch1_checked_binding,
+    		textarea_input_handler,
     		keyboard_pressed_binding,
     		keyboard_shifted_binding,
     		keyboard_timestamp_binding,
@@ -5236,7 +5288,7 @@ var app = (function () {
     				pressed: 1,
     				timestamp: 2,
     				shifted: 0,
-    				hangulValue: 28
+    				hangulValue: 29
     			},
     			null,
     			[-1, -1, -1]
@@ -5282,7 +5334,7 @@ var app = (function () {
     	}
 
     	get hangulValue() {
-    		return this.$$.ctx[28];
+    		return this.$$.ctx[29];
     	}
 
     	set hangulValue(value) {
