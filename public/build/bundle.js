@@ -3803,7 +3803,7 @@ var app = (function () {
     const { Object: Object_1, console: console_1 } = globals;
     const file = "src/App.svelte";
 
-    // (441:5) {:else}
+    // (480:5) {:else}
     function create_else_block_1(ctx) {
     	let t;
 
@@ -3823,14 +3823,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(441:5) {:else}",
+    		source: "(480:5) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (439:5) {#if slideshow}
+    // (478:5) {#if slideshow}
     function create_if_block_3(ctx) {
     	let t;
 
@@ -3850,14 +3850,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(439:5) {#if slideshow}",
+    		source: "(478:5) {#if slideshow}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (465:5) {:else}
+    // (504:5) {:else}
     function create_else_block(ctx) {
     	let t;
 
@@ -3877,14 +3877,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(465:5) {:else}",
+    		source: "(504:5) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (463:5) {#if showLayout}
+    // (502:5) {#if showLayout}
     function create_if_block_2(ctx) {
     	let t;
 
@@ -3904,14 +3904,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(463:5) {#if showLayout}",
+    		source: "(502:5) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (482:1) {#if showLayout}
+    // (521:1) {#if showLayout}
     function create_if_block_1(ctx) {
     	let center;
     	let img;
@@ -3923,9 +3923,9 @@ var app = (function () {
     			img = element("img");
     			if (!src_url_equal(img.src, img_src_value = "./keyboard.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "class", "svelte-viuq84");
-    			add_location(img, file, 483, 3, 10620);
+    			add_location(img, file, 522, 3, 11611);
     			attr_dev(center, "class", "svelte-viuq84");
-    			add_location(center, file, 482, 2, 10608);
+    			add_location(center, file, 521, 2, 11599);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, center, anchor);
@@ -3940,14 +3940,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(482:1) {#if showLayout}",
+    		source: "(521:1) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (516:5) {#if hangulCharacter}
+    // (555:5) {#if hangulCharacter}
     function create_if_block(ctx) {
     	let div1;
     	let div0;
@@ -3966,9 +3966,9 @@ var app = (function () {
     			div0 = element("div");
     			t = text(t_value);
     			attr_dev(div0, "class", "svelte-viuq84");
-    			add_location(div0, file, 517, 7, 11352);
+    			add_location(div0, file, 556, 7, 12343);
     			attr_dev(div1, "class", "svelte-viuq84");
-    			add_location(div1, file, 516, 6, 11319);
+    			add_location(div1, file, 555, 6, 12310);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -4005,14 +4005,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(516:5) {#if hangulCharacter}",
+    		source: "(555:5) {#if hangulCharacter}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (510:3) {#key timestamp}
+    // (549:3) {#key timestamp}
     function create_key_block(ctx) {
     	let div;
     	let div_intro;
@@ -4024,7 +4024,7 @@ var app = (function () {
     			if (if_block) if_block.c();
     			attr_dev(div, "class", "hangul svelte-viuq84");
     			set_style(div, "color", "#" + /*$color*/ ctx[11]);
-    			add_location(div, file, 510, 4, 11188);
+    			add_location(div, file, 549, 4, 12179);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -4076,7 +4076,7 @@ var app = (function () {
     		block,
     		id: create_key_block.name,
     		type: "key",
-    		source: "(510:3) {#key timestamp}",
+    		source: "(549:3) {#key timestamp}",
     		ctx
     	});
 
@@ -4311,61 +4311,61 @@ var app = (function () {
     			key_block.c();
     			if (!src_url_equal(audio_1.src, audio_1_src_value = "")) attr_dev(audio_1, "src", audio_1_src_value);
     			attr_dev(audio_1, "class", "svelte-viuq84");
-    			add_location(audio_1, file, 420, 1, 9621);
+    			add_location(audio_1, file, 459, 1, 10612);
     			div0.hidden = true;
     			attr_dev(div0, "class", "svelte-viuq84");
-    			add_location(div0, file, 421, 1, 9657);
+    			add_location(div0, file, 460, 1, 10648);
     			attr_dev(h1, "class", "svelte-viuq84");
-    			add_location(h1, file, 425, 3, 9719);
+    			add_location(h1, file, 464, 3, 10710);
     			attr_dev(i, "class", "svelte-viuq84");
-    			add_location(i, file, 426, 9, 9749);
+    			add_location(i, file, 465, 9, 10740);
     			attr_dev(small, "class", "svelte-viuq84");
-    			add_location(small, file, 426, 2, 9742);
+    			add_location(small, file, 465, 2, 10733);
     			attr_dev(span0, "class", "svelte-viuq84");
-    			add_location(span0, file, 424, 1, 9710);
+    			add_location(span0, file, 463, 1, 10701);
     			attr_dev(br, "class", "svelte-viuq84");
-    			add_location(br, file, 428, 1, 9795);
+    			add_location(br, file, 467, 1, 10786);
     			attr_dev(span1, "class", "svelte-viuq84");
-    			add_location(span1, file, 433, 4, 9831);
+    			add_location(span1, file, 472, 4, 10822);
     			attr_dev(td0, "class", "svelte-viuq84");
-    			add_location(td0, file, 432, 3, 9822);
+    			add_location(td0, file, 471, 3, 10813);
     			attr_dev(button0, "class", "svelte-viuq84");
-    			add_location(button0, file, 437, 4, 9893);
+    			add_location(button0, file, 476, 4, 10884);
     			attr_dev(td1, "class", "svelte-viuq84");
-    			add_location(td1, file, 436, 3, 9884);
+    			add_location(td1, file, 475, 3, 10875);
     			set_style(td2, "font-size", "small");
     			attr_dev(td2, "class", "svelte-viuq84");
-    			add_location(td2, file, 446, 3, 10038);
+    			add_location(td2, file, 485, 3, 11029);
     			set_style(td3, "font-size", "larger");
     			attr_dev(td3, "class", "svelte-viuq84");
-    			add_location(td3, file, 453, 3, 10172);
+    			add_location(td3, file, 492, 3, 11163);
     			attr_dev(button1, "class", "svelte-viuq84");
-    			add_location(button1, file, 461, 4, 10313);
+    			add_location(button1, file, 500, 4, 11304);
     			attr_dev(td4, "class", "svelte-viuq84");
-    			add_location(td4, file, 460, 3, 10304);
+    			add_location(td4, file, 499, 3, 11295);
     			attr_dev(textarea, "name", "");
     			attr_dev(textarea, "id", "");
     			attr_dev(textarea, "cols", "7");
     			attr_dev(textarea, "rows", "1");
     			attr_dev(textarea, "class", "svelte-viuq84");
-    			add_location(textarea, file, 470, 4, 10455);
+    			add_location(textarea, file, 509, 4, 11446);
     			attr_dev(td5, "class", "svelte-viuq84");
-    			add_location(td5, file, 469, 3, 10446);
+    			add_location(td5, file, 508, 3, 11437);
     			attr_dev(tr, "class", "svelte-viuq84");
-    			add_location(tr, file, 431, 2, 9814);
+    			add_location(tr, file, 470, 2, 10805);
     			attr_dev(table, "class", "svelte-viuq84");
-    			add_location(table, file, 430, 1, 9804);
+    			add_location(table, file, 469, 1, 10795);
     			attr_dev(nav, "class", "svelte-viuq84");
-    			add_location(nav, file, 419, 0, 9614);
+    			add_location(nav, file, 458, 0, 10605);
     			attr_dev(p, "class", "keyboard  svelte-viuq84");
-    			add_location(p, file, 494, 3, 10806);
+    			add_location(p, file, 533, 3, 11797);
     			attr_dev(center, "class", "svelte-viuq84");
-    			add_location(center, file, 493, 2, 10794);
+    			add_location(center, file, 532, 2, 11785);
     			attr_dev(div1, "class", "info  svelte-viuq84");
-    			add_location(div1, file, 492, 1, 10772);
+    			add_location(div1, file, 531, 1, 11763);
     			main.hidden = false;
     			attr_dev(main, "class", "svelte-viuq84");
-    			add_location(main, file, 488, 0, 10676);
+    			add_location(main, file, 527, 0, 11667);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -4603,7 +4603,7 @@ var app = (function () {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('App', slots, []);
     	const keyClass = {};
-    	let slideShowInterval = 1500; //0;
+    	let slideShowInterval = 15000; //0;
     	let hangulCharacter = "";
     	let { pressed = "" } = $$props;
     	let slideshow = false;
@@ -4872,7 +4872,52 @@ var app = (function () {
     			},
     			1000
     		);
+
+    		setInterval(
+    			() => {
+    				if (slideshow) readLetter();
+    				clearInterval();
+    			},
+    			3000
+    		);
     	});
+
+    	const readLetter = () => {
+    		if (sound && pressedKey && audio.src) {
+    			if (characters.find(m => m == pressedKey)) {
+    				//audio.src =`sounds/powerup_4_reverb.wav`;
+    				//audio.src = `sounds/Spin.wav`;
+    				// Only play voice if being used locally.
+    				$$invalidate(
+    					10,
+    					audio.src = location.hostname == "localhost"
+    					? `sounds/pronunciation/${hangulValue[pressedKey]}.ogg`
+    					: `sounds/Spin.wav`,
+    					audio
+    				);
+    			} else {
+    				$$invalidate(10, audio.src = `sounds/powerup (${randomNumber(50)}).wav`, audio);
+    			}
+
+    			if (volume != undefined) $$invalidate(10, audio.volume = sound ? volume : 0, audio);
+
+    			// Play sound
+    			console.log("Playing sound for", hangulValue[pressedKey]);
+
+    			const playPromise = audio.play();
+
+    			if (playPromise !== undefined) {
+    				playPromise.then(_ => {
+    					
+    				}).catch(error => {
+    					
+    				}); // Automatic playback started!
+    				// Show playing UI.
+    				// Auto-play was prevented
+    				// Show paused UI.
+    			}
+    		}
+    	};
 
     	let visible = true;
 
@@ -5110,6 +5155,7 @@ var app = (function () {
     		boxshadowcolor,
     		prevColor,
     		elasticOut,
+    		readLetter,
     		visible,
     		spin,
     		transitionIndex,

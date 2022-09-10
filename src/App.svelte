@@ -17,7 +17,7 @@
 		sineInOut,
 	} from "svelte/easing";
 	const keyClass = {};
-	let slideShowInterval = 1500; //0;
+	let slideShowInterval = 15000; //0;
 	let hangulCharacter = "";
 
 	export let pressed = "";
@@ -112,7 +112,7 @@
 	const showkey = (i = 0) => {
 		timestamp = Date.now();
 		if (!i) i = 0;
-		console.log(i, Object.keys(hangulValue)[i])
+		console.log(i, Object.keys(hangulValue)[i]);
 		const keycode = "Key" + Object.keys(hangulValue)[i].toUpperCase();
 		const k = keycode[keycode.length - 1].toLowerCase();
 		pressed = k;
@@ -124,13 +124,12 @@
 	};
 	let clearTimer;
 	const toggleSlideshow = (slideIndex = 0) => {
-		
 		slideshow = !slideshow;
 		const shownext = () => {
 			//if (!slideIndex) slideIndex = 0;
-			
+
 			if (!randomize) {
-				console.log(slideIndex)
+				console.log(slideIndex);
 				showkey(slideIndex++);
 			} else {
 				slideIndex = Math.floor(Math.random() * numberOfCharacters);
@@ -152,7 +151,7 @@
 
 	$: if (slideShowInterval && slideshow) {
 		const i = slideIndex;
-		console.log(i)
+		console.log(i);
 		toggleSlideshow(i);
 		toggleSlideshow(i);
 	}
@@ -311,8 +310,48 @@
 			goToNextBoxShadow();
 			clearInterval();
 		}, 1000);
+
+		setInterval(() => {
+			if (slideshow) 
+			readLetter();
+			clearInterval();
+		}, 3000);
 	});
 	import { elasticOut } from "svelte/easing";
+
+	const readLetter = () => {
+		if (sound && pressedKey && audio.src) {
+			if (characters.find((m) => m == pressedKey)) {
+				//audio.src =`sounds/powerup_4_reverb.wav`;
+				//audio.src = `sounds/Spin.wav`;
+				// Only play voice if being used locally.
+				audio.src =
+					location.hostname == "localhost"
+						? `sounds/pronunciation/${hangulValue[pressedKey]}.ogg`
+						: `sounds/Spin.wav`;
+			} else {
+				audio.src = `sounds/powerup (${randomNumber(50)}).wav`;
+			}
+
+			if (volume != undefined) audio.volume = sound ? volume : 0;
+
+			// Play sound
+			console.log("Playing sound for", hangulValue[pressedKey]);
+			const playPromise = audio.play();
+
+			if (playPromise !== undefined) {
+				playPromise
+					.then((_) => {
+						// Automatic playback started!
+						// Show playing UI.
+					})
+					.catch((error) => {
+						// Auto-play was prevented
+						// Show paused UI.
+					});
+			}
+		}
+	};
 
 	let visible = true;
 
