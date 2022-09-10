@@ -320,6 +320,8 @@
 	import { elasticOut } from "svelte/easing";
 
 	const readLetter = () => {
+		if(location.hostname !== "localhost") return;
+		
 		if (sound && pressedKey && audio.src) {
 			if (characters.find((m) => m == pressedKey)) {
 				//audio.src =`sounds/powerup_4_reverb.wav`;

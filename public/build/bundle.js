@@ -3803,7 +3803,7 @@ var app = (function () {
     const { Object: Object_1, console: console_1 } = globals;
     const file = "src/App.svelte";
 
-    // (480:5) {:else}
+    // (482:5) {:else}
     function create_else_block_1(ctx) {
     	let t;
 
@@ -3823,14 +3823,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(480:5) {:else}",
+    		source: "(482:5) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (478:5) {#if slideshow}
+    // (480:5) {#if slideshow}
     function create_if_block_3(ctx) {
     	let t;
 
@@ -3850,14 +3850,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(478:5) {#if slideshow}",
+    		source: "(480:5) {#if slideshow}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (504:5) {:else}
+    // (506:5) {:else}
     function create_else_block(ctx) {
     	let t;
 
@@ -3877,14 +3877,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(504:5) {:else}",
+    		source: "(506:5) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (502:5) {#if showLayout}
+    // (504:5) {#if showLayout}
     function create_if_block_2(ctx) {
     	let t;
 
@@ -3904,14 +3904,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(502:5) {#if showLayout}",
+    		source: "(504:5) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (521:1) {#if showLayout}
+    // (523:1) {#if showLayout}
     function create_if_block_1(ctx) {
     	let center;
     	let img;
@@ -3923,9 +3923,9 @@ var app = (function () {
     			img = element("img");
     			if (!src_url_equal(img.src, img_src_value = "./keyboard.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "class", "svelte-viuq84");
-    			add_location(img, file, 522, 3, 11611);
+    			add_location(img, file, 524, 3, 11662);
     			attr_dev(center, "class", "svelte-viuq84");
-    			add_location(center, file, 521, 2, 11599);
+    			add_location(center, file, 523, 2, 11650);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, center, anchor);
@@ -3940,14 +3940,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(521:1) {#if showLayout}",
+    		source: "(523:1) {#if showLayout}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (555:5) {#if hangulCharacter}
+    // (557:5) {#if hangulCharacter}
     function create_if_block(ctx) {
     	let div1;
     	let div0;
@@ -3966,9 +3966,9 @@ var app = (function () {
     			div0 = element("div");
     			t = text(t_value);
     			attr_dev(div0, "class", "svelte-viuq84");
-    			add_location(div0, file, 556, 7, 12343);
+    			add_location(div0, file, 558, 7, 12394);
     			attr_dev(div1, "class", "svelte-viuq84");
-    			add_location(div1, file, 555, 6, 12310);
+    			add_location(div1, file, 557, 6, 12361);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -4005,14 +4005,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(555:5) {#if hangulCharacter}",
+    		source: "(557:5) {#if hangulCharacter}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (549:3) {#key timestamp}
+    // (551:3) {#key timestamp}
     function create_key_block(ctx) {
     	let div;
     	let div_intro;
@@ -4024,7 +4024,7 @@ var app = (function () {
     			if (if_block) if_block.c();
     			attr_dev(div, "class", "hangul svelte-viuq84");
     			set_style(div, "color", "#" + /*$color*/ ctx[11]);
-    			add_location(div, file, 549, 4, 12179);
+    			add_location(div, file, 551, 4, 12230);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -4076,7 +4076,7 @@ var app = (function () {
     		block,
     		id: create_key_block.name,
     		type: "key",
-    		source: "(549:3) {#key timestamp}",
+    		source: "(551:3) {#key timestamp}",
     		ctx
     	});
 
@@ -4311,61 +4311,61 @@ var app = (function () {
     			key_block.c();
     			if (!src_url_equal(audio_1.src, audio_1_src_value = "")) attr_dev(audio_1, "src", audio_1_src_value);
     			attr_dev(audio_1, "class", "svelte-viuq84");
-    			add_location(audio_1, file, 459, 1, 10612);
+    			add_location(audio_1, file, 461, 1, 10663);
     			div0.hidden = true;
     			attr_dev(div0, "class", "svelte-viuq84");
-    			add_location(div0, file, 460, 1, 10648);
+    			add_location(div0, file, 462, 1, 10699);
     			attr_dev(h1, "class", "svelte-viuq84");
-    			add_location(h1, file, 464, 3, 10710);
+    			add_location(h1, file, 466, 3, 10761);
     			attr_dev(i, "class", "svelte-viuq84");
-    			add_location(i, file, 465, 9, 10740);
+    			add_location(i, file, 467, 9, 10791);
     			attr_dev(small, "class", "svelte-viuq84");
-    			add_location(small, file, 465, 2, 10733);
+    			add_location(small, file, 467, 2, 10784);
     			attr_dev(span0, "class", "svelte-viuq84");
-    			add_location(span0, file, 463, 1, 10701);
+    			add_location(span0, file, 465, 1, 10752);
     			attr_dev(br, "class", "svelte-viuq84");
-    			add_location(br, file, 467, 1, 10786);
+    			add_location(br, file, 469, 1, 10837);
     			attr_dev(span1, "class", "svelte-viuq84");
-    			add_location(span1, file, 472, 4, 10822);
+    			add_location(span1, file, 474, 4, 10873);
     			attr_dev(td0, "class", "svelte-viuq84");
-    			add_location(td0, file, 471, 3, 10813);
+    			add_location(td0, file, 473, 3, 10864);
     			attr_dev(button0, "class", "svelte-viuq84");
-    			add_location(button0, file, 476, 4, 10884);
+    			add_location(button0, file, 478, 4, 10935);
     			attr_dev(td1, "class", "svelte-viuq84");
-    			add_location(td1, file, 475, 3, 10875);
+    			add_location(td1, file, 477, 3, 10926);
     			set_style(td2, "font-size", "small");
     			attr_dev(td2, "class", "svelte-viuq84");
-    			add_location(td2, file, 485, 3, 11029);
+    			add_location(td2, file, 487, 3, 11080);
     			set_style(td3, "font-size", "larger");
     			attr_dev(td3, "class", "svelte-viuq84");
-    			add_location(td3, file, 492, 3, 11163);
+    			add_location(td3, file, 494, 3, 11214);
     			attr_dev(button1, "class", "svelte-viuq84");
-    			add_location(button1, file, 500, 4, 11304);
+    			add_location(button1, file, 502, 4, 11355);
     			attr_dev(td4, "class", "svelte-viuq84");
-    			add_location(td4, file, 499, 3, 11295);
+    			add_location(td4, file, 501, 3, 11346);
     			attr_dev(textarea, "name", "");
     			attr_dev(textarea, "id", "");
     			attr_dev(textarea, "cols", "7");
     			attr_dev(textarea, "rows", "1");
     			attr_dev(textarea, "class", "svelte-viuq84");
-    			add_location(textarea, file, 509, 4, 11446);
+    			add_location(textarea, file, 511, 4, 11497);
     			attr_dev(td5, "class", "svelte-viuq84");
-    			add_location(td5, file, 508, 3, 11437);
+    			add_location(td5, file, 510, 3, 11488);
     			attr_dev(tr, "class", "svelte-viuq84");
-    			add_location(tr, file, 470, 2, 10805);
+    			add_location(tr, file, 472, 2, 10856);
     			attr_dev(table, "class", "svelte-viuq84");
-    			add_location(table, file, 469, 1, 10795);
+    			add_location(table, file, 471, 1, 10846);
     			attr_dev(nav, "class", "svelte-viuq84");
-    			add_location(nav, file, 458, 0, 10605);
+    			add_location(nav, file, 460, 0, 10656);
     			attr_dev(p, "class", "keyboard  svelte-viuq84");
-    			add_location(p, file, 533, 3, 11797);
+    			add_location(p, file, 535, 3, 11848);
     			attr_dev(center, "class", "svelte-viuq84");
-    			add_location(center, file, 532, 2, 11785);
+    			add_location(center, file, 534, 2, 11836);
     			attr_dev(div1, "class", "info  svelte-viuq84");
-    			add_location(div1, file, 531, 1, 11763);
+    			add_location(div1, file, 533, 1, 11814);
     			main.hidden = false;
     			attr_dev(main, "class", "svelte-viuq84");
-    			add_location(main, file, 527, 0, 11667);
+    			add_location(main, file, 529, 0, 11718);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -4883,6 +4883,8 @@ var app = (function () {
     	});
 
     	const readLetter = () => {
+    		if (location.hostname !== "localhost") return;
+
     		if (sound && pressedKey && audio.src) {
     			if (characters.find(m => m == pressedKey)) {
     				//audio.src =`sounds/powerup_4_reverb.wav`;
